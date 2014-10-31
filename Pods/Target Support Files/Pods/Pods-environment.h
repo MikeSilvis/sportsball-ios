@@ -6,6 +6,12 @@
 // project.
 
 
+// CSStickyHeaderFlowLayout
+#define COCOAPODS_POD_AVAILABLE_CSStickyHeaderFlowLayout
+#define COCOAPODS_VERSION_MAJOR_CSStickyHeaderFlowLayout 0
+#define COCOAPODS_VERSION_MINOR_CSStickyHeaderFlowLayout 2
+#define COCOAPODS_VERSION_PATCH_CSStickyHeaderFlowLayout 3
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3

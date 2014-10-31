@@ -57,18 +57,18 @@
   return 200;
 }
 
--(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    static NSString *CellIdentifier = @"headerTableViewCell";
-    HeaderTableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (headerView == nil) {
-      headerView = [[HeaderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-
-    headerView.title.text = @"NHL";
-
-    return headerView;
-}
+//-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    static NSString *CellIdentifier = @"headerTableViewCell";
+//    HeaderTableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//
+//    if (headerView == nil) {
+//      headerView = [[HeaderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//
+//    headerView.title.text = @"NHL";
+//
+//    return headerView;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *simpleTableIdentifier = @"gameTableViewCell";

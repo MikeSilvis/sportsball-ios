@@ -1,5 +1,5 @@
 //
-//  ScoreIndexViewController.h
+//  ScoreIndex2CollectionViewController.h
 //  sportsball-ios
 //
 //  Created by Mike Silvis on 10/31/14.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Team.h"
-#import "Game.h"
-#import "GameTableViewCell.h"
 
-@interface ScoreIndexViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ScoreIndex2CollectionViewController : UICollectionViewController
+
+@property (nonatomic, strong) UINib *headerNib;
 
 @property (nonatomic, retain) NSArray *games;
 
