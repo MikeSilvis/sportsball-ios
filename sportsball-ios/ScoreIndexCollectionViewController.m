@@ -12,6 +12,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Team.h"
 #import "Game.h"
+#import "UIImage+Blur.h"
 
 @implementation ScoreIndexCollectionViewController
 
@@ -63,7 +64,17 @@
 
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nhl-background"]];
+    // jpeg quality image data
+    float quality = .00001f;
+
+    // intensity of blurred
+    float blurred = 1.1f;
+
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"nhl-background"], quality);
+    UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+
+
     self.collectionView.backgroundColor = [UIColor clearColor];
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {

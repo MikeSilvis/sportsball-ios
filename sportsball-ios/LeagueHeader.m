@@ -8,26 +8,37 @@
 
 #import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
+#import "UIImage+Blur.h"
 
 @implementation LeagueHeader
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
+  if (!self.blurredImage) {
+    [self createBlurredImage];
+  }
+
   [UIView animateWithDuration:0.3 animations:^{
     if (layoutAttributes.progressiveness <= 0.1) {
-      self.backgroundColor = [UIColor blackColor];
       self.smallLogo.alpha = 1;
-      self.largeLogo.alpha = 0;
+      self.largeLogo.image = self.blurredImage;
     } else {
-      self.backgroundColor = [UIColor clearColor];
       self.smallLogo.alpha = 0;
-      self.largeLogo.alpha = 1;
+      self.largeLogo.image = self.largeLogoImage;
     }
   }];
+
 }
 
--(void)animateTitleAndHeader:(CGFloat)value {
-  self.titleLabel.alpha = value;
-//  self.headerBackground.alpha = value;
+-(void)createBlurredImage {
+  self.largeLogoImage = self.largeLogo.image;
+
+  float quality = .00001f;
+  float blurred = 2.5f;
+
+  NSData *imageData = UIImageJPEGRepresentation(self.largeLogoImage, quality);
+  UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
+
+  self.blurredImage = blurredImage;
 }
 
 @end

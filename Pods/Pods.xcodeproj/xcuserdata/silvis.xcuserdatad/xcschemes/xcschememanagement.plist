@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CSStickyHeaderFlowLayout.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>Pods-UIImage-Helpers.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
@@ -27,12 +37,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>21CBEA8FFC290AB5D43D6EF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4279D86D0A5CD479F88A81C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>500D0B741D532C0EAE7E5B53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>585DEB688265C44E88D7A026</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5C4C4EC836CF8BBD12A1EE08</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C00D27557F57EC6E7FE4A13</key>
 		<dict>
 			<key>primary</key>
 			<true/>

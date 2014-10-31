@@ -3,13 +3,16 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
+  - UIImage-Helpers (0.0.3)
 
 DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - SDWebImage
+  - UIImage-Helpers
 
 SPEC CHECKSUMS:
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
 
 COCOAPODS: 0.34.4

@@ -11,7 +11,10 @@
 @interface LeagueHeader : GameOverCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *largeLogo;
+
+@property (retain, nonatomic) UIImage *blurredImage;
+@property (retain, nonatomic) UIImage *largeLogoImage;
+
 
 @end
