@@ -25,7 +25,7 @@
 
 -(void)animateTitleAndHeader:(CGFloat)value {
   self.titleLabel.alpha = value;
-  self.headerBackground.alpha = value;
+//  self.headerBackground.alpha = value;
 }
 
 @end
