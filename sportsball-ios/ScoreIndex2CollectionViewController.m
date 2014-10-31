@@ -24,6 +24,7 @@
     }
     return self;
 }
+
 -(void)dummyData {
   Team *awayTeam = [[Team alloc] init];
   awayTeam.name = @"Panthers";
@@ -59,6 +60,9 @@
     [super viewDidLoad];
 
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nhl-background"]];
+    self.collectionView.backgroundColor = [UIColor clearColor];
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
         layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 200);

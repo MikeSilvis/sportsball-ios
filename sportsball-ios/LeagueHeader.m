@@ -12,15 +12,15 @@
 @implementation LeagueHeader
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
-  [UIView beginAnimations:@"" context:nil];
-
-  if (layoutAttributes.progressiveness <= 0.58) {
-    [self animateTitleAndHeader:1];
-  } else {
-    [self animateTitleAndHeader:0];
-  }
-
-  [UIView commitAnimations];
+  [UIView animateWithDuration:0.5 animations:^{
+    if (layoutAttributes.progressiveness <= 0.1) {
+      self.smallLogo.alpha = 1;
+      self.largeLogo.alpha = 0;
+    } else {
+      self.smallLogo.alpha = 0;
+      self.largeLogo.alpha = 1;
+    }
+  }];
 }
 
 -(void)animateTitleAndHeader:(CGFloat)value {
