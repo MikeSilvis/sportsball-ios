@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "CSCell.h"
+#import "GameOverCell.h"
 
-@interface LeagueHeader : CSCell
+@interface LeagueHeader : GameOverCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

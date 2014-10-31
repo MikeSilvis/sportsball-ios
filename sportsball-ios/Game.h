@@ -13,7 +13,11 @@
 
 @property (nonatomic, retain) Team *awayTeam;
 @property (nonatomic, retain) Team *homeTeam;
+
 @property (nonatomic, retain) NSString *moneyLine;
 @property (nonatomic, retain) NSString *location;
+
+@property (nonatomic, retain) NSNumber *homeScore;
+@property (nonatomic, retain) NSNumber *awayScore;
 
 @end

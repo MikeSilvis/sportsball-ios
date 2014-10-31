@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreIndex2CollectionViewController : UICollectionViewController
+@interface ScoreIndexCollectionViewController : UICollectionViewController
 
 @property (nonatomic, strong) UINib *headerNib;
 

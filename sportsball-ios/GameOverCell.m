@@ -6,15 +6,17 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "CSCell.h"
+#import "GameOverCell.h"
+#import <QuartzCore/QuartzCore.h>
 
-@implementation CSCell
+@implementation GameOverCell
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+      self.layer.borderColor = [[UIColor blackColor] CGColor];
+      self.layer.borderWidth = 5;
     }
     return self;
 }

@@ -16,21 +16,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twt-q2-bnj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="nhl-logo" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="crosby" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nhl-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-eo-R7F">
-                                <rect key="frame" x="135" y="8" width="50" height="50"/>
+                                <rect key="frame" x="135" y="37" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="GNi-vo-h9e"/>
                                     <constraint firstAttribute="height" constant="50" id="sXT-af-GMw"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
-                            <constraint firstItem="rtY-eo-R7F" firstAttribute="top" secondItem="4PO-fa-s9b" secondAttribute="top" constant="8" id="5no-u2-TYl"/>
+                            <constraint firstItem="rtY-eo-R7F" firstAttribute="top" secondItem="4PO-fa-s9b" secondAttribute="top" constant="37" id="5no-u2-TYl"/>
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
                             <constraint firstItem="rtY-eo-R7F" firstAttribute="centerX" secondItem="4PO-fa-s9b" secondAttribute="centerX" id="W1G-z7-Fh1"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="riN-mo-fhY"/>
@@ -56,6 +56,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="crosby" width="1000" height="563"/>
         <image name="nhl-logo" width="200" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

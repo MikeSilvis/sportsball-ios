@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "ScoreIndex2CollectionViewController.h"
-#import "CSCell.h"
+#import "ScoreIndexCollectionViewController.h"
+#import "GameOverCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Team.h"
 #import "Game.h"
 
-@implementation ScoreIndex2CollectionViewController
+@implementation ScoreIndexCollectionViewController
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -27,20 +27,22 @@
 
 -(void)dummyData {
   Team *awayTeam = [[Team alloc] init];
-  awayTeam.name = @"Panthers";
+  awayTeam.name = @"Florida";
   awayTeam.logoUrl = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/ang/c/cd/Panthers_tacn.png"];
   awayTeam.wins = @4;
   awayTeam.loses = @3;
 
   Team *homeTeam = [[Team alloc] init];
-  homeTeam.name = @"Penguins";
+  homeTeam.name = @"Pittsburgh";
   homeTeam.logoUrl = [NSURL URLWithString:@"http://img4.wikia.nocookie.net/__cb20100914172946/logopedia/images/0/00/200px-Pittsburgh_Penguins_logo_1972-1992_svg.png"];
   homeTeam.wins = @6;
   homeTeam.loses = @1;
 
   Game *game1 = [[Game alloc] init];
   game1.awayTeam = awayTeam;
+  game1.awayScore = @3;
   game1.homeTeam = homeTeam;
+  game1.homeScore = @5;
 
   self.games = @[
                  game1,
@@ -91,21 +93,29 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  CSCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+  GameOverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+
+  CALayer *upperBorder = [CALayer layer];
+  upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
+
+  CGFloat totalWidth = CGRectGetWidth(cell.frame);
+  CGFloat width = totalWidth * 0.98;
+  upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 1.0f);
+  [cell.layer addSublayer:upperBorder];
 
   Game *currentGame = self.games[indexPath.row];
 
   // Home Team
   Team *homeTeam = currentGame.homeTeam;
   cell.homeTeamName.text = homeTeam.name;
+  cell.homeScore.text = [NSString stringWithFormat:@"%@", currentGame.homeScore];
   [cell.homeTeamLogo sd_setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
-//  cell.homeTeamScore.text = @"5";
 
   // Away Team
   Team *awayTeam = currentGame.awayTeam;
   cell.awayTeamName.text = awayTeam.name;
+  cell.awayScore.text = [NSString stringWithFormat:@"%@", currentGame.awayScore];
   [cell.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
-//  cell.awayTeamScore.text = @"3";
 
     return cell;
 }

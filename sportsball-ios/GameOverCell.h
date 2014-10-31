@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSCell : UICollectionViewCell
+@interface GameOverCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamName;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamName;
+@property (weak, nonatomic) IBOutlet UILabel *homeScore;
+@property (weak, nonatomic) IBOutlet UILabel *awayScore;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackground;
 
