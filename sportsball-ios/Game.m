@@ -10,5 +10,27 @@
 
 @implementation Game
 
+-(Team *)winningTeam {
+  if ([self.awayScore doubleValue] > [self.homeScore doubleValue]) {
+    return self.awayTeam;
+  } else {
+    return self.homeTeam;
+  }
+}
+
+-(id)initWithJson:(id)json {
+  self = [super init];
+
+  if (self) {
+    self.homeTeam = [[Team alloc] initWithJson:json[@"home_team"]];
+    self.homeScore = json[@"home_score"];
+
+    self.awayTeam = [[Team alloc] initWithJson:json[@"away_team"]];
+    self.awayScore = json[@"away_score"];
+    self.league = json[@"league"];
+  }
+
+  return self;
+}
 
 @end

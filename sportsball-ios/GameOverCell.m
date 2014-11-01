@@ -8,6 +8,7 @@
 
 #import "GameOverCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import <FontAwesomeKit/FAKFontAwesome.h>
 
 @implementation GameOverCell
 
@@ -20,6 +21,15 @@
     }
     return self;
 }
+
+//-(UIImageView *)awayWinnerImage {
+//  CGFloat iconSize = 20;
+//  FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:iconSize];
+//  UIImage *iconImage = [starIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
+//  _awayWinnerImage.image = iconImage;
+//
+//  return _awayWinnerImage;
+//}
 
 
 @end

@@ -11,7 +11,6 @@
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
 		1154F6281A03D60F009F560B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6271A03D60F009F560B /* Images.xcassets */; };
-		1154F62B1A03D60F009F560B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6291A03D60F009F560B /* LaunchScreen.xib */; };
 		1154F6371A03D60F009F560B /* sportsball_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F6361A03D60F009F560B /* sportsball_iosTests.m */; };
 		1154F6481A03D754009F560B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F6471A03D754009F560B /* Team.m */; };
 		1154F64B1A03D77C009F560B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F64A1A03D77C009F560B /* Game.m */; };
@@ -40,7 +39,6 @@
 		1154F61F1A03D60F009F560B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1154F6251A03D60F009F560B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1154F6271A03D60F009F560B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1154F62A1A03D60F009F560B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1154F6301A03D60F009F560B /* sportsball-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sportsball-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F6351A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F6361A03D60F009F560B /* sportsball_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportsball_iosTests.m; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
 				1154F6241A03D60F009F560B /* Main.storyboard */,
 				1154F6271A03D60F009F560B /* Images.xcassets */,
-				1154F6291A03D60F009F560B /* LaunchScreen.xib */,
 				1154F61A1A03D60F009F560B /* Supporting Files */,
 			);
 			path = "sportsball-ios";
@@ -281,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
-				1154F62B1A03D60F009F560B /* LaunchScreen.xib in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
 			);
@@ -371,14 +367,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1154F6291A03D60F009F560B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1154F62A1A03D60F009F560B /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -465,6 +453,7 @@
 			baseConfigurationReference = 47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "sportsball-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,6 +466,7 @@
 			baseConfigurationReference = C3DD2F7CF6680422AFFC35B4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "sportsball-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

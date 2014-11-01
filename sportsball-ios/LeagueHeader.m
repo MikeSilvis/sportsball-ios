@@ -9,8 +9,16 @@
 #import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "UIImage+Blur.h"
+#define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
 
 @implementation LeagueHeader
+
+-(void)awakeFromNib {
+  [super awakeFromNib];
+  CGFloat number = RAND_FROM_TO(1, 5);
+  NSString *imageName = [NSString stringWithFormat:@"nhl-header-%f", number];
+  self.largeLogo.image = [UIImage imageNamed:imageName];
+}
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   if (!self.blurredImage) {

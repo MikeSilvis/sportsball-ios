@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSNumber *wins;
 @property (nonatomic, retain) NSNumber *loses;
 
+-(id)initWithJson:(id)json;
+-(NSString *)formattedRecord;
 @end

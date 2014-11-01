@@ -14,10 +14,15 @@
 @property (nonatomic, retain) Team *awayTeam;
 @property (nonatomic, retain) Team *homeTeam;
 
+@property (nonatomic, retain) NSString *league;
+
 @property (nonatomic, retain) NSString *moneyLine;
 @property (nonatomic, retain) NSString *location;
 
 @property (nonatomic, retain) NSNumber *homeScore;
 @property (nonatomic, retain) NSNumber *awayScore;
+
+-(Team *)winningTeam;
+-(id)initWithJson:(id)json;
 
 @end

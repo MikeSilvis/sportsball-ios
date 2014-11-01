@@ -11,7 +11,6 @@
 @interface ScoreIndexCollectionViewController : UICollectionViewController
 
 @property (nonatomic, strong) UINib *headerNib;
-
-@property (nonatomic, retain) NSArray *games;
+@property (nonatomic, retain) NSMutableArray *games;
 
 @end
