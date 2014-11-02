@@ -148,6 +148,19 @@
   cell.awayRecord.text = awayTeam.formattedRecord;
   [cell.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
 
+  cell.timeRemaining.text = currentGame.timeRemaining;
+
+  if (!currentGame.isOver) {
+    cell.awayWinnerImage.hidden = YES;
+    cell.homeWinnerImage.hidden = YES;
+    cell.timeRemaining.hidden = NO;
+    cell.timeRemaining.text = currentGame.timeRemaining;
+    cell.currentPeriod.text = currentGame.currentPeriod;
+  } else {
+    cell.currentPeriod.text = @"Final";
+    cell.timeRemaining.hidden = YES;
+  }
+
   return cell;
 }
 

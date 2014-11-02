@@ -23,5 +23,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackground;
 @property (weak, nonatomic) IBOutlet UILabel *timeRemaining;
+@property (weak, nonatomic) IBOutlet UILabel *currentPeriod;
 
 @end
