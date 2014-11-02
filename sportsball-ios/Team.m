@@ -26,4 +26,5 @@
 -(NSString *)formattedRecord {
   return [NSString stringWithFormat:@"(%@-%@)", self.wins, self.loses];
 }
+
 @end

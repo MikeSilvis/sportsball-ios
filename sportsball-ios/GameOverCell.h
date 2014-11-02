@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *awayRecord;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackground;
+@property (weak, nonatomic) IBOutlet UILabel *timeRemaining;
 
 @end

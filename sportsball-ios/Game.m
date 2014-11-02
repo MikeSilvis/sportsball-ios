@@ -18,6 +18,10 @@
   }
 }
 
+-(BOOL)isOver {
+  return [self.currentPeriod isEqualToString:@"Final"];
+}
+
 -(id)initWithJson:(id)json {
   self = [super init];
 
@@ -28,6 +32,9 @@
     self.awayTeam = [[Team alloc] initWithJson:json[@"away_team"]];
     self.awayScore = json[@"away_score"];
     self.league = json[@"league"];
+
+    self.timeRemaining = json[@"time_remaining"];
+    self.currentPeriod = json[@"progress"];
   }
 
   return self;

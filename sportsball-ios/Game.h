@@ -22,7 +22,12 @@
 @property (nonatomic, retain) NSNumber *homeScore;
 @property (nonatomic, retain) NSNumber *awayScore;
 
+
+@property (nonatomic, retain) NSString *timeRemaining;
+@property (nonatomic, retain) NSString *currentPeriod;
+
 -(Team *)winningTeam;
 -(id)initWithJson:(id)json;
+-(BOOL)isOver;
 
 @end
