@@ -12,5 +12,8 @@
 
 @property (nonatomic, strong) UINib *headerNib;
 @property (nonatomic, retain) NSMutableArray *games;
+@property (nonatomic, retain) NSTimer *scorePuller;
+
+-(void)findGames:(BOOL)showLoader;
 
 @end

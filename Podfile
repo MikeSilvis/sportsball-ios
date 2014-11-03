@@ -5,4 +5,5 @@ pod 'CSStickyHeaderFlowLayout'
 pod 'UIImage-Helpers'
 pod 'FontAwesomeKit/FontAwesome'
 pod 'EDColor'
-pod "AFNetworking"
+pod 'AFNetworking'
+pod 'MRProgress/AFNetworking'

@@ -16,53 +16,66 @@
 #import "UIImage+Blur.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import <MRProgress/MRProgressOverlayView+AFNetworking.h>
 
 @implementation ScoreIndexCollectionViewController
 
-
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
+
     if (self) {
-//        [self dummyData];
         self.games = [NSMutableArray array];
-        [self findGames];
         self.headerNib = [UINib nibWithNibName:@"LeagueHeader" bundle:nil];
     }
+
     return self;
 }
 
-//-(void)dummyData {
-//  Team *awayTeam = [[Team alloc] init];
-//  awayTeam.name = @"Florida";
-//  awayTeam.logoUrl = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/ang/c/cd/Panthers_tacn.png"];
-//  awayTeam.wins = @4;
-//  awayTeam.loses = @3;
-//
-//  Team *homeTeam = [[Team alloc] init];
-//  homeTeam.name = @"Pittsburgh";
-//  homeTeam.logoUrl = [NSURL URLWithString:@"http://img4.wikia.nocookie.net/__cb20100914172946/logopedia/images/0/00/200px-Pittsburgh_Penguins_logo_1972-1992_svg.png"];
-//  homeTeam.wins = @6;
-//  homeTeam.loses = @1;
-//
-//  Game *game1 = [[Game alloc] init];
-//  game1.awayTeam = awayTeam;
-//  game1.awayScore = @3;
-//  game1.homeTeam = homeTeam;
-//  game1.homeScore = @5;
-//
-//  self.games = [NSMutableArray array];
-//}
+-(void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+}
 
--(void)findGames {
+-(void)cancelTimer {
+  [self.scorePuller invalidate];
+}
+
+-(void)startTimer {
+  [self findGames:YES];
+  self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames:) userInfo:nil repeats:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+  [self cancelTimer];
+}
+
+-(void)findGames:(BOOL)showLoader {
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"yyyy-MM-dd"];
+  NSDictionary *params = @{@"date": [df stringFromDate:[NSDate date]]};
+
+//  NSString *url = @"http://localhost:3000/api/scores/nhl";
   NSString *url = @"http://sportsball.herokuapp.com/api/scores/nhl";
-  [[AFHTTPRequestOperationManager manager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  self.games = [NSMutableArray array];
+
+  if (showLoader) {
+    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+  }
+
+  [[AFHTTPRequestOperationManager manager] GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
     for (id score in responseObject[@"scores"]) {
-      Game *newGame = [[Game alloc] initWithJson:score];
+        Game *newGame = [[Game alloc] initWithJson:score];
         [self.games addObject:newGame];
     }
     [self.collectionView reloadData];
+    if (showLoader) {
+      [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+    }
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-      NSLog(@"Error: %@", error);
+    NSLog(@"Error: %@", error);
+    if (showLoader) {
+      [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+    }
   }];
 }
 
@@ -103,6 +116,16 @@
           forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(cancelTimer)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startTimer)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+
 }
 
 #pragma mark UICollectionViewDataSource
@@ -113,6 +136,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   GameOverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+  Game *currentGame = self.games[indexPath.row];
 
   CALayer *upperBorder = [CALayer layer];
   upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
@@ -129,8 +153,6 @@
   UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
   cell.awayWinnerImage.image = iconImage;
   cell.homeWinnerImage.image = iconImage;
-
-  Game *currentGame = self.games[indexPath.row];
 
   // Home Team
   Team *homeTeam = currentGame.homeTeam;
@@ -150,15 +172,27 @@
 
   cell.timeRemaining.text = currentGame.timeRemaining;
 
-  if (!currentGame.isOver) {
+  if (currentGame.isPregame) {
     cell.awayWinnerImage.hidden = YES;
     cell.homeWinnerImage.hidden = YES;
+    cell.timeRemaining.hidden = YES;
+    cell.awayScore.hidden = YES;
+    cell.homeScore.hidden = YES;
+    cell.currentPeriod.text = currentGame.localStartTime;
+  }
+  else if (currentGame.isInProgress) {
+    cell.awayWinnerImage.hidden = YES;
+    cell.homeWinnerImage.hidden = YES;
+    cell.awayScore.hidden = NO;
+    cell.homeScore.hidden = NO;
     cell.timeRemaining.hidden = NO;
+    cell.currentPeriod.hidden = NO;
     cell.timeRemaining.text = currentGame.timeRemaining;
     cell.currentPeriod.text = currentGame.currentPeriod;
-  } else {
-    cell.currentPeriod.text = @"Final";
+  }
+  else {
     cell.timeRemaining.hidden = YES;
+    cell.currentPeriod.text = currentGame.endedIn;
   }
 
   return cell;
@@ -175,7 +209,5 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-
-
 
 @end

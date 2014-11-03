@@ -18,10 +18,6 @@
   }
 }
 
--(BOOL)isOver {
-  return [self.currentPeriod isEqualToString:@"Final"];
-}
-
 -(id)initWithJson:(id)json {
   self = [super init];
 
@@ -35,9 +31,35 @@
 
     self.timeRemaining = json[@"time_remaining"];
     self.currentPeriod = json[@"progress"];
+    self.endedIn = json[@"ended_in"];
+
+    self.startTime = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
+
+    self.state = json[@"state"];
   }
 
   return self;
+}
+
+- (BOOL)isOver {
+  return [self.state isEqualToString:@"final"];
+}
+
+-(BOOL)isInProgress {
+  return [self.state isEqualToString:@"in-progress"];
+}
+
+-(BOOL)isPregame {
+  return [self.state isEqualToString:@"pregame"];
+}
+
+-(NSString *)localStartTime {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat: @"h:mm a"];
+
+  [formatter setTimeZone:[NSTimeZone localTimeZone]];
+
+  return [formatter stringFromDate:self.startTime];
 }
 
 @end

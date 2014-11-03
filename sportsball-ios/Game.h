@@ -26,8 +26,16 @@
 @property (nonatomic, retain) NSString *timeRemaining;
 @property (nonatomic, retain) NSString *currentPeriod;
 
+@property (nonatomic, retain) NSString *state;
+@property (nonatomic, retain) NSString *endedIn;
+@property (nonatomic, retain) NSDate *startTime;
+
 -(Team *)winningTeam;
 -(id)initWithJson:(id)json;
+
 -(BOOL)isOver;
+-(BOOL)isInProgress;
+-(BOOL)isPregame;
+-(NSString *)localStartTime;
 
 @end
