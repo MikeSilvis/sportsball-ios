@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "GameOverCell.h"
+#import "GameUICollectionViewCell.h"
 
-@interface LeagueHeader : GameOverCell
+@interface LeagueHeader : GameUICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *largeLogo;

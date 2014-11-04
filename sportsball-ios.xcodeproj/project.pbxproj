@@ -11,27 +11,16 @@
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
 		1154F6281A03D60F009F560B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6271A03D60F009F560B /* Images.xcassets */; };
-		1154F6371A03D60F009F560B /* sportsball_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F6361A03D60F009F560B /* sportsball_iosTests.m */; };
 		1154F6481A03D754009F560B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F6471A03D754009F560B /* Team.m */; };
 		1154F64B1A03D77C009F560B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F64A1A03D77C009F560B /* Game.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B0D1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
-		11BB2B1A1A03F9470059B4C1 /* GameOverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B191A03F9470059B4C1 /* GameOverCell.m */; };
+		11BB2B1A1A03F9470059B4C1 /* GameUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B191A03F9470059B4C1 /* GameUICollectionViewCell.m */; };
 		11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */; };
 		E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F32CCB664364F1DD9C1C6E /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1154F6311A03D60F009F560B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1154F60F1A03D60E009F560B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1154F6161A03D60E009F560B;
-			remoteInfo = "sportsball-ios";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1154F6171A03D60E009F560B /* Champ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,7 +30,6 @@
 		1154F61F1A03D60F009F560B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1154F6251A03D60F009F560B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1154F6271A03D60F009F560B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1154F6301A03D60F009F560B /* sportsball-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sportsball-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F6351A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F6361A03D60F009F560B /* sportsball_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportsball_iosTests.m; sourceTree = "<group>"; };
 		1154F6461A03D754009F560B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
@@ -54,8 +42,8 @@
 		11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreIndexCollectionViewController.m; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeader.m; sourceTree = "<group>"; };
-		11BB2B181A03F9470059B4C1 /* GameOverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverCell.h; sourceTree = "<group>"; };
-		11BB2B191A03F9470059B4C1 /* GameOverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverCell.m; sourceTree = "<group>"; };
+		11BB2B181A03F9470059B4C1 /* GameUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUICollectionViewCell.h; sourceTree = "<group>"; };
+		11BB2B191A03F9470059B4C1 /* GameUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameUICollectionViewCell.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeader.xib; sourceTree = "<group>"; };
 		17F32CCB664364F1DD9C1C6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,13 +58,6 @@
 				11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */,
 				E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */,
 				11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1154F62D1A03D60F009F560B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				1154F6171A03D60E009F560B /* Champ.app */,
-				1154F6301A03D60F009F560B /* sportsball-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,8 +159,8 @@
 				11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */,
 				11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */,
 				11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */,
-				11BB2B181A03F9470059B4C1 /* GameOverCell.h */,
-				11BB2B191A03F9470059B4C1 /* GameOverCell.m */,
+				11BB2B181A03F9470059B4C1 /* GameUICollectionViewCell.h */,
+				11BB2B191A03F9470059B4C1 /* GameUICollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -226,24 +206,6 @@
 			productReference = 1154F6171A03D60E009F560B /* Champ.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1154F62F1A03D60F009F560B /* sportsball-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1154F63D1A03D60F009F560B /* Build configuration list for PBXNativeTarget "sportsball-iosTests" */;
-			buildPhases = (
-				1154F62C1A03D60F009F560B /* Sources */,
-				1154F62D1A03D60F009F560B /* Frameworks */,
-				1154F62E1A03D60F009F560B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1154F6321A03D60F009F560B /* PBXTargetDependency */,
-			);
-			name = "sportsball-iosTests";
-			productName = "sportsball-iosTests";
-			productReference = 1154F6301A03D60F009F560B /* sportsball-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -256,10 +218,6 @@
 					1154F6161A03D60E009F560B = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 78USZ8YX87;
-					};
-					1154F62F1A03D60F009F560B = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 1154F6161A03D60E009F560B;
 					};
 				};
 			};
@@ -277,7 +235,6 @@
 			projectRoot = "";
 			targets = (
 				1154F6161A03D60E009F560B /* Champ */,
-				1154F62F1A03D60F009F560B /* sportsball-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,13 +247,6 @@
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1154F62E1A03D60F009F560B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,29 +307,13 @@
 				11BB2B0D1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
-				11BB2B1A1A03F9470059B4C1 /* GameOverCell.m in Sources */,
+				11BB2B1A1A03F9470059B4C1 /* GameUICollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1154F62C1A03D60F009F560B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1154F6371A03D60F009F560B /* sportsball_iosTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1154F6321A03D60F009F560B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1154F6161A03D60E009F560B /* Champ */;
-			targetProxy = 1154F6311A03D60F009F560B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1154F6241A03D60F009F560B /* Main.storyboard */ = {
@@ -512,40 +446,6 @@
 			};
 			name = Release;
 		};
-		1154F63E1A03D60F009F560B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "sportsball-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sportsball-ios.app/sportsball-ios";
-			};
-			name = Debug;
-		};
-		1154F63F1A03D60F009F560B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "sportsball-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sportsball-ios.app/sportsball-ios";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,15 +463,6 @@
 			buildConfigurations = (
 				1154F63B1A03D60F009F560B /* Debug */,
 				1154F63C1A03D60F009F560B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1154F63D1A03D60F009F560B /* Build configuration list for PBXNativeTarget "sportsball-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1154F63E1A03D60F009F560B /* Debug */,
-				1154F63F1A03D60F009F560B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,7 +7,7 @@
 //
 
 #import "ScoreIndexCollectionViewController.h"
-#import "GameOverCell.h"
+#import "GameUICollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "EDColor.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -135,65 +135,10 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  GameOverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+  GameUICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
   Game *currentGame = self.games[indexPath.row];
-
-  CALayer *upperBorder = [CALayer layer];
-  upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
-
-  CGFloat totalWidth = CGRectGetWidth(cell.frame);
-  CGFloat width = totalWidth * 0.98;
-  upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 1.0f);
-  [cell.layer addSublayer:upperBorder];
-
-  CGFloat iconSize = 15;
-  FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
-  UIColor *carretColor = [UIColor colorWithHexString:@"#c4eefe"];;
-  [carretIcon addAttribute:NSForegroundColorAttributeName value:carretColor];
-  UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
-  cell.awayWinnerImage.image = iconImage;
-  cell.homeWinnerImage.image = iconImage;
-
-  // Home Team
-  Team *homeTeam = currentGame.homeTeam;
-  cell.homeTeamName.text = homeTeam.name;
-  cell.homeScore.text = [NSString stringWithFormat:@"%@", currentGame.homeScore];
-  cell.homeWinnerImage.hidden = ![currentGame.winningTeam isEqual:homeTeam];
-  cell.homeRecord.text = homeTeam.formattedRecord;
-  [cell.homeTeamLogo sd_setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
-
-  // Away Team
-  Team *awayTeam = currentGame.awayTeam;
-  cell.awayTeamName.text = awayTeam.name;
-  cell.awayScore.text = [NSString stringWithFormat:@"%@", currentGame.awayScore];
-  cell.awayWinnerImage.hidden = ![currentGame.winningTeam isEqual:awayTeam];
-  cell.awayRecord.text = awayTeam.formattedRecord;
-  [cell.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
-
-  cell.timeRemaining.text = currentGame.timeRemaining;
-
-  if (currentGame.isPregame) {
-    cell.awayWinnerImage.hidden = YES;
-    cell.homeWinnerImage.hidden = YES;
-    cell.timeRemaining.hidden = YES;
-    cell.awayScore.hidden = YES;
-    cell.homeScore.hidden = YES;
-    cell.currentPeriod.text = currentGame.localStartTime;
-  }
-  else if (currentGame.isInProgress) {
-    cell.awayWinnerImage.hidden = YES;
-    cell.homeWinnerImage.hidden = YES;
-    cell.awayScore.hidden = NO;
-    cell.homeScore.hidden = NO;
-    cell.timeRemaining.hidden = NO;
-    cell.currentPeriod.hidden = NO;
-    cell.timeRemaining.text = currentGame.timeRemaining;
-    cell.currentPeriod.text = currentGame.currentPeriod;
-  }
-  else {
-    cell.timeRemaining.hidden = YES;
-    cell.currentPeriod.text = currentGame.endedIn;
-  }
+  cell.currentGame = currentGame;
+  [cell addContent];
 
   return cell;
 }

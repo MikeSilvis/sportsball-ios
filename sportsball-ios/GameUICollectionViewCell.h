@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
-@interface GameOverCell : UICollectionViewCell
+@interface GameUICollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
@@ -24,5 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerBackground;
 @property (weak, nonatomic) IBOutlet UILabel *timeRemaining;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriod;
+
+@property (nonatomic, retain) Game *currentGame;
+-(void)addContent;
 
 @end
