@@ -20,26 +20,30 @@
     if (self) {
       self.layer.borderColor = [[UIColor blackColor] CGColor];
       self.layer.borderWidth = 5;
+      NSLog(@"\n\nNEVER\n\n");
+
+      // Bottom Border
+      CALayer *upperBorder = [CALayer layer];
+      upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
+      CGFloat totalWidth = CGRectGetWidth(self.frame);
+      CGFloat width = totalWidth * 0.98;
+      upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 1.0f);
+      [self.layer addSublayer:upperBorder];
+
+      // Winner Image
+      CGFloat iconSize = 15;
+      FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
+      UIColor *carretColor = [UIColor colorWithHexString:@"#c4eefe"];;
+      [carretIcon addAttribute:NSForegroundColorAttributeName value:carretColor];
+      UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
+      self.awayWinnerImage.image = iconImage;
+      self.homeWinnerImage.image = iconImage;
     }
     return self;
 }
 
--(void)addContent {
-  CALayer *upperBorder = [CALayer layer];
-  upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
-
-  CGFloat totalWidth = CGRectGetWidth(self.frame);
-  CGFloat width = totalWidth * 0.98;
-  upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 1.0f);
-  [self.layer addSublayer:upperBorder];
-
-  CGFloat iconSize = 15;
-  FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
-  UIColor *carretColor = [UIColor colorWithHexString:@"#c4eefe"];;
-  [carretIcon addAttribute:NSForegroundColorAttributeName value:carretColor];
-  UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
-  self.awayWinnerImage.image = iconImage;
-  self.homeWinnerImage.image = iconImage;
+-(void)setCurrentGame:(Game *)currentGame {
+  _currentGame = currentGame;
 
   // Home Team
   Team *homeTeam = self.currentGame.homeTeam;

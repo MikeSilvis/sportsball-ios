@@ -30,6 +30,8 @@
 @property (nonatomic, retain) NSString *endedIn;
 @property (nonatomic, retain) NSDate *startTime;
 
+@property (nonatomic, retain) NSDateFormatter *df;
+
 -(Team *)winningTeam;
 -(id)initWithJson:(id)json;
 

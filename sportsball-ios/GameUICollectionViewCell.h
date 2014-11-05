@@ -27,6 +27,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriod;
 
 @property (nonatomic, retain) Game *currentGame;
--(void)addContent;
 
 @end

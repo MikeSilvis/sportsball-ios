@@ -53,13 +53,18 @@
   return [self.state isEqualToString:@"pregame"];
 }
 
+-(NSDateFormatter *)df {
+  if (!_df) {
+    _df = [[NSDateFormatter alloc] init];
+    [_df setDateFormat: @"h:mm a"];
+    [_df setTimeZone:[NSTimeZone localTimeZone]];
+  }
+
+  return _df;
+}
+
 -(NSString *)localStartTime {
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat: @"h:mm a"];
-
-  [formatter setTimeZone:[NSTimeZone localTimeZone]];
-
-  return [formatter stringFromDate:self.startTime];
+  return [self.df stringFromDate:self.startTime];
 }
 
 @end

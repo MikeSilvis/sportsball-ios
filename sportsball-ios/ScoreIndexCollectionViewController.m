@@ -18,6 +18,9 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <MRProgress/MRProgressOverlayView+AFNetworking.h>
 
+//#define SERVER_URL @"http://localhost:3000/api/scores/nhl"
+#define SERVER_URL @"http://sportsball.herokuapp.com/api/scores/nhl"
+
 @implementation ScoreIndexCollectionViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -53,16 +56,13 @@
   NSDateFormatter *df = [[NSDateFormatter alloc] init];
   [df setDateFormat:@"yyyy-MM-dd"];
   NSDictionary *params = @{@"date": [df stringFromDate:[NSDate date]]};
-
-//  NSString *url = @"http://localhost:3000/api/scores/nhl";
-  NSString *url = @"http://sportsball.herokuapp.com/api/scores/nhl";
   self.games = [NSMutableArray array];
 
   if (showLoader) {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
   }
 
-  [[AFHTTPRequestOperationManager manager] GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[AFHTTPRequestOperationManager manager] GET:SERVER_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
     for (id score in responseObject[@"scores"]) {
         Game *newGame = [[Game alloc] initWithJson:score];
         [self.games addObject:newGame];
@@ -94,7 +94,6 @@
     NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"nhl-background"], quality);
     UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
     self.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
-
 
     self.collectionView.backgroundColor = [UIColor clearColor];
 
@@ -138,7 +137,6 @@
   GameUICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
   Game *currentGame = self.games[indexPath.row];
   cell.currentGame = currentGame;
-  [cell addContent];
 
   return cell;
 }
