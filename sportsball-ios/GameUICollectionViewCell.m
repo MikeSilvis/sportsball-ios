@@ -20,11 +20,10 @@
     if (self) {
       self.layer.borderColor = [[UIColor blackColor] CGColor];
       self.layer.borderWidth = 5;
-      NSLog(@"\n\nNEVER\n\n");
 
       // Bottom Border
       CALayer *upperBorder = [CALayer layer];
-      upperBorder.backgroundColor = [[UIColor grayColor] CGColor];
+      upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
       CGFloat totalWidth = CGRectGetWidth(self.frame);
       CGFloat width = totalWidth * 0.98;
       upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 1.0f);

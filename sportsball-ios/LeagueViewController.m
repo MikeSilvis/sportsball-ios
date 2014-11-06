@@ -8,6 +8,8 @@
 
 #import "LeagueViewController.h"
 #import "ScoreIndexView.h"
+#import "LeagueIndexHeader.h"
+#import "League.h"
 
 @implementation LeagueViewController
 
@@ -15,17 +17,21 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
 
+    self.leagues = [League supportedLeagues];
+
     self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
     
     self.paginalTableView.dataSource = self;
     self.paginalTableView.delegate = self;
+    self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
+    self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     [self.view addSubview:self.paginalTableView];
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView
 {
-    return 3;
+    return self.leagues.count;
 }
 
 - (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView collapsedViewAtIndex:(NSUInteger)index
@@ -68,21 +74,19 @@
 
 - (UIView *)createCollapsedViewAtIndex:(NSUInteger)index
 {
-    UILabel *labelCollapsed = [[UILabel alloc] initWithFrame:CGRectMake(10.f, 0.f, 150.f, 50.f)];
-    labelCollapsed.text = [NSString stringWithFormat:@"Collapsed View %lu", (unsigned long)index];
-    
-    UIView *collapsedView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.bounds.size.width, 80.f)];
-    collapsedView.backgroundColor = [UIColor colorWithRed:0.f + (index * 0.1f) green:0.3f blue:0.7f alpha:1.f];
-    collapsedView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    [collapsedView addSubview:labelCollapsed];
-    
-    return collapsedView;
+  CGFloat cellHeight = 100;
+
+  LeagueIndexHeader *leagueHeader = [[[NSBundle mainBundle] loadNibNamed:@"LeagueIndexHeader" owner:nil options:nil] lastObject];
+  leagueHeader.frame = CGRectMake(0, 0, self.view.bounds.size.width, cellHeight);
+  leagueHeader.league = self.leagues[index];
+
+  return leagueHeader;
 }
 
 - (UIView *)createExpandedViewAtIndex:(NSUInteger)index
 {
   ScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"ScoreIndexView" owner:nil options:nil] lastObject];
-  scoreIndex.league = @"NHL";
+  scoreIndex.league = self.leagues[index];
 
   return scoreIndex;
 }
@@ -96,5 +100,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ScoreIndexView.h
+//  LeagueIndexHeader.h
 //  sportsball-ios
 //
 //  Created by Mike Silvis on 11/6/14.
@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "League.h"
 
-@interface ScoreIndexView : UIView
+@interface LeagueIndexHeader : UIView
 
 @property (nonatomic, retain) League *league;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 
 @end

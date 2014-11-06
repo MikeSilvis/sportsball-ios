@@ -12,4 +12,6 @@
 @interface LeagueViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate>
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
+@property (nonatomic, retain) NSArray *leagues;
+
 @end
