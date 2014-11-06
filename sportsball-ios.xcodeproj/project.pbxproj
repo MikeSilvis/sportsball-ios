@@ -103,12 +103,12 @@
 		113845BE1A0BF93500BC7A4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */,
-				113845D41A0BFD8100BC7A4D /* ScoreIndexView.h */,
-				113845D51A0BFD8100BC7A4D /* ScoreIndexView.m */,
 				113845D71A0C001D00BC7A4D /* LeagueIndexHeader.h */,
 				113845D81A0C001D00BC7A4D /* LeagueIndexHeader.m */,
 				113845DA1A0C002B00BC7A4D /* LeagueIndexHeader.xib */,
+				113845D41A0BFD8100BC7A4D /* ScoreIndexView.h */,
+				113845D51A0BFD8100BC7A4D /* ScoreIndexView.m */,
+				113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";

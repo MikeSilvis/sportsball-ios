@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "League.h"
 
-@interface ScoreIndexView : UIView
+@interface ScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, retain) League *league;
 

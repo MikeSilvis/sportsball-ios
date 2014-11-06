@@ -10,12 +10,16 @@
 
 @implementation ScoreIndexView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+  return 3;
 }
-*/
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+//  Game *currentGame = self.games[indexPath.row];
+//  cell.currentGame = currentGame;
+
+  return cell;
+}
 
 @end
