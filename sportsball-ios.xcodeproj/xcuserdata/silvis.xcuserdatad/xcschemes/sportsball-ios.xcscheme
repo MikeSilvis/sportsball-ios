@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1154F6161A03D60E009F560B"
-               BuildableName = "Champ.app"
-               BlueprintName = "Champ"
+               BuildableName = "Champion.app"
+               BlueprintName = "Champion"
                ReferencedContainer = "container:sportsball-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1154F6161A03D60E009F560B"
-            BuildableName = "Champ.app"
-            BlueprintName = "Champ"
+            BuildableName = "Champion.app"
+            BlueprintName = "Champion"
             ReferencedContainer = "container:sportsball-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1154F6161A03D60E009F560B"
-            BuildableName = "Champ.app"
-            BlueprintName = "Champ"
+            BuildableName = "Champion.app"
+            BlueprintName = "Champion"
             ReferencedContainer = "container:sportsball-ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -94,8 +94,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1154F6161A03D60E009F560B"
-            BuildableName = "Champ.app"
-            BlueprintName = "Champ"
+            BuildableName = "Champion.app"
+            BlueprintName = "Champion"
             ReferencedContainer = "container:sportsball-ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
