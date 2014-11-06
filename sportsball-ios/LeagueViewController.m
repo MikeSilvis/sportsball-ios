@@ -24,9 +24,13 @@
     self.paginalTableView.dataSource = self;
     self.paginalTableView.delegate = self;
     self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
+    self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
+    self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
     self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     [self.view addSubview:self.paginalTableView];
+
+    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView

@@ -6,15 +6,14 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "GameUICollectionViewCell.h"
+#import <UIKit/UIKit.h>
 
-@interface LeagueHeader : GameUICollectionViewCell
+@interface LeagueHeader : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *largeLogo;
 
-@property (retain, nonatomic) UIImage *blurredImage;
-@property (retain, nonatomic) UIImage *largeLogoImage;
-
+@property (nonatomic, strong) UIImage *blurredImage;
+@property (nonatomic, strong) UIImage *largeLogoImage;
 
 @end

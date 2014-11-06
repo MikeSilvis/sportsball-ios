@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gameViewCell" id="feT-TY-olg" customClass="GameCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ksP-5B-CeT" userLabel="homeTeamLogo">
+                        <rect key="frame" x="8" y="8" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="7gX-rI-r6Y"/>
+                            <constraint firstAttribute="width" constant="20" id="MaQ-Uy-iR3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xek-d8-sX4" userLabel="homeTeamName">
+                        <rect key="frame" x="44" y="8" width="67" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="254" id="j43-c1-Wha"/>
+                            <constraint firstAttribute="height" constant="20" id="oR6-7w-mcz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="j43-c1-Wha"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(6-1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-Kx-tTH" userLabel="homeTeamRecord">
+                        <rect key="frame" x="116" y="11" width="21" height="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-Mi-yFz" userLabel="awayTeamLogo">
+                        <rect key="frame" x="8" y="33" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="PRi-bP-uwu"/>
+                            <constraint firstAttribute="width" constant="20" id="fnW-e0-Z9m"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0a-bd-CvG" userLabel="awayTeamName">
+                        <rect key="frame" x="44" y="33" width="65" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="570-AF-ewx"/>
+                            <constraint firstAttribute="width" constant="254" id="Cp1-fY-Zsv"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="xEU-s5-GMO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xEU-s5-GMO"/>
+                                <exclude reference="Cp1-fY-Zsv"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3-4)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-1v-9An" userLabel="awayTeamRecord">
+                        <rect key="frame" x="114" y="36" width="21" height="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAN-Nf-OiC" userLabel="homeTeamWinner">
+                        <rect key="frame" x="511" y="8" width="20" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="3We-J0-QFv"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lOU-h5-Low" userLabel="awayTeamWinner">
+                        <rect key="frame" x="511" y="32" width="20" height="21"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Vx-bUF" userLabel="upperInfo">
+                        <rect key="frame" x="531" y="7" width="55" height="21"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
+                        <rect key="frame" x="539" y="34" width="47" height="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa5-v5-2r9">
+                        <rect key="frame" x="482" y="8" width="22" height="20"/>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLs-Ab-F21">
+                        <rect key="frame" x="482" y="33" width="22" height="20"/>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="feT-TY-olg" secondAttribute="topMargin" id="0Wk-LD-N7O"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="0ZD-8V-p23"/>
+                <constraint firstItem="iAN-Nf-OiC" firstAttribute="leading" secondItem="lOU-h5-Low" secondAttribute="leading" id="1ug-xP-6gF"/>
+                <constraint firstItem="p9q-4O-uBF" firstAttribute="trailing" secondItem="mfr-Vx-bUF" secondAttribute="trailing" id="2XA-Us-lOs"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="leading" secondItem="feT-TY-olg" secondAttribute="leadingMargin" id="5HP-FQ-wQL"/>
+                <constraint firstItem="fLs-Ab-F21" firstAttribute="top" secondItem="m0a-bd-CvG" secondAttribute="top" id="6VP-qc-Ld1"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="centerY" secondItem="wa5-v5-2r9" secondAttribute="centerY" constant="25" id="AaM-0m-bwa"/>
+                <constraint firstItem="Khl-Kx-tTH" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="trailing" id="Bdk-WT-6k5"/>
+                <constraint firstItem="fLs-Ab-F21" firstAttribute="bottom" secondItem="sU5-Mi-yFz" secondAttribute="bottom" id="Ebj-FA-1rq"/>
+                <constraint firstItem="fLs-Ab-F21" firstAttribute="bottom" secondItem="m0a-bd-CvG" secondAttribute="bottom" id="GYJ-Mt-55Y"/>
+                <constraint firstItem="iAN-Nf-OiC" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="I1f-FC-abg"/>
+                <constraint firstItem="p9q-4O-uBF" firstAttribute="baseline" secondItem="Qfa-1v-9An" secondAttribute="baseline" id="Idi-ax-Z7n"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Qfa-1v-9An" secondAttribute="centerY" id="KjE-j3-Q2J"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="7" id="LQI-zm-1eh"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="trailing" secondItem="xek-d8-sX4" secondAttribute="trailing" id="LXq-tx-hw4"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="16" id="Lvd-FY-d2P"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="centerY" secondItem="Khl-Kx-tTH" secondAttribute="centerY" id="MFS-IY-Avx"/>
+                <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="iAN-Nf-OiC" secondAttribute="trailing" id="MYv-II-jVO"/>
+                <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" id="MZe-Qe-Ikg"/>
+                <constraint firstItem="p9q-4O-uBF" firstAttribute="leading" secondItem="mfr-Vx-bUF" secondAttribute="leading" constant="8" id="NZX-PB-jXh"/>
+                <constraint firstItem="fLs-Ab-F21" firstAttribute="top" secondItem="sU5-Mi-yFz" secondAttribute="top" id="PVs-4A-sTx"/>
+                <constraint firstAttribute="trailing" secondItem="iAN-Nf-OiC" secondAttribute="trailing" constant="69" id="Q1w-uo-U1e"/>
+                <constraint firstItem="sU5-Mi-yFz" firstAttribute="centerY" secondItem="m0a-bd-CvG" secondAttribute="centerY" id="QQo-UB-8Vz"/>
+                <constraint firstItem="wa5-v5-2r9" firstAttribute="top" secondItem="feT-TY-olg" secondAttribute="topMargin" id="QrZ-aO-IK4"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="top" secondItem="iAN-Nf-OiC" secondAttribute="bottom" constant="5" id="RqO-yZ-Fog"/>
+                <constraint firstAttribute="centerY" secondItem="mfr-Vx-bUF" secondAttribute="centerY" id="RuN-6K-cVq"/>
+                <constraint firstItem="iAN-Nf-OiC" firstAttribute="trailing" secondItem="lOU-h5-Low" secondAttribute="trailing" id="SO9-dX-Xey"/>
+                <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" id="Tgh-qi-w72"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="leading" id="WTa-bJ-YIO"/>
+                <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="18" id="Z0e-7q-kGl"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="xek-d8-sX4" secondAttribute="top" id="ZU6-Ih-zRw"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="leading" id="d53-Yb-L7O"/>
+                <constraint firstAttribute="centerY" secondItem="mfr-Vx-bUF" secondAttribute="centerY" constant="0.5" id="dWl-vk-vUA"/>
+                <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="6" id="ilA-t8-8a6"/>
+                <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="32" id="jAZ-Tc-eDU"/>
+                <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" constant="5" id="jMX-Qt-jui"/>
+                <constraint firstItem="wa5-v5-2r9" firstAttribute="baseline" secondItem="mfr-Vx-bUF" secondAttribute="firstBaseline" constant="4" id="kbV-8A-ytH"/>
+                <constraint firstItem="Khl-Kx-tTH" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="trailing" id="koa-BT-mXr"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="centerY" secondItem="fLs-Ab-F21" secondAttribute="centerY" id="l0F-ag-A8n"/>
+                <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="2" id="oHV-mO-H7I"/>
+                <constraint firstItem="fLs-Ab-F21" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="leading" id="tAK-Uu-5pR"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="xek-d8-sX4" secondAttribute="bottom" id="tk0-Cn-mov"/>
+                <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="lOU-h5-Low" secondAttribute="trailing" constant="12" id="u2Q-ij-cuP"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="trailing" constant="16" id="uBx-T4-xag"/>
+                <constraint firstItem="sU5-Mi-yFz" firstAttribute="top" secondItem="ksP-5B-CeT" secondAttribute="bottom" constant="5" id="vNW-ir-4mh"/>
+                <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="wa5-v5-2r9" secondAttribute="bottom" id="vz0-el-x16"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="bottom" secondItem="Qfa-1v-9An" secondAttribute="bottom" constant="3" id="ws0-Mb-9e8"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="Khl-Kx-tTH" secondAttribute="trailing" id="xcg-7Y-4q8"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="centerY" secondItem="Khl-Kx-tTH" secondAttribute="centerY" id="xer-kg-3Td"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Qfa-1v-9An" secondAttribute="centerY" id="y2R-1D-x0q"/>
+                <constraint firstItem="iAN-Nf-OiC" firstAttribute="centerY" secondItem="mfr-Vx-bUF" secondAttribute="centerY" id="yqd-ue-fZ1"/>
+                <constraint firstItem="Khl-Kx-tTH" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="trailing" constant="5" id="zvv-9R-LD8"/>
+            </constraints>
+            <size key="customSize" width="600" height="60"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MFS-IY-Avx"/>
+                    <exclude reference="xcg-7Y-4q8"/>
+                    <exclude reference="LXq-tx-hw4"/>
+                    <exclude reference="KjE-j3-Q2J"/>
+                    <exclude reference="d53-Yb-L7O"/>
+                    <exclude reference="koa-BT-mXr"/>
+                    <exclude reference="Bdk-WT-6k5"/>
+                    <exclude reference="Tgh-qi-w72"/>
+                    <exclude reference="MZe-Qe-Ikg"/>
+                    <exclude reference="GYJ-Mt-55Y"/>
+                    <exclude reference="6VP-qc-Ld1"/>
+                    <exclude reference="RuN-6K-cVq"/>
+                    <exclude reference="oHV-mO-H7I"/>
+                    <exclude reference="Z0e-7q-kGl"/>
+                    <exclude reference="dWl-vk-vUA"/>
+                    <exclude reference="jAZ-Tc-eDU"/>
+                    <exclude reference="u2Q-ij-cuP"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="awayTeamLogo" destination="sU5-Mi-yFz" id="e7s-TO-5OK"/>
+                <outlet property="awayTeamName" destination="m0a-bd-CvG" id="wZs-pk-Vqr"/>
+                <outlet property="awayTeamRecord" destination="Qfa-1v-9An" id="34D-uq-Xme"/>
+                <outlet property="awayTeamScore" destination="fLs-Ab-F21" id="f16-or-aBK"/>
+                <outlet property="awayTeamWinner" destination="lOU-h5-Low" id="QSE-Bi-XfU"/>
+                <outlet property="homeTeamLogo" destination="ksP-5B-CeT" id="3wZ-Ij-IWV"/>
+                <outlet property="homeTeamName" destination="xek-d8-sX4" id="acR-Uo-qDu"/>
+                <outlet property="homeTeamRecord" destination="Khl-Kx-tTH" id="ceH-r3-dmz"/>
+                <outlet property="homeTeamScore" destination="wa5-v5-2r9" id="cak-TT-Nvj"/>
+                <outlet property="homeTeamWinner" destination="iAN-Nf-OiC" id="9mQ-a5-mwv"/>
+                <outlet property="lowerInfo" destination="p9q-4O-uBF" id="2dK-hg-kIR"/>
+                <outlet property="upperInfo" destination="mfr-Vx-bUF" id="f5l-H6-tbE"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

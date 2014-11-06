@@ -7,7 +7,6 @@
 //
 
 #import "ScoreIndexCollectionViewController.h"
-#import "GameUICollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "EDColor.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -32,10 +31,6 @@
     }
 
     return self;
-}
-
--(void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
 }
 
 -(void)cancelTimer {
@@ -134,10 +129,12 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  GameUICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
-  Game *currentGame = self.games[indexPath.row];
-  cell.currentGame = currentGame;
-
+//  GameUICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
+//  Game *currentGame = self.games[indexPath.row];
+//  cell.currentGame = currentGame;
+//
+//  return cell;
+  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gameViewCell" forIndexPath:indexPath];
   return cell;
 }
 

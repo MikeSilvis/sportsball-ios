@@ -11,6 +11,13 @@
 
 @interface ScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (nonatomic, retain) League *league;
+@property (nonatomic, strong) UINib *headerNib;
+@property (nonatomic, retain) NSMutableArray *games;
+@property (nonatomic, retain) NSTimer *scorePuller;
+
+-(void)findGames:(BOOL)showLoader;
 
 @end

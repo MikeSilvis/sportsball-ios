@@ -390,7 +390,9 @@ NSUInteger kAPPaginalTableViewSection = 0;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
     }
-    
+
+    cell.layoutMargins = UIEdgeInsetsZero;
+  
     if (self.isInPaginalPresentation == NO) {
         APPaginalTableViewElement *view = _elementViews[indexPath.row];
         [cell.contentView addSubview:view];
