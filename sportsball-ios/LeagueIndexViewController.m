@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "LeagueViewController.h"
+#import "LeagueIndexViewController.h"
 #import "ScoreIndexView.h"
 #import "LeagueIndexHeader.h"
 #import "League.h"
 
-@implementation LeagueViewController
+@implementation LeagueIndexViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
 
     [self.view addSubview:self.paginalTableView];
 
-    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
+//    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView
@@ -66,6 +66,7 @@
     else if (initialHeight < finalHeight) { //close
         open = finalHeight > element.expandedHeight * 0.2f;
     }
+
     return open;
 }
 
@@ -94,16 +95,6 @@
 
   return scoreIndex;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

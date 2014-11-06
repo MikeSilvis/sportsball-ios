@@ -10,9 +10,11 @@
 
 @interface League : NSObject
 
+@property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *logo;
 @property (nonatomic, retain) NSString *background;
 
 +(NSArray *)supportedLeagues;
+-(NSString *)scoresUrl;
 
 @end

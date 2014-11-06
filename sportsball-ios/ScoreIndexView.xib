@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-ow-B8a">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-ow-B8a">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pja-Oz-4KU" customClass="CSStickyHeaderFlowLayout">
                         <size key="itemSize" width="600" height="60"/>
@@ -25,6 +25,12 @@
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Akp-hQ-x7y"/>
+                <constraint firstAttribute="trailing" secondItem="8y5-ow-B8a" secondAttribute="trailing" id="HpM-eg-5uA"/>
+                <constraint firstAttribute="bottom" secondItem="8y5-ow-B8a" secondAttribute="bottom" id="NI8-ak-Enb"/>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xiJ-rE-je1"/>
+            </constraints>
             <connections>
                 <outlet property="collectionView" destination="8y5-ow-B8a" id="cuT-wK-FvH"/>
             </connections>

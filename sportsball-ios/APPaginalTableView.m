@@ -196,7 +196,6 @@ NSUInteger kAPPaginalTableViewSection = 0;
         }
     };
     
-//    [self.tableView hideFixedHeaderAndFooterAnimated:animated];
     [self expandElementAtIndex:index completion:internalCompletion animated:animated];
 }
 

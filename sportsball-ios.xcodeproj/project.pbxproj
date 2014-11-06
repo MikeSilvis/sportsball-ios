@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
-		113845C31A0BF9A600BC7A4D /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* LeagueViewController.m */; };
+		113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */; };
 		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
 		113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */; };
 		113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */; };
@@ -35,8 +35,8 @@
 
 /* Begin PBXFileReference section */
 		113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreIndexView.xib; sourceTree = "<group>"; };
-		113845C11A0BF9A600BC7A4D /* LeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueViewController.h; sourceTree = "<group>"; };
-		113845C21A0BF9A600BC7A4D /* LeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueViewController.m; sourceTree = "<group>"; };
+		113845C11A0BF9A600BC7A4D /* LeagueIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueIndexViewController.h; sourceTree = "<group>"; };
+		113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueIndexViewController.m; sourceTree = "<group>"; };
 		113845C81A0BFA8200BC7A4D /* APPaginalContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalContainerView.h; sourceTree = "<group>"; };
 		113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPaginalContainerView.m; sourceTree = "<group>"; };
 		113845CA1A0BFA8200BC7A4D /* APPaginalContainerViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalContainerViewPage.h; sourceTree = "<group>"; };
@@ -218,8 +218,8 @@
 		1154F6401A03D618009F560B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				113845C11A0BF9A600BC7A4D /* LeagueViewController.h */,
-				113845C21A0BF9A600BC7A4D /* LeagueViewController.m */,
+				113845C11A0BF9A600BC7A4D /* LeagueIndexViewController.h */,
+				113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */,
 				11BB2B0B1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.h */,
 				11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */,
 			);
@@ -403,7 +403,7 @@
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,
-				113845C31A0BF9A600BC7A4D /* LeagueViewController.m in Sources */,
+				113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,

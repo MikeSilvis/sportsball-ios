@@ -225,10 +225,10 @@
             </objects>
             <point key="canvasLocation" x="776" y="1045"/>
         </scene>
-        <!--League View Controller-->
+        <!--League Index View Controller-->
         <scene sceneID="HJR-4K-spF">
             <objects>
-                <viewController id="9Mo-0L-q5c" customClass="LeagueViewController" sceneMemberID="viewController">
+                <viewController id="9Mo-0L-q5c" customClass="LeagueIndexViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEf-Fj-rTq"/>
                         <viewControllerLayoutGuide type="bottom" id="pi4-Sc-wgO"/>

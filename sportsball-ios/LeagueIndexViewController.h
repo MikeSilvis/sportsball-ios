@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "APPaginalTableView.h"
 
-@interface LeagueViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate>
+@interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate>
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
 @property (nonatomic, retain) NSArray *leagues;
+
+//    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
 
 @end
