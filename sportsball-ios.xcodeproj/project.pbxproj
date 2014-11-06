@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
+		113845C31A0BF9A600BC7A4D /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* LeagueViewController.m */; };
+		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
+		113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */; };
+		113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */; };
+		113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D11A0BFA8C00BC7A4D /* APPaginalTableViewElement.m */; };
+		113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D51A0BFD8100BC7A4D /* ScoreIndexView.m */; };
 		1154F61D1A03D60F009F560B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61C1A03D60F009F560B /* main.m */; };
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
@@ -23,6 +30,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreIndexView.xib; sourceTree = "<group>"; };
+		113845C11A0BF9A600BC7A4D /* LeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueViewController.h; sourceTree = "<group>"; };
+		113845C21A0BF9A600BC7A4D /* LeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueViewController.m; sourceTree = "<group>"; };
+		113845C81A0BFA8200BC7A4D /* APPaginalContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalContainerView.h; sourceTree = "<group>"; };
+		113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPaginalContainerView.m; sourceTree = "<group>"; };
+		113845CA1A0BFA8200BC7A4D /* APPaginalContainerViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalContainerViewPage.h; sourceTree = "<group>"; };
+		113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPaginalContainerViewPage.m; sourceTree = "<group>"; };
+		113845CE1A0BFA8C00BC7A4D /* APPaginalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalTableView.h; sourceTree = "<group>"; };
+		113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPaginalTableView.m; sourceTree = "<group>"; };
+		113845D01A0BFA8C00BC7A4D /* APPaginalTableViewElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPaginalTableViewElement.h; sourceTree = "<group>"; };
+		113845D11A0BFA8C00BC7A4D /* APPaginalTableViewElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPaginalTableViewElement.m; sourceTree = "<group>"; };
+		113845D41A0BFD8100BC7A4D /* ScoreIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreIndexView.h; sourceTree = "<group>"; };
+		113845D51A0BFD8100BC7A4D /* ScoreIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreIndexView.m; sourceTree = "<group>"; };
 		1154F6171A03D60E009F560B /* Champ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +90,55 @@
 				17F32CCB664364F1DD9C1C6E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		113845BE1A0BF93500BC7A4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */,
+				113845D41A0BFD8100BC7A4D /* ScoreIndexView.h */,
+				113845D51A0BFD8100BC7A4D /* ScoreIndexView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		113845C41A0BFA3D00BC7A4D /* SupportClasses */ = {
+			isa = PBXGroup;
+			children = (
+				113845C51A0BFA5500BC7A4D /* APPaginal */,
+			);
+			name = SupportClasses;
+			sourceTree = "<group>";
+		};
+		113845C51A0BFA5500BC7A4D /* APPaginal */ = {
+			isa = PBXGroup;
+			children = (
+				113845C71A0BFA7500BC7A4D /* APPaginalTableView */,
+				113845C61A0BFA6900BC7A4D /* APPaginalContainerView */,
+			);
+			name = APPaginal;
+			sourceTree = "<group>";
+		};
+		113845C61A0BFA6900BC7A4D /* APPaginalContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				113845C81A0BFA8200BC7A4D /* APPaginalContainerView.h */,
+				113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */,
+				113845CA1A0BFA8200BC7A4D /* APPaginalContainerViewPage.h */,
+				113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */,
+			);
+			name = APPaginalContainerView;
+			sourceTree = "<group>";
+		};
+		113845C71A0BFA7500BC7A4D /* APPaginalTableView */ = {
+			isa = PBXGroup;
+			children = (
+				113845CE1A0BFA8C00BC7A4D /* APPaginalTableView.h */,
+				113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */,
+				113845D01A0BFA8C00BC7A4D /* APPaginalTableViewElement.h */,
+				113845D11A0BFA8C00BC7A4D /* APPaginalTableViewElement.m */,
+			);
+			name = APPaginalTableView;
 			sourceTree = "<group>";
 		};
 		1154F60E1A03D60E009F560B = {
@@ -133,13 +202,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1154F6401A03D618009F560B /* controllers */ = {
+		1154F6401A03D618009F560B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				11BB2B0B1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.h */,
 				11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */,
+				113845C11A0BF9A600BC7A4D /* LeagueViewController.h */,
+				113845C21A0BF9A600BC7A4D /* LeagueViewController.m */,
 			);
-			name = controllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		1154F6451A03D743009F560B /* Models */ = {
@@ -168,7 +239,9 @@
 		1154F6531A03DC9B009F560B /* Scores */ = {
 			isa = PBXGroup;
 			children = (
-				1154F6401A03D618009F560B /* controllers */,
+				113845C41A0BFA3D00BC7A4D /* SupportClasses */,
+				113845BE1A0BF93500BC7A4D /* Views */,
+				1154F6401A03D618009F560B /* Controllers */,
 				1154F64F1A03D9C5009F560B /* Cells */,
 			);
 			name = Scores;
@@ -244,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
@@ -303,13 +377,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
 				1154F64B1A03D77C009F560B /* Game.m in Sources */,
 				11BB2B0D1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m in Sources */,
+				113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
+				113845C31A0BF9A600BC7A4D /* LeagueViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
+				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
+				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				11BB2B1A1A03F9470059B4C1 /* GameUICollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
+				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
