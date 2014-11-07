@@ -29,7 +29,7 @@ static NSString * const headerViewCell = @"headerViewCell";
 }
 
 -(void)cancelTimer {
-  NSLog(@"\n Stopping Timer: %@ \n", self.league.name);
+  NSLog(@"Stopping Timer: %@", self.league.name);
 
   [self.scorePuller invalidate];
   self.scorePuller = nil;
@@ -37,7 +37,7 @@ static NSString * const headerViewCell = @"headerViewCell";
 
 -(void)startTimer {
   if (!self.scorePuller) {
-    NSLog(@"\n Starting Timer: %@ \n", self.league.name);
+    NSLog(@"Starting Timer: %@", self.league.name);
 
     [self findGames:YES];
     self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames:) userInfo:nil repeats:YES];
@@ -45,10 +45,8 @@ static NSString * const headerViewCell = @"headerViewCell";
 }
 
 -(void)findGames:(BOOL)showLoader {
-  self.games = [NSMutableArray array];
-
   [self.league allScoresForDate:nil parameters:nil success:^(NSArray *games) {
-    self.games = [NSMutableArray arrayWithArray:games];
+    self.games = games;
     [self.collectionView reloadData];
   } failure:nil];
 }
@@ -68,20 +66,26 @@ static NSString * const headerViewCell = @"headerViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  GameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:gameViewCell forIndexPath:indexPath];
   Game *currentGame = self.games[indexPath.row];
+  GameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:gameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;
 
   return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+  if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
     LeagueHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                         withReuseIdentifier:headerViewCell
                                                                                forIndexPath:indexPath];
     cell.currentLeague = self.league;
 
     return cell;
+  } //else if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+      // Your code to configure your section header...
+//  }
+
+  return nil;
 }
 
 - (void)setupParallax

@@ -21,6 +21,8 @@
 
   NSString *url = [self getPathFromString:path];
 
+  NSLog(@"making request with path: %@", path);
+
   [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     success(responseObject);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

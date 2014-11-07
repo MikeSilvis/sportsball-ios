@@ -56,24 +56,42 @@
   self.upperInfo.text = self.currentGame.timeRemaining;
 
   if (self.currentGame.isPregame) {
+    // Winner Image
     self.awayTeamWinner.hidden = YES;
     self.homeTeamWinner.hidden = YES;
-    self.lowerInfo.hidden = YES;
+
+    // Scores
     self.awayTeamScore.hidden = YES;
     self.homeTeamScore.hidden = YES;
+
+    // Background
+    self.upperInfo.hidden = NO;
+    self.lowerInfo.hidden = NO;
     self.upperInfo.text = self.currentGame.localStartTime;
+    self.lowerInfo.text = self.currentGame.moneyLine;
+    self.lowerInfo.font = [UIFont fontWithName:@"Avenir" size:10];
   }
   else if (self.currentGame.isInProgress) {
+    // Winner Image
     self.awayTeamWinner.hidden = YES;
     self.homeTeamWinner.hidden = YES;
+
+    // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
+
+    // Game Clock
     self.upperInfo.hidden = NO;
     self.lowerInfo.hidden = NO;
     self.lowerInfo.text = self.currentGame.timeRemaining;
     self.upperInfo.text = self.currentGame.currentPeriod;
   }
   else {
+    // Scores
+    self.homeTeamScore.hidden = NO;
+    self.awayTeamScore.hidden = NO;
+
+    // Game Summary
     self.lowerInfo.hidden = YES;
     self.upperInfo.hidden = NO;
     self.upperInfo.text = self.currentGame.endedIn;

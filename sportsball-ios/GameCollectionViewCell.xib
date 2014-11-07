@@ -63,8 +63,8 @@
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="xEU-s5-GMO"/>
                                 <exclude reference="Cp1-fY-Zsv"/>
+                                <exclude reference="xEU-s5-GMO"/>
                             </mask>
                         </variation>
                     </label>
@@ -89,21 +89,21 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
-                        <rect key="frame" x="539" y="34" width="47" height="17"/>
-                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa5-v5-2r9">
-                        <rect key="frame" x="482" y="8" width="22" height="20"/>
+                        <rect key="frame" x="485" y="8" width="22" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLs-Ab-F21">
-                        <rect key="frame" x="482" y="33" width="22" height="20"/>
+                        <rect key="frame" x="485" y="33" width="22" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
+                        <rect key="frame" x="336" y="34" width="250" height="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -125,13 +125,13 @@
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="I1f-FC-abg"/>
                 <constraint firstItem="p9q-4O-uBF" firstAttribute="baseline" secondItem="Qfa-1v-9An" secondAttribute="baseline" id="Idi-ax-Z7n"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Qfa-1v-9An" secondAttribute="centerY" id="KjE-j3-Q2J"/>
-                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="7" id="LQI-zm-1eh"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="4" id="LQI-zm-1eh"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="trailing" secondItem="xek-d8-sX4" secondAttribute="trailing" id="LXq-tx-hw4"/>
                 <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="16" id="Lvd-FY-d2P"/>
                 <constraint firstItem="xek-d8-sX4" firstAttribute="centerY" secondItem="Khl-Kx-tTH" secondAttribute="centerY" id="MFS-IY-Avx"/>
                 <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="iAN-Nf-OiC" secondAttribute="trailing" id="MYv-II-jVO"/>
                 <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" id="MZe-Qe-Ikg"/>
-                <constraint firstItem="p9q-4O-uBF" firstAttribute="leading" secondItem="mfr-Vx-bUF" secondAttribute="leading" constant="8" id="NZX-PB-jXh"/>
+                <constraint firstItem="p9q-4O-uBF" firstAttribute="leading" secondItem="mfr-Vx-bUF" secondAttribute="leading" constant="-195" id="NZX-PB-jXh"/>
                 <constraint firstItem="fLs-Ab-F21" firstAttribute="top" secondItem="sU5-Mi-yFz" secondAttribute="top" id="PVs-4A-sTx"/>
                 <constraint firstAttribute="trailing" secondItem="iAN-Nf-OiC" secondAttribute="trailing" constant="69" id="Q1w-uo-U1e"/>
                 <constraint firstItem="sU5-Mi-yFz" firstAttribute="centerY" secondItem="m0a-bd-CvG" secondAttribute="centerY" id="QQo-UB-8Vz"/>
@@ -170,20 +170,20 @@
                 <mask key="constraints">
                     <exclude reference="MFS-IY-Avx"/>
                     <exclude reference="xcg-7Y-4q8"/>
-                    <exclude reference="LXq-tx-hw4"/>
                     <exclude reference="KjE-j3-Q2J"/>
+                    <exclude reference="LXq-tx-hw4"/>
                     <exclude reference="d53-Yb-L7O"/>
-                    <exclude reference="koa-BT-mXr"/>
                     <exclude reference="Bdk-WT-6k5"/>
-                    <exclude reference="Tgh-qi-w72"/>
+                    <exclude reference="koa-BT-mXr"/>
                     <exclude reference="MZe-Qe-Ikg"/>
-                    <exclude reference="GYJ-Mt-55Y"/>
+                    <exclude reference="Tgh-qi-w72"/>
                     <exclude reference="6VP-qc-Ld1"/>
+                    <exclude reference="GYJ-Mt-55Y"/>
                     <exclude reference="RuN-6K-cVq"/>
-                    <exclude reference="oHV-mO-H7I"/>
                     <exclude reference="Z0e-7q-kGl"/>
                     <exclude reference="dWl-vk-vUA"/>
                     <exclude reference="jAZ-Tc-eDU"/>
+                    <exclude reference="oHV-mO-H7I"/>
                     <exclude reference="u2Q-ij-cuP"/>
                 </mask>
             </variation>

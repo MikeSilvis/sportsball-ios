@@ -17,6 +17,8 @@
                     <rect key="frame" x="275" y="25" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Vtl-pS-gni"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="diB-qO-G8T"/>
+                        <constraint firstAttribute="height" constant="50" id="idX-3p-T02"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -31,6 +33,11 @@
                 <constraint firstItem="YKh-tk-GpI" firstAttribute="centerX" secondItem="Xji-jb-gIT" secondAttribute="centerX" id="ogs-LI-f6N"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SxJ-WU-YGs"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="backgroundImage" destination="Xji-jb-gIT" id="B8y-c2-Xfn"/>
                 <outlet property="logoImage" destination="YKh-tk-GpI" id="VFg-CM-Zb9"/>

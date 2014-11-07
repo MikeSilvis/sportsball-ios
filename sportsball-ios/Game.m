@@ -35,6 +35,8 @@
 
     self.startTime = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
 
+    self.moneyLine = json[@"line"];
+
     self.state = json[@"state"];
   }
 

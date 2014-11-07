@@ -29,6 +29,8 @@
                 <constraint firstItem="8y5-ow-B8a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Akp-hQ-x7y"/>
                 <constraint firstAttribute="trailing" secondItem="8y5-ow-B8a" secondAttribute="trailing" id="HpM-eg-5uA"/>
                 <constraint firstAttribute="bottom" secondItem="8y5-ow-B8a" secondAttribute="bottom" id="NI8-ak-Enb"/>
+                <constraint firstAttribute="centerY" secondItem="8y5-ow-B8a" secondAttribute="centerY" id="OhW-Ro-skO"/>
+                <constraint firstAttribute="centerX" secondItem="8y5-ow-B8a" secondAttribute="centerX" id="UW6-ZW-CPT"/>
                 <constraint firstItem="8y5-ow-B8a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xiJ-rE-je1"/>
             </constraints>
             <connections>
