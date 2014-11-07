@@ -15,10 +15,11 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.backgroundColor = [UIColor blackColor];
 
   self.leagues = [League supportedLeagues];
   self.scoreViews = [NSMutableArray array];
+
+  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rabble"]];
 
   self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
   

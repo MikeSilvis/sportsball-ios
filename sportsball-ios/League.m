@@ -8,6 +8,7 @@
 
 #import "League.h"
 #import "Game.h"
+#import "UIImage+Blur.h"
 
 @implementation League
 
@@ -31,13 +32,21 @@
 
 }
 
--(NSDateFormatter *)dateFormatter {
-  if (!_dateFormatter) {
-    _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+-(UIImage *)blurredHeader{
+  if (!_blurredHeader) {
+    float quality = .00001f;
+    float blurred = 2.5f;
+
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:self.header], quality);
+    _blurredHeader = [[UIImage imageWithData:imageData] blurredImage:blurred];
   }
 
-  return _dateFormatter;
+  return _blurredHeader;
+}
+
+-(void)setHeader:(NSString *)header {
+  _header = header;
+  self.blurredHeader = nil;
 }
 
 -(void)allScoresForDate:(NSDate *)date

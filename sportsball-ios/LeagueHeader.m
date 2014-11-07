@@ -45,14 +45,7 @@
 
 -(void)createBlurredImage {
   self.largeLogoImage = self.largeLogo.image;
-
-  float quality = .00001f;
-  float blurred = 2.5f;
-
-  NSData *imageData = UIImageJPEGRepresentation(self.largeLogoImage, quality);
-  UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
-
-  self.blurredImage = blurredImage;
+  self.blurredImage = self.currentLeague.blurredHeader;
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @interface Champion : NSObject
 
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+
 -(NSString *)getPathFromString:(NSString *)path;
 
 -(void)dispatchRequest:(NSString *)path

@@ -21,6 +21,9 @@ static NSString * const headerViewCell = @"headerViewCell";
 -(void)awakeFromNib {
   self.games = [NSMutableArray array];
 
+  self.backgroundColor = [UIColor clearColor];
+  self.collectionView.backgroundColor = [UIColor clearColor];
+
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
 }
@@ -83,26 +86,11 @@ static NSString * const headerViewCell = @"headerViewCell";
 
 - (void)setupParallax
 {
-    // jpeg quality image data
-    float quality = .00001f;
-
-    // intensity of blurred
-    float blurred = 20.1f;
-
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:self.league.background], quality);
-    UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
-    self.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
-
-    self.collectionView.backgroundColor = [UIColor clearColor];
-
     CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
         layout.parallaxHeaderAlwaysOnTop = YES;
         layout.disableStickyHeaders = YES;
     }
-
-    // Also insets the scroll indicator so it appears below the search bar
-    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 

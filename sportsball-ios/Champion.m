@@ -29,4 +29,13 @@
   }];
 }
 
+-(NSDateFormatter *)dateFormatter {
+  if (!_dateFormatter) {
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+  }
+
+  return _dateFormatter;
+}
+
 @end

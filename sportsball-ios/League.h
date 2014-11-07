@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSString *logo;
 @property (nonatomic, retain) NSString *background;
 @property (nonatomic, retain) NSString *header;
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain) UIImage *blurredHeader;
 
 
 +(NSArray *)supportedLeagues;
