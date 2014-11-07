@@ -31,7 +31,7 @@
 
   [self.view addSubview:self.paginalTableView];
 
-  [self openScoresAtIndex:0 animated:NO];
+//  [self openScoresAtIndex:0 animated:NO];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(stopTimer)

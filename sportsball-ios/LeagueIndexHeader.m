@@ -12,15 +12,12 @@
 
 @implementation LeagueIndexHeader
 
--(void)awakeFromNib {
-}
-
 -(void)setLeague:(League *)league {
   _league = league;
 
   float quality = .00001f;
   float blurred = 2.5f;
-  NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:league.background], quality);
+  NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:league.header], quality);
   UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
 
   self.backgroundImage.image = blurredImage;

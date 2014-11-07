@@ -14,11 +14,11 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *logo;
 @property (nonatomic, retain) NSString *background;
+@property (nonatomic, retain) NSString *header;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
 
 
 +(NSArray *)supportedLeagues;
--(NSString *)scoresUrl;
 
 -(void)allScoresForDate:(NSDate *)date
              parameters:(id)parameters

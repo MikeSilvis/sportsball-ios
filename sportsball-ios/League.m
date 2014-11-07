@@ -14,23 +14,21 @@
 +(NSArray *)supportedLeagues {
   League *nfl = [[League alloc] init];
   nfl.logo = @"nfl-logo";
-  nfl.background = @"nfl-header-1";
+  nfl.header = @"nfl-header-1";
   nfl.name = @"nfl";
+  nfl.background = @"nfl-background";
 
   League *nhl = [[League alloc] init];
   nhl.logo = @"nhl-logo";
+  nhl.header = @"nhl-header-1";
   nhl.name = @"nhl";
-  nhl.background = @"nhl-header-1";
+  nhl.background = @"nhl-background";
 
   return @[
            nhl,
            nfl
            ];
 
-}
-
--(NSString *)scoresUrl {
-  return [NSString stringWithFormat:@"http://sportsball.herokuapp.com/api/scores/%@", self.name];
 }
 
 -(NSDateFormatter *)dateFormatter {

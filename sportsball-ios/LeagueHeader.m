@@ -9,15 +9,11 @@
 #import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "UIImage+Blur.h"
-#define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
 
 @implementation LeagueHeader
 
 -(void)awakeFromNib {
   [super awakeFromNib];
-  CGFloat number = RAND_FROM_TO(1, 5);
-  NSString *imageName = [NSString stringWithFormat:@"nhl-header-%f", number];
-  self.largeLogo.image = [UIImage imageNamed:imageName];
 }
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
@@ -25,8 +21,8 @@
     [self createBlurredImage];
   }
 
-  [UIView animateWithDuration:0.3 animations:^{
-    if (layoutAttributes.progressiveness <= 0.1) {
+  [UIView animateWithDuration:0.1 animations:^{
+    if (layoutAttributes.frame.origin.y >= -20) {
       self.smallLogo.alpha = 1;
       self.largeLogo.image = self.blurredImage;
     } else {
@@ -34,7 +30,17 @@
       self.largeLogo.image = self.largeLogoImage;
     }
   }];
+}
 
+-(void)setCurrentLeague:(League *)currentLeague {
+  _currentLeague = currentLeague;
+
+  self.largeLogo.image = [UIImage imageNamed:self.currentLeague.header];
+  self.smallLogo.image = [UIImage imageNamed:self.currentLeague.logo];
+
+  // Re-add the blur
+  [self createBlurredImage];
+  self.largeLogo.image = self.blurredImage;
 }
 
 -(void)createBlurredImage {

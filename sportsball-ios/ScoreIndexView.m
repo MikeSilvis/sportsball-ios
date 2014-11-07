@@ -8,6 +8,7 @@
 
 #import "ScoreIndexView.h"
 #import "GameCollectionViewCell.h"
+#import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "UIImage+Blur.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
@@ -22,8 +23,6 @@ static NSString * const headerViewCell = @"headerViewCell";
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
-
-  [self setupParallax];
 }
 
 -(void)cancelTimer {
@@ -53,7 +52,8 @@ static NSString * const headerViewCell = @"headerViewCell";
 
 -(void)setLeague:(League *)league {
   _league = league;
-//  [self startTimer];
+
+  [self setupParallax];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -72,15 +72,24 @@ static NSString * const headerViewCell = @"headerViewCell";
   return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    LeagueHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                        withReuseIdentifier:headerViewCell
+                                                                               forIndexPath:indexPath];
+    cell.currentLeague = self.league;
+
+    return cell;
+}
+
 - (void)setupParallax
 {
     // jpeg quality image data
     float quality = .00001f;
 
     // intensity of blurred
-    float blurred = 1.1f;
+    float blurred = 20.1f;
 
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"nhl-background"], quality);
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:self.league.background], quality);
     UIImage *blurredImage = [[UIImage imageWithData:imageData] blurredImage:blurred];
     self.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
 
@@ -96,24 +105,17 @@ static NSString * const headerViewCell = @"headerViewCell";
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                        withReuseIdentifier:headerViewCell
-                                                                               forIndexPath:indexPath];
-
-    return cell;
-}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
 -(void)layoutSubviews {
-    CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-    layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, 200);
-    layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, 64);
-
-    layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
+  CGFloat headerSize = 64;
+  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+  layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
+  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
+  layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
 }
 
 @end

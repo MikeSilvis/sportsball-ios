@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "League.h"
 
 @interface LeagueHeader : UICollectionViewCell
 
@@ -15,5 +16,7 @@
 
 @property (nonatomic, strong) UIImage *blurredImage;
 @property (nonatomic, strong) UIImage *largeLogoImage;
+
+@property (nonatomic, strong) League *currentLeague;
 
 @end
