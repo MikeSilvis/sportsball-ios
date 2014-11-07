@@ -35,7 +35,7 @@
 
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index;
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView deleteRowAtIndex:(NSUInteger)index;
-
+- (void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index;
 @end
 
 #pragma mark -

@@ -23,29 +23,37 @@ static NSString * const headerViewCell = @"headerViewCell";
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
 
-  [self callThisMethod];
+  [self setupParallax];
+}
+
+-(void)cancelTimer {
+  NSLog(@"\n Stopping Timer: %@ \n", self.league.name);
+
+  [self.scorePuller invalidate];
+  self.scorePuller = nil;
+}
+
+-(void)startTimer {
+  if (!self.scorePuller) {
+    NSLog(@"\n Starting Timer: %@ \n", self.league.name);
+
+    [self findGames:YES];
+    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames:) userInfo:nil repeats:YES];
+  }
 }
 
 -(void)findGames:(BOOL)showLoader {
-  NSDateFormatter *df = [[NSDateFormatter alloc] init];
-  [df setDateFormat:@"yyyy-MM-dd"];
-  NSDictionary *params = @{@"date": [df stringFromDate:[NSDate date]]};
   self.games = [NSMutableArray array];
 
-  [[AFHTTPRequestOperationManager manager] GET:self.league.scoresUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    for (id score in responseObject[@"scores"]) {
-        Game *newGame = [[Game alloc] initWithJson:score];
-        [self.games addObject:newGame];
-    }
+  [self.league allScoresForDate:nil parameters:nil success:^(NSArray *games) {
+    self.games = [NSMutableArray arrayWithArray:games];
     [self.collectionView reloadData];
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"Error: %@", error);
-  }];
+  } failure:nil];
 }
 
 -(void)setLeague:(League *)league {
   _league = league;
-  [self findGames:NO];
+//  [self startTimer];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -64,7 +72,7 @@ static NSString * const headerViewCell = @"headerViewCell";
   return cell;
 }
 
-- (void)callThisMethod
+- (void)setupParallax
 {
     // jpeg quality image data
     float quality = .00001f;
@@ -86,7 +94,6 @@ static NSString * const headerViewCell = @"headerViewCell";
 
     // Also insets the scroll indicator so it appears below the search bar
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {

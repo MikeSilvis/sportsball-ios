@@ -12,6 +12,7 @@
 
 @interface APPaginalContainerViewScrollView : UIScrollView
 @property (nonatomic, assign) UIEdgeInsets panRecognizeInsets;
+
 @end
 
 @implementation APPaginalContainerViewScrollView

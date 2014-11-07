@@ -43,7 +43,6 @@ NSUInteger kAPPaginalTableViewSection = 0;
 @synthesize paginalContainerView = _paginalContainerView;
 
 @synthesize isExpandedState = _isExpandedState;
-@synthesize indexOpenedElement = _indexOpenedElement;
 @synthesize openedPage = _openedPage;
 @dynamic numberOfElements;
 
@@ -220,7 +219,6 @@ NSUInteger kAPPaginalTableViewSection = 0;
         }
     };
     
-//    [self.tableView showFixedHeaderAndFooterAnimated:animated];
     [self collapseElementAtindex:index completion:internalCompletion animated:animated];
 }
 
@@ -278,8 +276,12 @@ NSUInteger kAPPaginalTableViewSection = 0;
         _openedPage = openedPage;
         _openedPage.focused = YES;
     }
-    
+
     self.indexOpenedElement = (_openedPage == nil)? NSNotFound : [_paginalContainerView indexOfCurrentPage];
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(paginalTableView:didChangeIndex:)]) {
+      [self.delegate paginalTableView:self didChangeIndex:self.indexOpenedElement];
+    }
 }
 
 #pragma mark - UIPinchGestureRecognizer

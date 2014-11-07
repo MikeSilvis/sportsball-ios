@@ -7,14 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Champion.h"
 
-@interface League : NSObject
+@interface League : Champion
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *logo;
 @property (nonatomic, retain) NSString *background;
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+
 
 +(NSArray *)supportedLeagues;
 -(NSString *)scoresUrl;
+
+-(void)allScoresForDate:(NSDate *)date
+             parameters:(id)parameters
+                success:(void (^) (NSArray *games))success
+                failure:(void (^) (NSError *error))failure;
 
 @end

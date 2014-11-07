@@ -14,23 +14,57 @@
 @implementation LeagueIndexViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+  [super viewDidLoad];
+  self.view.backgroundColor = [UIColor blackColor];
 
-    self.leagues = [League supportedLeagues];
+  self.leagues = [League supportedLeagues];
+  self.scoreViews = [NSMutableArray array];
 
-    self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
-    
-    self.paginalTableView.dataSource = self;
-    self.paginalTableView.delegate = self;
-    self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
-    self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
-    self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
-    self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+  self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
+  
+  self.paginalTableView.dataSource = self;
+  self.paginalTableView.delegate = self;
+  self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
+  self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
+  self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
+  self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
-    [self.view addSubview:self.paginalTableView];
+  [self.view addSubview:self.paginalTableView];
 
-//    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
+  [self openScoresAtIndex:0 animated:NO];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(stopTimer)
+                                               name:UIApplicationDidEnterBackgroundNotification
+                                             object:nil];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(startTimer)
+                                               name:UIApplicationDidBecomeActiveNotification
+                                             object:nil];
+}
+
+-(void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
+  [self stopTimer];
+  [self startTimer];
+}
+
+// Start Current timer
+-(void)startTimer {
+  if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
+    [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
+  }
+}
+
+// Cancel all timers
+-(void)stopTimer {
+  for (ScoreIndexView *view in self.scoreViews) {
+    [view cancelTimer];
+  }
+}
+
+-(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
+  [self.paginalTableView openElementAtIndex:index completion:nil animated:animated];
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView
@@ -57,22 +91,27 @@
       onChangeHeightFrom:(CGFloat)initialHeight
                 toHeight:(CGFloat)finalHeight
 {
-    BOOL open = _paginalTableView.isExpandedState;
-    APPaginalTableViewElement *element = [managerView elementAtIndex:index];
-    
-    if (initialHeight > finalHeight) { //open
-        open = finalHeight > element.expandedHeight * 0.8f;
-    }
-    else if (initialHeight < finalHeight) { //close
-        open = finalHeight > element.expandedHeight * 0.2f;
-    }
+  BOOL open = _paginalTableView.isExpandedState;
+  APPaginalTableViewElement *element = [managerView elementAtIndex:index];
 
-    return open;
+  // Open
+  if (initialHeight > finalHeight) {
+    open = finalHeight > element.expandedHeight * 0.8f;
+  }
+  // Close
+  else if (initialHeight < finalHeight) {
+    open = finalHeight > element.expandedHeight * 0.2f;
+  }
+
+  ScoreIndexView *scoreView = self.scoreViews[index];
+  [scoreView cancelTimer];
+
+  return open;
 }
 
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index
 {
-    [self.paginalTableView openElementAtIndex:index completion:nil animated:YES];
+  [self openScoresAtIndex:index animated:YES];
 }
 
 #pragma mark - Internal
@@ -92,6 +131,7 @@
 {
   ScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"ScoreIndexView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
+  [self.scoreViews addObject:scoreIndex];
 
   return scoreIndex;
 }

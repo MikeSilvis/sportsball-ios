@@ -25,9 +25,9 @@
 		1154F64B1A03D77C009F560B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F64A1A03D77C009F560B /* Game.m */; };
 		1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* GameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */; };
+		1161A98A1A0C626100E40EEC /* Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* Champion.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
-		11BB2B0D1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
 		11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */; };
 		E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F32CCB664364F1DD9C1C6E /* libPods.a */; };
@@ -68,10 +68,10 @@
 		1161A9831A0C1E4A00E40EEC /* GameCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCollectionViewCell.h; sourceTree = "<group>"; };
 		1161A9841A0C1E4A00E40EEC /* GameCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCollectionViewCell.m; sourceTree = "<group>"; };
 		1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
+		1161A9881A0C626100E40EEC /* Champion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Champion.h; sourceTree = "<group>"; };
+		1161A9891A0C626100E40EEC /* Champion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Champion.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		11BB2B0B1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreIndexCollectionViewController.h; sourceTree = "<group>"; };
-		11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreIndexCollectionViewController.m; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeader.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeader.xib; sourceTree = "<group>"; };
@@ -220,8 +220,6 @@
 			children = (
 				113845C11A0BF9A600BC7A4D /* LeagueIndexViewController.h */,
 				113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */,
-				11BB2B0B1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.h */,
-				11BB2B0C1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -229,12 +227,14 @@
 		1154F6451A03D743009F560B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1154F6461A03D754009F560B /* Team.h */,
-				1154F6471A03D754009F560B /* Team.m */,
+				1161A9881A0C626100E40EEC /* Champion.h */,
+				1161A9891A0C626100E40EEC /* Champion.m */,
 				1154F6491A03D77C009F560B /* Game.h */,
 				1154F64A1A03D77C009F560B /* Game.m */,
 				113845DC1A0C052600BC7A4D /* League.h */,
 				113845DD1A0C052600BC7A4D /* League.m */,
+				1154F6461A03D754009F560B /* Team.h */,
+				1154F6471A03D754009F560B /* Team.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -397,8 +397,8 @@
 			files = (
 				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
 				1154F64B1A03D77C009F560B /* Game.m in Sources */,
-				11BB2B0D1A03F3BC0059B4C1 /* ScoreIndexCollectionViewController.m in Sources */,
 				113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */,
+				1161A98A1A0C626100E40EEC /* Champion.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,

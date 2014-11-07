@@ -7,6 +7,7 @@
 //
 
 #import "League.h"
+#import "Game.h"
 
 @implementation League
 
@@ -30,6 +31,44 @@
 
 -(NSString *)scoresUrl {
   return [NSString stringWithFormat:@"http://sportsball.herokuapp.com/api/scores/%@", self.name];
+}
+
+-(NSDateFormatter *)dateFormatter {
+  if (!_dateFormatter) {
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+  }
+
+  return _dateFormatter;
+}
+
+-(void)allScoresForDate:(NSDate *)date
+             parameters:(NSDictionary *)parameters
+                success:(void (^) (NSArray *games))success
+                failure:(void (^) (NSError *error))failure {
+  if (!date) {
+    date = [NSDate date];
+  }
+
+  NSDictionary *params = @{
+                           @"date": [self.dateFormatter stringFromDate:[NSDate date]]
+                          };
+
+  NSString *path = [NSString stringWithFormat:@"scores/%@", self.name];
+
+  [self dispatchRequest:path parameters:params success:^(id responseObject) {
+
+    NSMutableArray *games = [NSMutableArray array];
+
+    for (id score in responseObject[@"scores"]) {
+        Game *newGame = [[Game alloc] initWithJson:score];
+        [games addObject:newGame];
+    }
+
+    success(games);
+  } failure:^(NSError *error) {
+    failure(error);
+  }];
 }
 
 @end

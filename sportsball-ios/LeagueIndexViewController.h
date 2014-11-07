@@ -13,7 +13,8 @@
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
 @property (nonatomic, retain) NSArray *leagues;
+@property (nonatomic, retain) NSMutableArray *scoreViews;
 
-//    [self.paginalTableView openElementAtIndex:0 completion:nil animated:NO];
+-(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
 @end
