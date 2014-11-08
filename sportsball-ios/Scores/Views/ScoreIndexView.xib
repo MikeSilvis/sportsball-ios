@@ -25,7 +25,7 @@
                     <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </toolbar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-ow-B8a">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pja-Oz-4KU" customClass="CSStickyHeaderFlowLayout">
                         <size key="itemSize" width="600" height="60"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -40,15 +40,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="8y5-ow-B8a" secondAttribute="centerY" id="2jX-AO-Ap3"/>
-                <constraint firstAttribute="trailing" secondItem="8y5-ow-B8a" secondAttribute="trailing" id="5gk-MY-qLF"/>
-                <constraint firstItem="8y5-ow-B8a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JcH-Ff-ok5"/>
-                <constraint firstItem="5hH-qC-EUJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P5O-7t-NnV"/>
-                <constraint firstAttribute="bottom" secondItem="5hH-qC-EUJ" secondAttribute="bottom" id="YRr-T7-2sb"/>
-                <constraint firstAttribute="centerX" secondItem="8y5-ow-B8a" secondAttribute="centerX" id="b8S-8h-2u1"/>
-                <constraint firstAttribute="trailing" secondItem="5hH-qC-EUJ" secondAttribute="trailing" id="bdP-He-JyD"/>
-                <constraint firstItem="8y5-ow-B8a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gzY-WE-sMa"/>
-                <constraint firstAttribute="bottom" secondItem="8y5-ow-B8a" secondAttribute="bottom" id="naa-Tu-CmN"/>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OO2-y7-qnz"/>
+                <constraint firstAttribute="trailing" secondItem="8y5-ow-B8a" secondAttribute="trailing" id="a3N-c2-gLD"/>
+                <constraint firstItem="5hH-qC-EUJ" firstAttribute="top" secondItem="8y5-ow-B8a" secondAttribute="bottom" id="eIm-tH-SFs"/>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h4D-Bk-bqx"/>
+                <constraint firstAttribute="bottom" secondItem="5hH-qC-EUJ" secondAttribute="bottom" id="oMk-bB-rtk"/>
+                <constraint firstItem="5hH-qC-EUJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oVr-r9-48X"/>
+                <constraint firstAttribute="trailing" secondItem="5hH-qC-EUJ" secondAttribute="trailing" id="xDO-ae-SPj"/>
             </constraints>
             <connections>
                 <outlet property="collectionView" destination="8y5-ow-B8a" id="cuT-wK-FvH"/>
