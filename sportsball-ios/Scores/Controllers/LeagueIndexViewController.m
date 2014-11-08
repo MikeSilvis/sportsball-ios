@@ -28,6 +28,8 @@
   self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
   self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
   self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+  self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
+  self.paginalTableView.backgroundColor = [UIColor clearColor];
 
   [self.view addSubview:self.paginalTableView];
 
