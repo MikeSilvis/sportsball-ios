@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
 		113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */; };
 		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111696651A0E8EE500F0E1CD /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
 		113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreIndexView.xib; sourceTree = "<group>"; };
 		113845C11A0BF9A600BC7A4D /* LeagueIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueIndexViewController.h; sourceTree = "<group>"; };
 		113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueIndexViewController.m; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		1154F6191A03D60E009F560B /* sportsball-ios */ = {
 			isa = PBXGroup;
 			children = (
+				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
 				1154F6531A03DC9B009F560B /* Scores */,
 				1154F6451A03D743009F560B /* Models */,
 				1154F61E1A03D60F009F560B /* AppDelegate.h */,
@@ -333,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */,
 				113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
@@ -511,7 +515,6 @@
 			baseConfigurationReference = 47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -531,7 +534,6 @@
 			baseConfigurationReference = C3DD2F7CF6680422AFFC35B4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
