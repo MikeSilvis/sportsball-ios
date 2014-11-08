@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "APPaginalTableView.h"
+#import "ScoreIndexView.h"
 
-@interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate>
+@interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate>
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
 @property (nonatomic, retain) NSArray *leagues;

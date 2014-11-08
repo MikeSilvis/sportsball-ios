@@ -11,7 +11,7 @@
 #import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "UIImage+Blur.h"
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "UIImage+FontAwesome.h"
 
 @implementation ScoreIndexView
 
@@ -26,6 +26,10 @@ static NSString * const headerViewCell = @"headerViewCell";
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
+
+  CGFloat iconSize = 30;
+  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
+  self.leagueBarButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#c4eefe"];
 }
 
 -(void)cancelTimer {
@@ -44,6 +48,10 @@ static NSString * const headerViewCell = @"headerViewCell";
   }
 }
 
+- (IBAction)leagueBarButtonClicked:(id)sender {
+  [self.delegate didRequestClose];
+}
+
 -(void)findGames:(BOOL)showLoader {
   [self.league allScoresForDate:nil parameters:nil success:^(NSArray *games) {
     self.games = games;
@@ -55,6 +63,10 @@ static NSString * const headerViewCell = @"headerViewCell";
   _league = league;
 
   [self setupParallax];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  NSLog(@"clicked!");
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

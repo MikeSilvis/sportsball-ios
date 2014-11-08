@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
+		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
 		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
 		113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */; };
 		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		111696651A0E8EE500F0E1CD /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
+		1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FontAwesome.h"; path = "Categories/UIImage+FontAwesome.h"; sourceTree = "<group>"; };
+		1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FontAwesome.m"; path = "Categories/UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreIndexView.xib; sourceTree = "<group>"; };
 		113845C11A0BF9A600BC7A4D /* LeagueIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueIndexViewController.h; sourceTree = "<group>"; };
 		113845C21A0BF9A600BC7A4D /* LeagueIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueIndexViewController.m; sourceTree = "<group>"; };
@@ -102,6 +105,15 @@
 				17F32CCB664364F1DD9C1C6E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1116966A1A0E9BAE00F0E1CD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */,
+				1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		113845BE1A0BF93500BC7A4D /* Views */ = {
@@ -180,6 +192,7 @@
 		1154F6191A03D60E009F560B /* sportsball-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1116966A1A0E9BAE00F0E1CD /* Categories */,
 				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
 				1154F6531A03DC9B009F560B /* Scores */,
 				1154F6451A03D743009F560B /* Models */,
@@ -403,6 +416,7 @@
 				1154F64B1A03D77C009F560B /* Game.m in Sources */,
 				113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */,
 				1161A98A1A0C626100E40EEC /* Champion.m in Sources */,
+				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,

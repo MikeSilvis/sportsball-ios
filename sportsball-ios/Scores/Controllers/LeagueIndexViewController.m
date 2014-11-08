@@ -7,7 +7,6 @@
 //
 
 #import "LeagueIndexViewController.h"
-#import "ScoreIndexView.h"
 #import "LeagueIndexHeader.h"
 #import "League.h"
 
@@ -115,6 +114,10 @@
   [self openScoresAtIndex:index animated:YES];
 }
 
+-(void)didRequestClose {
+  [self.paginalTableView closeElementWithCompletion:nil animated:YES];
+}
+
 #pragma mark - Internal
 
 - (UIView *)createCollapsedViewAtIndex:(NSUInteger)index
@@ -133,6 +136,7 @@
   ScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"ScoreIndexView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
   scoreIndex.frame = self.view.bounds;
+  scoreIndex.delegate = self;
   [self.scoreViews addObject:scoreIndex];
 
   return scoreIndex;

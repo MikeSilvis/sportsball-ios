@@ -10,6 +10,7 @@
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import "EDColor.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+FontAwesome.h"
 
 @implementation GameCollectionViewCell
 
@@ -19,9 +20,7 @@
   // Winner Image
   CGFloat iconSize = 15;
   FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
-  UIColor *carretColor = [UIColor colorWithHexString:@"#c4eefe"];;
-  [carretIcon addAttribute:NSForegroundColorAttributeName value:carretColor];
-  UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
+  UIImage *iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
   self.awayTeamWinner.image = iconImage;
   self.homeTeamWinner.image = iconImage;
 }
