@@ -27,6 +27,8 @@
 }
 
 -(void)layoutSubviews {
+  [super layoutSubviews];
+
   // Upper Border
   CALayer *upperBorder = [CALayer layer];
   upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
