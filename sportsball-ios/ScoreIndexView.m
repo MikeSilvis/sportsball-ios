@@ -70,6 +70,7 @@ static NSString * const headerViewCell = @"headerViewCell";
   GameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:gameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;
 
+
   return cell;
 }
 

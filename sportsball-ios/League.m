@@ -72,7 +72,7 @@
         [games addObject:newGame];
     }
 
-    success(games);
+    success([NSArray arrayWithArray:games]);
   } failure:^(NSError *error) {
     failure(error);
   }];

@@ -16,14 +16,6 @@
 -(void)awakeFromNib {
   self.backgroundColor = [UIColor clearColor];
 
-  // Bottom Border
-  CALayer *upperBorder = [CALayer layer];
-  upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
-  CGFloat totalWidth = CGRectGetWidth(self.frame);
-  CGFloat width = totalWidth;
-  upperBorder.frame = CGRectMake((totalWidth - width) / 2, 0, width, 0.5f);
-  [self.layer addSublayer:upperBorder];
-
   // Winner Image
   CGFloat iconSize = 15;
   FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
@@ -32,6 +24,17 @@
   UIImage *iconImage = [carretIcon imageWithSize:CGSizeMake(iconSize, iconSize)];
   self.awayTeamWinner.image = iconImage;
   self.homeTeamWinner.image = iconImage;
+}
+
+-(void)layoutSubviews {
+  // Upper Border
+  CALayer *upperBorder = [CALayer layer];
+  upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
+  CGFloat totalWidth = CGRectGetWidth(self.frame);
+  CGFloat width = totalWidth;
+  CGFloat widthOfBorder = 0.5f;
+  upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
+  [self.layer addSublayer:upperBorder];
 }
 
 -(void)setCurrentGame:(Game *)currentGame {

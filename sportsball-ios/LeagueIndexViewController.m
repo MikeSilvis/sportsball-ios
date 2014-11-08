@@ -132,6 +132,7 @@
 {
   ScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"ScoreIndexView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
+  scoreIndex.frame = self.view.bounds;
   [self.scoreViews addObject:scoreIndex];
 
   return scoreIndex;
