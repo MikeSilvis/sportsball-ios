@@ -16,7 +16,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twt-q2-bnj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="nhl-header-1" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="nhl-header" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nhl-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-eo-R7F">
@@ -57,7 +57,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="nhl-header-1" width="1000" height="563"/>
+        <image name="nhl-header" width="1000" height="563"/>
         <image name="nhl-logo" width="200" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

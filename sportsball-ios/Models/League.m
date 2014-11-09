@@ -15,19 +15,25 @@
 +(NSArray *)supportedLeagues {
   League *nfl = [[League alloc] init];
   nfl.logo = @"nfl-logo";
-  nfl.header = @"nfl-header-1";
+  nfl.header = @"nfl-header";
   nfl.name = @"nfl";
   nfl.background = @"nfl-background";
 
   League *nhl = [[League alloc] init];
   nhl.logo = @"nhl-logo";
-  nhl.header = @"nhl-header-1";
+  nhl.header = @"nhl-header";
   nhl.name = @"nhl";
   nhl.background = @"nhl-background";
 
+  League *ncf = [[League alloc] init];
+  ncf.logo = @"ncf-logo";
+  ncf.header = @"ncf-header";
+  ncf.name = @"ncf";
+
   return @[
            nhl,
-           nfl
+           nfl,
+           ncf
            ];
 
 }
