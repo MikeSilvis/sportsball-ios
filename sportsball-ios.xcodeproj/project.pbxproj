@@ -193,11 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				1116966A1A0E9BAE00F0E1CD /* Categories */,
-				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
 				1154F6531A03DC9B009F560B /* Scores */,
 				1154F6451A03D743009F560B /* Models */,
 				1154F61E1A03D60F009F560B /* AppDelegate.h */,
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
+				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
 				1154F6241A03D60F009F560B /* Main.storyboard */,
 				1154F6271A03D60F009F560B /* Images.xcassets */,
 				1154F61A1A03D60F009F560B /* Supporting Files */,

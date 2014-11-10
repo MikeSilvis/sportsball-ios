@@ -23,6 +23,11 @@ static NSString * const headerViewCell = @"headerViewCell";
 
   self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
+  self.toolBar.backgroundColor = [UIColor clearColor];
+  [self.toolBar setBackgroundImage:[UIImage new]
+                forToolbarPosition:UIToolbarPositionAny
+                        barMetrics:UIBarMetricsDefault];
+
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
