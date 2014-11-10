@@ -62,11 +62,11 @@
   [self.view showRealTimeBlurWithBlurStyle:XHBlurStyleTranslucent];
 
   if (!self.activityView) {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(50, 50);
     self.activityView.frame = self.view.bounds;
     self.activityView.hidesWhenStopped = YES;
-    self.activityView.transform = CGAffineTransformMakeScale(3, 3);
+    self.activityView.transform = CGAffineTransformMakeScale(2, 2);
     [self.activityView startAnimating];
   }
 
@@ -112,8 +112,7 @@
   } animated:animated];
 }
 
-- (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView
-{
+- (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView {
     return self.leagues.count;
 }
 

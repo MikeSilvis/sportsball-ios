@@ -13,8 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *largeLogo;
+@property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
 
-@property (nonatomic, strong) UIImage *blurredImage;
 @property (nonatomic, strong) UIImage *largeLogoImage;
 
 @property (nonatomic, strong) League *currentLeague;

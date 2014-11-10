@@ -36,7 +36,11 @@ static NSString * const headerViewCell = @"headerViewCell";
   FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
   self.leagueBarButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#c4eefe"];
 
-  [self setupParallax];
+  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+  if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
+      layout.parallaxHeaderAlwaysOnTop = YES;
+      layout.disableStickyHeaders = YES;
+  }
 }
 
 -(void)cancelTimer {
@@ -107,21 +111,9 @@ static NSString * const headerViewCell = @"headerViewCell";
   return nil;
 }
 
-- (void)setupParallax
-{
-    CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-    if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderAlwaysOnTop = YES;
-        layout.disableStickyHeaders = YES;
-    }
-}
-
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 -(void)layoutSubviews {
+  [super layoutSubviews];
+
   CGFloat headerSize = 64;
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);

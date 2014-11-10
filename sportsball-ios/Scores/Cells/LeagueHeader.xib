@@ -19,6 +19,9 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="nhl-header" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="nhl-header" translatesAutoresizingMaskIntoConstraints="NO" id="l5G-uZ-nBU" userLabel="nhl-header-blurred">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nhl-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-eo-R7F">
                                 <rect key="frame" x="275" y="37" width="50" height="50"/>
                                 <constraints>
@@ -32,10 +35,16 @@
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="centerX" secondItem="rtY-eo-R7F" secondAttribute="centerX" id="0A8-tA-AS1"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
                             <constraint firstItem="rtY-eo-R7F" firstAttribute="top" secondItem="4PO-fa-s9b" secondAttribute="top" constant="37" id="5no-u2-TYl"/>
+                            <constraint firstAttribute="centerX" secondItem="l5G-uZ-nBU" secondAttribute="centerX" id="84y-WP-U4J"/>
+                            <constraint firstAttribute="trailing" secondItem="l5G-uZ-nBU" secondAttribute="trailing" id="9nc-VR-QYA"/>
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
+                            <constraint firstItem="l5G-uZ-nBU" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="TXl-aq-VgQ"/>
                             <constraint firstItem="rtY-eo-R7F" firstAttribute="centerX" secondItem="4PO-fa-s9b" secondAttribute="centerX" id="W1G-z7-Fh1"/>
+                            <constraint firstItem="l5G-uZ-nBU" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="mYm-Gc-Qgv"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="riN-mo-fhY"/>
+                            <constraint firstAttribute="bottom" secondItem="l5G-uZ-nBU" secondAttribute="bottom" id="sOX-Ws-CtW"/>
                             <constraint firstAttribute="bottom" secondItem="4PO-fa-s9b" secondAttribute="bottom" id="w3B-v7-3iu"/>
+                            <constraint firstAttribute="centerY" secondItem="l5G-uZ-nBU" secondAttribute="centerY" id="wVq-LX-8Gx"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="centerX" secondItem="rtY-eo-R7F" secondAttribute="centerX" id="wtc-qN-oel"/>
                         </constraints>
                     </view>
@@ -51,6 +60,7 @@
             </constraints>
             <size key="customSize" width="320" height="426"/>
             <connections>
+                <outlet property="blurredImage" destination="l5G-uZ-nBU" id="DKP-3K-rtg"/>
                 <outlet property="largeLogo" destination="4PO-fa-s9b" id="YQk-VX-jbe"/>
                 <outlet property="smallLogo" destination="rtY-eo-R7F" id="4jH-WI-cqN"/>
             </connections>
