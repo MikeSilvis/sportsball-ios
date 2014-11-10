@@ -16,6 +16,7 @@
 @property (nonatomic, retain) UIPageControl *pageControl;
 @property (nonatomic, retain) NSArray *leagues;
 @property (nonatomic, retain) NSMutableArray *scoreViews;
+@property (nonatomic, retain) UIActivityIndicatorView *activityView;
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 

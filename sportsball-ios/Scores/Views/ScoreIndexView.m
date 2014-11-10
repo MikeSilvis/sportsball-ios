@@ -30,6 +30,8 @@ static NSString * const headerViewCell = @"headerViewCell";
   CGFloat iconSize = 30;
   FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
   self.leagueBarButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#c4eefe"];
+
+  [self setupParallax];
 }
 
 -(void)cancelTimer {
@@ -43,8 +45,8 @@ static NSString * const headerViewCell = @"headerViewCell";
   if (!self.scorePuller) {
     NSLog(@"Starting Timer: %@", self.league.name);
 
-    [self findGames:YES];
-    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames:) userInfo:nil repeats:YES];
+    [self findGames];
+    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
   }
 }
 
@@ -52,17 +54,16 @@ static NSString * const headerViewCell = @"headerViewCell";
   [self.delegate didRequestClose];
 }
 
--(void)findGames:(BOOL)showLoader {
+-(void)findGames {
+  if (self.games.count == 0) {
+    [self.delegate didStartLoading];
+  }
+
   [self.league allScoresForDate:nil parameters:nil success:^(NSArray *games) {
     self.games = games;
     [self.collectionView reloadData];
+    [self.delegate didEndLoading];
   } failure:nil];
-}
-
--(void)setLeague:(League *)league {
-  _league = league;
-
-  [self setupParallax];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

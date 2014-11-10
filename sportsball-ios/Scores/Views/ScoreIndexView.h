@@ -12,6 +12,8 @@
 @protocol ScoreIndexViewDelegate <NSObject>
 
 -(void)didRequestClose;
+-(void)didStartLoading;
+-(void)didEndLoading;
 
 @end
 
@@ -29,7 +31,7 @@
 @property (nonatomic, weak) id<ScoreIndexViewDelegate> delegate;
 
 - (IBAction)leagueBarButtonClicked:(id)sender;
--(void)findGames:(BOOL)showLoader;
+-(void)findGames;
 -(void)cancelTimer;
 -(void)startTimer;
 

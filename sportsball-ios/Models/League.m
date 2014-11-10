@@ -80,7 +80,9 @@
 
     success([NSArray arrayWithArray:games]);
   } failure:^(NSError *error) {
-    failure(error);
+    if (failure) {
+      failure(error);
+    }
   }];
 }
 
