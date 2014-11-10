@@ -20,8 +20,8 @@
 
   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
 
+  // Create the table list
   self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
-  
   self.paginalTableView.dataSource = self;
   self.paginalTableView.delegate = self;
   self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
@@ -30,8 +30,19 @@
   self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
   self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
   self.paginalTableView.backgroundColor = [UIColor clearColor];
-
   [self.view addSubview:self.paginalTableView];
+
+  // Create the page control
+  self.pageControl = [[UIPageControl alloc] init];
+  self.pageControl.numberOfPages = self.leagues.count;
+  self.pageControl.currentPage = 1;
+  self.pageControl.frame = CGRectMake(0, 5, 200, 50);
+  [self.pageControl sizeToFit];
+  CGRect f = self.pageControl.frame;
+  f.origin.x = (self.view.bounds.size.width - self.pageControl.bounds.size.width) / 2;
+  self.pageControl.frame = f;
+  self.pageControl.hidden = YES;
+  [self.view addSubview:self.pageControl];
 
 //  [self openScoresAtIndex:0 animated:NO];
 
@@ -54,6 +65,8 @@
 // Start Current timer
 -(void)startTimer {
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
+    self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
+
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
@@ -66,7 +79,11 @@
 }
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
-  [self.paginalTableView openElementAtIndex:index completion:nil animated:animated];
+  [self.paginalTableView openElementAtIndex:index completion:^(BOOL completed) {
+    if (completed) {
+      self.pageControl.hidden = NO;
+    }
+  } animated:animated];
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView
@@ -107,16 +124,17 @@
 
   ScoreIndexView *scoreView = self.scoreViews[index];
   [scoreView cancelTimer];
+  self.pageControl.hidden = YES;
 
   return open;
 }
 
-- (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index
-{
+- (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index {
   [self openScoresAtIndex:index animated:YES];
 }
 
 -(void)didRequestClose {
+  self.pageControl.hidden = YES;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
 }
 

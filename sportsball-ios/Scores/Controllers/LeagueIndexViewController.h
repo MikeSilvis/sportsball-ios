@@ -13,6 +13,7 @@
 @interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate>
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
+@property (nonatomic, retain) UIPageControl *pageControl;
 @property (nonatomic, retain) NSArray *leagues;
 @property (nonatomic, retain) NSMutableArray *scoreViews;
 
