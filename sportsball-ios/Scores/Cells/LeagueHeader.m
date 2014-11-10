@@ -22,11 +22,28 @@
   }
 
   [UIView animateWithDuration:0.1 animations:^{
-    if (layoutAttributes.frame.origin.y >= -20) {
+    CGFloat yOrigin = layoutAttributes.frame.origin.y;
+    if (yOrigin == 0) {
       self.smallLogo.alpha = 1;
+    }
+    else if (yOrigin >= -10) {
+      self.smallLogo.alpha = 0.75;
+    }
+    else if (yOrigin >= -20) {
+      self.smallLogo.alpha = 0.5;
+    }
+    else if (yOrigin >= -30) {
+      self.smallLogo.alpha = 0.25;
+    }
+    else if (yOrigin >= -40) {
+      self.smallLogo.alpha = 0;
+    }
+  }];
+
+  [UIView animateWithDuration:0.1 animations:^{
+    if (layoutAttributes.frame.origin.y >= -20) {
       self.largeLogo.image = self.blurredImage;
     } else {
-      self.smallLogo.alpha = 0;
       self.largeLogo.image = self.largeLogoImage;
     }
   }];
