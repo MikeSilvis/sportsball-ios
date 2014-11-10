@@ -36,14 +36,6 @@
       self.blurredImage.alpha = 0;
     }
   }];
-
-//  [UIView animateWithDuration:0.1 animations:^{
-//    if (layoutAttributes.frame.origin.y >= -20) {
-//      self.largeLogo.image = self.blurredImage;
-//    } else {
-//      self.largeLogo.image = self.largeLogoImage;
-//    }
-//  }];
 }
 
 -(void)setCurrentLeague:(League *)currentLeague {
@@ -52,15 +44,6 @@
   self.largeLogo.image = [UIImage imageNamed:self.currentLeague.header];
   self.smallLogo.image = [UIImage imageNamed:self.currentLeague.logo];
   self.blurredImage.image = self.currentLeague.blurredHeader;
-
-  // Re-add the blur
-//  [self createBlurredImage];
-//  self.largeLogo.image = self.blurredImage;
-}
-
--(void)createBlurredImage {
-//  self.largeLogoImage = self.largeLogo.image;
-//  self.blurredImage = self.currentLeague.blurredHeader;
 }
 
 @end
