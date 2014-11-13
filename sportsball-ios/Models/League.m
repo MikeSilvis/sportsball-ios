@@ -9,6 +9,7 @@
 #import "League.h"
 #import "Game.h"
 #import "UIImage+Blur.h"
+#import "XHRealTimeBlur.h"
 
 @implementation League
 
@@ -40,11 +41,9 @@
 
 -(UIImage *)blurredHeader{
   if (!_blurredHeader) {
-    float quality = .00001f;
     float blurred = 2.5f;
 
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:self.header], quality);
-    _blurredHeader = [[UIImage imageWithData:imageData] blurredImage:blurred];
+    _blurredHeader = [[UIImage imageNamed:self.header] blurredImage:blurred];
   }
 
   return _blurredHeader;
