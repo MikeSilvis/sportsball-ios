@@ -111,7 +111,7 @@ static NSString * const headerViewCell = @"headerViewCell";
 -(void)layoutSubviews {
   [super layoutSubviews];
 
-  CGFloat headerSize = 64;
+  CGFloat headerSize = 74;
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);

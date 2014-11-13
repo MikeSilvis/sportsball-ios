@@ -39,7 +39,7 @@
   self.pageControl = [[UIPageControl alloc] init];
   self.pageControl.numberOfPages = self.leagues.count;
   self.pageControl.currentPage = 1;
-  self.pageControl.frame = CGRectMake(0, 5, 200, 50);
+  self.pageControl.frame = CGRectMake(0, 15, 200, 50);
   [self.pageControl sizeToFit];
   CGRect f = self.pageControl.frame;
   f.origin.x = (self.view.bounds.size.width - self.pageControl.bounds.size.width) / 2;

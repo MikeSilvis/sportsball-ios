@@ -23,6 +23,10 @@
       self.smallLogo.alpha = 1;
       self.blurredImage.alpha = 1;
     }
+    else if (yOrigin >= -5) {
+      self.smallLogo.alpha = 0.90;
+      self.blurredImage.alpha = 0.90;
+    }
     else if (yOrigin >= -10) {
       self.smallLogo.alpha = 0.75;
       self.blurredImage.alpha = 0.75;
