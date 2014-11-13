@@ -102,7 +102,6 @@ static NSString * const headerViewCell = @"headerViewCell";
 
     return cell;
   } //else if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-      // Your code to configure your section header...
 //  }
 
   return nil;
