@@ -19,7 +19,7 @@
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.1 animations:^{
     CGFloat yOrigin = layoutAttributes.frame.origin.y;
-    if (yOrigin == 0) {
+    if (yOrigin >= 0) {
       self.smallLogo.alpha = 1;
       self.blurredImage.alpha = 1;
     }

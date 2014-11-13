@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSNumber *wins;
 @property (nonatomic, retain) NSNumber *loses;
+@property (nonatomic, retain) NSString *record;
 
 -(id)initWithJson:(id)json;
 -(NSString *)formattedRecord;

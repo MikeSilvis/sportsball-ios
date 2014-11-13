@@ -16,15 +16,14 @@
   if (self) {
     self.name = json[@"name"];
     self.logoUrl = json[@"logo"];
-    self.wins = json[@"wins"];
-    self.loses = json[@"loses"];
+    self.record = json[@"record"];
   }
 
   return self;
 }
 
 -(NSString *)formattedRecord {
-  return [NSString stringWithFormat:@"(%@-%@)", self.wins, self.loses];
+  return [NSString stringWithFormat:@"(%@)", self.record];
 }
 
 @end

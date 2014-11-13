@@ -55,7 +55,7 @@ static NSString * const headerViewCell = @"headerViewCell";
     NSLog(@"Starting Timer: %@", self.league.name);
 
     [self findGames];
-    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
+    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
   }
 }
 
@@ -72,7 +72,17 @@ static NSString * const headerViewCell = @"headerViewCell";
     self.games = games;
     [self.collectionView reloadData];
     [self.delegate didEndLoading];
-  } failure:nil];
+  } failure:^(NSError *error) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Sorry :("
+                                                    message: @"Something happened, and the data failed to load."
+                                                   delegate: nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    if (self.games.count == 0) {
+      [alert show];
+    }
+    [self.delegate didEndLoading];
+  }];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

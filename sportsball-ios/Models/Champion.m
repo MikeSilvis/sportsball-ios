@@ -11,7 +11,8 @@
 @implementation Champion
 
 -(NSString *)getPathFromString:(NSString *)path {
-  return [NSString stringWithFormat:@"http://sportsball.herokuapp.com/api/%@", path];
+  return [NSString stringWithFormat:@"https://getbaryab.com/api/%@", path];
+//  return [NSString stringWithFormat:@"http://localhost:3000/api/%@", path];
 }
 
 -(void)dispatchRequest:(NSString *)path
