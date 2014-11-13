@@ -12,6 +12,7 @@
 #import "XHRealTimeBlur.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
+#import "ScoreShowViewController.h"
 
 @implementation LeagueIndexViewController
 
@@ -47,8 +48,6 @@
   self.pageControl.hidden = YES;
   [self.view addSubview:self.pageControl];
 
-//  [self openScoresAtIndex:0 animated:NO];
-
   CGFloat iconSize = 25;
   FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
   self.hamburgerButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#fff"];
@@ -70,6 +69,14 @@
                                            selector:@selector(startTimer)
                                                name:UIApplicationDidBecomeActiveNotification
                                              object:nil];
+
+  // TODO: Sync last setting
+  [self openScoresAtIndex:0 animated:NO];
+}
+
+-(void)selectedGame:(Game *)game {
+  self.selectedGame = game;
+  [self performSegueWithIdentifier:@"scoreShowSegue" sender:self];
 }
 
 -(void)didStartLoading {
@@ -200,8 +207,17 @@
   return scoreIndex;
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  ScoreShowViewController *viewController = segue.destinationViewController;
+  viewController.game = self.selectedGame;
+  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
+//  self.animator.dragable = YES;
+  self.animator.direction = ZFModalTransitonDirectionBottom;
+//  [self.animator setContentScrollView:detailViewController.scrollview];
+
+  // set transition delegate of modal view controller to our object
+  viewController.transitioningDelegate = self.animator;
+  viewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DBEB3ED979C599C57076DC56"
-               BuildableName = "libPods-UIImage-Helpers.a"
-               BlueprintName = "Pods-UIImage-Helpers"
+               BlueprintIdentifier = "05FFF15779E290977452C327"
+               BuildableName = "libPods-ZFDragableModalTransition.a"
+               BlueprintName = "Pods-ZFDragableModalTransition"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

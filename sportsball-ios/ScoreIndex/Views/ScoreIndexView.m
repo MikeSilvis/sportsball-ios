@@ -33,7 +33,6 @@ static NSString * const headerViewCell = @"headerViewCell";
       layout.disableStickyHeaders = YES;
   }
 
-
   self.currentDate = [NSDate date];
 }
 
@@ -98,7 +97,7 @@ static NSString * const headerViewCell = @"headerViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"clicked!");
+  [self.delegate selectedGame:self.games[indexPath.row]];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -126,8 +125,7 @@ static NSString * const headerViewCell = @"headerViewCell";
     cell.currentLeague = self.league;
 
     return cell;
-  } //else if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//  }
+  }
 
   return nil;
 }

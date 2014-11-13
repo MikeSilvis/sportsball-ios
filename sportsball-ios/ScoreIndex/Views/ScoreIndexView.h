@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "League.h"
 #import "DIDatepicker.h"
+#import "Game.h"
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
 -(void)didStartLoading;
 -(void)didEndLoading;
+-(void)selectedGame:(Game *)game;
 
 @end
 

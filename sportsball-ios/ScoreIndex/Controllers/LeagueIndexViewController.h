@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "APPaginalTableView.h"
 #import "ScoreIndexView.h"
+#import "ZFModalTransitionAnimator.h"
 
 @interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate>
 
@@ -19,6 +20,9 @@
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
+@property (nonatomic, retain) Game *selectedGame;
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+
 - (IBAction)didRequestClose:(id)sender;
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;

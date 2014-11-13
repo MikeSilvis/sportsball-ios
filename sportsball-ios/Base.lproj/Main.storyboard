@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Mo-0L-q5c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Mo-0L-q5c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -50,11 +50,52 @@
                     <connections>
                         <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
                         <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
+                        <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776" y="1836"/>
+        </scene>
+        <!--Score Show View Controller-->
+        <scene sceneID="N7Q-ZS-BaW">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" id="I4h-tI-kLt" customClass="ScoreShowViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xG2-KE-QUh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Diu-U0-7hl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PZp-T7-che">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-Tj-LqZ">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <collectionViewLayout key="collectionViewLayout" id="aws-kH-MLz" customClass="CSStickyHeaderFlowLayout"/>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="I4h-tI-kLt" id="RWd-Ay-3fu"/>
+                                    <outlet property="delegate" destination="I4h-tI-kLt" id="Kmm-17-1Go"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" constant="-16" id="Eea-iX-bnU"/>
+                            <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="N4P-pG-2Wn"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" constant="-16" id="aSz-YX-yOn"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="280" id="y1E-Ng-WBm"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="collectionView" destination="WR1-Tj-LqZ" id="cqG-m1-URr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UjH-sC-Vby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="1836"/>
         </scene>
     </scenes>
 </document>

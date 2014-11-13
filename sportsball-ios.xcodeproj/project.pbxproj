@@ -28,6 +28,7 @@
 		1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* GameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */; };
 		1161A98A1A0C626100E40EEC /* Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* Champion.m */; };
+		116591E21A154D7300016D90 /* ScoreShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* ScoreShowViewController.m */; };
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
 		117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */; };
@@ -78,6 +79,8 @@
 		1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		1161A9881A0C626100E40EEC /* Champion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Champion.h; sourceTree = "<group>"; };
 		1161A9891A0C626100E40EEC /* Champion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Champion.m; sourceTree = "<group>"; };
+		116591E01A154D7300016D90 /* ScoreShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreShowViewController.h; sourceTree = "<group>"; };
+		116591E11A154D7300016D90 /* ScoreShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreShowViewController.m; sourceTree = "<group>"; };
 		116591E41A156F2C00016D90 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
 		116591E51A156F2C00016D90 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		116591E61A156F2C00016D90 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
@@ -205,13 +208,14 @@
 			isa = PBXGroup;
 			children = (
 				1116966A1A0E9BAE00F0E1CD /* Categories */,
-				1154F6531A03DC9B009F560B /* Scores */,
-				1154F6451A03D743009F560B /* Models */,
+				1154F6531A03DC9B009F560B /* ScoreIndex */,
+				11847BD31A21045800300E28 /* ScoreShow */,
 				1154F61E1A03D60F009F560B /* AppDelegate.h */,
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
+				1154F6271A03D60F009F560B /* Images.xcassets */,
 				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
 				1154F6241A03D60F009F560B /* Main.storyboard */,
-				1154F6271A03D60F009F560B /* Images.xcassets */,
+				1154F6451A03D743009F560B /* Models */,
 				1154F61A1A03D60F009F560B /* Supporting Files */,
 			);
 			path = "sportsball-ios";
@@ -280,7 +284,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		1154F6531A03DC9B009F560B /* Scores */ = {
+		1154F6531A03DC9B009F560B /* ScoreIndex */ = {
 			isa = PBXGroup;
 			children = (
 				113845C41A0BFA3D00BC7A4D /* SupportClasses */,
@@ -288,7 +292,7 @@
 				1154F6401A03D618009F560B /* Controllers */,
 				1154F64F1A03D9C5009F560B /* Cells */,
 			);
-			path = Scores;
+			path = ScoreIndex;
 			sourceTree = "<group>";
 		};
 		116591E31A156F1E00016D90 /* DIDDatePicker */ = {
@@ -300,6 +304,31 @@
 				116591E71A156F2C00016D90 /* DIDatepickerDateView.m */,
 			);
 			name = DIDDatePicker;
+			sourceTree = "<group>";
+		};
+		11847BD31A21045800300E28 /* ScoreShow */ = {
+			isa = PBXGroup;
+			children = (
+				11847BD51A21063800300E28 /* Views */,
+				11847BD41A21048D00300E28 /* Controllers */,
+			);
+			path = ScoreShow;
+			sourceTree = "<group>";
+		};
+		11847BD41A21048D00300E28 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				116591E01A154D7300016D90 /* ScoreShowViewController.h */,
+				116591E11A154D7300016D90 /* ScoreShowViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		11847BD51A21063800300E28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4F64D5B3F38B935DBCDA02FB /* Pods */ = {
@@ -445,6 +474,7 @@
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,
+				116591E21A154D7300016D90 /* ScoreShowViewController.m in Sources */,
 				113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
 				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
