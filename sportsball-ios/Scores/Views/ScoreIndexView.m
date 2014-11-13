@@ -23,18 +23,9 @@ static NSString * const headerViewCell = @"headerViewCell";
 
   self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
-  self.toolBar.backgroundColor = [UIColor clearColor];
-  [self.toolBar setBackgroundImage:[UIImage new]
-                forToolbarPosition:UIToolbarPositionAny
-                        barMetrics:UIBarMetricsDefault];
-
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:gameViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"LeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
-
-  CGFloat iconSize = 30;
-  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
-  self.leagueBarButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#c4eefe"];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
@@ -57,10 +48,6 @@ static NSString * const headerViewCell = @"headerViewCell";
     [self findGames];
     self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
   }
-}
-
-- (IBAction)leagueBarButtonClicked:(id)sender {
-  [self.delegate didRequestClose];
 }
 
 -(void)findGames {

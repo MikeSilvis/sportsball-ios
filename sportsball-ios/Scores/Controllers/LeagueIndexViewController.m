@@ -11,6 +11,7 @@
 #import "League.h"
 #import "XHRealTimeBlur.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImage+FontAwesome.h"
 
 @implementation LeagueIndexViewController
 
@@ -32,7 +33,7 @@
   self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
   self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
   self.paginalTableView.backgroundColor = [UIColor clearColor];
-  [self.view addSubview:self.paginalTableView];
+  [self.view insertSubview:self.paginalTableView belowSubview:self.toolBar];
 
   // Create the page control
   self.pageControl = [[UIPageControl alloc] init];
@@ -48,6 +49,18 @@
 
 //  [self openScoresAtIndex:0 animated:NO];
 
+  CGFloat iconSize = 25;
+  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
+  self.hamburgerButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#fff"];
+
+  self.toolBar.backgroundColor = [UIColor clearColor];
+  [self.toolBar setBackgroundImage:[UIImage new]
+                forToolbarPosition:UIToolbarPositionAny
+                        barMetrics:UIBarMetricsDefault];
+  self.toolBar.clipsToBounds = YES;
+
+  self.toolBar.hidden = YES;
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(stopTimer)
                                                name:UIApplicationDidEnterBackgroundNotification
@@ -58,6 +71,7 @@
                                                name:UIApplicationDidBecomeActiveNotification
                                              object:nil];
 }
+
 -(void)didStartLoading {
   [self.view showRealTimeBlurWithBlurStyle:XHBlurStyleTranslucent];
 
@@ -88,7 +102,6 @@
   [self startTimer];
 }
 
-// Start Current timer
 -(void)startTimer {
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
@@ -97,17 +110,23 @@
   }
 }
 
-// Cancel all timers
 -(void)stopTimer {
   for (ScoreIndexView *view in self.scoreViews) {
     [view cancelTimer];
   }
 }
 
+- (IBAction)didRequestClose:(id)sender {
+  self.pageControl.hidden = YES;
+  self.toolBar.hidden = YES;
+  [self.paginalTableView closeElementWithCompletion:nil animated:YES];
+}
+
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
   [self.paginalTableView openElementAtIndex:index completion:^(BOOL completed) {
     if (completed) {
       self.pageControl.hidden = NO;
+      self.toolBar.hidden = NO;
     }
   } animated:animated];
 }
@@ -150,6 +169,7 @@
   ScoreIndexView *scoreView = self.scoreViews[index];
   [scoreView cancelTimer];
   self.pageControl.hidden = YES;
+  self.toolBar.hidden = YES;
 
   return open;
 }
@@ -157,13 +177,6 @@
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index {
   [self openScoresAtIndex:index animated:YES];
 }
-
--(void)didRequestClose {
-  self.pageControl.hidden = YES;
-  [self.paginalTableView closeElementWithCompletion:nil animated:YES];
-}
-
-#pragma mark - Internal
 
 - (UIView *)createCollapsedViewAtIndex:(NSUInteger)index
 {

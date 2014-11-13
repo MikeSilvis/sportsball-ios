@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Mo-0L-q5c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Mo-0L-q5c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--League Index View Controller-->
@@ -15,8 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="iKJ-Oi-PAX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-nY-021">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="91l-JY-QOe"/>
+                                    <barButtonItem title="leagues" id="upA-bb-Z3S">
+                                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="didRequestClose:" destination="9Mo-0L-q5c" id="eHq-ER-yhz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D0m-nY-021" firstAttribute="top" secondItem="rEf-Fj-rTq" secondAttribute="bottom" id="Hbm-qC-UMw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D0m-nY-021" secondAttribute="trailing" constant="-16" id="ZqV-Vk-JS9"/>
+                            <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="aLv-tI-DIr"/>
+                            <constraint firstItem="D0m-nY-021" firstAttribute="width" secondItem="iKJ-Oi-PAX" secondAttribute="width" id="bZZ-PZ-iFL"/>
+                            <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leading" id="vCc-zz-FkF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZqV-Vk-JS9"/>
+                                <exclude reference="aLv-tI-DIr"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
+                        <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,7 +11,6 @@
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
--(void)didRequestClose;
 -(void)didStartLoading;
 -(void)didEndLoading;
 
@@ -25,12 +24,9 @@
 @property (nonatomic, strong) UINib *headerNib;
 @property (nonatomic, retain) NSArray *games;
 @property (nonatomic, retain) NSTimer *scorePuller;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *leagueBarButton;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @property (nonatomic, weak) id<ScoreIndexViewDelegate> delegate;
 
-- (IBAction)leagueBarButtonClicked:(id)sender;
 -(void)findGames;
 -(void)cancelTimer;
 -(void)startTimer;

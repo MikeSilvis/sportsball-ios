@@ -17,6 +17,9 @@
 @property (nonatomic, retain) NSArray *leagues;
 @property (nonatomic, retain) NSMutableArray *scoreViews;
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
+- (IBAction)didRequestClose:(id)sender;
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
