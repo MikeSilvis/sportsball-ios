@@ -28,6 +28,8 @@
 		1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* GameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */; };
 		1161A98A1A0C626100E40EEC /* Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* Champion.m */; };
+		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
+		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -75,6 +77,10 @@
 		1161A9861A0C1E5D00E40EEC /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		1161A9881A0C626100E40EEC /* Champion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Champion.h; sourceTree = "<group>"; };
 		1161A9891A0C626100E40EEC /* Champion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Champion.m; sourceTree = "<group>"; };
+		116591E41A156F2C00016D90 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
+		116591E51A156F2C00016D90 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
+		116591E61A156F2C00016D90 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
+		116591E71A156F2C00016D90 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		113845C41A0BFA3D00BC7A4D /* SupportClasses */ = {
 			isa = PBXGroup;
 			children = (
+				116591E31A156F1E00016D90 /* DIDDatePicker */,
 				113845C51A0BFA5500BC7A4D /* APPaginal */,
 			);
 			path = SupportClasses;
@@ -279,6 +286,17 @@
 			path = Scores;
 			sourceTree = "<group>";
 		};
+		116591E31A156F1E00016D90 /* DIDDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				116591E41A156F2C00016D90 /* DIDatepicker.h */,
+				116591E51A156F2C00016D90 /* DIDatepicker.m */,
+				116591E61A156F2C00016D90 /* DIDatepickerDateView.h */,
+				116591E71A156F2C00016D90 /* DIDatepickerDateView.m */,
+			);
+			name = DIDDatePicker;
+			sourceTree = "<group>";
+		};
 		4F64D5B3F38B935DBCDA02FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +433,7 @@
 				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
 				1154F64B1A03D77C009F560B /* Game.m in Sources */,
 				113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */,
+				116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */,
 				1161A98A1A0C626100E40EEC /* Champion.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
@@ -423,6 +442,7 @@
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,
 				113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
+				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,

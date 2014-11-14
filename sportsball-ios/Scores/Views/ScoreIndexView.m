@@ -32,6 +32,29 @@ static NSString * const headerViewCell = @"headerViewCell";
       layout.parallaxHeaderAlwaysOnTop = YES;
       layout.disableStickyHeaders = YES;
   }
+
+
+  self.currentDate = [NSDate date];
+
+  [self setUpDatePicker];
+}
+
+-(void)setUpDatePicker {
+  NSDate *currentDate = [NSDate date];
+  self.datePicker.backgroundColor = [UIColor clearColor];
+  [self.datePicker fillDatesSinceDate:currentDate numberOfDays:10];
+  [self.datePicker fillDatesFromDate:currentDate numberOfDays:10];
+  [self.datePicker selectDate:currentDate];
+
+  [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)updateSelectedDate {
+  self.currentDate = self.datePicker.selectedDate;
+
+  self.games = @[];
+  [self cancelTimer];
+  [self startTimer];
 }
 
 -(void)cancelTimer {
@@ -55,7 +78,7 @@ static NSString * const headerViewCell = @"headerViewCell";
     [self.delegate didStartLoading];
   }
 
-  [self.league allScoresForDate:nil parameters:nil success:^(NSArray *games) {
+  [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
     [self.collectionView reloadData];
     [self.delegate didEndLoading];

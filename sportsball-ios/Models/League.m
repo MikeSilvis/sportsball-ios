@@ -63,7 +63,7 @@
   }
 
   NSDictionary *params = @{
-                           @"date": [self.dateFormatter stringFromDate:[NSDate date]]
+                           @"date": [self.dateFormatter stringFromDate:date]
                           };
 
   NSString *path = [NSString stringWithFormat:@"leagues/%@/scores", self.name];
