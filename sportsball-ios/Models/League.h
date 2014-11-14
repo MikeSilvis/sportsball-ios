@@ -16,11 +16,14 @@
 @property (nonatomic, retain) NSString *background;
 @property (nonatomic, retain) NSString *header;
 @property (nonatomic, retain) UIImage *blurredHeader;
+@property (nonatomic, retain) NSString *datePickerType;
+@property (nonatomic, retain) NSNumber *numberOfWeeks;
 
++ (NSArray *)supportedLeagues;
+- (NSArray *)datesForPicker:(NSDate *)date;
+- (BOOL)isWeekly;
 
-+(NSArray *)supportedLeagues;
-
--(void)allScoresForDate:(NSDate *)date
+- (void)allScoresForDate:(NSDate *)date
              parameters:(id)parameters
                 success:(void (^) (NSArray *games))success
                 failure:(void (^) (NSError *error))failure;
