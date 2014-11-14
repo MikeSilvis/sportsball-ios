@@ -145,7 +145,6 @@ static NSString *dailyDatePicker = @"daily";
             [NSDate dateWithYear:2014 month:10 day:25],
             [NSDate dateWithYear:2014 month:11 day:1],
             [NSDate dateWithYear:2014 month:11 day:8],
-            [NSDate dateWithYear:2014 month:11 day:8],
             [NSDate dateWithYear:2014 month:11 day:15],
             [NSDate dateWithYear:2014 month:11 day:22],
             [NSDate dateWithYear:2014 month:11 day:29],
