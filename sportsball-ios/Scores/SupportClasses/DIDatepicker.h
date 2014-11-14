@@ -26,5 +26,6 @@ extern const CGFloat kDIDetepickerHeight;
 - (void)fillDatesSinceDate:(NSDate *)sinceDate numberOfDays:(NSInteger)nextDatesCount;
 - (void)selectDate:(NSDate *)date;
 - (void)selectDateAtIndex:(NSUInteger)index;
+- (void)selectDateClosestToToday;
 
 @end

@@ -35,18 +35,19 @@ static NSString * const headerViewCell = @"headerViewCell";
 
 
   self.currentDate = [NSDate date];
-
-  [self setUpDatePicker];
 }
 
 -(void)setUpDatePicker {
   NSDate *currentDate = [NSDate date];
-  self.datePicker.backgroundColor = [UIColor clearColor];
-  [self.datePicker fillDatesSinceDate:currentDate numberOfDays:10];
-  [self.datePicker fillDatesFromDate:currentDate numberOfDays:10];
-  [self.datePicker selectDate:currentDate];
+  self.datePicker.dates = [self.league datesForPicker:currentDate];
+  [self.datePicker selectDateClosestToToday];
 
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)setLeague:(League *)league {
+  _league = league;
+  [self setUpDatePicker];
 }
 
 - (void)updateSelectedDate {

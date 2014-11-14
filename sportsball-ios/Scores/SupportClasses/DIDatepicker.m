@@ -142,9 +142,22 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
     self.dates = dates;
 }
 
+- (void)selectDateClosestToToday{
+  double smallestDifference = DBL_MAX; // thanks bgfriend0
+  NSDate *closestDate = nil;
+
+  for (NSDate *date in self.dates) {
+      if (ABS([date timeIntervalSinceNow]) < smallestDifference) {
+          smallestDifference = ABS([date timeIntervalSinceNow]);
+          closestDate = date;
+      }
+  }
+  
+  self.selectedDate = closestDate;
+}
+
 - (void)selectDate:(NSDate *)date
 {
-  NSLog(@"how many times are you called!??");
     NSAssert([self.dates indexOfObject:date] != NSNotFound, @"Date not found in dates array");
 
     self.selectedDate = date;

@@ -30,6 +30,7 @@
 		1161A98A1A0C626100E40EEC /* Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* Champion.m */; };
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
+		117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -81,6 +82,8 @@
 		116591E51A156F2C00016D90 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		116591E61A156F2C00016D90 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
 		116591E71A156F2C00016D90 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+SBDateWithYear.h"; path = "Categories/NSDate+SBDateWithYear.h"; sourceTree = "<group>"; };
+		117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+SBDateWithYear.m"; path = "Categories/NSDate+SBDateWithYear.m"; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 			children = (
 				1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */,
 				1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */,
+				117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */,
+				117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
+				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
 				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
