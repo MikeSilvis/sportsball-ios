@@ -41,6 +41,7 @@ static NSString * const headerViewCell = @"headerViewCell";
   NSDate *currentDate = [NSDate date];
   self.datePicker.dates = [self.league datesForPicker:currentDate];
   [self.datePicker selectDateClosestToToday];
+  self.currentDate = self.datePicker.selectedDate;
 
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
 }
