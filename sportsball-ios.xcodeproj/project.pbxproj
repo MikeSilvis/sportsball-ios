@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1101C60D1A22842E0086AF16 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1101C60C1A22842E0086AF16 /* User.m */; };
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
 		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1101C60B1A22842E0086AF16 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1101C60C1A22842E0086AF16 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		111696651A0E8EE500F0E1CD /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
 		1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FontAwesome.h"; path = "Categories/UIImage+FontAwesome.h"; sourceTree = "<group>"; };
 		1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FontAwesome.m"; path = "Categories/UIImage+FontAwesome.m"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				113845DD1A0C052600BC7A4D /* League.m */,
 				1154F6461A03D754009F560B /* Team.h */,
 				1154F6471A03D754009F560B /* Team.m */,
+				1101C60B1A22842E0086AF16 /* User.h */,
+				1101C60C1A22842E0086AF16 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
+				1101C60D1A22842E0086AF16 /* User.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,
 				116591E21A154D7300016D90 /* ScoreShowViewController.m in Sources */,

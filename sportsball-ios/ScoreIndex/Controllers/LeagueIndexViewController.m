@@ -12,6 +12,7 @@
 #import "XHRealTimeBlur.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
+#import "User.h"
 
 @implementation LeagueIndexViewController
 
@@ -68,9 +69,15 @@
                                            selector:@selector(startTimer)
                                                name:UIApplicationDidBecomeActiveNotification
                                              object:nil];
+  [self openAtLastSelectedIndex];
+}
 
-  // TODO: Sync last setting
-  [self openScoresAtIndex:0 animated:NO];
+-(void)openAtLastSelectedIndex {
+  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
+
+  if (self.scoreViews[openedIndex]) {
+    [self openScoresAtIndex:openedIndex animated:NO];
+  }
 }
 
 -(void)selectedGame:(Game *)game {
@@ -106,6 +113,7 @@
 -(void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
   [self stopTimer];
   [self startTimer];
+  [User currentUser].lastOpenedLeague = [NSNumber numberWithInteger:index];
 }
 
 -(void)startTimer {

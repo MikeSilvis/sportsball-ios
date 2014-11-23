@@ -59,16 +59,12 @@ static NSString * const headerViewCell = @"headerViewCell";
 }
 
 -(void)cancelTimer {
-  NSLog(@"Stopping Timer: %@", self.league.name);
-
   [self.scorePuller invalidate];
   self.scorePuller = nil;
 }
 
 -(void)startTimer {
   if (!self.scorePuller) {
-    NSLog(@"Starting Timer: %@", self.league.name);
-
     [self findGames];
     self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
   }
