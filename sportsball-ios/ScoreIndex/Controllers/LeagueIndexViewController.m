@@ -12,7 +12,6 @@
 #import "XHRealTimeBlur.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
-#import "ScoreShowViewController.h"
 
 @implementation LeagueIndexViewController
 
@@ -208,8 +207,20 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+  // Hide all views while the frame changes
+  for (ScoreIndexView *view in self.scoreViews) {
+    if ([view isEqual:self.scoreViews[self.paginalTableView.indexOpenedElement]]) {
+      view.hidden = NO;
+    }
+    else {
+      view.hidden = YES;
+    }
+  }
+
   ScoreShowViewController *viewController = segue.destinationViewController;
   viewController.game = self.selectedGame;
+  viewController.delegate = self;
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
 //  self.animator.dragable = YES;
   self.animator.direction = ZFModalTransitonDirectionBottom;
@@ -218,6 +229,16 @@
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
   viewController.modalPresentationStyle = UIModalPresentationCustom;
+}
+
+-(void)dismissedScoreShowViewModal {
+  for (ScoreIndexView *view in self.scoreViews) {
+    view.hidden = NO;
+  }
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{ 
+  return UIStatusBarStyleLightContent;
 }
 
 

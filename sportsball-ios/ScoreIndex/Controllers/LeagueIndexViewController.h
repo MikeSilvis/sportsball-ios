@@ -10,8 +10,9 @@
 #import "APPaginalTableView.h"
 #import "ScoreIndexView.h"
 #import "ZFModalTransitionAnimator.h"
+#import "ScoreShowViewController.h"
 
-@interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate>
+@interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate, ScoreShowViewDelegate>
 
 @property (nonatomic, retain) APPaginalTableView *paginalTableView;
 @property (nonatomic, retain) UIPageControl *pageControl;

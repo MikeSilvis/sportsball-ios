@@ -79,7 +79,6 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
         _datesScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _datesScrollView.showsHorizontalScrollIndicator = NO;
         _datesScrollView.autoresizingMask = self.autoresizingMask;
-        _datesScrollView.scrollEnabled = NO;
         [self addSubview:_datesScrollView];
     }
     return _datesScrollView;

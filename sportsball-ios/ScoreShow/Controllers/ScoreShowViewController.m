@@ -53,6 +53,12 @@
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+  [super dismissViewControllerAnimated:flag completion:^{
+    [self.delegate dismissedScoreShowViewModal];
+  }];
+}
+
 #pragma mark 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
