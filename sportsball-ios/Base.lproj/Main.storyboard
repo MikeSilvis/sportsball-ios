@@ -82,11 +82,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" constant="-16" id="Eea-iX-bnU"/>
-                            <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="N4P-pG-2Wn"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" constant="-16" id="aSz-YX-yOn"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="280" id="y1E-Ng-WBm"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="width" secondItem="PZp-T7-che" secondAttribute="width" id="C2o-qi-a6q"/>
+                            <constraint firstAttribute="trailing" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" id="M3S-Gg-FoY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" id="PB0-oz-poa"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" id="PX3-kv-bon"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leading" id="R0m-0b-ICz"/>
+                            <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="gbV-IQ-fJq"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="280" id="lpK-qL-E9x"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C2o-qi-a6q"/>
+                                <exclude reference="PB0-oz-poa"/>
+                                <exclude reference="PX3-kv-bon"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
