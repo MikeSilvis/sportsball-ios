@@ -142,11 +142,19 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 }
 
 - (void)selectDateClosestToToday{
-  double smallestDifference = DBL_MAX; // thanks bgfriend0
+  double smallestDifference = DBL_MAX;
   NSDate *closestDate = nil;
 
+  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+  [dateFormat setDateFormat:@"yyyy-MM-dd"];
+  NSString *today = [dateFormat stringFromDate:[NSDate date]];
+
   for (NSDate *date in self.dates) {
-      if (ABS([date timeIntervalSinceNow]) < smallestDifference) {
+      if ([today isEqualToString:[dateFormat stringFromDate:date]]) {
+        closestDate = date;
+        break;
+      }
+      else if (ABS([date timeIntervalSinceNow]) < smallestDifference) {
           smallestDifference = ABS([date timeIntervalSinceNow]);
           closestDate = date;
       }

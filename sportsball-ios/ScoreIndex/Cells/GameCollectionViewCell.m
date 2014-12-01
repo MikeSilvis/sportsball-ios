@@ -45,6 +45,7 @@
   Team *homeTeam = self.currentGame.homeTeam;
   self.homeTeamName.text = homeTeam.name;
   self.homeTeamScore.text = [NSString stringWithFormat:@"%@", self.currentGame.homeScore];
+  self.homeTeamScore.text = self.currentGame.homeScoreString;
   self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
   [self.homeTeamLogo sd_setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
@@ -52,7 +53,7 @@
   // Away Team
   Team *awayTeam = self.currentGame.awayTeam;
   self.awayTeamName.text = awayTeam.name;
-  self.awayTeamScore.text = [NSString stringWithFormat:@"%@", self.currentGame.awayScore];
+  self.awayTeamScore.text = self.currentGame.awayScoreString;
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
   [self.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl placeholderImage:nil];

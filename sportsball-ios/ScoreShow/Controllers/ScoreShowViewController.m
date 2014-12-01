@@ -8,8 +8,13 @@
 
 #import "ScoreShowViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "LeagueHeader.h"
+#import "ScoreShowHeader.h"
 
 @implementation ScoreShowViewController
+
+static NSString * const gameViewCell = @"gameViewCell";
+static NSString * const headerViewCell = @"headerViewCell";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -18,6 +23,14 @@
   UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
   backgroundRecognizer.delegate = self;
   [self.view addGestureRecognizer:backgroundRecognizer];
+
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
+
+  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+  if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
+      layout.parallaxHeaderAlwaysOnTop = YES;
+      layout.disableStickyHeaders = YES;
+  }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -27,13 +40,17 @@
   CGRect f = self.collectionView.frame;
   f.size.height = self.view.bounds.size.height / 2;
   self.collectionView.frame = f;
+}
+
+-(void)viewWillLayoutSubviews {
+  [super viewWillLayoutSubviews];
 
   // Header
-//  CGFloat headerSize = 74;
-//  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-//  layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
-//  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
-//  layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
+  CGFloat headerSize = 74;
+  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+  layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
+  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
+  layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -66,12 +83,20 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//  GameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:gameViewCell forIndexPath:indexPath];
-//  cell.currentGame = currentGame;
-//  return cell;
-
   UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rabble" forIndexPath:indexPath];
   return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+  if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+    ScoreShowHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                        withReuseIdentifier:headerViewCell
+                                                                               forIndexPath:indexPath];
+    cell.game = self.game;
+    return cell;
+  }
+
+  return nil;
 }
 
 @end

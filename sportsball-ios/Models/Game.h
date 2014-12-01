@@ -39,5 +39,7 @@
 -(BOOL)isInProgress;
 -(BOOL)isPregame;
 -(NSString *)localStartTime;
+-(NSString *)homeScoreString;
+-(NSString *)awayScoreString;
 
 @end

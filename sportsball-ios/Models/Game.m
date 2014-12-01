@@ -69,4 +69,12 @@
   return [self.df stringFromDate:self.startTime];
 }
 
+-(NSString *)homeScoreString {
+  return [NSString stringWithFormat:@"%@", self.homeScore];
+}
+
+-(NSString *)awayScoreString {
+  return [NSString stringWithFormat:@"%@", self.awayScore];
+}
+
 @end

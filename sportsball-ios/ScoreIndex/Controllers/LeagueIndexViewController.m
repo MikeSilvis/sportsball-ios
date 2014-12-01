@@ -75,7 +75,7 @@
 -(void)openAtLastSelectedIndex {
   int openedIndex = [[User currentUser].lastOpenedLeague intValue];
 
-  if (self.scoreViews[openedIndex]) {
+  if (openedIndex > 0 && self.scoreViews[openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
   }
 }
@@ -215,7 +215,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
   // Hide all views while the frame changes
   for (ScoreIndexView *view in self.scoreViews) {
     if ([view isEqual:self.scoreViews[self.paginalTableView.indexOpenedElement]]) {
