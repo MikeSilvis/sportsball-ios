@@ -15,7 +15,7 @@
 
   if (self) {
     self.name = json[@"name"];
-    self.logoUrl = json[@"logo"];
+    self.logoUrl = [NSURL URLWithString:json[@"logo"]];
     self.record = json[@"record"];
   }
 

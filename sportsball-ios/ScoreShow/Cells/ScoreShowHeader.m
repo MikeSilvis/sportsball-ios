@@ -8,7 +8,7 @@
 
 #import "ScoreShowHeader.h"
 #import "UIImage+FontAwesome.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+AFNetworking.h>
 
 @implementation ScoreShowHeader
 
@@ -31,13 +31,13 @@
   _game = game;
 
   Team *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo sd_setImageWithURL:homeTeam.logoUrl];
+  [self.homeTeamLogo setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
   self.homeTeamScore.text = self.game.homeScoreString;
   self.homeTeamWinnerImage.hidden = ![self.game.winningTeam isEqual:homeTeam];
   self.homeTeamScore.text = self.game.homeScoreString;
 
   Team *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl];
+  [self.awayTeamLogo setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
   self.awayTeamWinnerImage.hidden = ![self.game.winningTeam isEqual:awayTeam];
   self.awayTeamScore.text = self.game.awayScoreString;
 

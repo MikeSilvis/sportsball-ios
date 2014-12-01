@@ -9,7 +9,7 @@
 #import "GameCollectionViewCell.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import "EDColor.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+AFNetworking.h>
 #import "UIImage+FontAwesome.h"
 
 @implementation GameCollectionViewCell
@@ -48,7 +48,7 @@
   self.homeTeamScore.text = self.currentGame.homeScoreString;
   self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
-  [self.homeTeamLogo sd_setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
+  [self.homeTeamLogo setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
 
   // Away Team
   Team *awayTeam = self.currentGame.awayTeam;
@@ -56,7 +56,7 @@
   self.awayTeamScore.text = self.currentGame.awayScoreString;
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
-  [self.awayTeamLogo sd_setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
+  [self.awayTeamLogo setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
 
   self.upperInfo.text = self.currentGame.timeRemaining;
 
