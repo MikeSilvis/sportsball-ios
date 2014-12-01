@@ -11,12 +11,12 @@
 
 @interface League : Champion
 
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *logo;
-@property (nonatomic, retain) NSString *background;
-@property (nonatomic, retain) NSString *header;
-@property (nonatomic, retain) UIImage *blurredHeader;
-@property (nonatomic, retain) NSString *datePickerType;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *logo;
+@property (nonatomic, strong) NSString *background;
+@property (nonatomic, strong) NSString *header;
+@property (nonatomic, strong) UIImage *blurredHeader;
+@property (nonatomic, strong) NSString *datePickerType;
 @property (nonatomic, assign) NSInteger numberOfWeeks;
 
 + (NSArray *)supportedLeagues;

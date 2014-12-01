@@ -34,13 +34,28 @@
     self.endedIn = json[@"ended_in"];
 
     self.startTime = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
-
     self.moneyLine = json[@"line"];
-
     self.state = json[@"state"];
+
+    self.boxscoreId = json[@"boxscore"];
+    self.previewId = json[@"preview"];
   }
 
   return self;
+}
+
+-(void)findBoxscore:(NSDictionary *)paramaters
+            success:(void (^) (Boxscore *))success
+            failure:(void (^) (NSError *error))failure {
+
+    NSString *path = [NSString stringWithFormat:@"leagues/%@/boxscores/%@", self.league, self.boxscoreId];
+
+    [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
+      Boxscore *boxscore = [[Boxscore alloc] initWithJson:responseObject[@"boxscore"]];
+      success(boxscore);
+    } failure:^(NSError *error) {
+      failure(error);
+    }];
 }
 
 - (BOOL)isOver {

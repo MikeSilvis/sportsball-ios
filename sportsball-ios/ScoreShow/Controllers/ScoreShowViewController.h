@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "Boxscore.h"
 
 @protocol ScoreShowViewDelegate <NSObject>
 
@@ -17,7 +18,8 @@
 
 @interface ScoreShowViewController : UIViewController <UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, retain) Game *game;
+@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) Boxscore *boxscore;
 - (IBAction)didRequestClose:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

@@ -11,7 +11,9 @@
 
 @interface Champion : NSObject
 
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+-(id)initWithJson:(id)json;
 
 -(NSString *)getPathFromString:(NSString *)path;
 

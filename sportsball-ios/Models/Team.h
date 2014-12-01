@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Champion.h"
 
-@interface Team : NSObject
+@interface Team : Champion
 
-@property (nonatomic, retain) NSURL *logoUrl;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSNumber *wins;
-@property (nonatomic, retain) NSNumber *loses;
-@property (nonatomic, retain) NSString *record;
+@property (nonatomic, strong) NSURL *logoUrl;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *wins;
+@property (nonatomic, strong) NSNumber *loses;
+@property (nonatomic, strong) NSString *record;
 
--(id)initWithJson:(id)json;
 -(NSString *)formattedRecord;
 @end

@@ -22,6 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *upperInfo;
 @property (weak, nonatomic) IBOutlet UILabel *lowerInfo;
 
-@property (nonatomic, retain) Game *game;
+@property (nonatomic, strong) Game *game;
 
 @end

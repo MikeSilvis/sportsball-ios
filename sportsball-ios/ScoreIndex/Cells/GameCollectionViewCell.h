@@ -23,6 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
 
-@property(nonatomic, retain) Game *currentGame;
+@property(nonatomic, strong) Game *currentGame;
 
 @end

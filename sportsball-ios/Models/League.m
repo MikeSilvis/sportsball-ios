@@ -98,7 +98,6 @@ static NSString *dailyDatePicker = @"daily";
 }
 
 -(NSArray *)weeksForDatePicker:(NSDate *)date {
-
   return @[];
 }
 

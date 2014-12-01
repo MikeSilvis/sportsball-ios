@@ -10,6 +10,12 @@
 
 @implementation Champion
 
+-(id)initWithJson:(id)json {
+  [NSException raise:@"Should be handled in subclass" format:@"not relevant"];
+
+  return nil;
+}
+
 -(NSString *)getPathFromString:(NSString *)path {
   return [NSString stringWithFormat:@"https://getbaryab.com/api/%@", path];
 //  return [NSString stringWithFormat:@"http://localhost:3000/api/%@", path];
@@ -27,8 +33,10 @@
   [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     success(responseObject);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    if (failure) {
+      failure(error);
+    }
     NSLog(@"error: %@", error);
-    failure(error);
   }];
 }
 

@@ -75,7 +75,7 @@
 -(void)openAtLastSelectedIndex {
   int openedIndex = [[User currentUser].lastOpenedLeague intValue];
 
-  if (openedIndex > 0 && self.scoreViews[openedIndex]) {
+  if ((openedIndex > 0) && [self.scoreViews objectAtIndex:openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
   }
 }

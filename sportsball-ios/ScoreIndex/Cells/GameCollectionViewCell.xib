@@ -39,7 +39,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(6-1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-Kx-tTH" userLabel="homeTeamRecord">
-                        <rect key="frame" x="116" y="11" width="21" height="14"/>
+                        <rect key="frame" x="116" y="11" width="20.5" height="14"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3-4)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-1v-9An" userLabel="awayTeamRecord">
-                        <rect key="frame" x="114" y="36" width="21" height="14"/>
+                        <rect key="frame" x="114" y="36" width="20.5" height="14"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -90,19 +90,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa5-v5-2r9">
-                        <rect key="frame" x="485" y="8" width="22" height="20"/>
+                        <rect key="frame" x="488.5" y="8" width="21.5" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLs-Ab-F21">
-                        <rect key="frame" x="485" y="33" width="22" height="20"/>
+                        <rect key="frame" x="488.5" y="33" width="21.5" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
-                        <rect key="frame" x="336" y="34" width="250" height="17"/>
+                        <rect key="frame" x="336" y="34.5" width="250" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="I1f-FC-abg"/>
                 <constraint firstItem="p9q-4O-uBF" firstAttribute="baseline" secondItem="Qfa-1v-9An" secondAttribute="baseline" id="Idi-ax-Z7n"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Qfa-1v-9An" secondAttribute="centerY" id="KjE-j3-Q2J"/>
-                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="4" id="LQI-zm-1eh"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="1" id="LQI-zm-1eh"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="trailing" secondItem="xek-d8-sX4" secondAttribute="trailing" id="LXq-tx-hw4"/>
                 <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="16" id="Lvd-FY-d2P"/>
                 <constraint firstItem="xek-d8-sX4" firstAttribute="centerY" secondItem="Khl-Kx-tTH" secondAttribute="centerY" id="MFS-IY-Avx"/>
@@ -141,7 +141,7 @@
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="trailing" secondItem="lOU-h5-Low" secondAttribute="trailing" id="SO9-dX-Xey"/>
                 <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" id="Tgh-qi-w72"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="leading" id="WTa-bJ-YIO"/>
-                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="fLs-Ab-F21" secondAttribute="trailing" constant="4" id="XhF-8S-8FT"/>
+                <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="fLs-Ab-F21" secondAttribute="trailing" constant="1" id="XhF-8S-8FT"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="18" id="Z0e-7q-kGl"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="xek-d8-sX4" secondAttribute="top" id="ZU6-Ih-zRw"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="leading" id="d53-Yb-L7O"/>
@@ -157,7 +157,7 @@
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="xek-d8-sX4" secondAttribute="bottom" id="tk0-Cn-mov"/>
                 <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="lOU-h5-Low" secondAttribute="trailing" constant="12" id="u2Q-ij-cuP"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="trailing" constant="16" id="uBx-T4-xag"/>
-                <constraint firstItem="iAN-Nf-OiC" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="4" id="ufU-qa-fRG"/>
+                <constraint firstItem="iAN-Nf-OiC" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="1" id="ufU-qa-fRG"/>
                 <constraint firstItem="sU5-Mi-yFz" firstAttribute="top" secondItem="ksP-5B-CeT" secondAttribute="bottom" constant="5" id="vNW-ir-4mh"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="wa5-v5-2r9" secondAttribute="bottom" id="vz0-el-x16"/>
                 <constraint firstItem="lOU-h5-Low" firstAttribute="bottom" secondItem="Qfa-1v-9An" secondAttribute="bottom" constant="3" id="ws0-Mb-9e8"/>

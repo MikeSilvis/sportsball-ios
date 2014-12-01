@@ -11,7 +11,7 @@
 
 @interface LeagueIndexHeader : UIView
 
-@property (nonatomic, retain) League *league;
+@property (nonatomic, strong) League *league;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 

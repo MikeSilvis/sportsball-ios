@@ -7,33 +7,36 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Champion.h"
 #import "Team.h"
+#import "Boxscore.h"
 
-@interface Game : NSObject
+@interface Game : Champion
 
-@property (nonatomic, retain) Team *awayTeam;
-@property (nonatomic, retain) Team *homeTeam;
+@property (nonatomic, strong) Team *awayTeam;
+@property (nonatomic, strong) Team *homeTeam;
+@property (nonatomic, strong) Boxscore *boxscore;
 
-@property (nonatomic, retain) NSString *league;
+@property (nonatomic, strong) NSString *league;
 
-@property (nonatomic, retain) NSString *moneyLine;
-@property (nonatomic, retain) NSString *location;
+@property (nonatomic, strong) NSString *moneyLine;
+@property (nonatomic, strong) NSString *location;
 
-@property (nonatomic, retain) NSNumber *homeScore;
-@property (nonatomic, retain) NSNumber *awayScore;
+@property (nonatomic, strong) NSNumber *homeScore;
+@property (nonatomic, strong) NSNumber *awayScore;
+@property (nonatomic, strong) NSString *boxscoreId;
+@property (nonatomic, strong) NSString *previewId;
 
+@property (nonatomic, strong) NSString *timeRemaining;
+@property (nonatomic, strong) NSString *currentPeriod;
 
-@property (nonatomic, retain) NSString *timeRemaining;
-@property (nonatomic, retain) NSString *currentPeriod;
+@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString *endedIn;
+@property (nonatomic, strong) NSDate *startTime;
 
-@property (nonatomic, retain) NSString *state;
-@property (nonatomic, retain) NSString *endedIn;
-@property (nonatomic, retain) NSDate *startTime;
-
-@property (nonatomic, retain) NSDateFormatter *df;
+@property (nonatomic, strong) NSDateFormatter *df;
 
 -(Team *)winningTeam;
--(id)initWithJson:(id)json;
 
 -(BOOL)isOver;
 -(BOOL)isInProgress;
@@ -41,5 +44,9 @@
 -(NSString *)localStartTime;
 -(NSString *)homeScoreString;
 -(NSString *)awayScoreString;
+
+-(void)findBoxscore:(NSDictionary *)paramaters
+            success:(void (^) (Boxscore *))success
+            failure:(void (^) (NSError *error))failure;
 
 @end

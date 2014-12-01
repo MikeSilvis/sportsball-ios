@@ -14,14 +14,14 @@
 
 @interface LeagueIndexViewController : UIViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate, ScoreShowViewDelegate>
 
-@property (nonatomic, retain) APPaginalTableView *paginalTableView;
-@property (nonatomic, retain) UIPageControl *pageControl;
-@property (nonatomic, retain) NSArray *leagues;
-@property (nonatomic, retain) NSMutableArray *scoreViews;
-@property (nonatomic, retain) UIActivityIndicatorView *activityView;
+@property (nonatomic, strong) APPaginalTableView *paginalTableView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) NSArray *leagues;
+@property (nonatomic, strong) NSMutableArray *scoreViews;
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
-@property (nonatomic, retain) Game *selectedGame;
+@property (nonatomic, strong) Game *selectedGame;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 
 - (IBAction)didRequestClose:(id)sender;

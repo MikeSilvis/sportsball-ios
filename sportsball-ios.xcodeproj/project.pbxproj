@@ -10,6 +10,7 @@
 		1101C60D1A22842E0086AF16 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1101C60C1A22842E0086AF16 /* User.m */; };
 		1101C6101A228EFA0086AF16 /* ScoreShowHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1101C60F1A228EFA0086AF16 /* ScoreShowHeader.xib */; };
 		1101C6131A228F500086AF16 /* ScoreShowHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1101C6121A228F500086AF16 /* ScoreShowHeader.m */; };
+		110E33251A2C395000ED333A /* Boxscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E33241A2C395000ED333A /* Boxscore.m */; };
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
 		113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* ScoreIndexView.xib */; };
@@ -48,6 +49,8 @@
 		1101C60F1A228EFA0086AF16 /* ScoreShowHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreShowHeader.xib; sourceTree = "<group>"; };
 		1101C6111A228F500086AF16 /* ScoreShowHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreShowHeader.h; sourceTree = "<group>"; };
 		1101C6121A228F500086AF16 /* ScoreShowHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreShowHeader.m; sourceTree = "<group>"; };
+		110E33231A2C395000ED333A /* Boxscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boxscore.h; sourceTree = "<group>"; };
+		110E33241A2C395000ED333A /* Boxscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxscore.m; sourceTree = "<group>"; };
 		111696651A0E8EE500F0E1CD /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
 		1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FontAwesome.h"; path = "Categories/UIImage+FontAwesome.h"; sourceTree = "<group>"; };
 		1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FontAwesome.m"; path = "Categories/UIImage+FontAwesome.m"; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 		1154F6451A03D743009F560B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				110E33231A2C395000ED333A /* Boxscore.h */,
+				110E33241A2C395000ED333A /* Boxscore.m */,
 				1161A9881A0C626100E40EEC /* Champion.h */,
 				1161A9891A0C626100E40EEC /* Champion.m */,
 				1154F6491A03D77C009F560B /* Game.h */,
@@ -491,6 +496,7 @@
 				113845D61A0BFD8100BC7A4D /* ScoreIndexView.m in Sources */,
 				116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */,
 				1161A98A1A0C626100E40EEC /* Champion.m in Sources */,
+				110E33251A2C395000ED333A /* Boxscore.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,

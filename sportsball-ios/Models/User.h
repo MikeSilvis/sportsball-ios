@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Champion.h"
 
-@interface User : NSObject
+@interface User : Champion
 
 + (User *)currentUser;
 

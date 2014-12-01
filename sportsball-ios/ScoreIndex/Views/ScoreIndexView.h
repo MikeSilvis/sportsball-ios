@@ -23,12 +23,12 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (nonatomic, retain) League *league;
+@property (nonatomic, strong) League *league;
 @property (nonatomic, strong) UINib *headerNib;
-@property (nonatomic, retain) NSArray *games;
-@property (nonatomic, retain) NSTimer *scorePuller;
+@property (nonatomic, strong) NSArray *games;
+@property (nonatomic, strong) NSTimer *scorePuller;
 @property (weak, nonatomic) IBOutlet DIDatepicker *datePicker;
-@property (nonatomic, retain) NSDate *currentDate;
+@property (nonatomic, strong) NSDate *currentDate;
 
 @property (nonatomic, weak) id<ScoreIndexViewDelegate> delegate;
 
