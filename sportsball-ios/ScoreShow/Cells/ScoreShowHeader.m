@@ -14,7 +14,7 @@
 
 -(void)awakeFromNib {
   [super awakeFromNib];
-  self.backgroundColor = [UIColor purpleColor];
+  self.backgroundColor = [UIColor clearColor];
 
   // Winner Image
   CGFloat iconSize = 15;

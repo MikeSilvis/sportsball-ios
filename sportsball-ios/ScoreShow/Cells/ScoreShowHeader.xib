@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NRS-Ql-MIS" secondAttribute="trailing" constant="15" id="3Gn-DD-2Xo"/>
                             <constraint firstAttribute="centerY" secondItem="NRS-Ql-MIS" secondAttribute="centerY" id="57j-0b-PuF"/>
@@ -98,7 +98,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="DtJ-Do-4Zv" firstAttribute="leading" secondItem="QgK-jT-mO9" secondAttribute="leading" id="2Sa-E4-8l2"/>
                 <constraint firstAttribute="bottom" secondItem="DtJ-Do-4Zv" secondAttribute="bottom" id="LIq-D3-IJp"/>
