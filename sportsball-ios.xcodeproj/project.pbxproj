@@ -161,6 +161,19 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		112BEE8A1A3124A900DCE472 /* ScoreSummary */ = {
+			isa = PBXGroup;
+			children = (
+				1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */,
+				1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */,
+				1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */,
+				1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */,
+				1143DE041A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.h */,
+				1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */,
+			);
+			path = ScoreSummary;
+			sourceTree = "<group>";
+		};
 		113845BE1A0BF93500BC7A4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,12 +376,7 @@
 		11847BD51A21063800300E28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */,
-				1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */,
-				1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */,
-				1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */,
-				1143DE041A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.h */,
-				1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */,
+				112BEE8A1A3124A900DCE472 /* ScoreSummary */,
 			);
 			path = Views;
 			sourceTree = "<group>";
