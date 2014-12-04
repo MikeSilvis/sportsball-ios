@@ -10,6 +10,8 @@
 
 @interface Boxscore : Champion
 
+-(int)scoreSummarySize;
+
 @property (nonatomic, strong) NSArray *scoreSummary;
 
 @end

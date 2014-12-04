@@ -23,6 +23,8 @@
 		113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D81A0C001D00BC7A4D /* LeagueIndexHeader.m */; };
 		113845DB1A0C002B00BC7A4D /* LeagueIndexHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845DA1A0C002B00BC7A4D /* LeagueIndexHeader.xib */; };
 		113845DE1A0C052600BC7A4D /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845DD1A0C052600BC7A4D /* League.m */; };
+		1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */; };
+		1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */; };
 		1154F61D1A03D60F009F560B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61C1A03D60F009F560B /* main.m */; };
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
@@ -72,6 +74,9 @@
 		113845DA1A0C002B00BC7A4D /* LeagueIndexHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueIndexHeader.xib; sourceTree = "<group>"; };
 		113845DC1A0C052600BC7A4D /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		113845DD1A0C052600BC7A4D /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
+		1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSummaryViewCell.xib; sourceTree = "<group>"; };
+		1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSummaryCollectionViewCell.h; sourceTree = "<group>"; };
+		1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryCollectionViewCell.m; sourceTree = "<group>"; };
 		1154F6171A03D60E009F560B /* Champion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -353,6 +358,9 @@
 		11847BD51A21063800300E28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */,
+				1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */,
+				1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +437,7 @@
 			files = (
 				111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */,
+				1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */,
 				1101C6101A228EFA0086AF16 /* ScoreShowHeader.xib in Resources */,
 				113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
@@ -499,6 +508,7 @@
 				110E33251A2C395000ED333A /* Boxscore.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
+				1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1101C6131A228F500086AF16 /* ScoreShowHeader.m in Sources */,
 				1101C60D1A22842E0086AF16 /* User.m in Sources */,

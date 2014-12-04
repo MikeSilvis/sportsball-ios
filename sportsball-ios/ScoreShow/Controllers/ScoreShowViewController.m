@@ -10,11 +10,13 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "LeagueHeader.h"
 #import "ScoreShowHeader.h"
+#import "ScoreSummaryCollectionViewCell.h"
 
 @implementation ScoreShowViewController
 
 static NSString * const gameViewCell = @"gameViewCell";
 static NSString * const headerViewCell = @"headerViewCell";
+static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -24,6 +26,7 @@ static NSString * const headerViewCell = @"headerViewCell";
   backgroundRecognizer.delegate = self;
   [self.view addGestureRecognizer:backgroundRecognizer];
 
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -31,6 +34,7 @@ static NSString * const headerViewCell = @"headerViewCell";
       layout.parallaxHeaderAlwaysOnTop = YES;
       layout.disableStickyHeaders = YES;
   }
+  layout.itemSize = CGSizeMake(50, 50);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -45,6 +49,18 @@ static NSString * const headerViewCell = @"headerViewCell";
 //    self.boxscore = boxscore;
 //    self.game.boxscore = boxscore;
 //  } failure:nil];
+}
+-(void)setGame:(Game *)game {
+  _game = game;
+  Boxscore *boxscore = [[Boxscore alloc] init];
+  boxscore.scoreSummary = @[
+                            @[@"", @"1", @"2", @"3", @"OT", @"T"],
+                            @[@"CGY", @"0", @"3", @"3", @"", @"6"],
+                            @[@"FLA", @"1", @"3", @"0", @"", @"4"]
+                            ];
+  _game.boxscore = boxscore;
+
+  [self.collectionView reloadData];
 }
 
 -(void)viewWillLayoutSubviews {
@@ -83,12 +99,25 @@ static NSString * const headerViewCell = @"headerViewCell";
 
 #pragma mark 
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+  return 1;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  return 0;
+  if (section == 0) {
+    return [self.game.boxscore scoreSummarySize];
+  } else {
+    return 0;
+  }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rabble" forIndexPath:indexPath];
+  ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"scoreSummaryViewCell" forIndexPath:indexPath];
+  CGRect f = cell.frame;
+  f.size.width = self.view.bounds.size.width / [self.game.boxscore scoreSummarySize];
+  cell.frame = f;
+  cell.score.text = @"1";
+
   return cell;
 }
 
@@ -102,6 +131,18 @@ static NSString * const headerViewCell = @"headerViewCell";
   }
 
   return nil;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//  NSLog(@"scrollView: %f", scrollView.contentOffset.y);
+
+  // Dynamically increase the view size
+//  CGRect f = self.collectionView.frame;
+//  f.size.height = f.size.height + scrollView.contentOffset.y;
+//  f.origin.y = f.origin.y - scrollView.contentOffset.y;
+//  if (f.size.height <= self.view.bounds.size.height) {
+//    self.collectionView.frame = f;
+//  }
 }
 
 @end

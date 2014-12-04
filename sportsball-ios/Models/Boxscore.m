@@ -18,4 +18,9 @@
   return boxscore;
 }
 
+-(int)scoreSummarySize {
+  NSArray *scoreSummaryFirst = [self.scoreSummary firstObject];
+  return (int)scoreSummaryFirst.count;
+}
+
 @end
