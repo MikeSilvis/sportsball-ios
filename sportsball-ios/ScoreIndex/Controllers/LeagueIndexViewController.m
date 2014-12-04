@@ -57,7 +57,6 @@
                 forToolbarPosition:UIToolbarPositionAny
                         barMetrics:UIBarMetricsDefault];
   self.toolBar.clipsToBounds = YES;
-
   self.toolBar.hidden = YES;
 
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -73,11 +72,12 @@
 }
 
 -(void)openAtLastSelectedIndex {
-  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
+//  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
 
-  if ((openedIndex > 0) && [self.scoreViews objectAtIndex:openedIndex]) {
-    [self openScoresAtIndex:openedIndex animated:NO];
-  }
+    [self openScoresAtIndex:1 animated:NO];
+//  if ((openedIndex > 0) && [self.scoreViews objectAtIndex:openedIndex]) {
+//    [self openScoresAtIndex:openedIndex animated:NO];
+//  }
 }
 
 -(void)selectedGame:(Game *)game {
@@ -248,6 +248,5 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{ 
   return UIStatusBarStyleLightContent;
 }
-
 
 @end
