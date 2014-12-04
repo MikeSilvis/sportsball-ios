@@ -18,6 +18,10 @@ static int const cellRowHeight = 30;
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryInfoViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryinfoCell];
 }
 
++(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
+  return CGSizeMake(width, resource.count * cellRowHeight);
+}
+
 -(void)setScoreSummary:(NSArray *)scoreSummary {
   _scoreSummary = scoreSummary;
 
