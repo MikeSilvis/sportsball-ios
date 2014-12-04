@@ -53,8 +53,8 @@
     // Background
     self.upperInfo.hidden = NO;
     self.lowerInfo.hidden = NO;
-    self.upperInfo.text = self.game.localStartTime;
-    self.lowerInfo.text = self.game.moneyLine;
+    self.upperInfo.text = self.game.moneyLine;
+    self.lowerInfo.text = self.game.localStartTime;
   }
   else if (self.game.isInProgress) {
     // Winner Image

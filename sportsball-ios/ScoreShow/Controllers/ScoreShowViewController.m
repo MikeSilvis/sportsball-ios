@@ -49,13 +49,14 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 //    self.game.boxscore = boxscore;
 //  } failure:nil];
 }
+
 -(void)setGame:(Game *)game {
   _game = game;
   Boxscore *boxscore = [[Boxscore alloc] init];
   boxscore.scoreSummary = @[
-                            @[@"", @"1", @"2", @"3", @"OT", @"T"],
-                            @[@"CGY", @"0", @"3", @"3", @"", @"6"],
-                            @[@"FLA", @"1", @"3", @"0", @"", @"4"]
+                            @[@"", @"1", @"2", @"3", @"T"],
+                            @[@"CGY", @"0", @"3", @"3", @"6"],
+                            @[@"FLA", @"1", @"3", @"0", @"4"]
                             ];
   _game.boxscore = boxscore;
 
@@ -111,9 +112,8 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
   ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
-//  cell.scoreSummary = self.game.boxscore.scoreSummary;
+  cell.scoreSummary = self.game.boxscore.scoreSummary;
 
   return cell;
 }
@@ -130,7 +130,19 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
   return nil;
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.bounds.size.width, 90);
+}
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+//  if (section == 0) {
+//    return CGSizeMake(self.view.bounds.size.width, 200);
+//  } else {
+//    return CGSizeZero;
+//  }
+//}
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //  NSLog(@"scrollView: %f", scrollView.contentOffset.y);
 
   // Dynamically increase the view size
@@ -140,6 +152,6 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 //  if (f.size.height <= self.view.bounds.size.height) {
 //    self.collectionView.frame = f;
 //  }
-}
+//}
 
 @end

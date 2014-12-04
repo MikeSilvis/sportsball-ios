@@ -10,4 +10,5 @@
 
 @implementation ScoreSummaryInfoCollectionViewCell
 
+
 @end

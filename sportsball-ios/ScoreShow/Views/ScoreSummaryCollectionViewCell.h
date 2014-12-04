@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *scoreSummary;
 
+//+(CGSize)heightForCell;
+
 @end
