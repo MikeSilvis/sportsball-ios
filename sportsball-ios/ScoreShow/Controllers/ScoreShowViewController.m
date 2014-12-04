@@ -34,7 +34,6 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
       layout.parallaxHeaderAlwaysOnTop = YES;
       layout.disableStickyHeaders = YES;
   }
-  layout.itemSize = CGSizeMake(50, 50);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -105,18 +104,16 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
   if (section == 0) {
-    return [self.game.boxscore scoreSummarySize];
+    return 1;
   } else {
     return 0;
   }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"scoreSummaryViewCell" forIndexPath:indexPath];
-  CGRect f = cell.frame;
-  f.size.width = self.view.bounds.size.width / [self.game.boxscore scoreSummarySize];
-  cell.frame = f;
-  cell.score.text = @"1";
+//  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
+  ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
+//  cell.scoreSummary = self.game.boxscore.scoreSummary;
 
   return cell;
 }

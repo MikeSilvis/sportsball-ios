@@ -7,30 +7,42 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreSummaryViewCell" id="mP1-VL-8DV" customClass="ScoreSummaryCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="374"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="374"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYP-Kh-Zo8">
-                        <rect key="frame" x="4" y="14" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-Uy-nPq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="374"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="374" id="dHc-xx-Ubi"/>
+                            <constraint firstAttribute="width" constant="600" id="o1i-qG-WkA"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ffz-vl-M8f">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="mP1-VL-8DV" id="cVb-VF-NhM"/>
+                            <outlet property="delegate" destination="mP1-VL-8DV" id="3fW-Ab-Jtf"/>
+                        </connections>
+                    </collectionView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.20000001789999999" green="0.20000001789999999" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="OYP-Kh-Zo8" secondAttribute="centerY" constant="0.5" id="7Hb-DT-8ay"/>
-                <constraint firstAttribute="centerX" secondItem="OYP-Kh-Zo8" secondAttribute="centerX" id="fpz-ub-bJm"/>
+                <constraint firstAttribute="centerY" secondItem="zLn-Uy-nPq" secondAttribute="centerY" id="jV1-Kw-wyw"/>
+                <constraint firstAttribute="centerX" secondItem="zLn-Uy-nPq" secondAttribute="centerX" id="ntc-fC-9ih"/>
             </constraints>
+            <size key="customSize" width="600" height="374"/>
             <connections>
-                <outlet property="score" destination="OYP-Kh-Zo8" id="kLH-Ge-hou"/>
+                <outlet property="collectionView" destination="zLn-Uy-nPq" id="oKi-eJ-RoS"/>
             </connections>
-            <point key="canvasLocation" x="342" y="339"/>
+            <point key="canvasLocation" x="617" y="496"/>
         </collectionViewCell>
     </objects>
 </document>
