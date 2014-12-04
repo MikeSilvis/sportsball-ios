@@ -41,10 +41,10 @@ static NSString * const headerViewCell = @"headerViewCell";
   f.size.height = self.view.bounds.size.height / 2;
   self.collectionView.frame = f;
 
-  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
-    self.boxscore = boxscore;
-    self.game.boxscore = boxscore;
-  } failure:nil];
+//  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
+//    self.boxscore = boxscore;
+//    self.game.boxscore = boxscore;
+//  } failure:nil];
 }
 
 -(void)viewWillLayoutSubviews {
