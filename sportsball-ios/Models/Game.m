@@ -54,7 +54,9 @@
       Boxscore *boxscore = [[Boxscore alloc] initWithJson:responseObject[@"boxscore"]];
       success(boxscore);
     } failure:^(NSError *error) {
-      failure(error);
+      if (failure) {
+        failure(error);
+      }
     }];
 }
 
