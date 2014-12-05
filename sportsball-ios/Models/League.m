@@ -76,8 +76,6 @@ static NSString *dailyDatePicker = @"daily";
                            @"date": [self.dateFormatter stringFromDate:date]
                           };
 
-  NSLog(@"requesting with: %@", date);
-
   NSString *path = [NSString stringWithFormat:@"leagues/%@/scores", self.name];
 
   [self dispatchRequest:path parameters:params success:^(id responseObject) {

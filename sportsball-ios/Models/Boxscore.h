@@ -7,11 +7,11 @@
 //
 
 #import "Champion.h"
+#import "ScoreDetail.h"
 
 @interface Boxscore : Champion
 
--(int)scoreSummarySize;
-
 @property (nonatomic, strong) NSArray *scoreSummary;
+@property (nonatomic, strong) NSArray *scoreDetail;
 
 @end

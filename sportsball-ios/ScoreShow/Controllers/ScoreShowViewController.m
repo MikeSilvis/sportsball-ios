@@ -11,12 +11,14 @@
 #import "LeagueHeader.h"
 #import "ScoreShowHeader.h"
 #import "ScoreSummaryCollectionViewCell.h"
+#import "ScoreDetailCollectionViewCell.h"
 
 @implementation ScoreShowViewController
 
 static NSString * const gameViewCell = @"gameViewCell";
 static NSString * const headerViewCell = @"headerViewCell";
 static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
+static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -27,6 +29,7 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
   [self.view addGestureRecognizer:backgroundRecognizer];
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryViewCell];
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:scoreDetailCollectionViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -52,6 +55,8 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 
 -(void)setGame:(Game *)game {
   _game = game;
+
+  // TODO: DELETE ALL OF THIS
   Boxscore *boxscore = [[Boxscore alloc] init];
   boxscore.scoreSummary = @[
                             @[@"", @"1", @"2", @"3", @"T"],
@@ -59,6 +64,13 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
                             @[@"FLA", @"1", @"3", @"0", @"4"]
                             ];
   _game.boxscore = boxscore;
+
+
+  ScoreDetail *firstDetail = [[ScoreDetail alloc] init];
+  firstDetail.headerInfo = @"1st Period Summary";
+  firstDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail", @"CGY", @"FLA"];
+  firstDetail.contentInfo = @[@"1:17", @"fla", @"Scottie Upshall (2) Assist: Aaron Ekblad", @"0", @"1"];
+  _game.boxscore.scoreDetail = @[firstDetail];
 
   [self.collectionView reloadData];
 }
@@ -100,11 +112,11 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 #pragma mark 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-  return 1;
+  return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  if (section == 0) {
+  if ((section == 0) || (section == 1)) {
     return 1;
   } else {
     return 0;
@@ -112,10 +124,20 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
-  cell.scoreSummary = self.game.boxscore.scoreSummary;
+  if (indexPath.section == 0) {
+    ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
+    cell.scoreSummary = self.game.boxscore.scoreSummary;
 
-  return cell;
+    return cell;
+  }
+  else if (indexPath.section == 1){
+    ScoreDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
+    cell.scoreDetail = self.game.boxscore.scoreDetail;
+
+    return cell;
+  }
+
+  return nil;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -133,6 +155,9 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 0) {
     return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width];
+  }
+  else if (indexPath.section == 1) {
+    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width];
   }
   else {
     return CGSizeZero;

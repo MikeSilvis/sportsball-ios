@@ -34,13 +34,13 @@ static int const cellRowHeight = 30;
   self.collectionView.frame = self.bounds;
 }
 
+#pragma mark - UICollectionView
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *itemsForSection = self.scoreSummary[indexPath.section];
 
   return CGSizeMake((self.bounds.size.width / itemsForSection.count), cellRowHeight);
 }
-
-#pragma mark - UICollectionView
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
   return self.scoreSummary.count;
