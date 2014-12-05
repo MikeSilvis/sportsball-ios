@@ -10,7 +10,7 @@
 
 @interface ScoreDetailCollectionViewCell : UICollectionViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, strong) NSArray *scoreDetail;
+@property (nonatomic, strong) NSArray *scoreDetails;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width;

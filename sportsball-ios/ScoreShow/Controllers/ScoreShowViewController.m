@@ -68,9 +68,14 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
 
   ScoreDetail *firstDetail = [[ScoreDetail alloc] init];
   firstDetail.headerInfo = @"1st Period Summary";
-  firstDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail", @"CGY", @"FLA"];
-  firstDetail.contentInfo = @[@"1:17", @"fla", @"Scottie Upshall (2) Assist: Aaron Ekblad", @"0", @"1"];
-  _game.boxscore.scoreDetail = @[firstDetail];
+  firstDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail"];
+  firstDetail.contentInfo = @[@"1:17", @"fla", @"Scottie Upshall (2) Assist: Aaron Ekblad"];
+
+  ScoreDetail *secondDetail = [[ScoreDetail alloc] init];
+  secondDetail.headerInfo = @"2nd Period Summary";
+  secondDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail"];
+  secondDetail.contentInfo = @[@"1:17", @"fla", @"Mike Silvis (2) Assist: Aaron Ekblad"];
+  _game.boxscore.scoreDetail = @[firstDetail, secondDetail];
 
   [self.collectionView reloadData];
 }
@@ -132,7 +137,7 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   }
   else if (indexPath.section == 1){
     ScoreDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
-    cell.scoreDetail = self.game.boxscore.scoreDetail;
+    cell.scoreDetails = self.game.boxscore.scoreDetail;
 
     return cell;
   }

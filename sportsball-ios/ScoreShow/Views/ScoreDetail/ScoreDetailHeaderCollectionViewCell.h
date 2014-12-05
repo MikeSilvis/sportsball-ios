@@ -1,5 +1,5 @@
 //
-//  ScoreDetailInfoCollectionViewCell.h
+//  ScoreDetailHeaderCollectionViewCell.h
 //  sportsball-ios
 //
 //  Created by Mike Silvis on 12/4/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreDetailInfoCollectionViewCell : UICollectionViewCell
+@interface ScoreDetailHeaderCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 

@@ -19,7 +19,7 @@
                             <constraint firstAttribute="height" constant="300" id="F18-SU-K0K"/>
                             <constraint firstAttribute="width" constant="600" id="pnD-D1-fdz"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lCK-A2-1qV">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lCK-A2-1qV">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>

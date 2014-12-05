@@ -45,6 +45,8 @@
 		1189A3F81A31338A00575E07 /* ScoreDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3F71A31338A00575E07 /* ScoreDetailCollectionViewCell.xib */; };
 		1189A3FB1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3FA1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m */; };
 		1189A3FD1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3FC1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib */; };
+		1189A3FF1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3FE1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib */; };
+		1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -121,6 +123,9 @@
 		1189A3F91A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDetailInfoCollectionViewCell.h; sourceTree = "<group>"; };
 		1189A3FA1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDetailInfoCollectionViewCell.m; sourceTree = "<group>"; };
 		1189A3FC1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreDetailInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		1189A3FE1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreDetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		1189A4001A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDetailHeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDetailHeaderCollectionViewCell.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -403,6 +408,9 @@
 				1189A3F41A31337E00575E07 /* ScoreDetailCollectionViewCell.h */,
 				1189A3F51A31337E00575E07 /* ScoreDetailCollectionViewCell.m */,
 				1189A3F71A31338A00575E07 /* ScoreDetailCollectionViewCell.xib */,
+				1189A4001A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.h */,
+				1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */,
+				1189A3FE1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib */,
 				1189A3F91A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.h */,
 				1189A3FA1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m */,
 				1189A3FC1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib */,
@@ -482,6 +490,7 @@
 			files = (
 				1189A3FD1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib in Resources */,
 				111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */,
+				1189A3FF1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib in Resources */,
 				1189A3F81A31338A00575E07 /* ScoreDetailCollectionViewCell.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */,
 				1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */,
@@ -571,6 +580,7 @@
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
+				1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
 				1189A3FB1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m in Sources */,
 				112BEE8D1A31304B00DCE472 /* ScoreDetail.m in Sources */,
