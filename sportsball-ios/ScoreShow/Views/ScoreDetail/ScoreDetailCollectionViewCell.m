@@ -36,6 +36,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   [super layoutSubviews];
 
   self.collectionView.frame = self.bounds;
+//  self.collectionView.
 }
 
 #pragma mark - UICollectionView

@@ -17,6 +17,7 @@
 
 static NSString * const gameViewCell = @"gameViewCell";
 static NSString * const headerViewCell = @"headerViewCell";
+static CGFloat const headerSize = 74;
 
 -(void)awakeFromNib {
   self.games = [NSMutableArray array];
@@ -32,6 +33,9 @@ static NSString * const headerViewCell = @"headerViewCell";
       layout.parallaxHeaderAlwaysOnTop = YES;
       layout.disableStickyHeaders = YES;
   }
+
+  self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+  self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerSize, 0, 0, 0);
 
   self.currentDate = [NSDate date];
 }
@@ -129,7 +133,6 @@ static NSString * const headerViewCell = @"headerViewCell";
 -(void)layoutSubviews {
   [super layoutSubviews];
 
-  CGFloat headerSize = 74;
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, headerSize);
