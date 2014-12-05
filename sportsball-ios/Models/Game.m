@@ -61,7 +61,7 @@
 }
 
 - (BOOL)isOver {
-  return [self.state isEqualToString:@"final"];
+  return [self.state isEqualToString:@"postgame"];
 }
 
 -(BOOL)isInProgress {
