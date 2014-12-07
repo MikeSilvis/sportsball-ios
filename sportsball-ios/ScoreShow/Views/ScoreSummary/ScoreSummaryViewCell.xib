@@ -16,10 +16,6 @@
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-Uy-nPq">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="500" id="bxb-3f-vqa"/>
-                            <constraint firstAttribute="height" constant="300" id="dK9-MW-Gdm"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uqV-RI-fSy">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,8 +32,10 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="zLn-Uy-nPq" secondAttribute="centerY" id="bsc-gM-z3Y"/>
-                <constraint firstAttribute="centerX" secondItem="zLn-Uy-nPq" secondAttribute="centerX" id="mAc-r3-N4y"/>
+                <constraint firstAttribute="bottom" secondItem="zLn-Uy-nPq" secondAttribute="bottom" id="gje-ok-H9V"/>
+                <constraint firstAttribute="trailing" secondItem="zLn-Uy-nPq" secondAttribute="trailing" id="jrP-Uo-Q0i"/>
+                <constraint firstItem="zLn-Uy-nPq" firstAttribute="leading" secondItem="mP1-VL-8DV" secondAttribute="leading" id="rNG-zQ-kqt"/>
+                <constraint firstItem="zLn-Uy-nPq" firstAttribute="top" secondItem="mP1-VL-8DV" secondAttribute="top" id="zHi-Ko-Jx7"/>
             </constraints>
             <size key="customSize" width="462" height="301"/>
             <connections>

@@ -8,6 +8,7 @@
 
 #import "ScoreSummaryCollectionViewCell.h"
 #import "ScoreSummaryInfoCollectionViewCell.h"
+#import "ScoreDetailHeaderCollectionViewCell.h"
 
 @implementation ScoreSummaryCollectionViewCell
 
@@ -26,12 +27,6 @@ static int const cellRowHeight = 30;
   _scoreSummary = scoreSummary;
 
   [self.collectionView reloadData];
-}
-
--(void)layoutSubviews {
-  [super layoutSubviews];
-
-  self.collectionView.frame = self.bounds;
 }
 
 #pragma mark - UICollectionView

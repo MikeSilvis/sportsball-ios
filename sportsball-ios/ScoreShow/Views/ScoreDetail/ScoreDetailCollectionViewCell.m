@@ -32,13 +32,6 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   [self.collectionView reloadData];
 }
 
--(void)layoutSubviews {
-  [super layoutSubviews];
-
-  self.collectionView.frame = self.bounds;
-//  self.collectionView.
-}
-
 #pragma mark - UICollectionView
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +77,6 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
   if (kind == UICollectionElementKindSectionHeader) {
     ScoreDetailHeaderCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailHeaderCell forIndexPath:indexPath];
-
     ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
     cell.label.text = scoreDetail.headerInfo;
 

@@ -71,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-Tj-LqZ">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="220" width="600" height="380"/>
                                 <collectionViewLayout key="collectionViewLayout" id="aws-kH-MLz" customClass="CSStickyHeaderFlowLayout"/>
                                 <cells/>
                                 <connections>
@@ -88,7 +88,7 @@
                             <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" id="PX3-kv-bon"/>
                             <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leading" id="R0m-0b-ICz"/>
                             <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="gbV-IQ-fJq"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="280" id="lpK-qL-E9x"/>
+                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="200" id="lpK-qL-E9x"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

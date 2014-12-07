@@ -42,11 +42,6 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  // Set the collection view to be half the size of the frame
-  CGRect f = self.collectionView.frame;
-  f.size.height = self.view.bounds.size.height / 2;
-  self.collectionView.frame = f;
-
 //  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
 //    self.boxscore = boxscore;
 //    self.game.boxscore = boxscore;
@@ -88,7 +83,7 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
-  layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
+  layout.itemSize = CGSizeMake(self.view.bounds.size.width, layout.itemSize.height);
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -168,14 +163,6 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
     return CGSizeZero;
   }
 }
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-//  if (section == 0) {
-//    return CGSizeMake(self.view.bounds.size.width, 200);
-//  } else {
-//    return CGSizeZero;
-//  }
-//}
 
 //-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //  NSLog(@"scrollView: %f", scrollView.contentOffset.y);
