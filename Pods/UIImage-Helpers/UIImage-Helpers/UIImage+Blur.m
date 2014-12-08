@@ -15,7 +15,7 @@
     if (blurAmount < 0.0 || blurAmount > 1.0) {
         blurAmount = 0.5;
     }
-    
+
     int boxSize = (int)(blurAmount * 40);
     boxSize = boxSize - (boxSize % 2) + 1;
     

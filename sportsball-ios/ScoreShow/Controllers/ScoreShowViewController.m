@@ -24,6 +24,9 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
 
+  self.collectionView.alpha = 0.98f;
+  self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+
   UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
   backgroundRecognizer.delegate = self;
   [self.view addGestureRecognizer:backgroundRecognizer];

@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *logo;
-@property (nonatomic, strong) NSString *background;
 @property (nonatomic, strong) NSString *header;
 @property (nonatomic, strong) UIImage *blurredHeader;
 @property (nonatomic, strong) NSString *datePickerType;

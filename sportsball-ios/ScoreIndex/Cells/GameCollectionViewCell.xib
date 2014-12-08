@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ksP-5B-CeT" userLabel="homeTeamLogo">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ksP-5B-CeT" userLabel="homeTeamLogo">
                         <rect key="frame" x="8" y="8" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="7gX-rI-r6Y"/>
@@ -44,7 +44,7 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-Mi-yFz" userLabel="awayTeamLogo">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-Mi-yFz" userLabel="awayTeamLogo">
                         <rect key="frame" x="8" y="33" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="PRi-bP-uwu"/>

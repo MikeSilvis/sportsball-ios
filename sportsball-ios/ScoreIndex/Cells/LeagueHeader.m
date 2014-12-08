@@ -12,32 +12,38 @@
 
 @implementation LeagueHeader
 
--(void)awakeFromNib {
-  [super awakeFromNib];
-}
-
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.1 animations:^{
     CGFloat yOrigin = layoutAttributes.frame.origin.y;
     if (yOrigin >= 0) {
-      self.smallLogo.alpha = 1;
-      self.blurredImage.alpha = 1;
+      float alpha = 1;
+
+      self.smallLogo.alpha = alpha;
+      self.headerImageBlurred.alpha = alpha;
     }
     else if (yOrigin >= -5) {
-      self.smallLogo.alpha = 0.90;
-      self.blurredImage.alpha = 0.90;
+      float alpha = 0.90;
+
+      self.smallLogo.alpha = alpha;
+      self.headerImageBlurred.alpha = alpha;
     }
     else if (yOrigin >= -10) {
-      self.smallLogo.alpha = 0.75;
-      self.blurredImage.alpha = 0.75;
+      float alpha = 0.75;
+
+      self.smallLogo.alpha = alpha;
+      self.headerImageBlurred.alpha = alpha;
     }
     else if (yOrigin >= -20) {
-      self.smallLogo.alpha = 0.5;
-      self.blurredImage.alpha = 0.5;
+      float alpha = 0.5;
+
+      self.smallLogo.alpha = alpha;
+      self.headerImageBlurred.alpha = alpha;
     }
     else if (yOrigin >= -30) {
-      self.smallLogo.alpha = 0;
-      self.blurredImage.alpha = 0;
+      float alpha = 0;
+
+      self.smallLogo.alpha = alpha;
+      self.headerImageBlurred.alpha = alpha;
     }
   }];
 }
@@ -45,9 +51,9 @@
 -(void)setCurrentLeague:(League *)currentLeague {
   _currentLeague = currentLeague;
 
-  self.largeLogo.image = [UIImage imageNamed:self.currentLeague.header];
+  self.headerImage.image = [UIImage imageNamed:self.currentLeague.header];
   self.smallLogo.image = [UIImage imageNamed:self.currentLeague.logo];
-  self.blurredImage.image = self.currentLeague.blurredHeader;
+  self.headerImageBlurred.image = self.currentLeague.blurredHeader;
 }
 
 @end

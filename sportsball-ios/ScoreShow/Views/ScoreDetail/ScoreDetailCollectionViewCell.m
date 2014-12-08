@@ -18,6 +18,11 @@ static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCel
 static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
 -(void)awakeFromNib {
+  [super awakeFromNib];
+
+  self.backgroundColor = [UIColor clearColor];
+  self.collectionView.backgroundColor = [UIColor clearColor];
+
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailInfoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:scoreDetailInfoCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:scoreDetailHeaderCell];
 }

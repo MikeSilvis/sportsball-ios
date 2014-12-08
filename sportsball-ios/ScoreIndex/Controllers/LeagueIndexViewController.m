@@ -72,12 +72,11 @@
 }
 
 -(void)openAtLastSelectedIndex {
-//  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
+  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
 
-    [self openScoresAtIndex:0 animated:NO];
-//  if ((openedIndex > 0) && [self.scoreViews objectAtIndex:openedIndex]) {
-//    [self openScoresAtIndex:openedIndex animated:NO];
-//  }
+  if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {
+    [self openScoresAtIndex:openedIndex animated:NO];
+  }
 }
 
 -(void)selectedGame:(Game *)game {
@@ -113,13 +112,13 @@
 -(void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
   [self stopTimer];
   [self startTimer];
-  [User currentUser].lastOpenedLeague = [NSNumber numberWithInteger:index];
 }
 
 -(void)startTimer {
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
+    [User currentUser].lastOpenedLeague = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }

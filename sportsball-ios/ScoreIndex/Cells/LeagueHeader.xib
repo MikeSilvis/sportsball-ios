@@ -60,8 +60,8 @@
             </constraints>
             <size key="customSize" width="320" height="426"/>
             <connections>
-                <outlet property="blurredImage" destination="l5G-uZ-nBU" id="DKP-3K-rtg"/>
-                <outlet property="largeLogo" destination="4PO-fa-s9b" id="YQk-VX-jbe"/>
+                <outlet property="headerImage" destination="4PO-fa-s9b" id="ln6-YW-tPb"/>
+                <outlet property="headerImageBlurred" destination="l5G-uZ-nBU" id="VK0-H5-A1d"/>
                 <outlet property="smallLogo" destination="rtY-eo-R7F" id="4jH-WI-cqN"/>
             </connections>
         </collectionViewCell>

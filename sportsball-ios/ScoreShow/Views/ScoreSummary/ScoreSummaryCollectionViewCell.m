@@ -16,6 +16,11 @@ static NSString * const scoreSummaryinfoCell = @"scoreSummaryinfoCell";
 static int const cellRowHeight = 30;
 
 -(void)awakeFromNib {
+  [super awakeFromNib];
+
+  self.backgroundColor = [UIColor clearColor];
+  self.collectionView.backgroundColor = [UIColor clearColor];
+
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryInfoViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryinfoCell];
 }
 

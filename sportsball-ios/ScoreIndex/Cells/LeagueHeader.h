@@ -12,8 +12,8 @@
 @interface LeagueHeader : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
-@property (weak, nonatomic) IBOutlet UIImageView *largeLogo;
-@property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageBlurred;
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
 

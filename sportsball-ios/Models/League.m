@@ -23,7 +23,6 @@ static NSString *dailyDatePicker = @"daily";
   nfl.logo = @"nfl-logo";
   nfl.header = @"nfl-header";
   nfl.name = @"nfl";
-  nfl.background = @"nfl-background";
   nfl.datePickerType = weeklyDatePicker;
   nfl.numberOfWeeks = (NSInteger) 17;
 
@@ -31,7 +30,6 @@ static NSString *dailyDatePicker = @"daily";
   nhl.logo = @"nhl-logo";
   nhl.header = @"nhl-header";
   nhl.name = @"nhl";
-  nhl.background = @"nhl-background";
   nhl.datePickerType = dailyDatePicker;
 
   League *ncf = [[League alloc] init];
@@ -51,9 +49,9 @@ static NSString *dailyDatePicker = @"daily";
 
 -(UIImage *)blurredHeader{
   if (!_blurredHeader) {
-    float blurred = 2.5f;
+    NSString *imageName = [NSString stringWithFormat:@"%@-blurred", self.header];
 
-    _blurredHeader = [[UIImage imageNamed:self.header] blurredImage:blurred];
+    _blurredHeader = [UIImage imageNamed:imageName];
   }
 
   return _blurredHeader;
@@ -61,6 +59,7 @@ static NSString *dailyDatePicker = @"daily";
 
 -(void)setHeader:(NSString *)header {
   _header = header;
+
   self.blurredHeader = nil;
 }
 
