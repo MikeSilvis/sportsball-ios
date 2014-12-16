@@ -17,6 +17,7 @@
     self.name = json[@"name"];
     self.logoUrl = [NSURL URLWithString:json[@"logo"]];
     self.record = json[@"record"];
+    self.dataName = json[@"data_name"];
   }
 
   return self;

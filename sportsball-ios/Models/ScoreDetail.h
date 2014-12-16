@@ -12,6 +12,5 @@
 
 @property (nonatomic, strong) NSString *headerInfo;
 @property (nonatomic, strong) NSArray *contentInfo;
-@property (nonatomic, strong) NSArray *headerRow;
 
 @end

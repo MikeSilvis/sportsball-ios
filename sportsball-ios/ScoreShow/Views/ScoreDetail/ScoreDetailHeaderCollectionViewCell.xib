@@ -6,33 +6,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreDetailHeaderCollectionViewCell" id="2cX-kl-d13" customClass="ScoreDetailHeaderCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="227" height="35"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreDetailHeaderCollectionViewCell" id="goK-9z-nXm" customClass="ScoreDetailHeaderCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="227" height="35"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st period summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wO-Y0-CQ6">
-                        <rect key="frame" x="8" y="7" width="211" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            </view>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st period summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urR-Bd-tNm">
+                    <rect key="frame" x="8" y="15" width="304" height="20"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <color key="textColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="5wO-Y0-CQ6" secondAttribute="centerY" constant="0.5" id="Im4-V1-g0R"/>
-                <constraint firstItem="5wO-Y0-CQ6" firstAttribute="leading" secondItem="2cX-kl-d13" secondAttribute="leading" constant="8" id="ZwH-Bm-And"/>
-                <constraint firstAttribute="centerX" secondItem="5wO-Y0-CQ6" secondAttribute="centerX" id="i32-e7-8nN"/>
+                <constraint firstItem="urR-Bd-tNm" firstAttribute="leading" secondItem="goK-9z-nXm" secondAttribute="leading" constant="8" id="34x-E2-FJv"/>
+                <constraint firstAttribute="centerX" secondItem="urR-Bd-tNm" secondAttribute="centerX" id="BgN-mx-E57"/>
+                <constraint firstAttribute="centerY" secondItem="urR-Bd-tNm" secondAttribute="centerY" constant="0.5" id="caU-sI-lDY"/>
             </constraints>
-            <size key="customSize" width="275" height="35"/>
             <connections>
-                <outlet property="label" destination="5wO-Y0-CQ6" id="cTT-nY-HN5"/>
+                <outlet property="label" destination="urR-Bd-tNm" id="k4T-D2-rEY"/>
             </connections>
-            <point key="canvasLocation" x="535.5" y="359.5"/>
-        </collectionViewCell>
+            <point key="canvasLocation" x="607" y="411"/>
+        </collectionReusableView>
     </objects>
 </document>

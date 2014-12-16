@@ -28,6 +28,10 @@
 
   NSString *url = [self getPathFromString:path];
 
+  if (!parameters) {
+    parameters = @{};
+  }
+
   NSLog(@"making request with path: %@", path);
 
   [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

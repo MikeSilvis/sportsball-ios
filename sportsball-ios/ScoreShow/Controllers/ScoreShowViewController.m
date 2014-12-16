@@ -15,7 +15,6 @@
 
 @implementation ScoreShowViewController
 
-static NSString * const gameViewCell = @"gameViewCell";
 static NSString * const headerViewCell = @"headerViewCell";
 static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
@@ -31,9 +30,15 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   backgroundRecognizer.delegate = self;
   [self.view addGestureRecognizer:backgroundRecognizer];
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryViewCell];
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:scoreDetailCollectionViewCell];
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:headerViewCell];
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
+        forCellWithReuseIdentifier:scoreSummaryViewCell];
+
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
+        forCellWithReuseIdentifier:scoreDetailCollectionViewCell];
+
+  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil]
+        forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+               withReuseIdentifier:headerViewCell];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
@@ -45,35 +50,15 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-//  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
-//    self.boxscore = boxscore;
-//    self.game.boxscore = boxscore;
-//  } failure:nil];
+  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
+    self.game.boxscore = boxscore;
+
+    [self.collectionView reloadData];
+  } failure:nil];
 }
 
 -(void)setGame:(Game *)game {
   _game = game;
-
-  // TODO: DELETE ALL OF THIS
-  Boxscore *boxscore = [[Boxscore alloc] init];
-  boxscore.scoreSummary = @[
-                            @[@"", @"1", @"2", @"3", @"T"],
-                            @[@"CGY", @"0", @"3", @"3", @"6"],
-                            @[@"FLA", @"1", @"3", @"0", @"4"]
-                            ];
-  _game.boxscore = boxscore;
-
-
-  ScoreDetail *firstDetail = [[ScoreDetail alloc] init];
-  firstDetail.headerInfo = @"1st Period Summary";
-  firstDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail"];
-  firstDetail.contentInfo = @[@"1:17", @"fla", @"Scottie Upshall (2) Assist: Aaron Ekblad"];
-
-  ScoreDetail *secondDetail = [[ScoreDetail alloc] init];
-  secondDetail.headerInfo = @"2nd Period Summary";
-  secondDetail.headerRow = @[@"Time", @"Team", @"Scoring Detail"];
-  secondDetail.contentInfo = @[@"1:17", @"fla", @"Mike Silvis (2) Assist: Aaron Ekblad"];
-  _game.boxscore.scoreDetail = @[firstDetail, secondDetail];
 
   [self.collectionView reloadData];
 }
@@ -135,6 +120,7 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   }
   else if (indexPath.section == 1){
     ScoreDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
+    cell.game = self.game;
     cell.scoreDetails = self.game.boxscore.scoreDetail;
 
     return cell;

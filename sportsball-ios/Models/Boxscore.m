@@ -15,12 +15,13 @@
 
   boxscore.scoreSummary = json[@"score_summary"];
 
-  NSMutableArray *scoreDetail;
+  NSMutableArray *scoreDetails = [NSMutableArray array];
   for (id scoreDetail in json[@"score_detail"]) {
-    [scoreDetail arrayByAddingObject:[[ScoreDetail alloc] initWithJson:scoreDetail]];
+    ScoreDetail *detail = [[ScoreDetail alloc] initWithJson:scoreDetail];
+    [scoreDetails addObject:detail];
   }
 
-  boxscore.scoreDetail = scoreDetail;
+  boxscore.scoreDetail = scoreDetails;
 
   return boxscore;
 }

@@ -13,9 +13,9 @@
 
 @property (nonatomic, strong) NSURL *logoUrl;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *wins;
-@property (nonatomic, strong) NSNumber *loses;
 @property (nonatomic, strong) NSString *record;
+@property (nonatomic, strong) NSString *dataName;
+
 
 -(NSString *)formattedRecord;
 @end

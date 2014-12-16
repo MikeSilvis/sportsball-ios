@@ -10,14 +10,20 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi Miek!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL8-GD-c88">
-                    <rect key="frame" x="279" y="289" width="63" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="3ct-LS-rYK">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3ct-LS-rYK" secondAttribute="bottom" id="8XH-ZX-mqw"/>
+                <constraint firstItem="3ct-LS-rYK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ldu-tI-pAz"/>
+                <constraint firstItem="3ct-LS-rYK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fmk-1P-Ht4"/>
+                <constraint firstAttribute="trailing" secondItem="3ct-LS-rYK" secondAttribute="trailing" id="zOZ-lA-d1f"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="320" height="569"/>
+    </resources>
 </document>

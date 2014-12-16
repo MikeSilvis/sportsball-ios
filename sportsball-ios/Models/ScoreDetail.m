@@ -14,9 +14,14 @@
   self = [super init];
 
   if (self) {
-    self.headerInfo = json[@"header_info"];
+    if (json[@"header_info"] != [NSNull null]) {
+      self.headerInfo = json[@"header_info"];
+    }
+    else {
+      self.headerInfo = @"Penalty Summary";
+    }
+
     self.contentInfo = json[@"content_info"];
-    self.headerRow = json[@"header_row"];
   }
 
   return self;
