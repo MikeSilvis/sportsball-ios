@@ -18,14 +18,18 @@
 static NSString * const headerViewCell = @"headerViewCell";
 static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
+static int headerSize = 74;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
 
-  self.collectionView.alpha = 0.98f;
+//  self.collectionView.alpha = 0.98f;
 //  self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+
   self.collectionView.backgroundColor = [UIColor clearColor];
+  self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+  self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerSize, 0, 0, 0);
 
   UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
@@ -72,7 +76,6 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   [super viewWillLayoutSubviews];
 
   // Header
-  CGFloat headerSize = 74;
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);

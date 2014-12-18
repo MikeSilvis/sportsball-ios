@@ -21,8 +21,9 @@
 
   if ([self nothingHappend]) {
     self.time.text = @"";
+    self.summary.text = @"";
     self.teamLogo.hidden = YES;
-    self.summary.text = self.contentInfo[0];
+    self.noScores.text = self.contentInfo[0];
     return;
   }
 
@@ -39,9 +40,9 @@
   }
   else {
     dataNameLocation = 0;
-    summaryLocation = 3;
+    summaryLocation = 2;
 
-    self.time.text = self.contentInfo[2];
+    self.time.text = self.contentInfo[1];
   }
 
   NSString *teamDataName = self.contentInfo[dataNameLocation];
@@ -56,7 +57,12 @@
 }
 
 -(bool)nothingHappend {
-  return ([self.contentInfo[0] isEqualToString:@"No penalties this period"] || [self.contentInfo[0] isEqualToString:@"No scoring this period"]);
+  if ([self.contentInfo count] > 0) {
+    return ([self.contentInfo[0] isEqualToString:@"No penalties this period"] || [self.contentInfo[0] isEqualToString:@"No scoring this period"]);
+  }
+  else {
+    return false;
+  }
 }
 
 @end

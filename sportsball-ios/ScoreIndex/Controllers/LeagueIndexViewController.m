@@ -191,8 +191,7 @@
   [self openScoresAtIndex:index animated:YES];
 }
 
-- (UIView *)createCollapsedViewAtIndex:(NSUInteger)index
-{
+- (UIView *)createCollapsedViewAtIndex:(NSUInteger)index {
   CGFloat cellHeight = 100;
 
   LeagueIndexHeader *leagueHeader = [[[NSBundle mainBundle] loadNibNamed:@"LeagueIndexHeader" owner:nil options:nil] lastObject];
@@ -202,8 +201,7 @@
   return leagueHeader;
 }
 
-- (UIView *)createExpandedViewAtIndex:(NSUInteger)index
-{
+- (UIView *)createExpandedViewAtIndex:(NSUInteger)index {
   ScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"ScoreIndexView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
   scoreIndex.frame = self.view.bounds;
