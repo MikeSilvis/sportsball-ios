@@ -24,7 +24,12 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   self.view.backgroundColor = [UIColor clearColor];
 
   self.collectionView.alpha = 0.98f;
-  self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+//  self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+  self.collectionView.backgroundColor = [UIColor clearColor];
+
+  UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+  self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+  [self.view insertSubview:self.blurView belowSubview:self.collectionView];
 
   UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
   backgroundRecognizer.delegate = self;
@@ -72,6 +77,9 @@ static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionV
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
   layout.itemSize = CGSizeMake(self.view.bounds.size.width, layout.itemSize.height);
+
+  // Blur
+  self.blurView.frame = self.collectionView.frame;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {

@@ -22,6 +22,8 @@
 @property (nonatomic, strong) Boxscore *boxscore;
 - (IBAction)didRequestClose:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UIVisualEffectView *blurView;
+
 
 @property (nonatomic, weak) id<ScoreShowViewDelegate> delegate;
 

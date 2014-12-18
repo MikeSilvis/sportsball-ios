@@ -21,7 +21,12 @@
       self.headerInfo = @"Penalty Summary";
     }
 
-    self.contentInfo = json[@"content_info"];
+    if (json[@"content_info"] != [NSNull null]) {
+      self.contentInfo = json[@"content_info"];
+    }
+    else {
+      self.contentInfo = @[];
+    }
   }
 
   return self;

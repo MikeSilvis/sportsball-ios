@@ -25,19 +25,20 @@
   carretIcon = [FAKFontAwesome caretRightIconWithSize:iconSize];
   iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
   self.awayTeamWinnerImage.image = iconImage;
+
 }
 
 -(void)setGame:(Game *)game {
   _game = game;
 
   Team *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo setImageWithURL:homeTeam.logoUrl placeholderImage:nil];
+  [self.homeTeamLogo setImageWithURL:[homeTeam logoURLWithSize:@"120x120"] placeholderImage:nil];
   self.homeTeamScore.text = self.game.homeScoreString;
   self.homeTeamWinnerImage.hidden = ![self.game.winningTeam isEqual:homeTeam];
   self.homeTeamScore.text = self.game.homeScoreString;
 
   Team *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo setImageWithURL:awayTeam.logoUrl placeholderImage:nil];
+  [self.awayTeamLogo setImageWithURL:[awayTeam logoURLWithSize:@"120x120"] placeholderImage:nil];
   self.awayTeamWinnerImage.hidden = ![self.game.winningTeam isEqual:awayTeam];
   self.awayTeamScore.text = self.game.awayScoreString;
 

@@ -15,7 +15,8 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *record;
 @property (nonatomic, strong) NSString *dataName;
-
+@property (nonatomic, strong) NSDictionary *scaledDownImages;
 
 -(NSString *)formattedRecord;
+-(NSURL *)logoURLWithSize:(NSString *)size;
 @end
