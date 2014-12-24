@@ -28,6 +28,7 @@
 		1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */; };
 		1143DE031A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */; };
 		1143DE061A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */; };
+		1149A6A21A49B04300928ECA /* RecapCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1149A6A11A49B04300928ECA /* RecapCollectionViewCell.m */; };
 		1154F61D1A03D60F009F560B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61C1A03D60F009F560B /* main.m */; };
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
@@ -47,6 +48,8 @@
 		1189A3FD1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3FC1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib */; };
 		1189A3FF1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3FE1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib */; };
 		1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */; };
+		119909101A4B224200F2ED1B /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199090F1A4B224200F2ED1B /* Recap.m */; };
+		119909121A4B249A00F2ED1B /* RecapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -92,6 +95,8 @@
 		1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSummaryInfoViewCell.xib; sourceTree = "<group>"; };
 		1143DE041A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSummaryInfoCollectionViewCell.h; sourceTree = "<group>"; };
 		1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryInfoCollectionViewCell.m; sourceTree = "<group>"; };
+		1149A6A01A49B04300928ECA /* RecapCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecapCollectionViewCell.h; sourceTree = "<group>"; };
+		1149A6A11A49B04300928ECA /* RecapCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecapCollectionViewCell.m; sourceTree = "<group>"; };
 		1154F6171A03D60E009F560B /* Champion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +132,9 @@
 		1189A3FE1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreDetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		1189A4001A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDetailHeaderCollectionViewCell.h; sourceTree = "<group>"; };
 		1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDetailHeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		1199090E1A4B224200F2ED1B /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recap.h; sourceTree = "<group>"; };
+		1199090F1A4B224200F2ED1B /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recap.m; sourceTree = "<group>"; };
+		119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecapCollectionViewCell.xib; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -250,6 +258,16 @@
 			name = APPaginalTableView;
 			sourceTree = "<group>";
 		};
+		1149A69F1A49B02000928ECA /* Recap */ = {
+			isa = PBXGroup;
+			children = (
+				1149A6A01A49B04300928ECA /* RecapCollectionViewCell.h */,
+				1149A6A11A49B04300928ECA /* RecapCollectionViewCell.m */,
+				119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */,
+			);
+			path = Recap;
+			sourceTree = "<group>";
+		};
 		1154F60E1A03D60E009F560B = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +358,8 @@
 				1101C60C1A22842E0086AF16 /* User.m */,
 				112BEE8B1A31304B00DCE472 /* ScoreDetail.h */,
 				112BEE8C1A31304B00DCE472 /* ScoreDetail.m */,
+				1199090E1A4B224200F2ED1B /* Recap.h */,
+				1199090F1A4B224200F2ED1B /* Recap.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,6 +421,7 @@
 		11847BD51A21063800300E28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1149A69F1A49B02000928ECA /* Recap */,
 				1189A3F31A31335700575E07 /* ScoreDetail */,
 				112BEE8A1A3124A900DCE472 /* ScoreSummary */,
 			);
@@ -501,6 +522,7 @@
 				1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */,
 				1101C6101A228EFA0086AF16 /* ScoreShowHeader.xib in Resources */,
 				113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */,
+				119909121A4B249A00F2ED1B /* RecapCollectionViewCell.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
@@ -575,6 +597,7 @@
 				1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1101C6131A228F500086AF16 /* ScoreShowHeader.m in Sources */,
+				119909101A4B224200F2ED1B /* Recap.m in Sources */,
 				1101C60D1A22842E0086AF16 /* User.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,
@@ -591,6 +614,7 @@
 				112BEE8D1A31304B00DCE472 /* ScoreDetail.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
 				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
+				1149A6A21A49B04300928ECA /* RecapCollectionViewCell.m in Sources */,
 				11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

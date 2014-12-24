@@ -8,10 +8,12 @@
 
 #import "Champion.h"
 #import "ScoreDetail.h"
+#import "Recap.h"
 
 @interface Boxscore : Champion
 
 @property (nonatomic, strong) NSArray *scoreSummary;
 @property (nonatomic, strong) NSArray *scoreDetail;
+@property (nonatomic, strong) Recap *recap;
 
 @end

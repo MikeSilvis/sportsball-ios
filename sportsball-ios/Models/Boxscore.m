@@ -22,6 +22,7 @@
   }
 
   boxscore.scoreDetail = scoreDetails;
+  boxscore.recap = [[Recap alloc] initWithJson:json[@"recap"]];
 
   return boxscore;
 }

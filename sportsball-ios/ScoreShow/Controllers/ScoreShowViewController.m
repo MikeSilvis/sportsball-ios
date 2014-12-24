@@ -12,38 +12,49 @@
 #import "ScoreShowHeader.h"
 #import "ScoreSummaryCollectionViewCell.h"
 #import "ScoreDetailCollectionViewCell.h"
+#import "RecapCollectionViewCell.h"
 
 @implementation ScoreShowViewController
 
 static NSString * const headerViewCell = @"headerViewCell";
 static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
+static NSString * const scoreRecapCollectionViewCell = @"scoreRecapCollectionViewCell";
+
+static const NSInteger scoreSummaryViewLocation = 0;
+static const NSInteger scoreRecapViewLocation   = 1;
+static const NSInteger scoreDetailViewLocation  = 2;
+
 static int headerSize = 74;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
 
-//  self.collectionView.alpha = 0.98f;
-//  self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
-
+  // Collection View Styles
   self.collectionView.backgroundColor = [UIColor clearColor];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerSize, 0, 0, 0);
 
+  // Blur effect
   UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
   [self.view insertSubview:self.blurView belowSubview:self.collectionView];
 
+  // Background Touch (for closing the modal)
   UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
   backgroundRecognizer.delegate = self;
   [self.view addGestureRecognizer:backgroundRecognizer];
 
+  // Register nibs
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
         forCellWithReuseIdentifier:scoreSummaryViewCell];
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:scoreDetailCollectionViewCell];
+
+  [self.collectionView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
+        forCellWithReuseIdentifier:scoreRecapCollectionViewCell];
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil]
         forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
@@ -111,25 +122,27 @@ static int headerSize = 74;
 #pragma mark 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-  return 2;
+  return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  if ((section == 0) || (section == 1)) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section == 0) {
+  if (indexPath.section == scoreSummaryViewLocation) {
     ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
     cell.scoreSummary = self.game.boxscore.scoreSummary;
 
     return cell;
   }
-  else if (indexPath.section == 1){
+  else if (indexPath.section == scoreRecapViewLocation) {
+    RecapCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
+    cell.recap = self.game.boxscore.recap;
+
+    return cell;
+  }
+  else if (indexPath.section == scoreDetailViewLocation){
     ScoreDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
     cell.game = self.game;
     cell.scoreDetails = self.game.boxscore.scoreDetail;
@@ -153,27 +166,18 @@ static int headerSize = 74;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section == 0) {
+  if (indexPath.section == scoreSummaryViewLocation) {
     return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width];
   }
-  else if (indexPath.section == 1) {
+  else if (indexPath.section == scoreRecapViewLocation) {
+    return [RecapCollectionViewCell measureCellSizeWithResource:self.game.boxscore.recap andWidth:self.view.bounds.size.width];
+  }
+  else if (indexPath.section == scoreDetailViewLocation) {
     return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width];
   }
   else {
     return CGSizeZero;
   }
 }
-
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//  NSLog(@"scrollView: %f", scrollView.contentOffset.y);
-
-  // Dynamically increase the view size
-//  CGRect f = self.collectionView.frame;
-//  f.size.height = f.size.height + scrollView.contentOffset.y;
-//  f.origin.y = f.origin.y - scrollView.contentOffset.y;
-//  if (f.size.height <= self.view.bounds.size.height) {
-//    self.collectionView.frame = f;
-//  }
-//}
 
 @end

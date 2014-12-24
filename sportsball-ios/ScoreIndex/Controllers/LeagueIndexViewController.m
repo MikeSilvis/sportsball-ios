@@ -22,7 +22,9 @@
   self.leagues = [League supportedLeagues];
   self.scoreViews = [NSMutableArray array];
 
-  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+//  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+//  self.layer.contents = (id)[UIImage imageNamed:@"freshBackground.png"].CGImage;
+  self.view.layer.contents = (id)[UIImage imageNamed:@"background"].CGImage;
 
   // Create the table list
   self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
