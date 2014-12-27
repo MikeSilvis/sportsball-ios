@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Recap.h"
 
-@interface RecapCollectionViewCell : UICollectionViewCell <UIGestureRecognizerDelegate>
+@interface RecapCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) Recap *recap;
 @property (weak, nonatomic) IBOutlet UILabel *content;

@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSString *headline;
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSURL *url;
 
 @end

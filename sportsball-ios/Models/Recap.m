@@ -16,6 +16,7 @@
   if (self) {
     self.headline = json[@"headline"];
     self.content = json[@"content"];
+    self.url = [NSURL URLWithString:json[@"url"]];
   }
 
   return self;

@@ -15,29 +15,22 @@
 @implementation League
 
 static NSTimeInterval kSecondsInDay = 86400;
-static NSString *weeklyDatePicker = @"weekly";
-static NSString *dailyDatePicker = @"daily";
 
 +(NSArray *)supportedLeagues {
   League *nfl = [[League alloc] init];
   nfl.logo = @"nfl-logo";
   nfl.header = @"nfl-header";
   nfl.name = @"nfl";
-  nfl.datePickerType = weeklyDatePicker;
-  nfl.numberOfWeeks = (NSInteger) 17;
 
   League *nhl = [[League alloc] init];
   nhl.logo = @"nhl-logo";
   nhl.header = @"nhl-header";
   nhl.name = @"nhl";
-  nhl.datePickerType = dailyDatePicker;
 
   League *ncf = [[League alloc] init];
   ncf.logo = @"ncf-logo";
   ncf.header = @"ncf-header";
   ncf.name = @"ncf";
-  ncf.datePickerType = weeklyDatePicker;
-  ncf.numberOfWeeks = (NSInteger) 16;
 
   return @[
            nhl,
@@ -123,10 +116,6 @@ static NSString *dailyDatePicker = @"daily";
   }
 
   return [NSMutableArray arrayWithArray:dates];
-}
-
-- (BOOL)isWeeky {
-  return [self.datePickerType isEqualToString:weeklyDatePicker];
 }
 
 -(NSArray *)ncfDates {

@@ -50,6 +50,7 @@
 		1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */; };
 		119909101A4B224200F2ED1B /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199090F1A4B224200F2ED1B /* Recap.m */; };
 		119909121A4B249A00F2ED1B /* RecapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */; };
+		119909161A4B2BD700F2ED1B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 119909151A4B2BD700F2ED1B /* WebViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -135,6 +136,8 @@
 		1199090E1A4B224200F2ED1B /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recap.h; sourceTree = "<group>"; };
 		1199090F1A4B224200F2ED1B /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recap.m; sourceTree = "<group>"; };
 		119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecapCollectionViewCell.xib; sourceTree = "<group>"; };
+		119909141A4B2BD700F2ED1B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		119909151A4B2BD700F2ED1B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				1116966A1A0E9BAE00F0E1CD /* Categories */,
 				1154F6531A03DC9B009F560B /* ScoreIndex */,
 				11847BD31A21045800300E28 /* ScoreShow */,
+				119909131A4B2BB300F2ED1B /* Web */,
 				1154F61E1A03D60F009F560B /* AppDelegate.h */,
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
 				1154F6271A03D60F009F560B /* Images.xcassets */,
@@ -442,6 +446,15 @@
 				1189A3FC1A31378D00575E07 /* ScoreDetailInfoCollectionViewCell.xib */,
 			);
 			path = ScoreDetail;
+			sourceTree = "<group>";
+		};
+		119909131A4B2BB300F2ED1B /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				119909141A4B2BD700F2ED1B /* WebViewController.h */,
+				119909151A4B2BD700F2ED1B /* WebViewController.m */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		4F64D5B3F38B935DBCDA02FB /* Pods */ = {
@@ -597,6 +610,7 @@
 				1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				1101C6131A228F500086AF16 /* ScoreShowHeader.m in Sources */,
+				119909161A4B2BD700F2ED1B /* WebViewController.m in Sources */,
 				119909101A4B224200F2ED1B /* Recap.m in Sources */,
 				1101C60D1A22842E0086AF16 /* User.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,

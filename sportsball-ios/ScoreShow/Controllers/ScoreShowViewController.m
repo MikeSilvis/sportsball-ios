@@ -21,6 +21,8 @@ static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
 static NSString * const scoreRecapCollectionViewCell = @"scoreRecapCollectionViewCell";
 
+static NSString * const WebViewSegue = @"webViewSegue";
+
 static const NSInteger scoreSummaryViewLocation = 0;
 static const NSInteger scoreRecapViewLocation   = 1;
 static const NSInteger scoreDetailViewLocation  = 2;
@@ -97,11 +99,11 @@ static int headerSize = 74;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-  if ([touch.view isEqual:self.collectionView]) {
-    return NO;
+  if ([touch.view isEqual:self.view]) {
+    return YES;
   }
   else {
-    return YES;
+    return NO;
   }
 }
 
@@ -151,6 +153,12 @@ static int headerSize = 74;
   }
 
   return nil;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  NSLog(@"ROW CLICKED!");
+
+  return;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {

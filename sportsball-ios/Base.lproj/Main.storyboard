@@ -103,11 +103,30 @@
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="collectionView" destination="WR1-Tj-LqZ" id="cqG-m1-URr"/>
+                        <segue destination="hUK-oS-nj5" kind="presentation" identifier="webViewSegue" id="FcF-wQ-4ed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjH-sC-Vby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1457" y="1836"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="sqE-YF-bsh">
+            <objects>
+                <viewController id="hUK-oS-nj5" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CYH-aG-CQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ic0-pY-iSv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0M0-u2-VfN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULG-Rh-SsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="1836"/>
         </scene>
     </scenes>
 </document>
