@@ -12,12 +12,13 @@
 @interface League : Champion
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *logo;
-@property (nonatomic, strong) NSString *header;
-@property (nonatomic, strong) UIImage *blurredHeader;
+@property (nonatomic, strong) NSURL *logo;
+@property (nonatomic, strong) NSURL *header;
+@property (nonatomic, strong) NSURL *blurredHeader;
+@property (nonatomic, strong) NSArray *schedule;
 
-+ (NSArray *)supportedLeagues;
-- (NSArray *)datesForPicker:(NSDate *)date;
++(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
+                   failure:(void (^) (NSError *error))failure;
 
 - (void)allScoresForDate:(NSDate *)date
              parameters:(id)parameters

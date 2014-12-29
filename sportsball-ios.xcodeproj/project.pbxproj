@@ -51,6 +51,8 @@
 		119909101A4B224200F2ED1B /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199090F1A4B224200F2ED1B /* Recap.m */; };
 		119909121A4B249A00F2ED1B /* RecapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */; };
 		119909161A4B2BD700F2ED1B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 119909151A4B2BD700F2ED1B /* WebViewController.m */; };
+		1199091B1A4F508A00F2ED1B /* LeagueLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */; };
+		119909201A4F535B00F2ED1B /* SportsBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
@@ -138,6 +140,10 @@
 		119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecapCollectionViewCell.xib; sourceTree = "<group>"; };
 		119909141A4B2BD700F2ED1B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		119909151A4B2BD700F2ED1B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		119909191A4F508A00F2ED1B /* LeagueLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueLoadingViewController.h; sourceTree = "<group>"; };
+		1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueLoadingViewController.m; sourceTree = "<group>"; };
+		1199091E1A4F535B00F2ED1B /* SportsBallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsBallViewController.h; sourceTree = "<group>"; };
+		1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsBallViewController.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 				11BCD67D1A424932009516A6 /* UIImage+Resize.m */,
 			);
 			name = Categories;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		112BEE8A1A3124A900DCE472 /* ScoreSummary */ = {
@@ -295,11 +302,9 @@
 		1154F6191A03D60E009F560B /* sportsball-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1199091C1A4F532900F2ED1B /* Helpers */,
+				119909181A4F503D00F2ED1B /* Screens */,
 				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
-				1116966A1A0E9BAE00F0E1CD /* Categories */,
-				1154F6531A03DC9B009F560B /* ScoreIndex */,
-				11847BD31A21045800300E28 /* ScoreShow */,
-				119909131A4B2BB300F2ED1B /* Web */,
 				1154F61E1A03D60F009F560B /* AppDelegate.h */,
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
 				1154F6271A03D60F009F560B /* Images.xcassets */,
@@ -455,6 +460,36 @@
 				119909151A4B2BD700F2ED1B /* WebViewController.m */,
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		119909181A4F503D00F2ED1B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1154F6531A03DC9B009F560B /* ScoreIndex */,
+				11847BD31A21045800300E28 /* ScoreShow */,
+				119909131A4B2BB300F2ED1B /* Web */,
+				119909191A4F508A00F2ED1B /* LeagueLoadingViewController.h */,
+				1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		1199091C1A4F532900F2ED1B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1116966A1A0E9BAE00F0E1CD /* Categories */,
+				1199091D1A4F533900F2ED1B /* Controllers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1199091D1A4F533900F2ED1B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1199091E1A4F535B00F2ED1B /* SportsBallViewController.h */,
+				1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		4F64D5B3F38B935DBCDA02FB /* Pods */ = {
@@ -621,6 +656,7 @@
 				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
+				1199091B1A4F508A00F2ED1B /* LeagueLoadingViewController.m in Sources */,
 				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
 				1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
@@ -628,6 +664,7 @@
 				112BEE8D1A31304B00DCE472 /* ScoreDetail.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
 				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
+				119909201A4F535B00F2ED1B /* SportsBallViewController.m in Sources */,
 				1149A6A21A49B04300928ECA /* RecapCollectionViewCell.m in Sources */,
 				11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */,
 			);

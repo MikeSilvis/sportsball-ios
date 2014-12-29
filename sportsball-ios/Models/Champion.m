@@ -10,18 +10,20 @@
 
 @implementation Champion
 
+static NSString * const serverURL = @"https://getbaryab.com/api/%@";
+//static NSString * const serverURL = @"http://localhost:3000/api/%@";
+
 -(id)initWithJson:(id)json {
   [NSException raise:@"Should be handled in subclass" format:@"not relevant"];
 
   return nil;
 }
 
--(NSString *)getPathFromString:(NSString *)path {
-  return [NSString stringWithFormat:@"https://getbaryab.com/api/%@", path];
-//  return [NSString stringWithFormat:@"http://localhost:3000/api/%@", path];
++(NSString *)getPathFromString:(NSString *)path {
+  return [NSString stringWithFormat:serverURL, path];
 }
 
--(void)dispatchRequest:(NSString *)path
++(void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure {
@@ -44,6 +46,17 @@
   }];
 }
 
+-(void)dispatchRequest:(NSString *)path
+            parameters:(id)parameters
+               success:(void (^) (id responseObject))success
+               failure:(void (^) (NSError *error))failure {
+
+  [self.class dispatchRequest:path
+                   parameters:parameters
+                      success:success
+                      failure:failure];
+}
+
 -(NSDateFormatter *)dateFormatter {
   if (!_dateFormatter) {
     _dateFormatter = [[NSDateFormatter alloc] init];
@@ -52,5 +65,10 @@
 
   return _dateFormatter;
 }
+
+-(NSURL *)imageURLWithSize:(NSURL *)url andSize:(NSString *)size {
+  return [NSURL URLWithString:[NSString stringWithFormat:@"%@?size=%@", url.absoluteString, size]];
+}
+
 
 @end

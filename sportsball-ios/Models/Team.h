@@ -18,5 +18,4 @@
 @property (nonatomic, strong) NSDictionary *scaledDownImages;
 
 -(NSString *)formattedRecord;
--(NSURL *)logoURLWithSize:(NSString *)size;
 @end

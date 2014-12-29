@@ -28,8 +28,4 @@
   return [NSString stringWithFormat:@"(%@)", self.record];
 }
 
--(NSURL *)logoURLWithSize:(NSString *)size {
-  return [NSURL URLWithString:[NSString stringWithFormat:@"%@?size=%@", self.logoUrl, size]];
-}
-
 @end

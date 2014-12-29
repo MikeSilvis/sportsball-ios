@@ -15,10 +15,16 @@
 
 -(id)initWithJson:(id)json;
 
--(NSString *)getPathFromString:(NSString *)path;
++(void)dispatchRequest:(NSString *)path
+            parameters:(id)parameters
+               success:(void (^) (id responseObject))success
+               failure:(void (^) (NSError *error))failure;
 
 -(void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure;
+
+-(NSURL *)imageURLWithSize:(NSURL *)url andSize:(NSString *)size;
+
 @end
