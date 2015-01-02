@@ -488,9 +488,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1154F6161A03D60E009F560B /* Champion */ = {
+		1154F6161A03D60E009F560B /* Jumbotron */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1154F63A1A03D60F009F560B /* Build configuration list for PBXNativeTarget "Champion" */;
+			buildConfigurationList = 1154F63A1A03D60F009F560B /* Build configuration list for PBXNativeTarget "Jumbotron" */;
 			buildPhases = (
 				6B7E1EE72CBFB28E54BF99A6 /* Check Pods Manifest.lock */,
 				1154F6131A03D60E009F560B /* Sources */,
@@ -503,7 +503,7 @@
 			);
 			dependencies = (
 			);
-			name = Champion;
+			name = Jumbotron;
 			productName = "sportsball-ios";
 			productReference = 1154F6171A03D60E009F560B /* Champion.app */;
 			productType = "com.apple.product-type.application";
@@ -536,7 +536,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1154F6161A03D60E009F560B /* Champion */,
+				1154F6161A03D60E009F560B /* Jumbotron */,
 			);
 		};
 /* End PBXProject section */
@@ -795,7 +795,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1154F63A1A03D60F009F560B /* Build configuration list for PBXNativeTarget "Champion" */ = {
+		1154F63A1A03D60F009F560B /* Build configuration list for PBXNativeTarget "Jumbotron" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1154F63B1A03D60F009F560B /* Debug */,
