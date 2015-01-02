@@ -24,7 +24,19 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 
+@property (weak, nonatomic) IBOutlet UIView *background;
 
 @property (nonatomic, weak) id<ScoreShowViewDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
+@property (weak, nonatomic) IBOutlet UIImageView *homeTeamWinner;
+
+@property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;
+@property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
+@property (weak, nonatomic) IBOutlet UIImageView *awayTeamWinner;
+
+@property (weak, nonatomic) IBOutlet UILabel *lowerInfo;
+@property (weak, nonatomic) IBOutlet UILabel *upperInfo;
 
 @end

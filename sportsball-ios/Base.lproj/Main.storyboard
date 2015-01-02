@@ -91,39 +91,154 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-Tj-LqZ">
-                                <rect key="frame" x="0.0" y="220" width="600" height="380"/>
-                                <collectionViewLayout key="collectionViewLayout" id="aws-kH-MLz" customClass="CSStickyHeaderFlowLayout"/>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="I4h-tI-kLt" id="RWd-Ay-3fu"/>
-                                    <outlet property="delegate" destination="I4h-tI-kLt" id="Kmm-17-1Go"/>
-                                </connections>
-                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfr-lE-L5X" userLabel="background">
+                                <rect key="frame" x="0.0" y="140" width="600" height="460"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-Tj-LqZ">
+                                        <rect key="frame" x="0.0" y="80" width="600" height="380"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="aws-kH-MLz" customClass="CSStickyHeaderFlowLayout"/>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="I4h-tI-kLt" id="RWd-Ay-3fu"/>
+                                            <outlet property="delegate" destination="I4h-tI-kLt" id="Kmm-17-1Go"/>
+                                        </connections>
+                                    </collectionView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-uw-ddi" userLabel="homeTeamLogo">
+                                        <rect key="frame" x="8" y="32" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="me1-Ny-nge"/>
+                                            <constraint firstAttribute="height" constant="40" id="tNQ-Ub-Vdc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-7z-szA" userLabel="homeTeamScore">
+                                        <rect key="frame" x="56" y="37" width="36" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-EU-2Fk" userLabel="homeTeamWinner">
+                                        <rect key="frame" x="94" y="41" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="39l-lC-FcG"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="aao-QQ-4uM"/>
+                                            <constraint firstAttribute="height" constant="20" id="dGA-rl-GbP"/>
+                                            <constraint firstAttribute="width" constant="20" id="vhf-38-NmL"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="39l-lC-FcG"/>
+                                                <exclude reference="aao-QQ-4uM"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n1F-bZ-aOS" userLabel="awayTeamLogo">
+                                        <rect key="frame" x="552" y="32" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ICq-rH-G7c"/>
+                                            <constraint firstAttribute="width" constant="40" id="YFi-zi-epz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="456" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLy-dl-E0x" userLabel="awayTeamScore">
+                                        <rect key="frame" x="508" y="37" width="36" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="64Y-sx-XHZ" userLabel="awayTeamWinner">
+                                        <rect key="frame" x="482" y="41" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="MjN-0D-v6O"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="aFU-x1-Rk6"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="mft-9o-Pva"/>
+                                            <constraint firstAttribute="height" constant="20" id="o8U-BY-FaI"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="aFU-x1-Rk6"/>
+                                                <exclude reference="mft-9o-Pva"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjW-cZ-mfm" userLabel="lowerInfo">
+                                        <rect key="frame" x="278" y="41" width="31.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mm-uY-Mem" userLabel="upperInfo">
+                                        <rect key="frame" x="283" y="18" width="21" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="eWe-EU-2Fk" secondAttribute="bottom" constant="19" id="3Ue-Ak-SOk"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="DjW-cZ-mfm" secondAttribute="bottom" constant="17" id="4Zh-sE-6IX"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="Qfr-lE-L5X" secondAttribute="leading" id="7qB-BY-mJD"/>
+                                    <constraint firstAttribute="centerX" secondItem="DjW-cZ-mfm" secondAttribute="centerX" constant="6.25" id="80l-nX-X9F"/>
+                                    <constraint firstItem="n1F-bZ-aOS" firstAttribute="leading" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" constant="-48" id="96G-2i-Rf9"/>
+                                    <constraint firstAttribute="centerX" secondItem="DjW-cZ-mfm" secondAttribute="centerX" constant="6.25" id="BCi-b4-fN6"/>
+                                    <constraint firstAttribute="centerX" secondItem="7Mm-uY-Mem" secondAttribute="centerX" constant="6.5" id="BK0-Ev-4Db"/>
+                                    <constraint firstItem="n1F-bZ-aOS" firstAttribute="leading" secondItem="aLy-dl-E0x" secondAttribute="trailing" constant="8" id="Fnv-7Q-tc3"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="eWe-EU-2Fk" secondAttribute="trailing" constant="-114" id="Gq2-cl-luM"/>
+                                    <constraint firstItem="eWe-EU-2Fk" firstAttribute="leading" secondItem="Btj-7z-szA" secondAttribute="trailing" constant="2" id="QLm-Mm-Fge"/>
+                                    <constraint firstItem="DjW-cZ-mfm" firstAttribute="top" secondItem="7Mm-uY-Mem" secondAttribute="bottom" constant="6.5" id="UCb-LT-0ZT"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="Btj-7z-szA" secondAttribute="trailing" constant="-92" id="Ubu-Ei-HEZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="n1F-bZ-aOS" secondAttribute="trailing" constant="8" id="ZW6-WD-vXh"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="n1F-bZ-aOS" secondAttribute="bottom" constant="8" id="cht-wu-Dco"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="F3Q-uw-ddi" secondAttribute="bottom" constant="8" id="dxd-kL-InQ"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="Qfr-lE-L5X" secondAttribute="top" constant="80" id="eeZ-4V-b1q"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="64Y-sx-XHZ" secondAttribute="bottom" constant="19" id="gte-NW-mO8"/>
+                                    <constraint firstItem="Btj-7z-szA" firstAttribute="leading" secondItem="F3Q-uw-ddi" secondAttribute="trailing" constant="8" id="hLz-Ua-Dbr"/>
+                                    <constraint firstItem="aLy-dl-E0x" firstAttribute="leading" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" constant="-92" id="kx6-9n-d9G"/>
+                                    <constraint firstAttribute="bottom" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="rea-ga-l5g"/>
+                                    <constraint firstItem="F3Q-uw-ddi" firstAttribute="leading" secondItem="Qfr-lE-L5X" secondAttribute="leading" constant="8" id="rxw-Sk-ue3"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="aLy-dl-E0x" secondAttribute="bottom" constant="15.5" id="taz-Jf-qp5"/>
+                                    <constraint firstAttribute="trailing" secondItem="n1F-bZ-aOS" secondAttribute="trailing" constant="8" id="vqD-gO-uuX"/>
+                                    <constraint firstItem="F3Q-uw-ddi" firstAttribute="leading" secondItem="Qfr-lE-L5X" secondAttribute="leading" constant="8" id="w80-97-D8J"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="F3Q-uw-ddi" secondAttribute="trailing" constant="-48" id="wT2-sa-rE7"/>
+                                    <constraint firstAttribute="trailing" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" id="x5i-bo-Yn6"/>
+                                    <constraint firstItem="aLy-dl-E0x" firstAttribute="leading" secondItem="64Y-sx-XHZ" secondAttribute="trailing" constant="6" id="yUu-OX-pfM"/>
+                                    <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="Btj-7z-szA" secondAttribute="bottom" constant="15.5" id="zX0-ww-lmO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rxw-Sk-ue3"/>
+                                        <exclude reference="Gq2-cl-luM"/>
+                                        <exclude reference="Ubu-Ei-HEZ"/>
+                                        <exclude reference="wT2-sa-rE7"/>
+                                        <exclude reference="80l-nX-X9F"/>
+                                        <exclude reference="kx6-9n-d9G"/>
+                                        <exclude reference="96G-2i-Rf9"/>
+                                        <exclude reference="vqD-gO-uuX"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="width" secondItem="PZp-T7-che" secondAttribute="width" id="C2o-qi-a6q"/>
-                            <constraint firstAttribute="trailing" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" id="M3S-Gg-FoY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WR1-Tj-LqZ" secondAttribute="trailing" id="PB0-oz-poa"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" id="PX3-kv-bon"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leading" id="R0m-0b-ICz"/>
-                            <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="WR1-Tj-LqZ" secondAttribute="bottom" id="gbV-IQ-fJq"/>
-                            <constraint firstItem="WR1-Tj-LqZ" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="200" id="lpK-qL-E9x"/>
+                            <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="Qfr-lE-L5X" secondAttribute="bottom" id="NCp-Qe-TRH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qfr-lE-L5X" secondAttribute="trailing" constant="-16" id="PyU-2C-DLQ"/>
+                            <constraint firstItem="Qfr-lE-L5X" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="120" id="W0K-Wx-WNd"/>
+                            <constraint firstItem="Qfr-lE-L5X" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" constant="-16" id="n4K-1p-TYL"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="C2o-qi-a6q"/>
-                                <exclude reference="PB0-oz-poa"/>
-                                <exclude reference="PX3-kv-bon"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="awayTeamLogo" destination="n1F-bZ-aOS" id="teT-5p-htQ"/>
+                        <outlet property="awayTeamScore" destination="aLy-dl-E0x" id="kBz-gg-jyd"/>
+                        <outlet property="awayTeamWinner" destination="64Y-sx-XHZ" id="J4V-z3-KaN"/>
+                        <outlet property="background" destination="Qfr-lE-L5X" id="9Wf-Ni-YSb"/>
                         <outlet property="collectionView" destination="WR1-Tj-LqZ" id="cqG-m1-URr"/>
+                        <outlet property="homeTeamLogo" destination="F3Q-uw-ddi" id="z9q-Qi-156"/>
+                        <outlet property="homeTeamScore" destination="Btj-7z-szA" id="fGl-6j-jCi"/>
+                        <outlet property="homeTeamWinner" destination="eWe-EU-2Fk" id="3Ba-bf-iP6"/>
+                        <outlet property="lowerInfo" destination="DjW-cZ-mfm" id="xSm-Nw-deL"/>
+                        <outlet property="upperInfo" destination="7Mm-uY-Mem" id="dc1-tc-X6H"/>
                         <segue destination="hUK-oS-nj5" kind="presentation" identifier="webViewSegue" id="FcF-wQ-4ed"/>
                     </connections>
                 </viewController>

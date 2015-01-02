@@ -9,14 +9,13 @@
 #import "ScoreShowViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "LeagueHeader.h"
-#import "ScoreShowHeader.h"
 #import "ScoreSummaryCollectionViewCell.h"
 #import "ScoreDetailCollectionViewCell.h"
 #import "RecapCollectionViewCell.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation ScoreShowViewController
 
-static NSString * const headerViewCell = @"headerViewCell";
 static NSString * const scoreSummaryViewCell = @"scoreSummaryViewCell";
 static NSString * const scoreDetailCollectionViewCell = @"scoreDetailCollectionViewCell";
 static NSString * const scoreRecapCollectionViewCell = @"scoreRecapCollectionViewCell";
@@ -27,7 +26,7 @@ static const NSInteger scoreSummaryViewLocation = 0;
 static const NSInteger scoreRecapViewLocation   = 1;
 static const NSInteger scoreDetailViewLocation  = 2;
 
-static int headerSize = 74;
+static int headerSize = 0;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -36,12 +35,12 @@ static int headerSize = 74;
   // Collection View Styles
   self.collectionView.backgroundColor = [UIColor clearColor];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-  self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerSize, 0, 0, 0);
 
   // Blur effect
+  self.background.backgroundColor = [UIColor clearColor];
   UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-  [self.view insertSubview:self.blurView belowSubview:self.collectionView];
+  [self.view insertSubview:self.blurView belowSubview:self.background];
 
   // Background Touch (for closing the modal)
   UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
@@ -57,16 +56,6 @@ static int headerSize = 74;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:scoreRecapCollectionViewCell];
-
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreShowHeader" bundle:nil]
-        forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
-               withReuseIdentifier:headerViewCell];
-
-  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-  if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-      layout.parallaxHeaderAlwaysOnTop = YES;
-      layout.disableStickyHeaders = YES;
-  }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -77,12 +66,70 @@ static int headerSize = 74;
 
     [self.collectionView reloadData];
   } failure:nil];
+
+  [self setHeaderInfo];
 }
 
 -(void)setGame:(Game *)game {
   _game = game;
 
   [self.collectionView reloadData];
+
+  [self setHeaderInfo];
+}
+
+-(void)setHeaderInfo {
+  Team *homeTeam = self.game.homeTeam;
+  [self.homeTeamLogo setImageWithURL:[homeTeam imageURLWithSize:homeTeam.logoUrl andSize:@"120x120"]];
+  self.homeTeamScore.text = self.game.homeScoreString;
+  self.homeTeamWinner.hidden = ![self.game.winningTeam isEqual:homeTeam];
+  self.homeTeamScore.text = self.game.homeScoreString;
+
+  Team *awayTeam = self.game.awayTeam;
+  [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"120x120"]];
+  self.awayTeamWinner.hidden = ![self.game.winningTeam isEqual:awayTeam];
+  self.awayTeamScore.text = self.game.awayScoreString;
+
+  if (self.game.isPregame) {
+    // Winner Image
+    self.awayTeamWinner.hidden = YES;
+    self.homeTeamWinner.hidden = YES;
+
+    // Scores
+    self.awayTeamScore.hidden = YES;
+    self.homeTeamScore.hidden = YES;
+
+    // Background
+    self.upperInfo.hidden = NO;
+    self.lowerInfo.hidden = NO;
+    self.upperInfo.text = self.game.moneyLine;
+    self.lowerInfo.text = self.game.localStartTime;
+  }
+  else if (self.game.isInProgress) {
+    // Winner Image
+    self.awayTeamWinner.hidden = YES;
+    self.homeTeamWinner.hidden = YES;
+
+    // Scores
+    self.awayTeamScore.hidden = NO;
+    self.homeTeamScore.hidden = NO;
+
+    // Game Clock
+    self.upperInfo.hidden = NO;
+    self.lowerInfo.hidden = NO;
+    self.lowerInfo.text = self.game.timeRemaining;
+    self.upperInfo.text = self.game.currentPeriod;
+  }
+  else {
+    // Scores
+    self.awayTeamScore.hidden = NO;
+    self.homeTeamScore.hidden = NO;
+
+    // Game Summary
+    self.lowerInfo.hidden = NO;
+    self.upperInfo.hidden = YES;
+    self.lowerInfo.text = self.game.endedIn;
+  }
 }
 
 -(void)viewWillLayoutSubviews {
@@ -95,7 +142,7 @@ static int headerSize = 74;
   layout.itemSize = CGSizeMake(self.view.bounds.size.width, layout.itemSize.height);
 
   // Blur
-  self.blurView.frame = self.collectionView.frame;
+  self.blurView.frame = self.background.frame;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -159,18 +206,6 @@ static int headerSize = 74;
   NSLog(@"ROW CLICKED!");
 
   return;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-  if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
-    ScoreShowHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                        withReuseIdentifier:headerViewCell
-                                                                               forIndexPath:indexPath];
-    cell.game = self.game;
-    return cell;
-  }
-
-  return nil;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

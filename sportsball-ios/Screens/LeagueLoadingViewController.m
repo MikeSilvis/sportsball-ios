@@ -35,4 +35,8 @@
   viewController.leagues = self.leagues;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{ 
+  return UIStatusBarStyleLightContent;
+}
+
 @end
