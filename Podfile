@@ -7,3 +7,4 @@ pod 'EDColor'
 pod 'AFNetworking'
 pod 'XHRealTimeBlur'
 pod 'ZFDragableModalTransition'
+pod 'SVWebViewController', :head

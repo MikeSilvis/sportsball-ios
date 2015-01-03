@@ -1,0 +1,5 @@
+#include "Pods-SVWebViewController.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/SVWebViewController" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CSStickyHeaderFlowLayout" "${PODS_ROOT}/Headers/Public/EDColor" "${PODS_ROOT}/Headers/Public/FontAwesomeKit" "${PODS_ROOT}/Headers/Public/SVWebViewController" "${PODS_ROOT}/Headers/Public/UIImage-Helpers" "${PODS_ROOT}/Headers/Public/XHRealTimeBlur" "${PODS_ROOT}/Headers/Public/ZFDragableModalTransition"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}

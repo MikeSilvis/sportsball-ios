@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 1
 #define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 8
 
+// SVWebViewController
+#define COCOAPODS_POD_AVAILABLE_SVWebViewController
+#define COCOAPODS_VERSION_MAJOR_SVWebViewController 1
+#define COCOAPODS_VERSION_MINOR_SVWebViewController 0
+#define COCOAPODS_VERSION_PATCH_SVWebViewController 0
+
 // UIImage-Helpers
 #define COCOAPODS_POD_AVAILABLE_UIImage_Helpers
 #define COCOAPODS_VERSION_MAJOR_UIImage_Helpers 0

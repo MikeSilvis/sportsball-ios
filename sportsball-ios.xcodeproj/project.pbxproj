@@ -48,7 +48,6 @@
 		1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A4011A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m */; };
 		119909101A4B224200F2ED1B /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199090F1A4B224200F2ED1B /* Recap.m */; };
 		119909121A4B249A00F2ED1B /* RecapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */; };
-		119909161A4B2BD700F2ED1B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 119909151A4B2BD700F2ED1B /* WebViewController.m */; };
 		1199091B1A4F508A00F2ED1B /* LeagueLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */; };
 		119909201A4F535B00F2ED1B /* SportsBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
@@ -95,7 +94,7 @@
 		1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryInfoCollectionViewCell.m; sourceTree = "<group>"; };
 		1149A6A01A49B04300928ECA /* RecapCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecapCollectionViewCell.h; sourceTree = "<group>"; };
 		1149A6A11A49B04300928ECA /* RecapCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecapCollectionViewCell.m; sourceTree = "<group>"; };
-		1154F6171A03D60E009F560B /* Champion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1154F6171A03D60E009F560B /* Jumbotron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumbotron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1154F61E1A03D60F009F560B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,8 +132,6 @@
 		1199090E1A4B224200F2ED1B /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recap.h; sourceTree = "<group>"; };
 		1199090F1A4B224200F2ED1B /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recap.m; sourceTree = "<group>"; };
 		119909111A4B249A00F2ED1B /* RecapCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecapCollectionViewCell.xib; sourceTree = "<group>"; };
-		119909141A4B2BD700F2ED1B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		119909151A4B2BD700F2ED1B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		119909191A4F508A00F2ED1B /* LeagueLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueLoadingViewController.h; sourceTree = "<group>"; };
 		1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueLoadingViewController.m; sourceTree = "<group>"; };
 		1199091E1A4F535B00F2ED1B /* SportsBallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsBallViewController.h; sourceTree = "<group>"; };
@@ -279,7 +276,7 @@
 		1154F6181A03D60E009F560B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1154F6171A03D60E009F560B /* Champion.app */,
+				1154F6171A03D60E009F560B /* Jumbotron.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -437,21 +434,11 @@
 			path = ScoreDetail;
 			sourceTree = "<group>";
 		};
-		119909131A4B2BB300F2ED1B /* Web */ = {
-			isa = PBXGroup;
-			children = (
-				119909141A4B2BD700F2ED1B /* WebViewController.h */,
-				119909151A4B2BD700F2ED1B /* WebViewController.m */,
-			);
-			path = Web;
-			sourceTree = "<group>";
-		};
 		119909181A4F503D00F2ED1B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				1154F6531A03DC9B009F560B /* ScoreIndex */,
 				11847BD31A21045800300E28 /* ScoreShow */,
-				119909131A4B2BB300F2ED1B /* Web */,
 				119909191A4F508A00F2ED1B /* LeagueLoadingViewController.h */,
 				1199091A1A4F508A00F2ED1B /* LeagueLoadingViewController.m */,
 			);
@@ -505,7 +492,7 @@
 			);
 			name = Jumbotron;
 			productName = "sportsball-ios";
-			productReference = 1154F6171A03D60E009F560B /* Champion.app */;
+			productReference = 1154F6171A03D60E009F560B /* Jumbotron.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -627,7 +614,6 @@
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
 				1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
-				119909161A4B2BD700F2ED1B /* WebViewController.m in Sources */,
 				119909101A4B224200F2ED1B /* Recap.m in Sources */,
 				1101C60D1A22842E0086AF16 /* User.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,

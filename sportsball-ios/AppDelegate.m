@@ -25,8 +25,18 @@
   AFNetworkActivityIndicatorManager.sharedManager.enabled = YES;
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
+  [self defaultStyles];
 
   return YES;
+}
+
+-(void)defaultStyles{
+  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"background.png"] forBarMetrics:UIBarMetricsDefault];
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+  [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+  [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                         NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                        }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

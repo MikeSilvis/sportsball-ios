@@ -13,6 +13,8 @@
 #import "ScoreDetailCollectionViewCell.h"
 #import "RecapCollectionViewCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "SVModalWebViewController.h"
+#import "UIImage+FontAwesome.h"
 
 @implementation ScoreShowViewController
 
@@ -56,6 +58,16 @@ static int headerSize = 0;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:scoreRecapCollectionViewCell];
+
+  // Winner Image
+  CGFloat iconSize = 15;
+  FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
+  UIImage *iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
+  self.homeTeamWinner.image = iconImage;
+
+  carretIcon = [FAKFontAwesome caretRightIconWithSize:iconSize];
+  iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
+  self.awayTeamWinner.image = iconImage;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -82,12 +94,9 @@ static int headerSize = 0;
   Team *homeTeam = self.game.homeTeam;
   [self.homeTeamLogo setImageWithURL:[homeTeam imageURLWithSize:homeTeam.logoUrl andSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
-  self.homeTeamWinner.hidden = ![self.game.winningTeam isEqual:homeTeam];
-  self.homeTeamScore.text = self.game.homeScoreString;
 
   Team *awayTeam = self.game.awayTeam;
   [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"120x120"]];
-  self.awayTeamWinner.hidden = ![self.game.winningTeam isEqual:awayTeam];
   self.awayTeamScore.text = self.game.awayScoreString;
 
   if (self.game.isPregame) {
@@ -124,6 +133,10 @@ static int headerSize = 0;
     // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
+
+    // Winner Image
+    self.awayTeamWinner.hidden = ![self.game.winningTeam isEqual:awayTeam];
+    self.homeTeamWinner.hidden = ![self.game.winningTeam isEqual:homeTeam];
 
     // Game Summary
     self.lowerInfo.hidden = NO;
@@ -203,7 +216,12 @@ static int headerSize = 0;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"ROW CLICKED!");
+  if (indexPath.section == scoreRecapViewLocation) {
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
+    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    webViewController.title = @"";
+    [self presentViewController:webViewController animated:YES completion:NULL];
+  }
 
   return;
 }
