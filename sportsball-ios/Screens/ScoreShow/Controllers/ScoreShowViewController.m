@@ -52,6 +52,17 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
   [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
         forCellReuseIdentifier:scoreRecapCollectionViewCell];
+
+  // Close Icon
+  CGFloat iconSize = 25;
+  FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
+  [self.closeButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"] forState:UIControlStateNormal];
+  [self.closeButton setTitle:@"" forState:UIControlStateNormal];
+  [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
+}
+
+-(void)closeModal {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -172,6 +183,16 @@ static const NSInteger scoreDetailViewLocation  = 2;
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     webViewController.title = @"";
+
+//  CGFloat iconSize = 25;
+//  FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
+//  [self.closeButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"] forState:UIControlStateNormal];
+//  [self.closeButton setTitle:@"" forState:UIControlStateNormal];
+//  [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
+
+    CGFloat iconSize = 25;
+    FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
+    [webViewController.doneButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"]];
     [self presentViewController:webViewController animated:YES completion:NULL];
   }
 

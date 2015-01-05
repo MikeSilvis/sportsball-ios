@@ -34,5 +34,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lowerInfo;
 @property (weak, nonatomic) IBOutlet UILabel *upperInfo;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @end

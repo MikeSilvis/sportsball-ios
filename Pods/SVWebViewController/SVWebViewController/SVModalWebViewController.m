@@ -8,6 +8,7 @@
 
 #import "SVModalWebViewController.h"
 #import "SVWebViewController.h"
+#import "FAKFontAwesome.h"
 
 @interface SVModalWebViewController ()
 
@@ -38,14 +39,21 @@
 - (instancetype)initWithURLRequest:(NSURLRequest *)request {
     self.webViewController = [[SVWebViewController alloc] initWithURLRequest:request];
     if (self = [super initWithRootViewController:self.webViewController]) {
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                    target:self.webViewController
-                                                                                    action:@selector(doneButtonTapped:)];
-        
+        self.doneButton = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self.webViewController
+                                                          action:@selector(doneButtonTapped:)];
+
+        CGFloat iconSize = 25;
+        UIColor *iconColor = [UIColor whiteColor];
+        FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
+        [closeIcon addAttribute:NSForegroundColorAttributeName value:iconColor];
+        [self.doneButton setImage:[closeIcon imageWithSize:CGSizeMake(iconSize, iconSize)]];
+
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            self.webViewController.navigationItem.leftBarButtonItem = doneButton;
+            self.webViewController.navigationItem.leftBarButtonItem = self.doneButton;
         else
-            self.webViewController.navigationItem.rightBarButtonItem = doneButton;
+            self.webViewController.navigationItem.rightBarButtonItem = self.doneButton;
     }
     return self;
 }
