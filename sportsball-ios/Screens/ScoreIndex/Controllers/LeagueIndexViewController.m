@@ -19,6 +19,7 @@
   [super viewDidLoad];
 
   self.scoreViews = [NSMutableArray array];
+  self.leagues = [User currentUser].leagues;
 
   // Create the table list
   self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];

@@ -43,11 +43,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
   [self.view addSubview:self.blurView];
   [self.view sendSubviewToBack:self.blurView];
 
-  // Background Touch (for closing the modal)
-//  UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
-//  backgroundRecognizer.delegate = self;
-//  [self.view addGestureRecognizer:backgroundRecognizer];
-
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
         forCellReuseIdentifier:scoreSummaryViewCell];
@@ -127,23 +122,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
   // Blur
   self.blurView.frame = self.view.frame;
-}
-
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//  if ([touch.view isEqual:self.view]) {
-//    return YES;
-//  }
-//  else {
-//    return NO;
-//  }
-//}
-
-- (void)backgroundTapped:(UITapGestureRecognizer*)recognizer {
-  [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)didRequestClose:(id)sender {
-  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {

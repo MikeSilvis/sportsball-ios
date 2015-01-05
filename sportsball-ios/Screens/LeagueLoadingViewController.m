@@ -9,18 +9,21 @@
 #import "LeagueLoadingViewController.h"
 #import "League.h"
 #import "LeagueIndexViewController.h"
+#import "User.h"
 
 @implementation LeagueLoadingViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
   [super viewDidLoad];
 
+  [self didStartLoading];
+  
 }
+
 -(void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
-  if (!self.leagues) {
-    [self didStartLoading];
+  if ([User currentUser].leagues) {
     [League getSupportedLeagues:^(NSArray *leagues) {
       self.leagues = leagues;
     } failure:nil];
@@ -31,11 +34,6 @@
   _leagues = leagues;
 
   [self performSegueWithIdentifier:@"leagueIndexSegue" sender:self];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  LeagueIndexViewController *viewController = segue.destinationViewController;
-  viewController.leagues = self.leagues;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{ 

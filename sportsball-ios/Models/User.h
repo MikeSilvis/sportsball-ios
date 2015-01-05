@@ -13,5 +13,6 @@
 + (User *)currentUser;
 
 @property (nonatomic, copy) NSNumber *lastOpenedLeague;
+@property (nonatomic, copy) NSArray *leagues;
 
 @end

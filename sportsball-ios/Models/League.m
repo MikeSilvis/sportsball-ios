@@ -11,6 +11,7 @@
 #import "UIImage+Blur.h"
 #import "XHRealTimeBlur.h"
 #import "NSDate+SBDateWithYear.h"
+#import "User.h"
 
 @implementation League
 
@@ -40,37 +41,26 @@ static NSString *leaguesKey = @"allLeagues";
 +(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure {
 
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  bool alreadyReturned = NO;
 
-  if ([defaults objectForKey:leaguesKey]) {
-    NSArray *encodedLeagues = [defaults objectForKey:leaguesKey];
-    NSMutableArray *leagues = [NSMutableArray array];
-
-    for (NSData *encodedLeague in encodedLeagues) {
-      League *league = (League *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
-      [leagues addObject:league];
-    }
-
-    success(leagues);
-    return;
+  if ([User currentUser].leagues.count > 0) {
+    success([User currentUser].leagues);
+    alreadyReturned = YES;
   }
 
   [self dispatchRequest:@"leagues" parameters:nil success:^(id responseObject) {
     NSMutableArray *leagues = [NSMutableArray array];
-    NSMutableArray *encodedLeauges = [NSMutableArray array];
 
     for (id league in responseObject[@"leagues"]) {
       League *newLeague = [[League alloc] initWithJson:league];
       [leagues addObject:newLeague];
-
-      NSData *encodedNewLeague = [NSKeyedArchiver archivedDataWithRootObject:newLeague];
-      [encodedLeauges addObject:encodedNewLeague];
     }
 
-    [defaults setObject:encodedLeauges forKey:leaguesKey];
-    [defaults synchronize];
+    [User currentUser].leagues = leagues;
 
-    success(leagues);
+    if (!alreadyReturned) {
+      success(leagues);
+    }
   } failure:^(NSError *error) {
     if (failure) {
       failure(error);

@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSArray *leagues;
+@property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, strong) NSMutableArray *scoreViews;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
