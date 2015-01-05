@@ -11,6 +11,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "EDColor.h"
+#import "User.h"
+#import "League.h"
 
 @interface AppDelegate ()
 
@@ -29,14 +31,23 @@
   [self defaultStyles];
   [self defaultCache];
 
-//  self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-//
-//  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-//
-//  UIViewController *viewController = // determine the initial view controller here and instantiate it with [storyboard instantiateViewControllerWithIdentifier:<storyboard id>];
-//
-//  self.window.rootViewController = viewController;
-//  [self.window makeKeyAndVisible]
+  self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+  NSString *initialViewId;
+  if ([User currentUser].leagues.count > 0) {
+    initialViewId = @"leagueIndexViewController";
+    [League getSupportedLeagues:^(NSArray *leagues) {
+    } failure:nil];
+  }
+  else {
+    initialViewId = @"leagueLoadingViewController";
+  }
+
+  UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:initialViewId];
+
+  self.window.rootViewController = viewController;
+  [self.window makeKeyAndVisible];
 
   return YES;
 }
