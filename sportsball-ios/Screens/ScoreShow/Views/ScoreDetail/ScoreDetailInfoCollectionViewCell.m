@@ -19,14 +19,6 @@
 -(void)setContentInfo:(NSArray *)contentInfo {
   _contentInfo = contentInfo;
 
-  if ([self nothingHappend]) {
-    self.time.text = @"";
-    self.summary.text = @"";
-    self.teamLogo.hidden = YES;
-    self.noScores.text = self.contentInfo[0];
-    return;
-  }
-
   self.teamLogo.hidden = NO;
 
   int dataNameLocation;
@@ -54,15 +46,6 @@
   }
 
   self.summary.text = self.contentInfo[summaryLocation];
-}
-
--(bool)nothingHappend {
-  if ([self.contentInfo count] > 0) {
-    return ([self.contentInfo[0] isEqualToString:@"No penalties this period"] || [self.contentInfo[0] isEqualToString:@"No scoring this period"]);
-  }
-  else {
-    return false;
-  }
 }
 
 @end

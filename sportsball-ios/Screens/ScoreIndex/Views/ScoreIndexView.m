@@ -50,6 +50,7 @@ static CGFloat const headerSize = 74;
 
 -(void)setLeague:(League *)league {
   _league = league;
+
   [self setUpDatePicker];
 }
 

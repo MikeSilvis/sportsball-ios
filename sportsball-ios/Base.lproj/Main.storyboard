@@ -140,7 +140,6 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="n1F-bZ-aOS" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="-18" id="1Wi-BY-Vks"/>
                             <constraint firstAttribute="centerX" secondItem="DjW-cZ-mfm" secondAttribute="centerX" id="68v-Pa-Qk4"/>
                             <constraint firstItem="Btj-7z-szA" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="40" id="7wt-VP-ef5"/>
                             <constraint firstItem="n1F-bZ-aOS" firstAttribute="leading" secondItem="aLy-dl-E0x" secondAttribute="trailing" constant="8" id="H64-Cm-5gY"/>
@@ -150,7 +149,6 @@
                             <constraint firstItem="bHX-bo-ZQP" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" constant="-16" id="LmH-L8-liG"/>
                             <constraint firstItem="DjW-cZ-mfm" firstAttribute="top" secondItem="7Mm-uY-Mem" secondAttribute="bottom" constant="2" id="MQN-bT-wZJ"/>
                             <constraint firstAttribute="centerX" secondItem="7Mm-uY-Mem" secondAttribute="centerX" id="Ppd-RI-8p7"/>
-                            <constraint firstItem="F3Q-uw-ddi" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="-18" id="aYr-I3-QzK"/>
                             <constraint firstItem="F3Q-uw-ddi" firstAttribute="leading" secondItem="PZp-T7-che" secondAttribute="leadingMargin" id="c70-GN-bHe"/>
                             <constraint firstItem="n1F-bZ-aOS" firstAttribute="trailing" secondItem="PZp-T7-che" secondAttribute="trailingMargin" id="dc5-Ob-9no"/>
                             <constraint firstItem="n1F-bZ-aOS" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="35" id="fNc-Ds-5hV"/>
@@ -159,12 +157,6 @@
                             <constraint firstItem="Diu-U0-7hl" firstAttribute="top" secondItem="bHX-bo-ZQP" secondAttribute="bottom" id="vas-Sg-BGj"/>
                             <constraint firstItem="7Mm-uY-Mem" firstAttribute="top" secondItem="xG2-KE-QUh" secondAttribute="bottom" constant="28" id="zvT-Iy-d2a"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="aYr-I3-QzK"/>
-                                <exclude reference="1Wi-BY-Vks"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

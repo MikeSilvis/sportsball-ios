@@ -76,6 +76,12 @@
   }
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  [self startTimer];
+}
+
 -(void)selectedGame:(Game *)game {
   self.selectedGame = game;
   [self performSegueWithIdentifier:@"scoreShowSegue" sender:self];
@@ -206,6 +212,8 @@
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
+
+  [self stopTimer];
 }
 
 -(void)dismissedScoreShowViewModal {
