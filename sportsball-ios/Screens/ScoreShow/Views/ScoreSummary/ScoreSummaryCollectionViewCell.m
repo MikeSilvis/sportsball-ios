@@ -9,6 +9,7 @@
 #import "ScoreSummaryCollectionViewCell.h"
 #import "ScoreSummaryInfoCollectionViewCell.h"
 #import "ScoreDetailHeaderCollectionViewCell.h"
+#import "Team.h"
 
 @implementation ScoreSummaryCollectionViewCell
 
@@ -27,6 +28,12 @@ static int const cellPaddingHeight = 20;
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
   return CGSizeMake(width, (resource.count * cellRowHeight) + cellPaddingHeight);
+}
+
+-(void)setGame:(Game *)game {
+  _game = game;
+
+  self.scoreSummary = game.boxscore.scoreSummary;
 }
 
 -(void)setScoreSummary:(NSArray *)scoreSummary {
@@ -55,7 +62,10 @@ static int const cellPaddingHeight = 20;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   ScoreSummaryInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryinfoCell forIndexPath:indexPath];
-  cell.score.text = self.scoreSummary[indexPath.section][indexPath.row];
+
+  cell.section = indexPath.section;
+  cell.row = indexPath.row;
+  cell.game = self.game;
 
   return cell;
 }

@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSDateFormatter *df;
 
 -(Team *)winningTeam;
+-(Team *)teamFromDataName:(NSString *)dataName;
 
 -(BOOL)isOver;
 -(BOOL)isInProgress;

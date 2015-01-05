@@ -154,7 +154,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreSummaryViewLocation) {
     ScoreSummaryCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
-    cell.scoreSummary = self.game.boxscore.scoreSummary;
+    cell.game = self.game;
     cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
@@ -183,12 +183,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     webViewController.title = @"";
-
-//  CGFloat iconSize = 25;
-//  FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
-//  [self.closeButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"] forState:UIControlStateNormal];
-//  [self.closeButton setTitle:@"" forState:UIControlStateNormal];
-//  [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
 
     CGFloat iconSize = 25;
     FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];

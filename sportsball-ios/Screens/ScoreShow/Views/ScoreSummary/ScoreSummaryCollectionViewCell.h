@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ScoreSummaryCollectionViewCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *scoreSummary;
+@property (nonatomic, strong) Game *game;
+
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width;
 

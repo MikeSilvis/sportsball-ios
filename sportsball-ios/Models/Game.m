@@ -18,6 +18,19 @@
   }
 }
 
+-(Team *)teamFromDataName:(NSString *)dataName {
+  dataName = [dataName lowercaseString];
+
+  if ([self.awayTeam.dataName isEqualToString:dataName]) {
+    return self.awayTeam;
+  }
+  else if ([self.homeTeam.dataName isEqualToString:dataName]) {
+    return self.homeTeam;
+  }
+
+  return nil;
+}
+
 -(id)initWithJson:(id)json {
   self = [super init];
 

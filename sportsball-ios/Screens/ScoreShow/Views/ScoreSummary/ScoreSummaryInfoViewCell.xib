@@ -13,8 +13,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOi-xg-1Uj">
-                        <rect key="frame" x="8" y="15" width="34" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOi-xg-1Uj">
+                        <rect key="frame" x="0.0" y="15" width="50" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -22,10 +22,20 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="oOi-xg-1Uj" secondAttribute="centerX" id="We7-9K-ZN8"/>
-                <constraint firstAttribute="centerY" secondItem="oOi-xg-1Uj" secondAttribute="centerY" constant="0.5" id="llH-eR-Tv9"/>
+                <constraint firstItem="oOi-xg-1Uj" firstAttribute="top" secondItem="ta3-VP-R0h" secondAttribute="top" constant="15" id="4B4-np-O2i"/>
+                <constraint firstAttribute="bottom" secondItem="oOi-xg-1Uj" secondAttribute="bottom" constant="15" id="8kz-1p-T1e"/>
+                <constraint firstAttribute="centerY" secondItem="oOi-xg-1Uj" secondAttribute="centerY" id="f28-ev-7Ja"/>
+                <constraint firstAttribute="trailing" secondItem="oOi-xg-1Uj" secondAttribute="trailing" id="mJr-Lv-P17"/>
+                <constraint firstItem="oOi-xg-1Uj" firstAttribute="leading" secondItem="ta3-VP-R0h" secondAttribute="leading" id="nEn-LY-SfD"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4B4-np-O2i"/>
+                    <exclude reference="8kz-1p-T1e"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="score" destination="oOi-xg-1Uj" id="nRk-FJ-YHg"/>
             </connections>

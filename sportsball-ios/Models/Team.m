@@ -24,6 +24,10 @@
   return self;
 }
 
+-(NSString *)dataName {
+  return [_dataName lowercaseString];
+}
+
 -(NSString *)formattedRecord {
   return [NSString stringWithFormat:@"(%@)", self.record];
 }

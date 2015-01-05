@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ScoreSummaryInfoCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *score;
+@property (nonatomic, strong) Game *game;
+@property NSUInteger section;
+@property NSUInteger row;
 
 @end

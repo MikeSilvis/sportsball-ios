@@ -218,6 +218,8 @@
 }
 
 -(void)dismissedScoreShowViewModal {
+  [self startTimer];
+
   for (ScoreIndexView *view in self.scoreViews) {
     view.hidden = NO;
   }
