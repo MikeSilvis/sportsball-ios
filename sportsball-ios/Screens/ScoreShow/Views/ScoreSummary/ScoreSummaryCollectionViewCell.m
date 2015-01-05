@@ -15,7 +15,7 @@
 
 static NSString * const scoreSummaryinfoCell = @"scoreSummaryinfoCell";
 static int const cellRowHeight = 30;
-static int const cellPaddingHeight = 20;
+static int const cellPaddingHeight = 10;
 
 -(void)awakeFromNib {
   [super awakeFromNib];
@@ -47,7 +47,11 @@ static int const cellPaddingHeight = 20;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *itemsForSection = self.scoreSummary[indexPath.section];
 
-  return CGSizeMake((self.bounds.size.width / itemsForSection.count), cellRowHeight);
+  CGFloat largeritemWidth = self.collectionView.bounds.size.width * 0.3;
+  CGFloat smallerItemWidth = (self.collectionView.bounds.size.width - largeritemWidth) / (itemsForSection.count - 1);
+  CGFloat width = (indexPath.row == 0) ? largeritemWidth : smallerItemWidth;
+
+  return CGSizeMake(width, cellRowHeight);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

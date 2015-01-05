@@ -54,11 +54,11 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 #pragma mark - UICollectionView
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(self.bounds.size.width, cellRowHeight);
+  return CGSizeMake(self.collectionView.bounds.size.width, cellRowHeight);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-  return CGSizeMake(self.bounds.size.width, cellRowHeaderHeight);
+  return CGSizeMake(self.collectionView.bounds.size.width, cellRowHeaderHeight);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

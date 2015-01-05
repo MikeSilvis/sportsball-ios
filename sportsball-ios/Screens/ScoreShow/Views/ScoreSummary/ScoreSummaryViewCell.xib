@@ -14,8 +14,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-Uy-nPq">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="28" y="0.0" width="444" height="300"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uqV-RI-fSy">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,9 +29,9 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="zLn-Uy-nPq" secondAttribute="trailing" constant="-8" id="7e1-8b-AXH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zLn-Uy-nPq" secondAttribute="trailing" constant="20" id="7e1-8b-AXH"/>
                     <constraint firstAttribute="bottomMargin" secondItem="zLn-Uy-nPq" secondAttribute="bottom" constant="-8.5" id="atV-Nq-0Ag"/>
-                    <constraint firstItem="zLn-Uy-nPq" firstAttribute="leading" secondItem="VEg-hb-6Qg" secondAttribute="leadingMargin" constant="-8" id="fJ4-GY-c3P"/>
+                    <constraint firstItem="zLn-Uy-nPq" firstAttribute="leading" secondItem="VEg-hb-6Qg" secondAttribute="leadingMargin" constant="20" id="fJ4-GY-c3P"/>
                     <constraint firstItem="zLn-Uy-nPq" firstAttribute="top" secondItem="VEg-hb-6Qg" secondAttribute="topMargin" constant="-8" id="jaN-62-DCK"/>
                 </constraints>
             </tableViewCellContentView>
