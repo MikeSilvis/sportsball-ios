@@ -11,6 +11,7 @@
 #import "LeagueHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "UIImage+Blur.h"
+#import "NSDate+SBDateWithYear.h"
 #import "UIImage+FontAwesome.h"
 
 @implementation ScoreIndexView
@@ -42,7 +43,8 @@ static CGFloat const headerSize = 74;
 
 -(void)setUpDatePicker {
   self.datePicker.dates = self.league.schedule;
-  [self.datePicker selectDateClosestToToday];
+//  [self.datePicker selectDateClosestToToday];
+  [self.datePicker selectDate:[NSDate dateWithYear:2015 month:1 day:4]];
   self.currentDate = self.datePicker.selectedDate;
 
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
