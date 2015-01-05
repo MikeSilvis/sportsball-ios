@@ -20,7 +20,6 @@
 -(void)setGame:(Game *)game {
   _game = game;
 
-
   Team *team = [self.game teamFromDataName:[self summary]];
   if (team) {
     self.score.text = team.name;
@@ -28,21 +27,29 @@
   }
   else {
     self.score.text = [self summary];
+    self.score.textAlignment = NSTextAlignmentCenter;
   }
 
   UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:16];
+  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:14];
   if (self.section == 0) {
     self.score.font = boldFont;
   }
   else {
-    if (self.row == ([self scoreSummaryCount] -1)) {
+    if ([[self summary] isEqualToString:[self lastSummary]]) {
       self.score.font = boldFont;
+    }
+    else {
+      self.score.font = regularFont;
     }
   }
 }
 
 -(NSString *)summary {
   return self.game.boxscore.scoreSummary[self.section][self.row];
+}
+-(NSString *)lastSummary {
+  return [self.game.boxscore.scoreSummary[self.section] lastObject];
 }
 
 -(NSArray *)scoreSummary {

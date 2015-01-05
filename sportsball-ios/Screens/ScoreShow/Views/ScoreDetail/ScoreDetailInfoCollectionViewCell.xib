@@ -14,37 +14,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smb-Jd-qYY">
-                        <rect key="frame" x="8" y="32" width="14" height="14"/>
+                        <rect key="frame" x="8" y="29" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="Er2-il-7Mn"/>
-                            <constraint firstAttribute="width" constant="14" id="rGe-ig-EJ6"/>
+                            <constraint firstAttribute="height" constant="20" id="Er2-il-7Mn"/>
+                            <constraint firstAttribute="width" constant="20" id="rGe-ig-EJ6"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:43" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-rT-kAn">
-                        <rect key="frame" x="30" y="32" width="30" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="14" id="CAx-sT-niz"/>
-                            <constraint firstAttribute="width" constant="30" id="KCh-3V-JjN"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
-                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Sutter (7) (Shorthanded) Assist: Rob Scuderi" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5q-fz-0ac">
-                        <rect key="frame" x="75" y="24" width="317" height="30"/>
+                        <rect key="frame" x="75" y="8" width="317" height="62"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="ghs-AJ-OXM"/>
+                            <constraint firstAttribute="height" constant="62" id="ghs-AJ-OXM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-nE-LkE" userLabel="no goals">
-                        <rect key="frame" x="10" y="24" width="382" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:43" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-rT-kAn">
+                        <rect key="frame" x="30" y="8" width="37" height="62"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="0ps-sl-EvA"/>
+                            <constraint firstAttribute="height" constant="62" id="CAx-sT-niz"/>
+                            <constraint firstAttribute="width" constant="37" id="KCh-3V-JjN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,19 +45,15 @@
             <color key="backgroundColor" red="0.1098039299" green="0.67450982329999998" blue="0.87843143940000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="smb-Jd-qYY" firstAttribute="leading" secondItem="Zcg-R2-LXW" secondAttribute="leading" constant="8" id="4Y3-1G-g3x"/>
-                <constraint firstItem="7MV-rT-kAn" firstAttribute="leading" secondItem="smb-Jd-qYY" secondAttribute="trailing" constant="8" id="6sP-13-dYg"/>
+                <constraint firstItem="7MV-rT-kAn" firstAttribute="leading" secondItem="smb-Jd-qYY" secondAttribute="trailing" constant="2" id="6sP-13-dYg"/>
                 <constraint firstAttribute="centerY" secondItem="7MV-rT-kAn" secondAttribute="centerY" id="7mk-Tt-00N"/>
-                <constraint firstAttribute="centerY" secondItem="EMT-nE-LkE" secondAttribute="centerY" id="EsN-pv-ZoZ"/>
-                <constraint firstAttribute="trailing" secondItem="EMT-nE-LkE" secondAttribute="trailing" constant="8" id="FtK-v6-nwZ"/>
                 <constraint firstAttribute="centerY" secondItem="smb-Jd-qYY" secondAttribute="centerY" id="M92-TS-7h1"/>
                 <constraint firstAttribute="centerY" secondItem="I5q-fz-0ac" secondAttribute="centerY" id="Mn5-j4-vJJ"/>
                 <constraint firstAttribute="trailing" secondItem="I5q-fz-0ac" secondAttribute="trailing" constant="8" id="s05-zI-gly"/>
-                <constraint firstItem="EMT-nE-LkE" firstAttribute="leading" secondItem="Zcg-R2-LXW" secondAttribute="leading" constant="10" id="uuZ-u6-zgA"/>
-                <constraint firstItem="I5q-fz-0ac" firstAttribute="leading" secondItem="7MV-rT-kAn" secondAttribute="trailing" constant="15" id="wAP-rO-pXG"/>
+                <constraint firstItem="I5q-fz-0ac" firstAttribute="leading" secondItem="7MV-rT-kAn" secondAttribute="trailing" constant="8" id="wAP-rO-pXG"/>
             </constraints>
             <size key="customSize" width="307" height="78"/>
             <connections>
-                <outlet property="noScores" destination="EMT-nE-LkE" id="tf9-HB-xLk"/>
                 <outlet property="summary" destination="I5q-fz-0ac" id="i9a-0L-e5m"/>
                 <outlet property="teamLogo" destination="smb-Jd-qYY" id="CG6-Bl-TY5"/>
                 <outlet property="time" destination="7MV-rT-kAn" id="aeK-dG-mgP"/>
