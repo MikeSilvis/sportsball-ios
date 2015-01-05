@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreSummaryCollectionViewCell : UICollectionViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ScoreSummaryCollectionViewCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *scoreSummary;

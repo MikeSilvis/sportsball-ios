@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface ScoreDetailCollectionViewCell : UICollectionViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ScoreDetailCollectionViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSArray *scoreDetails;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

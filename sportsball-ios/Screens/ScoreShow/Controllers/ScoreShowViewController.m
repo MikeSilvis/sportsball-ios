@@ -28,36 +28,35 @@ static const NSInteger scoreSummaryViewLocation = 0;
 static const NSInteger scoreRecapViewLocation   = 1;
 static const NSInteger scoreDetailViewLocation  = 2;
 
-static int headerSize = 0;
-
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
 
   // Collection View Styles
-  self.collectionView.backgroundColor = [UIColor clearColor];
-  self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+  self.tableView.backgroundColor = [UIColor clearColor];
+  self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Blur effect
-  self.background.backgroundColor = [UIColor clearColor];
   UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-  [self.view insertSubview:self.blurView belowSubview:self.background];
+  [self.view addSubview:self.blurView];
+  [self.view sendSubviewToBack:self.blurView];
 
   // Background Touch (for closing the modal)
-  UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
-  backgroundRecognizer.delegate = self;
-  [self.view addGestureRecognizer:backgroundRecognizer];
+//  UITapGestureRecognizer *backgroundRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
+//  backgroundRecognizer.delegate = self;
+//  [self.view addGestureRecognizer:backgroundRecognizer];
 
   // Register nibs
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
-        forCellWithReuseIdentifier:scoreSummaryViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreSummaryViewCell];
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
-        forCellWithReuseIdentifier:scoreDetailCollectionViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreDetailCollectionViewCell];
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
-        forCellWithReuseIdentifier:scoreRecapCollectionViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreRecapCollectionViewCell];
 
   // Winner Image
   CGFloat iconSize = 15;
@@ -76,7 +75,7 @@ static int headerSize = 0;
   [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
     self.game.boxscore = boxscore;
 
-    [self.collectionView reloadData];
+    [self.tableView reloadData];
   } failure:nil];
 
   [self setHeaderInfo];
@@ -85,7 +84,7 @@ static int headerSize = 0;
 -(void)setGame:(Game *)game {
   _game = game;
 
-  [self.collectionView reloadData];
+  [self.tableView reloadData];
 
   [self setHeaderInfo];
 }
@@ -148,24 +147,18 @@ static int headerSize = 0;
 -(void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
 
-  // Header
-  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-  layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
-  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, headerSize);
-  layout.itemSize = CGSizeMake(self.view.bounds.size.width, layout.itemSize.height);
-
   // Blur
-  self.blurView.frame = self.background.frame;
+  self.blurView.frame = self.view.frame;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-  if ([touch.view isEqual:self.view]) {
-    return YES;
-  }
-  else {
-    return NO;
-  }
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//  if ([touch.view isEqual:self.view]) {
+//    return YES;
+//  }
+//  else {
+//    return NO;
+//  }
+//}
 
 - (void)backgroundTapped:(UITapGestureRecognizer*)recognizer {
   [self dismissViewControllerAnimated:YES completion:nil];
@@ -183,31 +176,34 @@ static int headerSize = 0;
 
 #pragma mark 
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 3;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return 1;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreSummaryViewLocation) {
-    ScoreSummaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
+    ScoreSummaryCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
     cell.scoreSummary = self.game.boxscore.scoreSummary;
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
-    RecapCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
+    RecapCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
     cell.recap = self.game.boxscore.recap;
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }
   else if (indexPath.section == scoreDetailViewLocation){
-    ScoreDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
+    ScoreDetailCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
     cell.game = self.game;
     cell.scoreDetails = self.game.boxscore.scoreDetail;
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }
@@ -215,7 +211,7 @@ static int headerSize = 0;
   return nil;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreRecapViewLocation) {
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
     webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -226,18 +222,29 @@ static int headerSize = 0;
   return;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.section == scoreRecapViewLocation) {
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
+    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    webViewController.title = @"";
+    [self presentViewController:webViewController animated:YES completion:NULL];
+  }
+
+  return;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreSummaryViewLocation) {
-    return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width];
+    return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width].height;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
-    return [RecapCollectionViewCell measureCellSizeWithResource:self.game.boxscore.recap andWidth:self.view.bounds.size.width];
+    return [RecapCollectionViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
   }
   else if (indexPath.section == scoreDetailViewLocation) {
-    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width];
+    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width].height;
   }
   else {
-    return CGSizeZero;
+    return 0;
   }
 }
 

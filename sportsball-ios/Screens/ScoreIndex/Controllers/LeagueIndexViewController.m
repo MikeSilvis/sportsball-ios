@@ -204,7 +204,7 @@
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
-  viewController.modalPresentationStyle = UIModalPresentationCustom;
+//  viewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 -(void)dismissedScoreShowViewModal {

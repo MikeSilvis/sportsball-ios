@@ -16,15 +16,13 @@
 
 @end
 
-@interface ScoreShowViewController : UIViewController <UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ScoreShowViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Game *game;
 @property (nonatomic, strong) Boxscore *boxscore;
-- (IBAction)didRequestClose:(id)sender;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) UIVisualEffectView *blurView;
 
-@property (weak, nonatomic) IBOutlet UIView *background;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIVisualEffectView *blurView;
 
 @property (nonatomic, weak) id<ScoreShowViewDelegate> delegate;
 

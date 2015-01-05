@@ -14,6 +14,7 @@
 
 static NSString * const scoreSummaryinfoCell = @"scoreSummaryinfoCell";
 static int const cellRowHeight = 30;
+static int const cellPaddingHeight = 20;
 
 -(void)awakeFromNib {
   [super awakeFromNib];
@@ -25,7 +26,7 @@ static int const cellRowHeight = 30;
 }
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, resource.count * cellRowHeight);
+  return CGSizeMake(width, (resource.count * cellRowHeight) + cellPaddingHeight);
 }
 
 -(void)setScoreSummary:(NSArray *)scoreSummary {

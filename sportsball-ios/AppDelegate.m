@@ -10,6 +10,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+#import "EDColor.h"
 
 @interface AppDelegate ()
 
@@ -31,7 +32,9 @@
 }
 
 -(void)defaultStyles{
-  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"background.png"] forBarMetrics:UIBarMetricsDefault];
+  UIColor *color = [UIColor colorWithHexString:@"120c06"];
+  [[UINavigationBar appearance] setBarTintColor:color];
+  [[UIToolbar appearance] setBarTintColor:color];
   [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
   [[UINavigationBar appearance] setTitleTextAttributes:@{

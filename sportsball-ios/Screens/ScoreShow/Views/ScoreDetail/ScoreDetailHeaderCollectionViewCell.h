@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ScoreDetailHeaderCollectionViewCell : UICollectionReusableView
+
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

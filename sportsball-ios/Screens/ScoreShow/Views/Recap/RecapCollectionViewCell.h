@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Recap.h"
+#import "Game.h"
 
-@interface RecapCollectionViewCell : UICollectionViewCell
+@interface RecapCollectionViewCell : UITableViewCell
 
 @property (nonatomic, strong) Recap *recap;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 
-+(CGSize)measureCellSizeWithResource:(Recap *)resource andWidth:(CGFloat)width;
++(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width;
 
 @end

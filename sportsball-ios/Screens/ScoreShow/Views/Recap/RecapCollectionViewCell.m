@@ -23,8 +23,13 @@
   self.content.text = recap.content;
 }
 
-+(CGSize)measureCellSizeWithResource:(Recap *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, 100);
++(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
+  if (resource.isOver) {
+    return CGSizeMake(width, 110);
+  }
+  else {
+    return CGSizeZero;
+  }
 }
 
 @end
