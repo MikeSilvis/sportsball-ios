@@ -28,11 +28,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
-@property (weak, nonatomic) IBOutlet UIImageView *homeTeamWinner;
 
 @property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
-@property (weak, nonatomic) IBOutlet UIImageView *awayTeamWinner;
 
 @property (weak, nonatomic) IBOutlet UILabel *lowerInfo;
 @property (weak, nonatomic) IBOutlet UILabel *upperInfo;

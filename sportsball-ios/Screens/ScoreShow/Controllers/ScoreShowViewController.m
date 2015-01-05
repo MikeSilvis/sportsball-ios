@@ -57,16 +57,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
   [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
         forCellReuseIdentifier:scoreRecapCollectionViewCell];
-
-  // Winner Image
-  CGFloat iconSize = 15;
-  FAKFontAwesome *carretIcon = [FAKFontAwesome caretLeftIconWithSize:iconSize];
-  UIImage *iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
-  self.homeTeamWinner.image = iconImage;
-
-  carretIcon = [FAKFontAwesome caretRightIconWithSize:iconSize];
-  iconImage = [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
-  self.awayTeamWinner.image = iconImage;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -99,10 +89,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
   self.awayTeamScore.text = self.game.awayScoreString;
 
   if (self.game.isPregame) {
-    // Winner Image
-    self.awayTeamWinner.hidden = YES;
-    self.homeTeamWinner.hidden = YES;
-
     // Scores
     self.awayTeamScore.hidden = YES;
     self.homeTeamScore.hidden = YES;
@@ -114,10 +100,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
     self.lowerInfo.text = self.game.localStartTime;
   }
   else if (self.game.isInProgress) {
-    // Winner Image
-    self.awayTeamWinner.hidden = YES;
-    self.homeTeamWinner.hidden = YES;
-
     // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
@@ -132,10 +114,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
     // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
-
-    // Winner Image
-    self.awayTeamWinner.hidden = ![self.game.winningTeam isEqual:awayTeam];
-    self.homeTeamWinner.hidden = ![self.game.winningTeam isEqual:homeTeam];
 
     // Game Summary
     self.lowerInfo.hidden = NO;

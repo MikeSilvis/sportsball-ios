@@ -14,6 +14,8 @@
 
 @implementation League
 
+static NSString *leaguesKey = @"allLeagues";
+
 -(id)initWithJson:(id)json {
   self = [super init];
 
@@ -38,13 +40,36 @@
 +(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure {
 
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+  if ([defaults objectForKey:leaguesKey]) {
+    NSArray *encodedLeagues = [defaults objectForKey:leaguesKey];
+    NSMutableArray *leagues = [NSMutableArray array];
+
+    for (NSData *encodedLeague in encodedLeagues) {
+      League *league = (League *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
+      [leagues addObject:league];
+    }
+
+    success(leagues);
+    return;
+  }
+
   [self dispatchRequest:@"leagues" parameters:nil success:^(id responseObject) {
     NSMutableArray *leagues = [NSMutableArray array];
+    NSMutableArray *encodedLeauges = [NSMutableArray array];
 
     for (id league in responseObject[@"leagues"]) {
       League *newLeague = [[League alloc] initWithJson:league];
       [leagues addObject:newLeague];
+
+      NSData *encodedNewLeague = [NSKeyedArchiver archivedDataWithRootObject:newLeague];
+      [encodedLeauges addObject:encodedNewLeague];
     }
+
+    [defaults setObject:encodedLeauges forKey:leaguesKey];
+    [defaults synchronize];
+
     success(leagues);
   } failure:^(NSError *error) {
     if (failure) {

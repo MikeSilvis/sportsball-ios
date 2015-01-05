@@ -27,14 +27,21 @@
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
   [self defaultStyles];
+  [self defaultCache];
 
   return YES;
 }
 
+-(void)defaultCache {
+  [[NSURLCache sharedURLCache] setMemoryCapacity:(20*1024*1024)];
+  [[NSURLCache sharedURLCache] setDiskCapacity:(200*1024*1024)];
+}
+
 -(void)defaultStyles{
-  UIColor *color = [UIColor colorWithHexString:@"120c06"];
-  [[UINavigationBar appearance] setBarTintColor:color];
-  [[UIToolbar appearance] setBarTintColor:color];
+  UIColor *barTintColor = [UIColor colorWithHexString:@"120c06"];
+  [[UINavigationBar appearance] setBarTintColor:barTintColor];
+  [[UIToolbar appearance] setBarTintColor:barTintColor];
+
   [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
   [[UINavigationBar appearance] setTitleTextAttributes:@{

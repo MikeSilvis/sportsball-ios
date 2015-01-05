@@ -15,10 +15,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+}
+-(void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
   if (!self.leagues) {
     [self didStartLoading];
     [League getSupportedLeagues:^(NSArray *leagues) {
-      [self didEndLoading];
       self.leagues = leagues;
     } failure:nil];
   }

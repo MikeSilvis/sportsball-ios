@@ -197,6 +197,7 @@
   viewController.game = self.selectedGame;
   viewController.delegate = self;
   viewController.view.frame = self.view.bounds;
+
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
 //  self.animator.dragable = YES;
   self.animator.direction = ZFModalTransitonDirectionBottom;
@@ -204,7 +205,6 @@
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
-//  viewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 -(void)dismissedScoreShowViewModal {
