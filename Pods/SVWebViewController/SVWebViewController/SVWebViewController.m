@@ -30,7 +30,7 @@
 
 - (void)dealloc {
     [self.webView stopLoading];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+ 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     self.webView.delegate = nil;
 }
 

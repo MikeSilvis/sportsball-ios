@@ -7,4 +7,4 @@ pod 'EDColor'
 pod 'AFNetworking'
 pod 'XHRealTimeBlur'
 pod 'ZFDragableModalTransition'
-pod 'SVWebViewController', :head
+pod 'SVWebViewController', :git => 'https://github.com/MikeSilvis/SVWebViewController.git'

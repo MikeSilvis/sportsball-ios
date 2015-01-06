@@ -25,7 +25,7 @@ PODS:
   - FontAwesomeKit/Core (2.1.8)
   - FontAwesomeKit/FontAwesome (2.1.8):
     - FontAwesomeKit/Core
-  - SVWebViewController (HEAD based on 1.0)
+  - SVWebViewController (1.0)
   - UIImage-Helpers (0.0.3)
   - XHRealTimeBlur (1.4)
   - ZFDragableModalTransition (0.2)
@@ -35,17 +35,26 @@ DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
-  - SVWebViewController (HEAD)
+  - SVWebViewController (from `https://github.com/MikeSilvis/SVWebViewController.git`)
   - UIImage-Helpers
   - XHRealTimeBlur
   - ZFDragableModalTransition
+
+EXTERNAL SOURCES:
+  SVWebViewController:
+    :git: https://github.com/MikeSilvis/SVWebViewController.git
+
+CHECKOUT OPTIONS:
+  SVWebViewController:
+    :commit: a8021cfddd2f2d657d022ffa1300e11e56ba645f
+    :git: https://github.com/MikeSilvis/SVWebViewController.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   EDColor: bcdb8600b7a456f4408ce1d7e7fc001588919254
   FontAwesomeKit: a2edea3111dab107b4cc43b85881b404eb063385
-  SVWebViewController: fbf917baa92744c54cfb89a52a4c056e409973a4
+  SVWebViewController: e23a0cf92c2185d584787f0422b14592dd160fca
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
   XHRealTimeBlur: a917ee391b10b9120f5bbd69b6a13d5f211479b0
   ZFDragableModalTransition: 734279090d537b1f701b6efdccd41b0f78503de9

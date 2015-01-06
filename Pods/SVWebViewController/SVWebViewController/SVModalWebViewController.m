@@ -60,7 +60,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:NO];
-    
+
     self.webViewController.title = self.title;
     self.navigationBar.tintColor = self.barsTintColor;
 }
