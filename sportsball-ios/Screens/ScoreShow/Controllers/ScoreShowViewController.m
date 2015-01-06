@@ -98,33 +98,16 @@ static const NSInteger scoreDetailViewLocation  = 2;
     // Scores
     self.awayTeamScore.hidden = YES;
     self.homeTeamScore.hidden = YES;
-
-    // Background
-    self.upperInfo.hidden = NO;
-    self.lowerInfo.hidden = NO;
-    self.upperInfo.text = self.game.moneyLine;
-    self.lowerInfo.text = self.game.localStartTime;
   }
   else if (self.game.isInProgress) {
     // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
-
-    // Game Clock
-    self.upperInfo.hidden = NO;
-    self.lowerInfo.hidden = NO;
-    self.lowerInfo.text = self.game.timeRemaining;
-    self.upperInfo.text = self.game.currentPeriod;
   }
   else {
     // Scores
     self.awayTeamScore.hidden = NO;
     self.homeTeamScore.hidden = NO;
-
-    // Game Summary
-    self.lowerInfo.hidden = NO;
-    self.upperInfo.hidden = YES;
-    self.lowerInfo.text = self.game.endedIn;
   }
 }
 

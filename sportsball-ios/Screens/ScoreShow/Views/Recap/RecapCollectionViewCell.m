@@ -28,11 +28,6 @@
   [self.headerImage setImageWithURL:recap.photoURL];
 }
 
--(void)layoutSubviews {
-  [super layoutSubviews];
-
-}
-
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
   if (resource.isOver) {
     return CGSizeMake(width, 220);

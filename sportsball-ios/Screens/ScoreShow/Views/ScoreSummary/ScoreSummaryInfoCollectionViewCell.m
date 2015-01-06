@@ -30,9 +30,13 @@
     self.score.textAlignment = NSTextAlignmentCenter;
   }
 
+  if (self.section == 0 && self.row == 0 ) {
+    self.score.textAlignment = NSTextAlignmentLeft;
+  }
+
   UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:16];
   UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:14];
-  if (self.section == 0) {
+  if (self.section == 0 && self.row != 0) {
     self.score.font = boldFont;
   }
   else {
