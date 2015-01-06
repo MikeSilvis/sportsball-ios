@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SVWebViewController:
-    :commit: a8021cfddd2f2d657d022ffa1300e11e56ba645f
+    :commit: cde5d0a17d7db275c31c013b92f032d8b2824e0d
     :git: https://github.com/MikeSilvis/SVWebViewController.git
   ZFDragableModalTransition:
     :commit: 3f890179026c1d9a88d73a52ac6018d18970c550

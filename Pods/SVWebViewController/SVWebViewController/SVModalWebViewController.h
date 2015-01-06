@@ -13,6 +13,7 @@
 - (instancetype)initWithAddress:(NSString*)urlString;
 - (instancetype)initWithURL:(NSURL *)URL;
 - (instancetype)initWithURLRequest:(NSURLRequest *)request;
+- (UIScrollView *)scrollView;
 
 @property (nonatomic, strong) UIColor *barsTintColor;
 @property (nonatomic, strong) UIBarButtonItem *doneButton;

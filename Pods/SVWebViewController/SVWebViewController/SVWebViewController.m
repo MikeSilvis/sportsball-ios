@@ -28,6 +28,10 @@
 
 #pragma mark - Initialization
 
+- (UIScrollView *)scrollView {
+  return self.webView.scrollView;
+}
+
 - (void)dealloc {
     [self.webView stopLoading];
  	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

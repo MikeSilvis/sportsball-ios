@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "Boxscore.h"
+#import "ZFModalTransitionAnimator.h"
 
 @protocol ScoreShowViewDelegate <NSObject>
 
@@ -34,5 +35,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 
 @end

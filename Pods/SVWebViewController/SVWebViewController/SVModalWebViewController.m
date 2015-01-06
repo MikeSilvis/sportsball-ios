@@ -27,6 +27,9 @@
 
 #pragma mark - Initialization
 
+- (UIScrollView *)scrollView {
+  return self.webViewController.scrollView;
+}
 
 - (instancetype)initWithAddress:(NSString*)urlString {
     return [self initWithURL:[NSURL URLWithString:urlString]];

@@ -29,7 +29,7 @@
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
   if (resource.isOver) {
-    return CGSizeMake(width, 300);
+    return CGSizeMake(width, 320);
   }
   else {
     return CGSizeZero;

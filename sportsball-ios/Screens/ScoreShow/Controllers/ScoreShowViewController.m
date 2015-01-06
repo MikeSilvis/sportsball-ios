@@ -168,30 +168,23 @@ static const NSInteger scoreDetailViewLocation  = 2;
   return nil;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section == scoreRecapViewLocation) {
-    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
-    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-    webViewController.title = @"";
-
-    CGFloat iconSize = 25;
-    FAKFontAwesome *closeIcon = [FAKFontAwesome timesIconWithSize:iconSize];
-    [webViewController.doneButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"]];
-    [self presentViewController:webViewController animated:YES completion:NULL];
-  }
-
-  return;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreRecapViewLocation) {
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
-    webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     webViewController.title = @"";
+
+    // Transition
+    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:webViewController];
+    self.animator.dragable = YES;
+    self.animator.direction = ZFModalTransitonDirectionBottom;
+    [self.animator setContentScrollView:webViewController.scrollView];
+
+    // set transition delegate of modal view controller to our object
+    webViewController.transitioningDelegate = self.animator;
+    webViewController.modalPresentationStyle = UIModalPresentationCustom;
+
     [self presentViewController:webViewController animated:YES completion:NULL];
   }
-
-  return;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
