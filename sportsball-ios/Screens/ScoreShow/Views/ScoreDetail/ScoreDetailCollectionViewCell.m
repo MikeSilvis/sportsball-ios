@@ -14,7 +14,7 @@
 @implementation ScoreDetailCollectionViewCell
 
 static int const cellRowHeight = 40;
-static int const cellRowHeaderHeight = 20;
+static int const cellRowHeaderHeight = 25;
 static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
 static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
