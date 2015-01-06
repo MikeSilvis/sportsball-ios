@@ -206,9 +206,9 @@
   viewController.view.frame = self.view.bounds;
 
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
-//  self.animator.dragable = YES;
+  self.animator.dragable = YES;
   self.animator.direction = ZFModalTransitonDirectionBottom;
-//  [self.animator setContentScrollView:detailViewController.scrollview];
+  [self.animator setContentScrollView:viewController.tableView];
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
