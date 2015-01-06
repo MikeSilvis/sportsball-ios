@@ -7,6 +7,8 @@
 //
 
 #import "RecapCollectionViewCell.h"
+#import <UIImageView+AFNetworking.h>
+#import <UIImage+Blur.h>
 
 @implementation RecapCollectionViewCell
 
@@ -14,6 +16,8 @@
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
+
+  self.headerImage.alpha = 0.4f;
 }
 
 -(void)setRecap:(Recap *)recap {
@@ -21,11 +25,17 @@
 
   self.headline.text = recap.headline;
   self.content.text = recap.content;
+  [self.headerImage setImageWithURL:recap.photoURL];
+}
+
+-(void)layoutSubviews {
+  [super layoutSubviews];
+
 }
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
   if (resource.isOver) {
-    return CGSizeMake(width, 90);
+    return CGSizeMake(width, 220);
   }
   else {
     return CGSizeZero;

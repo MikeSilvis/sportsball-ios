@@ -17,6 +17,7 @@
     self.headline = json[@"headline"];
     self.content = json[@"content"];
     self.url = [NSURL URLWithString:json[@"url"]];
+    self.photoURL = [NSURL URLWithString:json[@"photo"]];
   }
 
   return self;
