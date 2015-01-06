@@ -22,8 +22,11 @@ typedef NS_ENUM(NSUInteger, ZFModalTransitonDirection) {
 @interface ZFModalTransitionAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign, getter=isDragable) BOOL dragable;
+@property BOOL bounces;
 @property ZFModalTransitonDirection direction;
-@property CGFloat scaleDownRatio;
+@property CGFloat behindViewScale;
+@property CGFloat behindViewAlpha;
+@property CGFloat transitionDuration;
 
 - (id)initWithModalViewController:(UIViewController *)modalViewController;
 - (void)setContentScrollView:(UIScrollView *)scrollView;
