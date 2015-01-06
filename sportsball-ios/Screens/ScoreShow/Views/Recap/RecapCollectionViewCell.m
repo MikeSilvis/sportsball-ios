@@ -16,8 +16,7 @@
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
-
-  self.headerImage.alpha = 0.4f;
+  self.headerImage.clipsToBounds = YES;
 }
 
 -(void)setRecap:(Recap *)recap {
@@ -30,7 +29,7 @@
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
   if (resource.isOver) {
-    return CGSizeMake(width, 220);
+    return CGSizeMake(width, 300);
   }
   else {
     return CGSizeZero;
