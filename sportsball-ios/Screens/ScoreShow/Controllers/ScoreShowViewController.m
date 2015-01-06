@@ -59,6 +59,8 @@ static const NSInteger scoreDetailViewLocation  = 2;
   [self.closeButton setImage:[UIImage imageWithFontAwesomeIcon:closeIcon andSize:iconSize andColor:@"#fff"] forState:UIControlStateNormal];
   [self.closeButton setTitle:@"" forState:UIControlStateNormal];
   [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
+
+  self.loadingIndicator.hidden = YES;
 }
 
 -(void)closeModal {
@@ -68,8 +70,13 @@ static const NSInteger scoreDetailViewLocation  = 2;
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
+  if (!self.game.boxscore) {
+    self.loadingIndicator.hidden = NO;
+  }
+
   [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
     self.game.boxscore = boxscore;
+    self.loadingIndicator.hidden = YES;
 
     [self.tableView reloadData];
   } failure:nil];

@@ -33,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
 
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
