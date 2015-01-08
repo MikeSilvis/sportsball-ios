@@ -26,7 +26,6 @@ typedef NS_ENUM(NSUInteger, ZFModalTransitonDirection) {
 @property ZFModalTransitonDirection direction;
 @property CGFloat behindViewScale;
 @property CGFloat behindViewAlpha;
-@property CGFloat transitionDuration;
 
 - (id)initWithModalViewController:(UIViewController *)modalViewController;
 - (void)setContentScrollView:(UIScrollView *)scrollView;

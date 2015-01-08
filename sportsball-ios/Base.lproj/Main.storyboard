@@ -201,6 +201,7 @@
                         <outlet property="homeTeamLogo" destination="n1F-bZ-aOS" id="mzl-4m-Ejw"/>
                         <outlet property="homeTeamScore" destination="aLy-dl-E0x" id="lc8-x9-AyA"/>
                         <outlet property="loadingIndicator" destination="jPV-BH-XyX" id="y30-QB-44h"/>
+                        <outlet property="location" destination="Z6u-P0-7jn" id="1AA-27-SFB"/>
                         <outlet property="tableView" destination="bHX-bo-ZQP" id="Xbr-hM-amS"/>
                     </connections>
                 </viewController>

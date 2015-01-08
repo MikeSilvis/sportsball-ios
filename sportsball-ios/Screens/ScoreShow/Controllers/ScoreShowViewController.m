@@ -121,8 +121,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 -(void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
 
-  // Blur
-  self.blurView.frame = self.view.frame;
+  self.blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {

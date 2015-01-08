@@ -38,21 +38,16 @@ DEPENDENCIES:
   - SVWebViewController (from `https://github.com/MikeSilvis/SVWebViewController.git`)
   - UIImage-Helpers
   - XHRealTimeBlur
-  - ZFDragableModalTransition (from `https://github.com/zoonooz/ZFDragableModalTransition.git`)
+  - ZFDragableModalTransition
 
 EXTERNAL SOURCES:
   SVWebViewController:
     :git: https://github.com/MikeSilvis/SVWebViewController.git
-  ZFDragableModalTransition:
-    :git: https://github.com/zoonooz/ZFDragableModalTransition.git
 
 CHECKOUT OPTIONS:
   SVWebViewController:
     :commit: cde5d0a17d7db275c31c013b92f032d8b2824e0d
     :git: https://github.com/MikeSilvis/SVWebViewController.git
-  ZFDragableModalTransition:
-    :commit: 3f890179026c1d9a88d73a52ac6018d18970c550
-    :git: https://github.com/zoonooz/ZFDragableModalTransition.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
@@ -62,6 +57,6 @@ SPEC CHECKSUMS:
   SVWebViewController: e23a0cf92c2185d584787f0422b14592dd160fca
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
   XHRealTimeBlur: a917ee391b10b9120f5bbd69b6a13d5f211479b0
-  ZFDragableModalTransition: dbcc7bb06ea61ccfd5c932593ac25ec39dedc5f8
+  ZFDragableModalTransition: 7eedae6db30e46fdf3196d6239d72e38834c25ff
 
 COCOAPODS: 0.35.0

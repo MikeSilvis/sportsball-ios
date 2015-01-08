@@ -36,5 +36,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+@property (weak, nonatomic) IBOutlet UILabel *location;
 
 @end
