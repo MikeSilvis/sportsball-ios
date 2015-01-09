@@ -10,6 +10,8 @@
 
 @interface SportsBallModalViewController ()
 
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+
 @end
 
 @implementation SportsBallModalViewController
@@ -30,6 +32,23 @@
   [super viewWillLayoutSubviews];
 
   self.blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
+
+-(void)openURL:(NSURL *)url {
+  SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
+  webViewController.title = @"";
+
+  // Transition
+  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:webViewController];
+  self.animator.dragable = YES;
+  self.animator.direction = ZFModalTransitonDirectionBottom;
+  [self.animator setContentScrollView:webViewController.scrollView];
+
+  // set transition delegate of modal view controller to our object
+  webViewController.transitioningDelegate = self.animator;
+  webViewController.modalPresentationStyle = UIModalPresentationCustom;
+
+  [self presentViewController:webViewController animated:YES completion:NULL];
 }
 
 @end

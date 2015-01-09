@@ -13,7 +13,6 @@
 #import "ScoreDetailCollectionViewCell.h"
 #import "ContentTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "SVModalWebViewController.h"
 #import "UIImage+FontAwesome.h"
 
 @implementation ScoreShowViewController
@@ -137,20 +136,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreRecapViewLocation) {
-    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:self.game.boxscore.recap.url];
-    webViewController.title = @"";
-
-    // Transition
-    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:webViewController];
-    self.animator.dragable = YES;
-    self.animator.direction = ZFModalTransitonDirectionBottom;
-    [self.animator setContentScrollView:webViewController.scrollView];
-
-    // set transition delegate of modal view controller to our object
-    webViewController.transitioningDelegate = self.animator;
-    webViewController.modalPresentationStyle = UIModalPresentationCustom;
-
-    [self presentViewController:webViewController animated:YES completion:NULL];
+    [self openURL:self.game.boxscore.recap.url];
   }
 }
 

@@ -265,29 +265,85 @@
                                     <outlet property="delegate" destination="oMw-bz-9BN" id="2LJ-6z-kUv"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-11-9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL6-gH-l8E" userLabel="awayTeamRecord">
+                                <rect key="frame" x="175" y="58" width="34.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="f1c-SX-z9U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-13-3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmf-FK-ge5" userLabel="homeTeamRecord">
+                                <rect key="frame" x="390" y="58" width="34.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Rdp-HO-sCS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flames" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-9S-Pr5" userLabel="homeTeamName">
+                                <rect key="frame" x="390" y="38" width="46" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="tpT-XE-Hli"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Panthers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEB-sJ-9DE" userLabel="homeTeamName">
+                                <rect key="frame" x="152" y="38" width="57.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="dzw-fC-PbO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="LIV-Nr-9p3" secondAttribute="centerY" constant="0.5" id="28r-vR-bG1"/>
+                            <constraint firstItem="LkE-3G-zFz" firstAttribute="leading" secondItem="XL6-gH-l8E" secondAttribute="trailing" constant="8" id="5Md-aT-BL0"/>
+                            <constraint firstItem="XL6-gH-l8E" firstAttribute="top" secondItem="OEB-sJ-9DE" secondAttribute="bottom" constant="5" id="6r5-yy-3Zj"/>
+                            <constraint firstItem="OEB-sJ-9DE" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="18" id="D4N-ga-Hp2"/>
                             <constraint firstItem="I6z-as-j4r" firstAttribute="leading" secondItem="hwF-7D-5Gc" secondAttribute="trailing" constant="30" id="E0j-tX-W4H"/>
                             <constraint firstAttribute="centerX" secondItem="LIV-Nr-9p3" secondAttribute="centerX" constant="-6.5" id="E4E-K5-e7l"/>
                             <constraint firstItem="hwF-7D-5Gc" firstAttribute="leading" secondItem="LkE-3G-zFz" secondAttribute="trailing" constant="30" id="ENV-DP-ucr"/>
+                            <constraint firstItem="RlQ-9S-Pr5" firstAttribute="leading" secondItem="I6z-as-j4r" secondAttribute="trailing" constant="8" id="JJG-ig-YU6"/>
                             <constraint firstItem="Qlx-HB-MAH" firstAttribute="top" secondItem="S52-go-0F9" secondAttribute="bottom" id="Le7-Iv-BbV"/>
                             <constraint firstItem="LkE-3G-zFz" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="15" id="NUd-70-jXE"/>
+                            <constraint firstItem="LkE-3G-zFz" firstAttribute="leading" secondItem="OEB-sJ-9DE" secondAttribute="trailing" constant="8" id="Vss-qO-hsk"/>
                             <constraint firstItem="XKq-ht-fkg" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="15" id="XKW-ZP-Ppo"/>
                             <constraint firstItem="S52-go-0F9" firstAttribute="leading" secondItem="IVF-US-eTZ" secondAttribute="leadingMargin" constant="-16" id="Xzt-Yg-v1W"/>
+                            <constraint firstItem="Fmf-FK-ge5" firstAttribute="leading" secondItem="I6z-as-j4r" secondAttribute="trailing" constant="8" id="iA2-Qz-R7d"/>
                             <constraint firstItem="S52-go-0F9" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="65" id="iGd-Ef-FMT"/>
+                            <constraint firstItem="XL6-gH-l8E" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="40" id="kI5-3Q-EU5"/>
                             <constraint firstItem="hwF-7D-5Gc" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="15" id="ljO-yl-4Si"/>
                             <constraint firstItem="XKq-ht-fkg" firstAttribute="trailing" secondItem="IVF-US-eTZ" secondAttribute="trailingMargin" id="mPM-UR-pgd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S52-go-0F9" secondAttribute="trailing" constant="-16" id="teu-vN-ugb"/>
+                            <constraint firstItem="Fmf-FK-ge5" firstAttribute="top" secondItem="RlQ-9S-Pr5" secondAttribute="bottom" constant="5" id="udl-8b-MD0"/>
+                            <constraint firstItem="RlQ-9S-Pr5" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="18" id="v2W-Iw-SGP"/>
                             <constraint firstItem="I6z-as-j4r" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="15" id="xuE-aq-zcy"/>
+                            <constraint firstItem="Fmf-FK-ge5" firstAttribute="top" secondItem="oKx-SQ-TS2" secondAttribute="bottom" constant="40" id="yv1-8t-TUj"/>
                             <constraint firstAttribute="centerX" secondItem="hwF-7D-5Gc" secondAttribute="centerX" id="z5B-5c-S6b"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kI5-3Q-EU5"/>
+                                <exclude reference="yv1-8t-TUj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="awayTeamLogo" destination="LkE-3G-zFz" id="fqe-bc-TkV"/>
+                        <outlet property="awayTeamName" destination="OEB-sJ-9DE" id="Hee-4G-HB3"/>
+                        <outlet property="awayTeamRecord" destination="XL6-gH-l8E" id="stx-uL-jYZ"/>
                         <outlet property="closeButton" destination="XKq-ht-fkg" id="mY0-cn-tgN"/>
                         <outlet property="homeTeamLogo" destination="I6z-as-j4r" id="gcc-oB-qJY"/>
+                        <outlet property="homeTeamName" destination="RlQ-9S-Pr5" id="qM3-ET-luU"/>
+                        <outlet property="homeTeamRecord" destination="Fmf-FK-ge5" id="x0C-ty-nia"/>
                         <outlet property="loadingIndicator" destination="LIV-Nr-9p3" id="vl6-xV-f8J"/>
                         <outlet property="tableView" destination="S52-go-0F9" id="Sc1-em-UDX"/>
                     </connections>

@@ -19,6 +19,7 @@
     self.startTime  = json[@"start_time"];
     self.location   = json[@"location"];
     self.channel    = json[@"channel"];
+    self.url        = [NSURL URLWithString:json[@"url"]];
   }
 
   return self;

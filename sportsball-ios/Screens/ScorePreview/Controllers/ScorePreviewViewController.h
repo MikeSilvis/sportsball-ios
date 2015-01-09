@@ -19,5 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *awayTeamRecord;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamRecord;
+@property (weak, nonatomic) IBOutlet UILabel *awayTeamName;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamName;
 
 @end

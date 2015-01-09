@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSString *channel;
+@property (nonatomic, strong) NSURL *url;
 
 @end
