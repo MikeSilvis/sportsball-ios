@@ -13,6 +13,7 @@
 #import "UIImage+Blur.h"
 #import "NSDate+SBDateWithYear.h"
 #import "UIImage+FontAwesome.h"
+#import "User.h"
 
 @implementation ScoreIndexView
 
@@ -83,7 +84,6 @@ static CGFloat const headerSize = 74;
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
-    [self.collectionView reloadData];
     [self.delegate didEndLoading];
   } failure:^(NSError *error) {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Sorry :("
@@ -96,6 +96,38 @@ static CGFloat const headerSize = 74;
     }
     [self.delegate didEndLoading];
   }];
+}
+
+-(void)setGames:(NSArray *)games {
+  NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
+
+//  tempGames = [drinkDetails sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+//      NSDate *first = [(Person*)a birthDate];
+//      NSDate *second = [(Person*)b birthDate];
+//      return [first compare:second];
+//  }]
+
+//  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.league.name];
+
+  games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(Game *game1, Game *game2) {
+    int game1Score = [game1 favoriteScore];
+    int game2Score = [game2 favoriteScore];
+
+    if (game1Score > game2Score) {
+      return (NSComparisonResult)NSOrderedAscending;
+    }
+    else if (game1Score < game2Score) {
+      return (NSComparisonResult)NSOrderedDescending;
+    }
+    else {
+      return (NSComparisonResult)NSOrderedSame;
+    }
+  }];
+
+
+  _games = games;
+
+  [self.collectionView reloadData];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

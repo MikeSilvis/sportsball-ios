@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "User.h"
 
 @implementation Game
 
@@ -99,6 +100,12 @@
 
 -(BOOL)isPregame {
   return [self.state isEqualToString:@"pregame"];
+}
+
+-(int)favoriteScore {
+  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.league];
+
+  return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
 }
 
 -(NSDateFormatter *)df {

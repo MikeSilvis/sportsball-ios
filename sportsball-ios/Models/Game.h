@@ -47,6 +47,7 @@
 -(NSString *)localStartTime;
 -(NSString *)homeScoreString;
 -(NSString *)awayScoreString;
+-(int)favoriteScore;
 
 -(void)findBoxscore:(NSDictionary *)paramaters
             success:(void (^) (Boxscore *))success

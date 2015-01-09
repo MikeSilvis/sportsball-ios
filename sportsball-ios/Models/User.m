@@ -91,7 +91,6 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   }
 
   [defaults synchronize];
-  
 }
 
 - (void)setUserDefaults {
