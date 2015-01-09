@@ -10,12 +10,14 @@
 #import "Champion.h"
 #import "Team.h"
 #import "Boxscore.h"
+#import "Preview.h"
 
 @interface Game : Champion
 
 @property (nonatomic, strong) Team *awayTeam;
 @property (nonatomic, strong) Team *homeTeam;
 @property (nonatomic, strong) Boxscore *boxscore;
+@property (nonatomic, strong) Preview *preview;
 
 @property (nonatomic, strong) NSString *league;
 
@@ -50,4 +52,7 @@
             success:(void (^) (Boxscore *))success
             failure:(void (^) (NSError *error))failure;
 
+-(void)findPreview:(NSDictionary *)paramaters
+            success:(void (^) (Preview *))success
+            failure:(void (^) (NSError *error))failure;
 @end

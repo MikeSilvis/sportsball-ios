@@ -10,22 +10,13 @@
 #import "Game.h"
 #import "Boxscore.h"
 #import "ZFModalTransitionAnimator.h"
+#import "SportsBallModalViewController.h"
 
-@protocol ScoreShowViewDelegate <NSObject>
+@interface ScoreShowViewController : SportsBallModalViewController <UITableViewDataSource, UITableViewDelegate>
 
--(void)dismissedScoreShowViewModal;
-
-@end
-
-@interface ScoreShowViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, strong) Game *game;
 @property (nonatomic, strong) Boxscore *boxscore;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UIVisualEffectView *blurView;
-
-@property (nonatomic, weak) id<ScoreShowViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;

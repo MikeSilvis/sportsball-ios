@@ -101,10 +101,7 @@ static CGFloat const headerSize = 74;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
   Game *selectedGame = self.games[indexPath.row];
 
-  // TODO: Remove once I can
-  if (!selectedGame.isPregame) {
-    [self.delegate selectedGame:selectedGame];
-  }
+  [self.delegate selectedGame:selectedGame];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

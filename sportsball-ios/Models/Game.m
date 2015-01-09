@@ -73,6 +73,22 @@
     }];
 }
 
+-(void)findPreview:(NSDictionary *)paramaters
+            success:(void (^) (Preview *))success
+            failure:(void (^) (NSError *error))failure {
+
+    NSString *path = [NSString stringWithFormat:@"leagues/%@/previews/%@", self.league, self.previewId];
+
+    [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
+      Preview *preview = [[Preview alloc] initWithJson:responseObject[@"preview"]];
+      success(preview);
+    } failure:^(NSError *error) {
+      if (failure) {
+        failure(error);
+      }
+    }];
+}
+
 - (BOOL)isOver {
   return [self.state isEqualToString:@"postgame"];
 }

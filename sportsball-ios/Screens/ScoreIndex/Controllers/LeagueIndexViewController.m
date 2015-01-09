@@ -12,8 +12,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
 #import "User.h"
+#import "SportsBallModalViewController.h"
+#import "ScoreShowViewController.h"
 
 @implementation LeagueIndexViewController
+
+static  NSString *scoreShowSegue = @"scoreShowSegue";
+static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -84,7 +89,15 @@
 
 -(void)selectedGame:(Game *)game {
   self.selectedGame = game;
-  [self performSegueWithIdentifier:@"scoreShowSegue" sender:self];
+
+  [[User currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.league];
+
+  if (game.isPregame) {
+    [self performSegueWithIdentifier:scorePreviewSegue sender:self];
+  }
+  else {
+    [self performSegueWithIdentifier:scoreShowSegue sender:self];
+  }
 }
 
 -(void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
@@ -200,19 +213,24 @@
     }
   }
 
-  ScoreShowViewController *viewController = segue.destinationViewController;
+  SportsBallModalViewController *viewController = segue.destinationViewController;
   viewController.game = self.selectedGame;
   viewController.delegate = self;
   viewController.view.frame = self.view.bounds;
-
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
   self.animator.dragable = YES;
   self.animator.direction = ZFModalTransitonDirectionBottom;
-  [self.animator setContentScrollView:viewController.tableView];
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
   viewController.modalPresentationStyle = UIModalPresentationCustom;
+
+  if ([segue.identifier isEqualToString:scorePreviewSegue]) {
+
+  }
+  else if ([segue.identifier isEqualToString:scoreShowSegue]) {
+    [self.animator setContentScrollView:((ScoreShowViewController *)viewController).tableView];
+  }
 
   [self stopTimer];
 }

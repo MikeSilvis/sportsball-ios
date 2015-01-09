@@ -30,18 +30,11 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.backgroundColor = [UIColor clearColor];
 
   // Collection View Styles
   self.tableView.backgroundColor = [UIColor clearColor];
   self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-  // Blur effect
-  UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-  self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-  [self.view addSubview:self.blurView];
-  [self.view sendSubviewToBack:self.blurView];
 
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
@@ -85,7 +78,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 }
 
 -(void)setGame:(Game *)game {
-  _game = game;
+  [super setGame:game];
 
   [self.tableView reloadData];
 
@@ -100,28 +93,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
   Team *awayTeam = self.game.awayTeam;
   [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"120x120"]];
   self.awayTeamScore.text = self.game.awayScoreString;
-
-  if (self.game.isPregame) {
-    // Scores
-    self.awayTeamScore.hidden = YES;
-    self.homeTeamScore.hidden = YES;
-  }
-  else if (self.game.isInProgress) {
-    // Scores
-    self.awayTeamScore.hidden = NO;
-    self.homeTeamScore.hidden = NO;
-  }
-  else {
-    // Scores
-    self.awayTeamScore.hidden = NO;
-    self.homeTeamScore.hidden = NO;
-  }
-}
-
--(void)viewWillLayoutSubviews {
-  [super viewWillLayoutSubviews];
-
-  self.blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
