@@ -24,6 +24,8 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
+
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil]
         forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                withReuseIdentifier:scoreDetailHeaderCell];

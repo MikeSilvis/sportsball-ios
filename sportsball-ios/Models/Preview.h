@@ -12,6 +12,7 @@
 @interface Preview : Champion
 
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *headline;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSString *channel;

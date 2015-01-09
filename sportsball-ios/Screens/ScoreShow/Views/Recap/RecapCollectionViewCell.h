@@ -12,6 +12,7 @@
 @interface RecapCollectionViewCell : UITableViewCell
 
 @property (nonatomic, strong) Recap *recap;
+@property (nonatomic, strong) Preview *preview;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;

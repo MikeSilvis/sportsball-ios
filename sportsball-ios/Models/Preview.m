@@ -14,6 +14,7 @@
   self = [super init];
 
   if (self) {
+    self.headline   = json[@"headline"];
     self.content    = json[@"content"];
     self.startTime  = json[@"start_time"];
     self.location   = json[@"location"];

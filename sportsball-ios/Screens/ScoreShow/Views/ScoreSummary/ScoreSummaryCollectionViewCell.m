@@ -22,6 +22,7 @@ static int const cellPaddingHeight = 10;
 
   self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryInfoViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryinfoCell];
 }

@@ -44,8 +44,8 @@ static CGFloat const headerSize = 74;
 
 -(void)setUpDatePicker {
   self.datePicker.dates = self.league.schedule;
-//  [self.datePicker selectDateClosestToToday];
-  [self.datePicker selectDate:[NSDate dateWithYear:2015 month:1 day:4]];
+  [self.datePicker selectDateClosestToToday];
+//  [self.datePicker selectDate:[NSDate dateWithYear:2015 month:1 day:4]];
   self.currentDate = self.datePicker.selectedDate;
 
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
@@ -100,14 +100,6 @@ static CGFloat const headerSize = 74;
 
 -(void)setGames:(NSArray *)games {
   NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
-
-//  tempGames = [drinkDetails sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-//      NSDate *first = [(Person*)a birthDate];
-//      NSDate *second = [(Person*)b birthDate];
-//      return [first compare:second];
-//  }]
-
-//  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.league.name];
 
   games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(Game *game1, Game *game2) {
     int game1Score = [game1 favoriteScore];

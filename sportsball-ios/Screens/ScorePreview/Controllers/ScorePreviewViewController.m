@@ -9,8 +9,15 @@
 #import "ScorePreviewViewController.h"
 #import "UIImage+FontAwesome.h"
 #import <UIImageView+AFNetworking.h>
+#import "RecapCollectionViewCell.h"
 
 @implementation ScorePreviewViewController
+
+// Cell Identifiers
+static NSString * scoreRecapCollectionViewCell = @"scoreRecapCollectionViewCell";
+
+// Cell Locations
+static const NSInteger scoreRecapViewLocation = 0;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -19,6 +26,11 @@
   self.tableView.backgroundColor = [UIColor clearColor];
   self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+  // Register nibs
+  [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreRecapCollectionViewCell];
+
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -44,6 +56,8 @@
 
     [self.tableView reloadData];
   } failure:nil];
+
+  [self setHeaderInfo];
 }
 
 -(void)closeModal {
@@ -77,13 +91,12 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  if (indexPath.section == scoreSummaryViewLocation) {
-//    ScoreSummaryCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
-//    cell.game = self.game;
-//    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-//
-//    return cell;
-//  }
+  if (indexPath.section == scoreRecapViewLocation) {
+    RecapCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
+    cell.preview = self.game.preview;
+
+    return cell;
+  }
 
   return nil;
 }

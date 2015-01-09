@@ -115,14 +115,12 @@ static const NSInteger scoreDetailViewLocation  = 2;
   if (indexPath.section == scoreSummaryViewLocation) {
     ScoreSummaryCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
     cell.game = self.game;
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
     RecapCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
     cell.recap = self.game.boxscore.recap;
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }
@@ -130,7 +128,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
     ScoreDetailCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailCollectionViewCell forIndexPath:indexPath];
     cell.game = self.game;
     cell.scoreDetails = self.game.boxscore.scoreDetail;
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
   }

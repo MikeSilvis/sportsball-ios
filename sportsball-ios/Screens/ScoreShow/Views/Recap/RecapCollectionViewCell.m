@@ -17,6 +17,8 @@
 
   self.backgroundColor = [UIColor clearColor];
   self.headerImage.clipsToBounds = YES;
+
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 -(void)setRecap:(Recap *)recap {
@@ -25,6 +27,12 @@
   self.headline.text = recap.headline;
   self.content.text = recap.content;
   [self.headerImage setImageWithURL:recap.photoURL];
+}
+-(void)setPreview:(Preview *)preview {
+  _preview = preview;
+
+  self.headline.text = preview.headline;
+  self.content.text = preview.content;
 }
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
