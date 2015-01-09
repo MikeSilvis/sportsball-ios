@@ -9,12 +9,12 @@
 #import "ScorePreviewViewController.h"
 #import "UIImage+FontAwesome.h"
 #import <UIImageView+AFNetworking.h>
-#import "RecapCollectionViewCell.h"
+#import "ContentTableViewCell.h"
 
 @implementation ScorePreviewViewController
 
 // Cell Identifiers
-static NSString * scoreRecapCollectionViewCell = @"scoreRecapCollectionViewCell";
+static NSString * scoreContentCell = @"scoreContentCell";
 
 // Cell Locations
 static const NSInteger scoreRecapViewLocation = 0;
@@ -28,8 +28,8 @@ static const NSInteger scoreRecapViewLocation = 0;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Register nibs
-  [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
-        forCellReuseIdentifier:scoreRecapCollectionViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ContentTableViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreContentCell];
 
 
   // Close Icon
@@ -92,7 +92,7 @@ static const NSInteger scoreRecapViewLocation = 0;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreRecapViewLocation) {
-    RecapCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
+    ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreContentCell forIndexPath:indexPath];
     cell.preview = self.game.preview;
 
     return cell;
@@ -102,6 +102,10 @@ static const NSInteger scoreRecapViewLocation = 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.section == scoreRecapViewLocation) {
+    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+  }
+
   return 0;
 }
 

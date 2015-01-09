@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface RecapCollectionViewCell : UITableViewCell
+@interface ContentTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) Recap *recap;
 @property (nonatomic, strong) Preview *preview;

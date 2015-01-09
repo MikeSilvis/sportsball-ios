@@ -11,7 +11,7 @@
 #import "LeagueHeader.h"
 #import "ScoreSummaryCollectionViewCell.h"
 #import "ScoreDetailCollectionViewCell.h"
-#import "RecapCollectionViewCell.h"
+#import "ContentTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
 #import "SVModalWebViewController.h"
 #import "UIImage+FontAwesome.h"
@@ -43,7 +43,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
         forCellReuseIdentifier:scoreDetailCollectionViewCell];
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"RecapCollectionViewCell" bundle:nil]
+  [self.tableView registerNib:[UINib nibWithNibName:@"ContentTableViewCell" bundle:nil]
         forCellReuseIdentifier:scoreRecapCollectionViewCell];
 
   // Close Icon
@@ -119,7 +119,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
     return cell;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
-    RecapCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
+    ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreRecapCollectionViewCell forIndexPath:indexPath];
     cell.recap = self.game.boxscore.recap;
 
     return cell;
@@ -159,7 +159,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
     return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width].height;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
-    return [RecapCollectionViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
   }
   else if (indexPath.section == scoreDetailViewLocation) {
     return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width].height;
