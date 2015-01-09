@@ -33,10 +33,9 @@
   int y = self.frame.size.height - height;
   self.separatorLineView.frame = CGRectMake(0, y, self.bounds.size.width, height);
 
-  if (self.frame.size.height > 0) {
+  if (self.renderSeperator) {
     self.separatorLineView.hidden = NO;
   }
-  
 }
 
 @end

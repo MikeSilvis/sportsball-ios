@@ -27,6 +27,10 @@
   self.headline.text = recap.headline;
   self.content.text = recap.content;
   [self.headerImage setImageWithURL:recap.photoURL];
+
+  if (recap) {
+    self.renderSeperator = YES;
+  }
 }
 
 -(void)setPreview:(Preview *)preview {
@@ -34,6 +38,10 @@
 
   self.headline.text = preview.headline;
   self.content.text = preview.content;
+
+  if (preview) {
+    self.renderSeperator = YES;
+  }
 }
 
 -(void)layoutSubviews {
@@ -52,7 +60,6 @@
     f.origin.y = self.headline.frame.origin.y + self.headline.frame.size.height + 5;
     self.content.frame = f;
   }
-
 }
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {

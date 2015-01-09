@@ -35,6 +35,10 @@ static int const cellPaddingHeight = 10;
   _game = game;
 
   self.scoreSummary = game.boxscore.scoreSummary;
+
+  if (game.boxscore) {
+    self.renderSeperator = YES;
+  }
 }
 
 -(void)setScoreSummary:(NSArray *)scoreSummary {
