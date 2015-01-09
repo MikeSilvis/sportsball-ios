@@ -14,7 +14,6 @@
 @property (nonatomic, copy) NSNumber *lastOpenedLeague;
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, copy) NSDictionary *favoriteTeams;
-@property (nonatomic, copy) NSUserDefaults *defaults;
 
 + (User *)currentUser;
 - (void)appendFavoriteTeams:(Team *)team andTeam:(Team *)team2 andLeague:(NSString *)league;

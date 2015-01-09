@@ -71,10 +71,12 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 #pragma mark - Sync settings
 
 - (void)syncUserDefaults {
-  [self.defaults setObject:self.lastOpenedLeague forKey:lastOpenedLeagueKey];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+  [defaults setObject:self.lastOpenedLeague forKey:lastOpenedLeagueKey];
 
   if (self.favoriteTeams.count > 0) {
-    [self.defaults setObject:self.favoriteTeams forKey:favoriteTeamsKey];
+    [defaults setObject:self.favoriteTeams forKey:favoriteTeamsKey];
   }
 
   // Set Leagues
@@ -85,19 +87,21 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   }
 
   if (encodedLeagues.count > 0) {
-    [self.defaults setObject:encodedLeagues forKey:allLeagues];
+    [defaults setObject:encodedLeagues forKey:allLeagues];
   }
 
-  [self.defaults synchronize];
+  [defaults synchronize];
   
 }
 
 - (void)setUserDefaults {
-  _lastOpenedLeague = [self.defaults objectForKey:lastOpenedLeagueKey];
-  _favoriteTeams = [self.defaults objectForKey:favoriteTeamsKey] ? [self.defaults objectForKey:favoriteTeamsKey] : @{};
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+  _lastOpenedLeague = [defaults objectForKey:lastOpenedLeagueKey];
+  _favoriteTeams = [defaults objectForKey:favoriteTeamsKey] ? [defaults objectForKey:favoriteTeamsKey] : @{};
 
   // Retrieve leagues
-  NSArray *encodedLeagues = [self.defaults objectForKey:allLeagues];
+  NSArray *encodedLeagues = [defaults objectForKey:allLeagues];
   NSMutableArray *leagues = [NSMutableArray array];
   for (NSData *encodedLeague in encodedLeagues) {
       League *league = (League *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
@@ -105,14 +109,6 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   }
 
   _leagues = leagues;
-}
-
-- (NSUserDefaults *)defaults {
-  if (!_defaults) {
-    [NSUserDefaults standardUserDefaults];
-  }
-
-  return _defaults;
 }
 
 @end
