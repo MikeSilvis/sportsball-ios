@@ -24,7 +24,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-vt-4Fe">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                    <rect key="frame" x="0.0" y="10" width="600" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Dw3-5F-glz"/>
                         <constraint firstAttribute="height" constant="200" id="TWQ-jj-pdv"/>
@@ -38,8 +38,8 @@
             </subviews>
             <color key="backgroundColor" red="0.231372565" green="0.23921570180000001" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="jmf-vt-4Fe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8XE-KO-glY"/>
-                <constraint firstItem="1bl-2a-pry" firstAttribute="top" secondItem="jmf-vt-4Fe" secondAttribute="bottom" constant="15" id="TB1-nb-XRV"/>
+                <constraint firstItem="jmf-vt-4Fe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8XE-KO-glY"/>
+                <constraint firstItem="1bl-2a-pry" firstAttribute="top" secondItem="jmf-vt-4Fe" secondAttribute="bottom" constant="5" id="TB1-nb-XRV"/>
                 <constraint firstItem="xbj-Ng-jgh" firstAttribute="top" secondItem="1bl-2a-pry" secondAttribute="bottom" constant="3" id="TNs-UT-h3Q"/>
                 <constraint firstItem="xbj-Ng-jgh" firstAttribute="top" secondItem="jmf-vt-4Fe" secondAttribute="bottom" constant="40" id="Vkz-m4-ewt"/>
                 <constraint firstItem="jmf-vt-4Fe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dLG-Hw-b2R"/>

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SportsBallTableViewCell.h"
 #import "Game.h"
 
-@interface ContentTableViewCell : UITableViewCell
+@interface ContentTableViewCell : SportsBallTableViewCell
 
 @property (nonatomic, strong) Recap *recap;
 @property (nonatomic, strong) Preview *preview;

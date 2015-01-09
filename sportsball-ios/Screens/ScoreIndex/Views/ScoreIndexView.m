@@ -40,6 +40,7 @@ static CGFloat const headerSize = 74;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerSize, 0, 0, 0);
 
   self.currentDate = [NSDate date];
+  self.activityIndicator.hidden = YES;
 }
 
 -(void)setUpDatePicker {
@@ -79,12 +80,12 @@ static CGFloat const headerSize = 74;
 
 -(void)findGames {
   if (self.games.count == 0) {
-    [self.delegate didStartLoading];
+    self.activityIndicator.hidden = NO;
   }
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
-    [self.delegate didEndLoading];
+    self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Sorry :("
                                                     message: @"Something happened, and the data failed to load."
@@ -94,7 +95,7 @@ static CGFloat const headerSize = 74;
     if (self.games.count == 0) {
       [alert show];
     }
-    [self.delegate didEndLoading];
+    self.activityIndicator.hidden = YES;
   }];
 }
 

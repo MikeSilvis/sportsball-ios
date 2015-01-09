@@ -9,7 +9,7 @@
 #import "ScoreShowViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "LeagueHeader.h"
-#import "ScoreSummaryCollectionViewCell.h"
+#import "ScoreSummaryViewCell.h"
 #import "ScoreDetailCollectionViewCell.h"
 #import "ContentTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
@@ -32,8 +32,6 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
   // Collection View Styles
   self.tableView.backgroundColor = [UIColor clearColor];
-  self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
@@ -112,7 +110,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreSummaryViewLocation) {
-    ScoreSummaryCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
+    ScoreSummaryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreSummaryViewCell forIndexPath:indexPath];
     cell.game = self.game;
 
     return cell;
@@ -142,7 +140,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreSummaryViewLocation) {
-    return [ScoreSummaryCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width].height;
+    return [ScoreSummaryViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width].height;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
     return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;

@@ -13,8 +13,6 @@
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
--(void)didStartLoading;
--(void)didEndLoading;
 -(void)selectedGame:(Game *)game;
 
 @end
@@ -29,6 +27,7 @@
 @property (nonatomic, strong) NSTimer *scorePuller;
 @property (weak, nonatomic) IBOutlet DIDatepicker *datePicker;
 @property (nonatomic, strong) NSDate *currentDate;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, weak) id<ScoreIndexViewDelegate> delegate;
 

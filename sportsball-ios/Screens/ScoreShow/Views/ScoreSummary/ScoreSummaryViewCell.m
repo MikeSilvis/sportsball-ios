@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "ScoreSummaryCollectionViewCell.h"
+#import "ScoreSummaryViewCell.h"
 #import "ScoreSummaryInfoCollectionViewCell.h"
 #import "ScoreDetailHeaderCollectionViewCell.h"
 #import "Team.h"
 
-@implementation ScoreSummaryCollectionViewCell
+@implementation ScoreSummaryViewCell
 
 static NSString * const scoreSummaryinfoCell = @"scoreSummaryinfoCell";
 static int const cellRowHeight = 30;

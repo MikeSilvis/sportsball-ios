@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SportsBallTableViewCell.h"
 #import "Game.h"
 
-@interface ScoreSummaryCollectionViewCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ScoreSummaryViewCell : SportsBallTableViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *scoreSummary;

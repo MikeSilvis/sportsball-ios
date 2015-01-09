@@ -23,7 +23,7 @@
 		113845DB1A0C002B00BC7A4D /* LeagueIndexHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845DA1A0C002B00BC7A4D /* LeagueIndexHeader.xib */; };
 		113845DE1A0C052600BC7A4D /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845DD1A0C052600BC7A4D /* League.m */; };
 		1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */; };
-		1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */; };
+		1143DE011A30F8C5001868C6 /* ScoreSummaryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE001A30F8C5001868C6 /* ScoreSummaryViewCell.m */; };
 		1143DE031A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */; };
 		1143DE061A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */; };
 		1149A6A21A49B04300928ECA /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1149A6A11A49B04300928ECA /* ContentTableViewCell.m */; };
@@ -55,6 +55,7 @@
 		119909201A4F535B00F2ED1B /* SportsBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
+		11BA1C3A1A6096C4005C61AB /* SportsBallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C391A6096C4005C61AB /* SportsBallTableViewCell.m */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
 		11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */; };
 		11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BCD67D1A424932009516A6 /* UIImage+Resize.m */; };
@@ -90,8 +91,8 @@
 		113845DC1A0C052600BC7A4D /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		113845DD1A0C052600BC7A4D /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSummaryViewCell.xib; sourceTree = "<group>"; };
-		1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSummaryCollectionViewCell.h; sourceTree = "<group>"; };
-		1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryCollectionViewCell.m; sourceTree = "<group>"; };
+		1143DDFF1A30F8C5001868C6 /* ScoreSummaryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSummaryViewCell.h; sourceTree = "<group>"; };
+		1143DE001A30F8C5001868C6 /* ScoreSummaryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryViewCell.m; sourceTree = "<group>"; };
 		1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSummaryInfoViewCell.xib; sourceTree = "<group>"; };
 		1143DE041A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSummaryInfoCollectionViewCell.h; sourceTree = "<group>"; };
 		1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSummaryInfoCollectionViewCell.m; sourceTree = "<group>"; };
@@ -147,6 +148,8 @@
 		1199091F1A4F535B00F2ED1B /* SportsBallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsBallViewController.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		11BA1C381A6096C4005C61AB /* SportsBallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsBallTableViewCell.h; sourceTree = "<group>"; };
+		11BA1C391A6096C4005C61AB /* SportsBallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsBallTableViewCell.m; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeader.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeader.xib; sourceTree = "<group>"; };
@@ -196,8 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				1143DDFD1A30F8AC001868C6 /* ScoreSummaryViewCell.xib */,
-				1143DDFF1A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.h */,
-				1143DE001A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m */,
+				1143DDFF1A30F8C5001868C6 /* ScoreSummaryViewCell.h */,
+				1143DE001A30F8C5001868C6 /* ScoreSummaryViewCell.m */,
 				1143DE021A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib */,
 				1143DE041A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.h */,
 				1143DE051A310D53001868C6 /* ScoreSummaryInfoCollectionViewCell.m */,
@@ -498,6 +501,8 @@
 			isa = PBXGroup;
 			children = (
 				1149A69F1A49B02000928ECA /* GameContent */,
+				11BA1C381A6096C4005C61AB /* SportsBallTableViewCell.h */,
+				11BA1C391A6096C4005C61AB /* SportsBallTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -651,9 +656,10 @@
 				110E33251A2C395000ED333A /* Boxscore.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,
-				1143DE011A30F8C5001868C6 /* ScoreSummaryCollectionViewCell.m in Sources */,
+				1143DE011A30F8C5001868C6 /* ScoreSummaryViewCell.m in Sources */,
 				113845D91A0C001D00BC7A4D /* LeagueIndexHeader.m in Sources */,
 				119909101A4B224200F2ED1B /* Recap.m in Sources */,
+				11BA1C3A1A6096C4005C61AB /* SportsBallTableViewCell.m in Sources */,
 				1101C60D1A22842E0086AF16 /* User.m in Sources */,
 				1154F6481A03D754009F560B /* Team.m in Sources */,
 				113845DE1A0C052600BC7A4D /* League.m in Sources */,

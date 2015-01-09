@@ -30,12 +30,17 @@
                         <constraint firstAttribute="height" constant="40" id="wZu-UG-V6s"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Q1X-o7-TxH">
+                    <rect key="frame" x="281.5" y="261.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8y5-ow-B8a" secondAttribute="trailing" id="5in-tT-dTW"/>
                 <constraint firstItem="8y5-ow-B8a" firstAttribute="width" secondItem="oXu-u8-Y9U" secondAttribute="width" id="AKz-Tc-o8h"/>
                 <constraint firstItem="oXu-u8-Y9U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LG9-gQ-HiH"/>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="centerY" secondItem="Q1X-o7-TxH" secondAttribute="centerY" id="Q8F-cJ-jnr"/>
+                <constraint firstItem="8y5-ow-B8a" firstAttribute="centerX" secondItem="Q1X-o7-TxH" secondAttribute="centerX" id="R3L-Gv-rS1"/>
                 <constraint firstItem="oXu-u8-Y9U" firstAttribute="bottom" secondItem="8y5-ow-B8a" secondAttribute="bottom" constant="40" id="azb-aC-ilK"/>
                 <constraint firstAttribute="trailing" secondItem="oXu-u8-Y9U" secondAttribute="trailing" id="dgh-Jp-dki"/>
                 <constraint firstItem="8y5-ow-B8a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eyl-fn-KWq"/>
@@ -44,6 +49,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activityIndicator" destination="Q1X-o7-TxH" id="yA5-rn-sQb"/>
                 <outlet property="collectionView" destination="8y5-ow-B8a" id="cuT-wK-FvH"/>
                 <outlet property="datePicker" destination="oXu-u8-Y9U" id="h6R-Cy-TZt"/>
             </connections>
