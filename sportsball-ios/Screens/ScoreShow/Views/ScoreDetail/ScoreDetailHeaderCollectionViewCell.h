@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreDetailHeaderCollectionViewCell : UICollectionReusableView
+@interface ScoreDetailHeaderCollectionViewCell : UITableViewHeaderFooterView
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 

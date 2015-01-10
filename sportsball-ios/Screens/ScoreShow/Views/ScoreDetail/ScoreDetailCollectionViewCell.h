@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface ScoreDetailCollectionViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ScoreDetailCollectionViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *scoreDetails;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Game *game;
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width;

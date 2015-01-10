@@ -10,12 +10,11 @@
 #import "ScoreDetail.h"
 #import "Game.h"
 
-@interface ScoreDetailInfoCollectionViewCell : UICollectionViewCell
+@interface ScoreDetailInfoCollectionViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *teamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *noScores;
 
 @property (nonatomic, strong) NSArray *contentInfo;
 @property (nonatomic, strong) Game *game;

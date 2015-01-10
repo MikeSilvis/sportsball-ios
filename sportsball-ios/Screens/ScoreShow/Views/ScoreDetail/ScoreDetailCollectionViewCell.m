@@ -13,7 +13,7 @@
 
 @implementation ScoreDetailCollectionViewCell
 
-static int const cellRowHeight = 30;
+static int const cellRowHeight = 40;
 static int const cellRowHeaderHeight = 20;
 static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
 static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
@@ -22,15 +22,15 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
-  self.collectionView.backgroundColor = [UIColor clearColor];
+  self.tableView.backgroundColor = [UIColor clearColor];
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil]
-        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-               withReuseIdentifier:scoreDetailHeaderCell];
-  [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreDetailInfoCollectionViewCell" bundle:nil]
-        forCellWithReuseIdentifier:scoreDetailInfoCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailInfoCollectionViewCell" bundle:nil]
+       forCellReuseIdentifier:scoreDetailInfoCell];
+
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:scoreDetailHeaderCell];
 }
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
@@ -50,31 +50,27 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 -(void)setScoreDetails:(NSArray *)scoreDetails {
   _scoreDetails = scoreDetails;
 
-  [self.collectionView reloadData];
+  [self.tableView reloadData];
 }
 
 #pragma mark - UICollectionView
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(self.collectionView.bounds.size.width, cellRowHeight);
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return cellRowHeight;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-  return CGSizeMake(self.collectionView.bounds.size.width, cellRowHeaderHeight);
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return self.scoreDetails.count;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   ScoreDetail *scoreDetail = self.scoreDetails[section];
 
   return scoreDetail.contentInfo.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  ScoreDetailInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:scoreDetailInfoCell forIndexPath:indexPath];
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  ScoreDetailInfoCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailInfoCell forIndexPath:indexPath];
 
   ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
   cell.game = self.game;
@@ -83,18 +79,33 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-  if (kind == UICollectionElementKindSectionHeader) {
-    ScoreDetailHeaderCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                                   withReuseIdentifier:scoreDetailHeaderCell
-                                                                                          forIndexPath:indexPath];
-    ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
-    cell.label.text = scoreDetail.headerInfo;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:scoreDetailHeaderCell];
 
-    return cell;
-  }
+  ScoreDetail *scoreDetail = self.scoreDetails[section];
+  cell.label.text = scoreDetail.headerInfo;
 
-  return nil;
+  return cell;
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  return cellRowHeaderHeight;
+}
+
+
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//  if (kind == UICollectionElementKindSectionHeader) {
+//    ScoreDetailHeaderCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+//                                                                                   withReuseIdentifier:scoreDetailHeaderCell
+//                                                                                          forIndexPath:indexPath];
+//    ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
+//    cell.label.text = scoreDetail.headerInfo;
+//
+//    return cell;
+//  }
+//
+//  return nil;
+//}
 
 @end
