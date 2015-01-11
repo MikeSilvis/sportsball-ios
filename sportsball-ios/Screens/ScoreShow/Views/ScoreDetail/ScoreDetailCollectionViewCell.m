@@ -14,7 +14,7 @@
 @implementation ScoreDetailCollectionViewCell
 
 static int const cellRowHeight = 40;
-static int const cellRowHeaderHeight = 20;
+static int const cellRowHeaderHeight = 30;
 static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
 static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
@@ -34,7 +34,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
-  CGFloat height = 0;
+  CGFloat height = 20;
 
   for (ScoreDetail *scoreDetail in resource) {
     // Header Size
@@ -87,7 +87,6 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 
   return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   return cellRowHeaderHeight;

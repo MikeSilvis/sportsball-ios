@@ -50,7 +50,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 
 - (void)appendFavoriteTeams:(Team *)homeTeam andTeam:(Team *)awayTeam andLeague:(NSString *)league {
   NSMutableDictionary *favoriteTeams = [NSMutableDictionary dictionaryWithDictionary:self.favoriteTeams];
-  NSMutableDictionary *leagueFavoriteTeams = favoriteTeams[league] ? favoriteTeams[league] : [NSMutableDictionary dictionary];
+  NSMutableDictionary *leagueFavoriteTeams = favoriteTeams[league] ? [NSMutableDictionary dictionaryWithDictionary:favoriteTeams[league]] : [NSMutableDictionary dictionary];
 
   for (Team *team in @[homeTeam, awayTeam]) {
     NSNumber *teamFavoriteCount = (NSNumber *)leagueFavoriteTeams[team.dataName];
@@ -64,7 +64,6 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 
   favoriteTeams[league] = leagueFavoriteTeams;
   self.favoriteTeams = favoriteTeams;
-
   [self syncUserDefaults];
 }
 

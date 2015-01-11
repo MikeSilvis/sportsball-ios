@@ -53,7 +53,7 @@
 
 -(void)defaultCache {
   [[NSURLCache sharedURLCache] setMemoryCapacity:(20*1024*1024)];
-  [[NSURLCache sharedURLCache] setDiskCapacity:(200*1024*1024)];
+  [[NSURLCache sharedURLCache] setDiskCapacity:(400*1024*1024)];
 }
 
 -(void)defaultStyles{
