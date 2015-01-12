@@ -68,6 +68,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     [self updateToolbarItems];
+
+  self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewDidUnload {
