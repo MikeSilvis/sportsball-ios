@@ -27,7 +27,7 @@
   }
   else {
     self.score.text = [self summary];
-    self.score.textAlignment = NSTextAlignmentCenter;
+    self.score.textAlignment = NSTextAlignmentRight;
   }
 
   if (self.section == 0 && self.row == 0 ) {
@@ -36,32 +36,20 @@
 
   UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
   UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
+  self.score.font = regularFont;
+
   if (self.section == 0) {
     self.score.font = boldFont;
   }
-  else {
-    if ([[self summary] isEqualToString:[self lastSummary]]) {
-      self.score.font = boldFont;
-    }
-    else {
-      self.score.font = regularFont;
-    }
+
+  NSArray *rowCount = self.game.boxscore.scoreSummary[self.section];
+  if (self.row == [rowCount count]) {
+    self.score.font = boldFont;
   }
 }
 
 -(NSString *)summary {
   return self.game.boxscore.scoreSummary[self.section][self.row];
-}
--(NSString *)lastSummary {
-  return [self.game.boxscore.scoreSummary[self.section] lastObject];
-}
-
--(NSArray *)scoreSummary {
-  return self.game.boxscore.scoreSummary;
-}
-
--(NSUInteger)scoreSummaryCount {
-  return [[self scoreSummary] count];
 }
 
 @end

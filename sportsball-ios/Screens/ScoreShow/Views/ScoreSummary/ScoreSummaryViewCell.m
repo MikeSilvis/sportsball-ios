@@ -52,7 +52,7 @@ static int const cellPaddingHeight = 10;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *itemsForSection = self.scoreSummary[indexPath.section];
 
-  CGFloat largeritemWidth = self.collectionView.bounds.size.width * 0.2;
+  CGFloat largeritemWidth = self.collectionView.bounds.size.width * 0.46f;
   CGFloat smallerItemWidth = (self.collectionView.bounds.size.width - largeritemWidth) / (itemsForSection.count - 1);
 
   CGFloat width = (indexPath.row == 0) ? largeritemWidth : smallerItemWidth;
