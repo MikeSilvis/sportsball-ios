@@ -235,7 +235,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [self stopTimer];
 }
 
--(void)dismissedScoreShowViewModal {
+-(void)dismissedModal {
   [self startTimer];
 
   for (ScoreIndexView *view in self.scoreViews) {

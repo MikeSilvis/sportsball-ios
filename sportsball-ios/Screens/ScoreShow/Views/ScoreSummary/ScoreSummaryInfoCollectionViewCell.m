@@ -34,9 +34,9 @@
     self.score.textAlignment = NSTextAlignmentLeft;
   }
 
-  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:16];
-  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:14];
-  if (self.section == 0 && self.row != 0) {
+  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
+  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
+  if (self.section == 0) {
     self.score.font = boldFont;
   }
   else {

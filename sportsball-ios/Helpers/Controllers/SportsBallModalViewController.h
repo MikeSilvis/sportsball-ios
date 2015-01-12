@@ -13,7 +13,7 @@
 
 @protocol SportsBallModalDelegate <NSObject>
 
--(void)dismissedScoreShowViewModal;
+-(void)dismissedModal;
 
 @end
 

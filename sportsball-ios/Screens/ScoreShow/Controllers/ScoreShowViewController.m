@@ -94,7 +94,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
   [super dismissViewControllerAnimated:flag completion:^{
-    [self.delegate dismissedScoreShowViewModal];
+    [self.delegate dismissedModal];
   }];
 }
 
