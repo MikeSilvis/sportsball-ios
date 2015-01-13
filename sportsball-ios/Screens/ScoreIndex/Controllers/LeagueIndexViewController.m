@@ -203,16 +203,6 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  // Hide all views while the frame changes
-  for (ScoreIndexView *view in self.scoreViews) {
-    if ([view isEqual:self.scoreViews[self.paginalTableView.indexOpenedElement]]) {
-      view.hidden = NO;
-    }
-    else {
-      view.hidden = YES;
-    }
-  }
-
   SportsBallModalViewController *viewController = segue.destinationViewController;
   viewController.game = self.selectedGame;
   viewController.delegate = self;
@@ -237,10 +227,6 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 
 -(void)dismissedModal {
   [self startTimer];
-
-  for (ScoreIndexView *view in self.scoreViews) {
-    view.hidden = NO;
-  }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{ 
