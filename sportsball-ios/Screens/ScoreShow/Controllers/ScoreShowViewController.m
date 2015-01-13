@@ -148,7 +148,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
     return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
   else if (indexPath.section == scoreDetailViewLocation) {
-    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:width].height;
+    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width].height;
   }
   else {
     return 0;

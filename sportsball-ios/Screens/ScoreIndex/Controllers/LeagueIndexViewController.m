@@ -14,6 +14,7 @@
 #import "User.h"
 #import "SportsBallModalViewController.h"
 #import "ScoreShowViewController.h"
+#import "ScorePreviewViewController.h"
 
 @implementation LeagueIndexViewController
 
@@ -216,7 +217,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   viewController.modalPresentationStyle = UIModalPresentationCustom;
 
   if ([segue.identifier isEqualToString:scorePreviewSegue]) {
-
+    [self.animator setContentScrollView:((ScorePreviewViewController *)viewController).tableView];
   }
   else if ([segue.identifier isEqualToString:scoreShowSegue]) {
     [self.animator setContentScrollView:((ScoreShowViewController *)viewController).tableView];

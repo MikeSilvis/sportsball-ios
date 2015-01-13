@@ -14,6 +14,7 @@
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end
