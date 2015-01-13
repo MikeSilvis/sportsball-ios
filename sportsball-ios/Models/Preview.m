@@ -39,4 +39,15 @@
   return [self.df stringFromDate:self.startTime];
 }
 
+-(NSString *)locationWithSplit{
+  if (!self.location) {
+    return @"";
+  }
+
+  NSArray *locations = [self.location componentsSeparatedByString:@","];
+  NSString *restOfWord = [[locations subarrayWithRange:NSMakeRange(1, 2)] componentsJoinedByString:@","];
+
+  return [NSString stringWithFormat:@"%@\n%@", locations[0], restOfWord];
+}
+
 @end

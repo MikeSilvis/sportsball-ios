@@ -9,6 +9,13 @@
 #import "Game.h"
 #import "User.h"
 
+@interface Game ()
+
+@property (nonatomic, strong) NSDateFormatter *localStartTimeDf;
+@property (nonatomic, strong) NSDateFormatter *localStartTimeDfWithDate;
+
+@end
+
 @implementation Game
 
 -(Team *)winningTeam {
@@ -108,18 +115,33 @@
   return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
 }
 
--(NSDateFormatter *)df {
-  if (!_df) {
-    _df = [[NSDateFormatter alloc] init];
-    [_df setDateFormat: @"h:mm a"];
-    [_df setTimeZone:[NSTimeZone localTimeZone]];
+-(NSDateFormatter *)localStartTimeDf {
+  if (!_localStartTimeDf) {
+    _localStartTimeDf = [[NSDateFormatter alloc] init];
+    [_localStartTimeDf setDateFormat: @"h:mm a"];
+    [_localStartTimeDf setTimeZone:[NSTimeZone localTimeZone]];
   }
 
-  return _df;
+  return _localStartTimeDf;
+}
+
+-(NSDateFormatter *)localStartTimeDfWithDate {
+  if (!_localStartTimeDfWithDate) {
+    _localStartTimeDfWithDate = [[NSDateFormatter alloc] init];
+    _localStartTimeDfWithDate.dateStyle = NSDateFormatterMediumStyle;
+    _localStartTimeDfWithDate.timeStyle = NSDateFormatterShortStyle;
+    [_localStartTimeDfWithDate setTimeZone:[NSTimeZone localTimeZone]];
+  }
+
+  return _localStartTimeDfWithDate;
 }
 
 -(NSString *)localStartTime {
-  return [self.df stringFromDate:self.startTime];
+  return [self.localStartTimeDf stringFromDate:self.startTime];
+}
+
+-(NSString *)localStartTimeWithDate {
+  return [self.localStartTimeDfWithDate stringFromDate:self.startTime];
 }
 
 -(NSString *)homeScoreString {

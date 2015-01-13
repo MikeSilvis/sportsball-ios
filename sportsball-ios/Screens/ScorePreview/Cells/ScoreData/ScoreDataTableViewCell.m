@@ -46,15 +46,17 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   if (game.startTime) {
     [localElements addObject:@[
                                @"Start Time",
-                               [NSString stringWithFormat:@"%@", game.startTime]
+                               game.localStartTimeWithDate
                               ]];
   }
+
   if (game.moneyLine) {
     [localElements addObject:@[
-                               @"Money Line",
+                               @"Odds",
                                game.moneyLine
                               ]];
   }
+
   if (game.preview) {
     Preview *preview = game.preview;
     if (preview.channel) {
@@ -66,7 +68,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
     if (preview.location) {
       [localElements addObject:@[
                                  @"Location",
-                                 preview.location
+                                 preview.locationWithSplit
                                 ]];
     }
   }
@@ -80,7 +82,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   ScoreDataInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDataInfoViewCell forIndexPath:indexPath];
   NSArray *currentElement = self.elements[indexPath.row];
 
-  cell.header.text = [NSString stringWithFormat:@"%@ :", currentElement[0]];
+  cell.header.text = [NSString stringWithFormat:@"%@:", currentElement[0]];
   cell.info.text   = currentElement[1];
 
   return cell;

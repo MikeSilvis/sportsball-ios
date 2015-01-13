@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSDateFormatter *df;
 
+-(NSString *)locationWithSplit;
 
 @end

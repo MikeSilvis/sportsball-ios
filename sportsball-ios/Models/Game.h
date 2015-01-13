@@ -36,8 +36,6 @@
 @property (nonatomic, strong) NSString *endedIn;
 @property (nonatomic, strong) NSDate *startTime;
 
-@property (nonatomic, strong) NSDateFormatter *df;
-
 -(Team *)winningTeam;
 -(Team *)teamFromDataName:(NSString *)dataName;
 
@@ -45,6 +43,7 @@
 -(BOOL)isInProgress;
 -(BOOL)isPregame;
 -(NSString *)localStartTime;
+-(NSString *)localStartTimeWithDate;
 -(NSString *)homeScoreString;
 -(NSString *)awayScoreString;
 -(int)favoriteScore;
