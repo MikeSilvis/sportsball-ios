@@ -92,19 +92,4 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   return cellRowHeaderHeight;
 }
 
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//  if (kind == UICollectionElementKindSectionHeader) {
-//    ScoreDetailHeaderCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-//                                                                                   withReuseIdentifier:scoreDetailHeaderCell
-//                                                                                          forIndexPath:indexPath];
-//    ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
-//    cell.label.text = scoreDetail.headerInfo;
-//
-//    return cell;
-//  }
-//
-//  return nil;
-//}
-
 @end

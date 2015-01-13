@@ -10,14 +10,17 @@
 #import "UIImage+FontAwesome.h"
 #import <UIImageView+AFNetworking.h>
 #import "ContentTableViewCell.h"
+#import "ScoreDataTableViewCell.h"
 
 @implementation ScorePreviewViewController
 
 // Cell Identifiers
 static NSString * scoreContentCell = @"scoreContentCell";
+static NSString * scoreDataCell = @"scoreDataCell";
 
 // Cell Locations
 static const NSInteger scoreRecapViewLocation = 0;
+static const NSInteger scoreDataViewLocation  = 1;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -31,6 +34,8 @@ static const NSInteger scoreRecapViewLocation = 0;
   [self.tableView registerNib:[UINib nibWithNibName:@"ContentTableViewCell" bundle:nil]
         forCellReuseIdentifier:scoreContentCell];
 
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDataTableViewCell" bundle:nil]
+        forCellReuseIdentifier:scoreDataCell];
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -88,7 +93,7 @@ static const NSInteger scoreRecapViewLocation = 0;
 #pragma mark - Table View
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 1;
+  return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -99,6 +104,12 @@ static const NSInteger scoreRecapViewLocation = 0;
   if (indexPath.section == scoreRecapViewLocation) {
     ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreContentCell forIndexPath:indexPath];
     cell.preview = self.game.preview;
+
+    return cell;
+  }
+  else if (indexPath.section == scoreDataViewLocation) {
+    ScoreDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDataCell forIndexPath:indexPath];
+    cell.game = self.game;
 
     return cell;
   }
@@ -115,6 +126,9 @@ static const NSInteger scoreRecapViewLocation = 0;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == scoreRecapViewLocation) {
     return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+  }
+  else if (indexPath.section == scoreDataViewLocation) {
+    return [ScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
   }
 
   return 0;
