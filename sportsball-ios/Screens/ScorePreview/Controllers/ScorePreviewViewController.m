@@ -45,17 +45,18 @@ static const NSInteger scoreRecapViewLocation = 0;
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  if (!self.game.preview) {
-    self.loadingIndicator.hidden = NO;
-  }
-
-  [self.game findPreview:nil success:^(Preview *preview) {
-    self.game.preview = preview;
-
+  if (!self.game.previewId) {
     self.loadingIndicator.hidden = YES;
+  }
+  else {
+    [self.game findPreview:nil success:^(Preview *preview) {
+      self.game.preview = preview;
 
-    [self.tableView reloadData];
-  } failure:nil];
+      self.loadingIndicator.hidden = YES;
+
+      [self.tableView reloadData];
+    } failure:nil];
+  }
 
   [self setHeaderInfo];
 }
