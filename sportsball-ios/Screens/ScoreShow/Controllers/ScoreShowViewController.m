@@ -139,14 +139,16 @@ static const NSInteger scoreDetailViewLocation  = 2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  CGFloat width = self.view.bounds.size.width;
+
   if (indexPath.section == scoreSummaryViewLocation) {
-    return [ScoreSummaryViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:self.view.bounds.size.width].height;
+    return [ScoreSummaryViewCell measureCellSizeWithResource:self.game.boxscore.scoreSummary andWidth:width].height;
   }
   else if (indexPath.section == scoreRecapViewLocation) {
-    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
   else if (indexPath.section == scoreDetailViewLocation) {
-    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width].height;
+    return [ScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:width].height;
   }
   else {
     return 0;

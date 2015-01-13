@@ -61,6 +61,10 @@
 		11BA1C441A64B2D0005C61AB /* ScoreDataInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C431A64B2D0005C61AB /* ScoreDataInfoTableViewCell.m */; };
 		11BA1C461A64B2F7005C61AB /* ScoreDataInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BA1C451A64B2F7005C61AB /* ScoreDataInfoTableViewCell.xib */; };
 		11BA1C491A6599D6005C61AB /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C481A6599D6005C61AB /* Schedule.m */; };
+		11BA1C4D1A65A5C7005C61AB /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C4C1A65A5C7005C61AB /* ScheduleTableViewCell.m */; };
+		11BA1C4F1A65A5F0005C61AB /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BA1C4E1A65A5F0005C61AB /* ScheduleTableViewCell.xib */; };
+		11BA1C511A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BA1C501A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib */; };
+		11BA1C541A65B118005C61AB /* ScheduleInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C531A65B118005C61AB /* ScheduleInfoTableViewCell.m */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
 		11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */; };
 		11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BCD67D1A424932009516A6 /* UIImage+Resize.m */; };
@@ -163,6 +167,12 @@
 		11BA1C451A64B2F7005C61AB /* ScoreDataInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreDataInfoTableViewCell.xib; sourceTree = "<group>"; };
 		11BA1C471A6599D6005C61AB /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		11BA1C481A6599D6005C61AB /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		11BA1C4B1A65A5C7005C61AB /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		11BA1C4C1A65A5C7005C61AB /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		11BA1C4E1A65A5F0005C61AB /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		11BA1C501A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleInfoTableViewCell.xib; sourceTree = "<group>"; };
+		11BA1C521A65B118005C61AB /* ScheduleInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleInfoTableViewCell.h; sourceTree = "<group>"; };
+		11BA1C531A65B118005C61AB /* ScheduleInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleInfoTableViewCell.m; sourceTree = "<group>"; };
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeader.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeader.xib; sourceTree = "<group>"; };
@@ -517,6 +527,7 @@
 		11BA1C3B1A64AB6D005C61AB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				11BA1C4A1A65A454005C61AB /* Schedule */,
 				11BA1C3C1A64ABAD005C61AB /* ScoreData */,
 			);
 			path = Cells;
@@ -533,6 +544,19 @@
 				11BA1C451A64B2F7005C61AB /* ScoreDataInfoTableViewCell.xib */,
 			);
 			path = ScoreData;
+			sourceTree = "<group>";
+		};
+		11BA1C4A1A65A454005C61AB /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				11BA1C521A65B118005C61AB /* ScheduleInfoTableViewCell.h */,
+				11BA1C531A65B118005C61AB /* ScheduleInfoTableViewCell.m */,
+				11BA1C501A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib */,
+				11BA1C4B1A65A5C7005C61AB /* ScheduleTableViewCell.h */,
+				11BA1C4C1A65A5C7005C61AB /* ScheduleTableViewCell.m */,
+				11BA1C4E1A65A5F0005C61AB /* ScheduleTableViewCell.xib */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		11D198A01A606FC800729FE6 /* Views */ = {
@@ -619,12 +643,14 @@
 				111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */,
 				11BA1C411A64AD21005C61AB /* ScoreDataTableViewCell.xib in Resources */,
 				1189A3FF1A31622000575E07 /* ScoreDetailHeaderCollectionViewCell.xib in Resources */,
+				11BA1C511A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib in Resources */,
 				1189A3F81A31338A00575E07 /* ScoreDetailCollectionViewCell.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* GameCollectionViewCell.xib in Resources */,
 				1143DDFE1A30F8AC001868C6 /* ScoreSummaryViewCell.xib in Resources */,
 				113845C01A0BF94400BC7A4D /* ScoreIndexView.xib in Resources */,
 				119909121A4B249A00F2ED1B /* ContentTableViewCell.xib in Resources */,
 				11BA1C461A64B2F7005C61AB /* ScoreDataInfoTableViewCell.xib in Resources */,
+				11BA1C4F1A65A5F0005C61AB /* ScheduleTableViewCell.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
@@ -710,12 +736,14 @@
 				116591E21A154D7300016D90 /* ScoreShowViewController.m in Sources */,
 				113845C31A0BF9A600BC7A4D /* LeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */,
+				11BA1C541A65B118005C61AB /* ScheduleInfoTableViewCell.m in Sources */,
 				114E87A21A5F8A0E007C2CF7 /* SportsBallModalViewController.m in Sources */,
 				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
 				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				1199091B1A4F508A00F2ED1B /* LeagueLoadingViewController.m in Sources */,
 				114E879F1A5F86D3007C2CF7 /* Preview.m in Sources */,
+				11BA1C4D1A65A5C7005C61AB /* ScheduleTableViewCell.m in Sources */,
 				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
 				1189A4021A31623E00575E07 /* ScoreDetailHeaderCollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,

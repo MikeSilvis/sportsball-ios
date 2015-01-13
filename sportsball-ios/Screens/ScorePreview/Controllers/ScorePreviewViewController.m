@@ -11,6 +11,7 @@
 #import <UIImageView+AFNetworking.h>
 #import "ContentTableViewCell.h"
 #import "ScoreDataTableViewCell.h"
+#import "ScheduleTableViewCell.h"
 
 @interface ScorePreviewViewController ()
 
@@ -23,10 +24,12 @@
 // Cell Identifiers
 static NSString * scoreContentCell = @"scoreContentCell";
 static NSString * scoreDataCell = @"scoreDataCell";
+static NSString * scheduleCell = @"scheduleTableViewCell";
 
 // Cell Locations
 static const NSInteger scoreRecapViewLocation = 0;
 static const NSInteger scoreDataViewLocation  = 1;
+static const NSInteger scheduleCellLocation   = 2;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -39,9 +42,10 @@ static const NSInteger scoreDataViewLocation  = 1;
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"ContentTableViewCell" bundle:nil]
         forCellReuseIdentifier:scoreContentCell];
-
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDataTableViewCell" bundle:nil]
         forCellReuseIdentifier:scoreDataCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScheduleTableViewCell" bundle:nil]
+        forCellReuseIdentifier:scheduleCell];
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -105,7 +109,7 @@ static const NSInteger scoreDataViewLocation  = 1;
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   if (self.shouldRenderTable) {
-    return 2;
+    return 3;
   }
   else {
     return 0;
@@ -129,6 +133,12 @@ static const NSInteger scoreDataViewLocation  = 1;
 
     return cell;
   }
+  else if (indexPath.section == scheduleCellLocation) {
+    ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scheduleCell forIndexPath:indexPath];
+    cell.game = self.game;
+
+    return cell;
+  }
 
   return nil;
 }
@@ -140,11 +150,16 @@ static const NSInteger scoreDataViewLocation  = 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  CGFloat width = self.view.bounds.size.width;
+
   if (indexPath.section == scoreRecapViewLocation) {
-    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+    return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
   else if (indexPath.section == scoreDataViewLocation) {
-    return [ScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
+    return [ScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
+  }
+  else if (indexPath.section == scheduleCellLocation) {
+    return [ScheduleTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
 
   return 0;
