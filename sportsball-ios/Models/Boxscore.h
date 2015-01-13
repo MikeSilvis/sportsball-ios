@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Champion.h"
+#import "SportsBallModel.h"
 #import "ScoreDetail.h"
 #import "Recap.h"
 
-@interface Boxscore : Champion
+@interface Boxscore : SportsBallModel
 
 @property (nonatomic, strong) NSArray *scoreSummary;
 @property (nonatomic, strong) NSArray *scoreDetail;

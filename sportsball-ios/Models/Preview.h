@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "Champion.h"
+#import "SportsBallModel.h"
 #import "Team.h"
 
-@interface Preview : Champion
+@interface Preview : SportsBallModel
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *headline;
@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSString *channel;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSDateFormatter *df;
+
+@property (nonatomic, strong) NSArray *homeTeamSchedule;
+@property (nonatomic, strong) NSArray *awayTeamSchedule;
 
 -(NSString *)locationWithSplit;
 

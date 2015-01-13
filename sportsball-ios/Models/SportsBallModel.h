@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
-@interface Champion : NSObject
+@interface SportsBallModel : NSObject
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 

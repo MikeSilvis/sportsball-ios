@@ -7,6 +7,7 @@
 //
 
 #import "Preview.h"
+#import "Schedule.h"
 
 @implementation Preview
 
@@ -20,6 +21,23 @@
     self.location   = json[@"location"];
     self.channel    = json[@"channel"];
     self.url        = [NSURL URLWithString:json[@"url"]];
+
+
+    // Away Team Schedule
+    NSMutableArray *awayTeamSchedule = [NSMutableArray array];
+    for (id scheduleJson in json[@"away_team_schedule"][@"games"]) {
+      Schedule *schedule = [[Schedule alloc] initWithJson:scheduleJson];
+      [awayTeamSchedule addObject:schedule];
+    }
+    self.awayTeamSchedule = awayTeamSchedule;
+
+    // Home Team Schedule
+    NSMutableArray *homeTeamSchedule = [NSMutableArray array];
+    for (id scheduleJson in json[@"home_team_schedule"][@"games"]) {
+      Schedule *schedule = [[Schedule alloc] initWithJson:scheduleJson];
+      [homeTeamSchedule addObject:schedule];
+    }
+    self.homeTeamSchedule = homeTeamSchedule;
   }
 
   return self;

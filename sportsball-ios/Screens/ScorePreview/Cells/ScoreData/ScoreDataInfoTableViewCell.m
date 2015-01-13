@@ -11,8 +11,11 @@
 @implementation ScoreDataInfoTableViewCell
 
 - (void)awakeFromNib {
+  [super awakeFromNib];
+  
   self.contentView.backgroundColor = [UIColor clearColor];
   self.backgroundColor = [UIColor clearColor];
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end

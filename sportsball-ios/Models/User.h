@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Champion.h"
+#import "SportsBallModel.h"
 #import "Team.h"
 
-@interface User : Champion
+@interface User : SportsBallModel
 
 @property (nonatomic, copy) NSNumber *lastOpenedLeague;
 @property (nonatomic, copy) NSArray *leagues;

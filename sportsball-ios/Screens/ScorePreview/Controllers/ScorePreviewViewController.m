@@ -12,6 +12,12 @@
 #import "ContentTableViewCell.h"
 #import "ScoreDataTableViewCell.h"
 
+@interface ScorePreviewViewController ()
+
+@property BOOL shouldRenderTable;
+
+@end
+
 @implementation ScorePreviewViewController
 
 // Cell Identifiers
@@ -45,25 +51,32 @@ static const NSInteger scoreDataViewLocation  = 1;
   [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
 
   self.loadingIndicator.hidden = YES;
+  self.shouldRenderTable = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
   if (!self.game.previewId) {
-    self.loadingIndicator.hidden = YES;
+    [self setDataLoaded];
   }
   else {
+    self.loadingIndicator.hidden = NO;
+
     [self.game findPreview:nil success:^(Preview *preview) {
       self.game.preview = preview;
 
-      self.loadingIndicator.hidden = YES;
-
-      [self.tableView reloadData];
+      [self setDataLoaded];
     } failure:nil];
   }
 
   [self setHeaderInfo];
+}
+
+-(void)setDataLoaded {
+  self.shouldRenderTable = YES;
+  self.loadingIndicator.hidden = YES;
+  [self.tableView reloadData];
 }
 
 -(void)closeModal {
@@ -72,8 +85,6 @@ static const NSInteger scoreDataViewLocation  = 1;
 
 -(void)setGame:(Game *)game {
   [super setGame:game];
-
-  [self.tableView reloadData];
 
   [self setHeaderInfo];
 }
@@ -93,7 +104,12 @@ static const NSInteger scoreDataViewLocation  = 1;
 #pragma mark - Table View
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 2;
+  if (self.shouldRenderTable) {
+    return 2;
+  }
+  else {
+    return 0;
+  }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

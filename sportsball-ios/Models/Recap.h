@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Champion.h"
+#import "SportsBallModel.h"
 
-@interface Recap : Champion
+@interface Recap : SportsBallModel
 
 @property (nonatomic, strong) NSString *headline;
 @property (nonatomic, strong) NSString *content;

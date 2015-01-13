@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Champion.h"
+#import "SportsBallModel.h"
 #import <objc/runtime.h>
 
-@implementation Champion
+@implementation SportsBallModel
 
 static NSString * const serverURL = @"https://getbaryab.com/api/%@";
 //static NSString * const serverURL = @"http://localhost:3000/api/%@";

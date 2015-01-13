@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Champion.h"
+#import "SportsBallModel.h"
 #import "Team.h"
 #import "Boxscore.h"
 #import "Preview.h"
 
-@interface Game : Champion
+@interface Game : SportsBallModel
 
 @property (nonatomic, strong) Team *awayTeam;
 @property (nonatomic, strong) Team *homeTeam;
