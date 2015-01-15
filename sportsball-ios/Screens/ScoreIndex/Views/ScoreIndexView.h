@@ -10,14 +10,16 @@
 #import "League.h"
 #import "DIDatepicker.h"
 #import "Game.h"
+#import "LeagueHeader.h"
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
 -(void)selectedGame:(Game *)game;
+-(void)requestClose;
 
 @end
 
-@interface ScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, LeagueHeaderProtocal>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

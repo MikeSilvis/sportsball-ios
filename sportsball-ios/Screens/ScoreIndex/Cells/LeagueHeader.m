@@ -2,8 +2,8 @@
 //  CSAlwaysOnTopHeader.m
 //  CSStickyHeaderFlowLayoutDemo
 //
-//  Created by James Tang on 6/4/14.
-//  Copyright (c) 2014 Jamz Tang. All rights reserved.
+//  Created by Mike Silvis on 6/4/14.
+//  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
 #import "LeagueHeader.h"
@@ -12,6 +12,20 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @implementation LeagueHeader
+
+-(void)awakeFromNib {
+  [super awakeFromNib];
+
+  // Logo Gesture
+  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoClicked)];
+  singleTap.numberOfTapsRequired = 1;
+  [self.smallLogo setUserInteractionEnabled:YES];
+  [self.smallLogo addGestureRecognizer:singleTap];
+}
+
+-(void)logoClicked {
+  [self.delegate logoClicked];
+}
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.1 animations:^{
@@ -52,9 +66,9 @@
 -(void)setCurrentLeague:(League *)currentLeague {
   _currentLeague = currentLeague;
 
-  [self.smallLogo setImageWithURL:[self.currentLeague imageURLWithSize:self.currentLeague.logo andSize:@"100x100"]];
-  [self.headerImage setImageWithURL:[self.currentLeague imageURLWithSize:self.currentLeague.header andSize:@"1000x563"]];
-  [self.headerImageBlurred setImageWithURL:[self.currentLeague imageURLWithSize:self.currentLeague.blurredHeader andSize:@"1000x563"]];
+  [self.smallLogo setImageWithURL:[self.currentLeague imageURL:self.currentLeague.logo withSize:@"100x100"]];
+  [self.headerImage setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:@"1000x563"]];
+  [self.headerImageBlurred setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:@"1000x563"]];
 }
 
 @end

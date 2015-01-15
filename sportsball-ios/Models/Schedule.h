@@ -13,8 +13,12 @@
 
 @property (nonatomic, strong) Team *opponent;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSString *result;
-@property BOOL over;
-@property BOOL win;
+@property BOOL isOver;
+@property BOOL isWin;
+@property BOOL isAway;
+
+-(NSString *)localStartTime;
 
 @end

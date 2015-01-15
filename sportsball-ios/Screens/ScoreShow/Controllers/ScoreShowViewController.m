@@ -84,11 +84,11 @@ static const NSInteger scoreDetailViewLocation  = 2;
 
 -(void)setHeaderInfo {
   Team *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo setImageWithURL:[homeTeam imageURLWithSize:homeTeam.logoUrl andSize:@"120x120"]];
+  [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
 
   Team *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"120x120"]];
+  [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamScore.text = self.game.awayScoreString;
 }
 

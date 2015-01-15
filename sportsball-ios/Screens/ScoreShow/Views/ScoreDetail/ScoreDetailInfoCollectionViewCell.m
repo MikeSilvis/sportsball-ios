@@ -21,7 +21,7 @@
 
   NSString *teamDataName = self.contentInfo[0];
   Team *currentTeam = [self.game teamFromDataName:teamDataName];
-  [self.teamLogo setImageWithURL:[currentTeam imageURLWithSize:currentTeam.logoUrl andSize:@"42x42"]];
+  [self.teamLogo setImageWithURL:[currentTeam imageURL:currentTeam.logoUrl withSize:@"42x42"]];
 
   self.time.text = self.contentInfo[1];
   self.summary.text = self.contentInfo[2];

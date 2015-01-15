@@ -104,7 +104,18 @@ static NSString * const serverURL = @"https://getbaryab.com/api/%@";
   return _dateFormatter;
 }
 
--(NSURL *)imageURLWithSize:(NSURL *)url andSize:(NSString *)size {
+
+-(NSDateFormatter *)localStartTimeDf {
+  if (!_localStartTimeDf) {
+    _localStartTimeDf = [[NSDateFormatter alloc] init];
+    [_localStartTimeDf setDateFormat: @"h:mm a"];
+    [_localStartTimeDf setTimeZone:[NSTimeZone localTimeZone]];
+  }
+
+  return _localStartTimeDf;
+}
+
+-(NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size {
   return [NSURL URLWithString:[NSString stringWithFormat:@"%@?size=%@", url.absoluteString, size]];
 }
 

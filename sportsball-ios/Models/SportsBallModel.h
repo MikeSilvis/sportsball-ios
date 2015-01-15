@@ -12,6 +12,7 @@
 @interface SportsBallModel : NSObject
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *localStartTimeDf;
 
 -(id)initWithJson:(id)json;
 
@@ -25,6 +26,6 @@
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure;
 
--(NSURL *)imageURLWithSize:(NSURL *)url andSize:(NSString *)size;
+-(NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size;
 
 @end

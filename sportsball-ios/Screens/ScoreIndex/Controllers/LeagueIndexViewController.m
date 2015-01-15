@@ -122,6 +122,10 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 - (IBAction)didRequestClose:(id)sender {
+  [self closeWindow];
+}
+
+-(void)closeWindow {
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
@@ -228,6 +232,10 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 
 -(void)dismissedModal {
   [self startTimer];
+}
+
+-(void)requestClose {
+  [self closeWindow];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{ 

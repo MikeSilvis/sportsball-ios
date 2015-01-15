@@ -12,6 +12,7 @@
 #import "ZFModalTransitionAnimator.h"
 #import "SportsBallModalViewController.h"
 #import "SportsBallViewController.h"
+#import "LeagueIndexHeader.h"
 
 @interface LeagueIndexViewController : SportsBallViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate, SportsBallModalDelegate>
 

@@ -8,6 +8,7 @@
 
 #import "ScheduleTableViewCell.h"
 #import "ScheduleInfoTableViewCell.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation ScheduleTableViewCell
 
@@ -44,6 +45,7 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ScheduleInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scheduleInfoViewCell forIndexPath:indexPath];
+  cell.schedule = self.game.preview.awayTeamSchedule[indexPath.row];
 
   return cell;
 }

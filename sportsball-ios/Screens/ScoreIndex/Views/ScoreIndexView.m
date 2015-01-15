@@ -152,11 +152,16 @@ static CGFloat const headerSize = 74;
                                                                         withReuseIdentifier:headerViewCell
                                                                                forIndexPath:indexPath];
     cell.currentLeague = self.league;
+    cell.delegate = self;
 
     return cell;
   }
 
   return nil;
+}
+
+-(void)logoClicked {
+  [self.delegate requestClose];
 }
 
 -(void)layoutSubviews {

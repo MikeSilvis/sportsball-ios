@@ -95,12 +95,12 @@ static const NSInteger scheduleCellLocation   = 2;
 
 -(void)setHeaderInfo {
   Team *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo setImageWithURL:[homeTeam imageURLWithSize:homeTeam.logoUrl andSize:@"120x120"]];
+  [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamRecord.text = homeTeam.record;
   self.homeTeamName.text = homeTeam.name;
 
   Team *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"120x120"]];
+  [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamRecord.text = awayTeam.record;
   self.awayTeamName.text = awayTeam.name;
 }

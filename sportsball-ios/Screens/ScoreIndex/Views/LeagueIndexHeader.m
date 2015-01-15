@@ -16,8 +16,8 @@
 -(void)setLeague:(League *)league {
   _league = league;
 
-  [self.backgroundImage setImageWithURL:[league imageURLWithSize:league.blurredHeader andSize:@"1000x563"]];
-  [self.logoImage setImageWithURL:[league imageURLWithSize:league.logo andSize:@"100x100"]];
+  [self.backgroundImage setImageWithURL:[league imageURL:league.blurredHeader withSize:@"1000x563"]];
+  [self.logoImage setImageWithURL:[league imageURL:league.logo withSize:@"100x100"]];
 }
 
 

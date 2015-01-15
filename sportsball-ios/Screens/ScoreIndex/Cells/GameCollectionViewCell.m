@@ -49,7 +49,7 @@
   self.homeTeamScore.text = self.currentGame.homeScoreString;
   self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
-  [self.homeTeamLogo setImageWithURL:[homeTeam imageURLWithSize:homeTeam.logoUrl andSize:@"60x60"]];
+  [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"60x60"]];
 
   // Away Team
   Team *awayTeam = self.currentGame.awayTeam;
@@ -57,7 +57,7 @@
   self.awayTeamScore.text = self.currentGame.awayScoreString;
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
-  [self.awayTeamLogo setImageWithURL:[awayTeam imageURLWithSize:awayTeam.logoUrl andSize:@"60x60"]];
+  [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"60x60"]];
 
   self.upperInfo.text = self.currentGame.timeRemaining;
 

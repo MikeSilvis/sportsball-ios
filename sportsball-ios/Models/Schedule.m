@@ -14,12 +14,20 @@
   self = [super init];
 
   if (self) {
-    self.opponent = [[Team alloc] initWithJson:json[@"opponent"]];
-    self.date = [self.dateFormatter dateFromString:json[@"date"]];
-    self.result = json[@"result"];
+    self.opponent   = [[Team alloc] initWithJson:json[@"opponent"]];
+    self.date       = [self.dateFormatter dateFromString:json[@"date"]];
+    self.startTime  = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
+    self.result     = json[@"result"];
+    self.isWin      = [json[@"win"] boolValue];
+    self.isOver     = [json[@"over"] boolValue];
+    self.isAway     = [json[@"is_away"] boolValue];
   }
 
   return self;
+}
+
+-(NSString *)localStartTime {
+  return [self.localStartTimeDf stringFromDate:self.startTime];
 }
 
 @end

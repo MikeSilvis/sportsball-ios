@@ -11,7 +11,6 @@
 
 @interface Game ()
 
-@property (nonatomic, strong) NSDateFormatter *localStartTimeDf;
 @property (nonatomic, strong) NSDateFormatter *localStartTimeDfWithDate;
 
 @end
@@ -113,16 +112,6 @@
   NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.league];
 
   return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
-}
-
--(NSDateFormatter *)localStartTimeDf {
-  if (!_localStartTimeDf) {
-    _localStartTimeDf = [[NSDateFormatter alloc] init];
-    [_localStartTimeDf setDateFormat: @"h:mm a"];
-    [_localStartTimeDf setTimeZone:[NSTimeZone localTimeZone]];
-  }
-
-  return _localStartTimeDf;
 }
 
 -(NSDateFormatter *)localStartTimeDfWithDate {
