@@ -108,6 +108,10 @@ static const NSInteger scheduleCellLocation   = 2;
 #pragma mark - Table View
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if (self.shouldRenderTable) {
     return 3;
   }
@@ -116,24 +120,20 @@ static const NSInteger scheduleCellLocation   = 2;
   }
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 1;
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section == scoreRecapViewLocation) {
+  if (indexPath.row == scoreRecapViewLocation) {
     ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreContentCell forIndexPath:indexPath];
     cell.preview = self.game.preview;
 
     return cell;
   }
-  else if (indexPath.section == scoreDataViewLocation) {
+  else if (indexPath.row == scoreDataViewLocation) {
     ScoreDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDataCell forIndexPath:indexPath];
     cell.game = self.game;
 
     return cell;
   }
-  else if (indexPath.section == scheduleCellLocation) {
+  else if (indexPath.row == scheduleCellLocation) {
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scheduleCell forIndexPath:indexPath];
     cell.game = self.game;
 
@@ -144,7 +144,7 @@ static const NSInteger scheduleCellLocation   = 2;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section == scoreRecapViewLocation) {
+  if (indexPath.row == scoreRecapViewLocation) {
     [self openURL:self.game.preview.url];
   }
 }
@@ -152,13 +152,13 @@ static const NSInteger scheduleCellLocation   = 2;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   CGFloat width = self.view.bounds.size.width;
 
-  if (indexPath.section == scoreRecapViewLocation) {
+  if (indexPath.row == scoreRecapViewLocation) {
     return [ContentTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
-  else if (indexPath.section == scoreDataViewLocation) {
+  else if (indexPath.row == scoreDataViewLocation) {
     return [ScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
-  else if (indexPath.section == scheduleCellLocation) {
+  else if (indexPath.row == scheduleCellLocation) {
     return [ScheduleTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
 
