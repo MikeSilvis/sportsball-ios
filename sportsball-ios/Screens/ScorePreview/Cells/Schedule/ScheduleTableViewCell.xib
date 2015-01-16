@@ -13,17 +13,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="de2-xE-Kli" id="mO7-V0-EmK">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-Pd-YBo">
-                        <rect key="frame" x="191" y="28" width="123" height="29"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <segments>
-                            <segment title="First"/>
-                            <segment title="Second"/>
-                        </segments>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </segmentedControl>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hKx-M2-Tgx">
-                        <rect key="frame" x="0.0" y="86" width="506" height="189"/>
+                        <rect key="frame" x="0.0" y="0.0" width="506" height="275"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="de2-xE-Kli" id="FPf-8j-DL8"/>
@@ -36,13 +27,10 @@
                     <constraint firstAttribute="trailingMargin" secondItem="hKx-M2-Tgx" secondAttribute="trailing" constant="-8" id="8OE-o8-8o8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hKx-M2-Tgx" secondAttribute="bottom" constant="-8.5" id="A3S-nl-1mT"/>
                     <constraint firstItem="hKx-M2-Tgx" firstAttribute="leading" secondItem="mO7-V0-EmK" secondAttribute="leadingMargin" constant="-8" id="QUK-jU-dtX"/>
-                    <constraint firstAttribute="centerX" secondItem="cLN-Pd-YBo" secondAttribute="centerX" id="czs-8r-Xum"/>
-                    <constraint firstItem="hKx-M2-Tgx" firstAttribute="top" secondItem="cLN-Pd-YBo" secondAttribute="bottom" constant="30" id="ins-9i-BAa"/>
-                    <constraint firstItem="cLN-Pd-YBo" firstAttribute="top" secondItem="mO7-V0-EmK" secondAttribute="topMargin" constant="20" id="qvu-vx-wML"/>
+                    <constraint firstItem="hKx-M2-Tgx" firstAttribute="top" secondItem="mO7-V0-EmK" secondAttribute="topMargin" constant="-8" id="WMd-mX-8Hj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="segmentedControl" destination="cLN-Pd-YBo" id="IIJ-aW-d0m"/>
                 <outlet property="tableView" destination="hKx-M2-Tgx" id="gAE-G7-HW3"/>
             </connections>
             <point key="canvasLocation" x="713" y="450.5"/>

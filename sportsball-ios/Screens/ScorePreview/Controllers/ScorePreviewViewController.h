@@ -10,8 +10,10 @@
 #import "SportsBallModalViewController.h"
 #import "Game.h"
 #import "ZFModalTransitionAnimator.h"
+#import "ScheduleSegmentedControlTableViewCell.h"
 
-@interface ScorePreviewViewController : SportsBallModalViewController <UITableViewDataSource, UITableViewDelegate>
+
+@interface ScorePreviewViewController : SportsBallModalViewController <UITableViewDataSource, UITableViewDelegate, ScheduleSegmentedControlTableViewCellProtocol>
 
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;
@@ -23,5 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamRecord;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamName;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamName;
+
+@property (nonatomic, strong) Team *currentTeamSchedule;
 
 @end

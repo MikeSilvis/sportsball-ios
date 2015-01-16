@@ -29,25 +29,23 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
        forCellReuseIdentifier:scheduleInfoViewCell];
 }
 
--(void)setGame:(Game *)game {
-  _game = game;
+-(void)setCurrentTeam:(Team *)currentTeam {
+  _currentTeam = currentTeam;
 
   [self.tableView reloadData];
-  [self setupSegmentedControl];
-}
-
--(void)setupSegmentedControl {
-  [self.segmentedControl setTitle:self.game.awayTeam.name forSegmentAtIndex:0];
-  [self.segmentedControl setTitle:self.game.homeTeam.name forSegmentAtIndex:1];
 }
 
 #pragma mark - Table Methods
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ScheduleInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scheduleInfoViewCell forIndexPath:indexPath];
-  cell.schedule = self.game.preview.awayTeamSchedule[indexPath.row];
+  cell.schedule = [self schedule][indexPath.row];
 
   return cell;
+}
+
+-(NSArray *)schedule {
+  return [self.game.preview scheduleForTeam:self.currentTeam];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,15 +53,15 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.game.preview.awayTeamSchedule.count;
+  return [[self schedule] count];
 }
 
 #pragma mark - Measure
 
-+(CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width {
++(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width {
   CGFloat height = 50;
 
-  height = height + [game.preview.awayTeamSchedule count] * cellRowHeight;
+  height = height + [schedules count] * cellRowHeight;
 
   return CGSizeMake(width, height);
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1101C60D1A22842E0086AF16 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1101C60C1A22842E0086AF16 /* User.m */; };
 		110E33251A2C395000ED333A /* Boxscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E33241A2C395000ED333A /* Boxscore.m */; };
+		111412131A683FD800744F67 /* ScheduleSegmentedControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111412121A683FD800744F67 /* ScheduleSegmentedControlTableViewCell.xib */; };
+		111412161A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111412151A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.m */; };
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
 		112BEE8D1A31304B00DCE472 /* ScoreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 112BEE8C1A31304B00DCE472 /* ScoreDetail.m */; };
@@ -76,6 +78,9 @@
 		1101C60C1A22842E0086AF16 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		110E33231A2C395000ED333A /* Boxscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boxscore.h; sourceTree = "<group>"; };
 		110E33241A2C395000ED333A /* Boxscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxscore.m; sourceTree = "<group>"; };
+		111412121A683FD800744F67 /* ScheduleSegmentedControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleSegmentedControlTableViewCell.xib; sourceTree = "<group>"; };
+		111412141A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleSegmentedControlTableViewCell.h; sourceTree = "<group>"; };
+		111412151A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleSegmentedControlTableViewCell.m; sourceTree = "<group>"; };
 		111696651A0E8EE500F0E1CD /* LaunchImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImage.xib; sourceTree = "<group>"; };
 		1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FontAwesome.h"; sourceTree = "<group>"; };
 		1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
@@ -552,6 +557,9 @@
 				11BA1C521A65B118005C61AB /* ScheduleInfoTableViewCell.h */,
 				11BA1C531A65B118005C61AB /* ScheduleInfoTableViewCell.m */,
 				11BA1C501A65B0CD005C61AB /* ScheduleInfoTableViewCell.xib */,
+				111412141A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.h */,
+				111412151A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.m */,
+				111412121A683FD800744F67 /* ScheduleSegmentedControlTableViewCell.xib */,
 				11BA1C4B1A65A5C7005C61AB /* ScheduleTableViewCell.h */,
 				11BA1C4C1A65A5C7005C61AB /* ScheduleTableViewCell.m */,
 				11BA1C4E1A65A5F0005C61AB /* ScheduleTableViewCell.xib */,
@@ -654,6 +662,7 @@
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */,
+				111412131A683FD800744F67 /* ScheduleSegmentedControlTableViewCell.xib in Resources */,
 				1143DE031A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib in Resources */,
 				113845DB1A0C002B00BC7A4D /* LeagueIndexHeader.xib in Resources */,
 			);
@@ -721,6 +730,7 @@
 				116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */,
 				1161A98A1A0C626100E40EEC /* SportsBallModel.m in Sources */,
 				110E33251A2C395000ED333A /* Boxscore.m in Sources */,
+				111412161A68464F00744F67 /* ScheduleSegmentedControlTableViewCell.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				11BA1C491A6599D6005C61AB /* Schedule.m in Sources */,
 				1161A9851A0C1E4A00E40EEC /* GameCollectionViewCell.m in Sources */,

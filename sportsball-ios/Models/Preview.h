@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSArray *awayTeamSchedule;
 
 -(NSString *)locationWithSplit;
+-(NSArray *)scheduleForTeam:(Team *)team;
 
 @end

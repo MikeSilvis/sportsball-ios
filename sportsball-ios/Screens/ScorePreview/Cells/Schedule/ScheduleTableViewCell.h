@@ -13,8 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Game *game;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) Team *currentTeam;
 
-+(CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width;
++(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width;
 
 @end

@@ -43,9 +43,11 @@
 
   if (self) {
     self.homeTeam = [[Team alloc] initWithJson:json[@"home_team"]];
+    self.homeTeam.isAway = false;
     self.homeScore = json[@"home_score"];
 
     self.awayTeam = [[Team alloc] initWithJson:json[@"away_team"]];
+    self.awayTeam.isAway = true;
     self.awayScore = json[@"away_score"];
     self.league = json[@"league"];
 

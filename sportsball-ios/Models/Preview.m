@@ -68,4 +68,13 @@
   return [NSString stringWithFormat:@"%@\n%@", locations[0], restOfWord];
 }
 
+-(NSArray *)scheduleForTeam:(Team *)team {
+  if (team.isAway) {
+    return self.awayTeamSchedule;
+  }
+  else {
+    return self.homeTeamSchedule;
+  }
+}
+
 @end
