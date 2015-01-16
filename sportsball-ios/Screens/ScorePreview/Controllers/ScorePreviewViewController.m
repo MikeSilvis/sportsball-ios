@@ -92,12 +92,13 @@ static const NSInteger scheduleCellLocation   = 0;
 
 -(void)closeModal {
   [self dismissViewControllerAnimated:YES completion:nil];
+  [self.delegate dismissedModal];
 }
 
 -(void)setGame:(Game *)game {
   [super setGame:game];
 
-  self.currentTeamSchedule = self.game.homeTeam;
+  self.currentTeamSchedule = self.game.awayTeam;
 
   [self setHeaderInfo];
 }

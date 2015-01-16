@@ -10,6 +10,7 @@
 
 static int awayIndex = 0;
 static int homeIndex = 1;
+static int headerHeight = 44;
 
 @implementation ScheduleSegmentedControlTableViewCell
 
@@ -41,8 +42,7 @@ static int homeIndex = 1;
 }
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, 50);
+  return CGSizeMake(width, headerHeight);
 }
-
 
 @end
