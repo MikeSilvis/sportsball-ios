@@ -225,4 +225,36 @@ static const NSInteger scheduleCellLocation   = 0;
   return 0;
 }
 
+#pragma mark - Hack to enable heawder to have see through background
+
+// http://stackoverflow.com/questions/12127138/how-to-mask-uitableviewcells-underneath-a-uitableview-transparent-header
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  for (UITableViewCell *cell in self.tableView.visibleCells) {
+    UIView *headerView = [self.tableView headerViewForSection:1];
+    if ((int)headerView.frame.origin.y == (int)self.tableView.contentOffset.y) {
+      CGFloat hiddenFrameHeight = scrollView.contentOffset.y + headerView.frame.size.height - cell.frame.origin.y;
+      if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
+          [self maskCell:cell fromTopWithMargin:hiddenFrameHeight];
+      }
+    }
+    else {
+      cell.layer.mask = nil;
+      cell.layer.masksToBounds = NO;
+    }
+  }
+}
+
+- (void)maskCell:(UITableViewCell *)cell fromTopWithMargin:(CGFloat)margin {
+  cell.layer.mask = [self visibilityMaskForCell:cell withLocation:margin/cell.frame.size.height];
+  cell.layer.masksToBounds = YES;
+}
+
+- (CAGradientLayer *)visibilityMaskForCell:(UITableViewCell *)cell withLocation:(CGFloat)location {
+  CAGradientLayer *mask = [CAGradientLayer layer];
+  mask.frame = cell.bounds;
+  mask.colors = @[(id)[[UIColor colorWithWhite:1 alpha:0] CGColor], (id)[[UIColor colorWithWhite:1 alpha:1] CGColor]];
+  mask.locations = @[[NSNumber numberWithFloat:location], [NSNumber numberWithFloat:location]];
+  return mask;
+}
+
 @end
