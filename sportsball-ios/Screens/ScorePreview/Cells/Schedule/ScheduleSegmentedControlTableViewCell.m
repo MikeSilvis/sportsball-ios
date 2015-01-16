@@ -14,6 +14,12 @@ static int headerHeight = 44;
 
 @implementation ScheduleSegmentedControlTableViewCell
 
+-(void)awakeFromNib {
+  [super awakeFromNib];
+
+  self.contentView.backgroundColor = [UIColor redColor];
+}
+
 -(void)setGame:(Game *)game {
   _game = game;
 
