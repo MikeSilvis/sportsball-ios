@@ -14,10 +14,15 @@ static int headerHeight = 44;
 
 @implementation ScheduleSegmentedControlTableViewCell
 
--(void)awakeFromNib {
-  [super awakeFromNib];
+-(void)layoutSubviews {
+  [super layoutSubviews];
 
-  self.contentView.backgroundColor = [UIColor redColor];
+  // Hack to ensure control is centered
+  CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+  CGFloat controlWidth = self.segmentedControl.frame.size.width;
+  CGRect f = self.segmentedControl.frame;
+  f.origin.x = (screenWidth - controlWidth) / 2;
+  self.segmentedControl.frame = f;
 }
 
 -(void)setGame:(Game *)game {
