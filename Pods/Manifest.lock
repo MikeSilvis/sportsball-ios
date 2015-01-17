@@ -40,16 +40,22 @@ DEPENDENCIES:
   - UIImage-Helpers
   - Underscore.m
   - XHRealTimeBlur
-  - ZFDragableModalTransition
+  - ZFDragableModalTransition (from `git@github.com:MikeSilvis/ZFDragableModalTransition.git`, branch `adding-top-and-mutliple-transitions`)
 
 EXTERNAL SOURCES:
   SVWebViewController:
     :git: https://github.com/MikeSilvis/SVWebViewController.git
+  ZFDragableModalTransition:
+    :branch: adding-top-and-mutliple-transitions
+    :git: git@github.com:MikeSilvis/ZFDragableModalTransition.git
 
 CHECKOUT OPTIONS:
   SVWebViewController:
     :commit: cde5d0a17d7db275c31c013b92f032d8b2824e0d
     :git: https://github.com/MikeSilvis/SVWebViewController.git
+  ZFDragableModalTransition:
+    :commit: 4f0b79349978d61857d07e0e34db08e745495cff
+    :git: git@github.com:MikeSilvis/ZFDragableModalTransition.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
@@ -60,6 +66,6 @@ SPEC CHECKSUMS:
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
   XHRealTimeBlur: a917ee391b10b9120f5bbd69b6a13d5f211479b0
-  ZFDragableModalTransition: 7eedae6db30e46fdf3196d6239d72e38834c25ff
+  ZFDragableModalTransition: dbcc7bb06ea61ccfd5c932593ac25ec39dedc5f8
 
 COCOAPODS: 0.35.0

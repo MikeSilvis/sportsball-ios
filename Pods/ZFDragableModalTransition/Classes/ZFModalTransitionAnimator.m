@@ -8,6 +8,8 @@
 #import "ZFModalTransitionAnimator.h"
 
 @interface ZFModalTransitionAnimator ()
+
+@property ZFModalTransitonDirection currentDirection;
 @property (nonatomic, strong) UIViewController *modalController;
 @property (nonatomic, strong) ZFDetectScrollViewEndGestureRecognizer *gesture;
 @property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
@@ -15,6 +17,7 @@
 @property BOOL isDismiss;
 @property BOOL isInteractive;
 @property CATransform3D tempTransform;
+
 @end
 
 @implementation ZFModalTransitionAnimator
@@ -29,14 +32,13 @@
         _bounces = YES;
         _behindViewScale = 0.9f;
         _behindViewAlpha = 1.0f;
+        _transitionDuration = 0.8f;
         
-        if (![self isIOS8]) {
-            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-            [[NSNotificationCenter defaultCenter] addObserver:self
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(orientationChanged:)
-                                                     name:UIDeviceOrientationDidChangeNotification
+                                                     name:UIApplicationDidChangeStatusBarFrameNotification
                                                    object:nil];
-        }
     }
     return self;
 }
@@ -71,7 +73,15 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.8;
+    return self.transitionDuration;
+}
+
+-(BOOL)isCurrentDirection:(ZFModalTransitonDirection)direction
+{
+
+  ZFModalTransitonDirection directionToUse = self.currentDirection != ZFModalTransitonDirectionNone ? self.currentDirection : self.direction;
+
+  return (directionToUse & direction) == direction;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -91,18 +101,23 @@
         [[transitionContext containerView] addSubview:toViewController.view];
         
         toViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        
-        if (self.direction == ZFModalTransitonDirectionBottom) {
+
+        if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
             startRect = CGRectMake(0,
                                    CGRectGetHeight(toViewController.view.frame),
                                    CGRectGetWidth(toViewController.view.bounds),
                                    CGRectGetHeight(toViewController.view.bounds));
-        } else if (self.direction == ZFModalTransitonDirectionLeft) {
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+            startRect = CGRectMake(0,
+                                   -CGRectGetHeight(toViewController.view.frame),
+                                   CGRectGetWidth(toViewController.view.bounds),
+                                   CGRectGetHeight(toViewController.view.bounds));
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
             startRect = CGRectMake(-CGRectGetWidth(toViewController.view.frame),
                                    0,
                                    CGRectGetWidth(toViewController.view.bounds),
                                    CGRectGetHeight(toViewController.view.bounds));
-        } else if (self.direction == ZFModalTransitonDirectionRight) {
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionRight]) {
             startRect = CGRectMake(CGRectGetWidth(toViewController.view.frame),
                                    0,
                                    CGRectGetWidth(toViewController.view.bounds),
@@ -114,8 +129,8 @@
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0
-             usingSpringWithDamping:5
-              initialSpringVelocity:15
+             usingSpringWithDamping:0.8
+              initialSpringVelocity:0.1
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              
@@ -135,25 +150,30 @@
         
         [[transitionContext containerView] bringSubviewToFront:fromViewController.view];
         
-        if (![self isIOS8]) {
+        if (![self isPriorToIOS8]) {
             toViewController.view.layer.transform = CATransform3DScale(toViewController.view.layer.transform, self.behindViewScale, self.behindViewScale, 1);
         }
         
         toViewController.view.alpha = self.behindViewAlpha;
         
         CGRect endRect;
-        
-        if (self.direction == ZFModalTransitonDirectionBottom) {
+
+        if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
             endRect = CGRectMake(0,
                                  CGRectGetHeight(fromViewController.view.bounds),
                                  CGRectGetWidth(fromViewController.view.frame),
                                  CGRectGetHeight(fromViewController.view.frame));
-        } else if (self.direction == ZFModalTransitonDirectionLeft) {
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+            endRect = CGRectMake(0,
+                                 -CGRectGetHeight(fromViewController.view.bounds),
+                                 CGRectGetWidth(fromViewController.view.frame),
+                                 CGRectGetHeight(fromViewController.view.frame));
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
             endRect = CGRectMake(-CGRectGetWidth(fromViewController.view.bounds),
                                  0,
                                  CGRectGetWidth(fromViewController.view.frame),
                                  CGRectGetHeight(fromViewController.view.frame));
-        } else if (self.direction == ZFModalTransitonDirectionRight) {
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionRight]) {
             endRect = CGRectMake(CGRectGetWidth(fromViewController.view.bounds),
                                  0,
                                  CGRectGetWidth(fromViewController.view.frame),
@@ -165,8 +185,8 @@
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0
-             usingSpringWithDamping:5
-              initialSpringVelocity:5
+             usingSpringWithDamping:0.8
+              initialSpringVelocity:0.1
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              CGFloat scaleBack = (1 / self.behindViewScale);
@@ -193,22 +213,34 @@
     
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         self.isInteractive = YES;
-        if (self.direction == ZFModalTransitonDirectionBottom) {
+        self.currentDirection = ZFModalTransitonDirectionNone;
+
+        if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
             self.panLocationStart = location.y;
         } else {
             self.panLocationStart = location.x;
         }
         [self.modalController dismissViewControllerAnimated:YES completion:nil];
     }
-    
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
         CGFloat animationRatio = 0;
-        
-        if (self.direction == ZFModalTransitonDirectionBottom) {
+
+        if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
             animationRatio = (location.y - self.panLocationStart) / (CGRectGetHeight([self.modalController view].bounds));
-        } else if (self.direction == ZFModalTransitonDirectionLeft) {
+            if (animationRatio > 0) {
+              self.currentDirection = ZFModalTransitonDirectionBottom;
+            }
+        }
+        if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+            animationRatio = (self.panLocationStart - location.y) / (CGRectGetHeight([self.modalController view].bounds));
+            if (animationRatio > 0) {
+              self.currentDirection = ZFModalTransitonDirectionTop;
+            }
+        }
+        if ([self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
             animationRatio = (self.panLocationStart - location.x) / (CGRectGetWidth([self.modalController view].bounds));
-        } else if (self.direction == ZFModalTransitonDirectionRight) {
+        }
+        if ([self isCurrentDirection:ZFModalTransitonDirectionRight]) {
             animationRatio = (location.x - self.panLocationStart) / (CGRectGetWidth([self.modalController view].bounds));
         }
         
@@ -217,17 +249,18 @@
         
         CGFloat velocityForSelectedDirection;
         
-        if (self.direction == ZFModalTransitonDirectionBottom) {
+        if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
             velocityForSelectedDirection = velocity.y;
+        } else if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+            velocityForSelectedDirection = -velocity.y;
         } else {
             velocityForSelectedDirection = velocity.x;
         }
-        
+
         if (velocityForSelectedDirection > 100
-            && (self.direction == ZFModalTransitonDirectionRight
-                || self.direction == ZFModalTransitonDirectionBottom)) {
+            && ([self isCurrentDirection:ZFModalTransitonDirectionRight] || [self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop])) {
                 [self finishInteractiveTransition];
-            } else if (velocityForSelectedDirection < -100 && self.direction == ZFModalTransitonDirectionLeft) {
+            } else if (velocityForSelectedDirection < -100 && [self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
                 [self finishInteractiveTransition];
             } else {
                 [self cancelInteractiveTransition];
@@ -245,7 +278,7 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    if (![self isIOS8]) {
+    if (![self isPriorToIOS8]) {
         toViewController.view.layer.transform = CATransform3DScale(toViewController.view.layer.transform, self.behindViewScale, self.behindViewScale, 1);
     }
     
@@ -274,23 +307,28 @@
     toViewController.view.alpha = self.behindViewAlpha + ((1 - self.behindViewAlpha) * percentComplete);
     
     CGRect updateRect;
-    if (self.direction == ZFModalTransitonDirectionBottom) {
+    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
         updateRect = CGRectMake(0,
                                 (CGRectGetHeight(fromViewController.view.bounds) * percentComplete),
                                 CGRectGetWidth(fromViewController.view.frame),
                                 CGRectGetHeight(fromViewController.view.frame));
-    } else if (self.direction == ZFModalTransitonDirectionLeft) {
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+        updateRect = CGRectMake(0,
+                                -(CGRectGetHeight(fromViewController.view.bounds) * percentComplete),
+                                CGRectGetWidth(fromViewController.view.frame),
+                                CGRectGetHeight(fromViewController.view.frame));
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
         updateRect = CGRectMake(-(CGRectGetWidth(fromViewController.view.bounds) * percentComplete),
                                 0,
                                 CGRectGetWidth(fromViewController.view.frame),
                                 CGRectGetHeight(fromViewController.view.frame));
-    } else if (self.direction == ZFModalTransitonDirectionRight) {
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionRight]) {
         updateRect = CGRectMake(CGRectGetWidth(fromViewController.view.bounds) * percentComplete,
                                 0,
                                 CGRectGetWidth(fromViewController.view.frame),
                                 CGRectGetHeight(fromViewController.view.frame));
     }
-
+    
     CGPoint transformedPoint = CGPointApplyAffineTransform(updateRect.origin, fromViewController.view.transform);
     updateRect = CGRectMake(transformedPoint.x, transformedPoint.y, updateRect.size.width, updateRect.size.height);
     
@@ -305,18 +343,23 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     CGRect endRect;
-    
-    if (self.direction == ZFModalTransitonDirectionBottom) {
+
+    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom]) {
         endRect = CGRectMake(0,
                              CGRectGetHeight(fromViewController.view.bounds),
                              CGRectGetWidth(fromViewController.view.frame),
                              CGRectGetHeight(fromViewController.view.frame));
-    } else if (self.direction == ZFModalTransitonDirectionLeft) {
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+        endRect = CGRectMake(0,
+                             -CGRectGetHeight(fromViewController.view.bounds),
+                             CGRectGetWidth(fromViewController.view.frame),
+                             CGRectGetHeight(fromViewController.view.frame));
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionLeft]) {
         endRect = CGRectMake(-CGRectGetWidth(fromViewController.view.bounds),
                              0,
                              CGRectGetWidth(fromViewController.view.frame),
                              CGRectGetHeight(fromViewController.view.frame));
-    } else if (self.direction == ZFModalTransitonDirectionRight) {
+    } else if ([self isCurrentDirection:ZFModalTransitonDirectionRight]) {
         endRect = CGRectMake(CGRectGetWidth(fromViewController.view.bounds),
                              0,
                              CGRectGetWidth(fromViewController.view.frame),
@@ -328,8 +371,8 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
-         usingSpringWithDamping:5
-          initialSpringVelocity:5
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:0.1
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          CGFloat scaleBack = (1 / self.behindViewScale);
@@ -352,8 +395,8 @@
     
     [UIView animateWithDuration:0.4
                           delay:0
-         usingSpringWithDamping:5
-          initialSpringVelocity:5
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:0.1
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          
@@ -404,7 +447,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if (self.direction == ZFModalTransitonDirectionBottom) {
+    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
         return YES;
     }
     return NO;
@@ -412,7 +455,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if (self.direction == ZFModalTransitonDirectionBottom) {
+    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
         return YES;
     }
     return NO;
@@ -420,7 +463,7 @@
 
 #pragma mark - Utils
 
-- (BOOL)isIOS8
+- (BOOL)isPriorToIOS8
 {
     NSComparisonResult order = [[UIDevice currentDevice].systemVersion compare: @"8.0" options: NSNumericSearch];
     if (order == NSOrderedSame || order == NSOrderedDescending) {
@@ -432,43 +475,13 @@
 
 #pragma mark - Orientation
 
-
 - (void)orientationChanged:(NSNotification *)notification
 {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationPortraitUpsideDown || orientation == UIDeviceOrientationUnknown) {
-        return;
+    UIViewController *backViewController = self.modalController.presentingViewController;
+    backViewController.view.bounds = backViewController.view.window.bounds;
+    if (![self isPriorToIOS8]) {
+        backViewController.view.layer.transform = CATransform3DScale(backViewController.view.layer.transform, self.behindViewScale, self.behindViewScale, 1);
     }
-    
-    UIViewController *toViewController = self.modalController.presentingViewController;
-    toViewController.view.transform = CGAffineTransformIdentity;
-    [self rotateLayer:toViewController.view.layer];
-}
-
--(void)rotateLayer: (CALayer *)layer
-{
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    
-    CGAffineTransform rotate;
-    CGAffineTransform scale = CGAffineTransformMakeScale(self.behindViewScale, self.behindViewScale);
-    
-    switch (orientation) {
-        case UIDeviceOrientationLandscapeLeft:
-            rotate = CGAffineTransformMakeRotation(M_PI_2);
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            rotate = CGAffineTransformMakeRotation(-M_PI_2);
-            break;
-        default:
-            rotate = CGAffineTransformMakeRotation(0.0);
-            break;
-    }
-    
-    layer.affineTransform = CGAffineTransformConcat(rotate, scale);
-    
-    [layer setBounds:self.modalController.view.bounds];
-    [layer setPosition:CGPointMake(CGRectGetMidX(self.modalController.view.frame),
-                                   CGRectGetMidY(self.modalController.view.frame))];
 }
 
 @end
@@ -493,7 +506,7 @@
     if (!self.scrollview) {
         return;
     }
-    
+
     if (self.state == UIGestureRecognizerStateFailed) return;
     CGPoint nowPoint = [touches.anyObject locationInView:self.view];
     CGPoint prevPoint = [touches.anyObject previousLocationInView:self.view];
@@ -505,15 +518,20 @@
         return;
     }
     
-    if (nowPoint.y > prevPoint.y && self.scrollview.contentOffset.y <= 0) {
+    CGFloat topVerticalOffset = -self.scrollview.contentInset.top;
+    CGFloat bottomEdge = self.scrollview.contentOffset.y + self.scrollview.frame.size.height;
+
+    if (nowPoint.y < prevPoint.y && bottomEdge >= self.scrollview.contentSize.height) {
         self.isFail = @NO;
-    } else if (self.scrollview.contentOffset.y >= 0) {
+    } else if (nowPoint.y > prevPoint.y && self.scrollview.contentOffset.y <= topVerticalOffset) {
+        self.isFail = @NO;
+    } else if (self.scrollview.contentOffset.y >= topVerticalOffset) {
         self.state = UIGestureRecognizerStateFailed;
         self.isFail = @YES;
     } else {
         self.isFail = @NO;
     }
-    
+
 }
 
 @end

@@ -40,7 +40,7 @@
 
   // Transition
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:webViewController];
-  self.animator.direction = ZFModalTransitonDirectionBottom;
+  self.animator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
   self.animator.dragable = YES;
   [self.animator setContentScrollView:webViewController.scrollView];
 

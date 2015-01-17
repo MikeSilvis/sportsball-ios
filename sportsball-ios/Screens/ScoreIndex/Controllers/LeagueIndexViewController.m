@@ -215,7 +215,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   viewController.view.frame = self.view.bounds;
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
   self.animator.dragable = YES;
-  self.animator.direction = ZFModalTransitonDirectionBottom;
+  self.animator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
 
   // set transition delegate of modal view controller to our object
   viewController.transitioningDelegate = self.animator;
