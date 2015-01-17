@@ -9,6 +9,8 @@
 #import "ScheduleTableViewCell.h"
 #import "ScheduleInfoTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "Underscore.h"
+#import "User.h"
 
 @implementation ScheduleTableViewCell
 
@@ -52,6 +54,21 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
   return cellRowHeight;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+  UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *)view;
+  tableViewHeaderFooterView.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+  tableViewHeaderFooterView.textLabel.textColor = [UIColor lightGrayColor];
+  tableViewHeaderFooterView.contentView.backgroundColor = [UIColor clearColor];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+  if ([[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
+    return [self.monthFormatter stringFromDate:[NSDate date]];
+  }
+
+  return nil;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return [[self schedule] count];
 }
@@ -64,6 +81,16 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
   height = height + [schedules count] * cellRowHeight;
 
   return CGSizeMake(width, height);
+}
+
+-(NSDateFormatter *)monthFormatter {
+  if (!_monthFormatter) {
+    _monthFormatter = [[NSDateFormatter alloc] init];
+    [_monthFormatter setDateFormat:@"MMMM"];
+    [_monthFormatter setTimeZone:[NSTimeZone localTimeZone]];
+  }
+
+  return _monthFormatter;
 }
 
 @end

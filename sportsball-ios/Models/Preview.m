@@ -8,6 +8,8 @@
 
 #import "Preview.h"
 #import "Schedule.h"
+#import "Underscore.h"
+#import "User.h"
 
 @implementation Preview
 
@@ -69,12 +71,21 @@
 }
 
 -(NSArray *)scheduleForTeam:(Team *)team {
-  if (team.isAway) {
-    return self.awayTeamSchedule;
+  NSArray *fullSchedule = team.isAway ? self.awayTeamSchedule : self.homeTeamSchedule;
+
+  if (![[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
+    return fullSchedule;
   }
-  else {
-    return self.homeTeamSchedule;
-  }
+
+  NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
+                                                               fromDate:[NSDate date]];
+  NSUInteger currentMonth = [components month];
+
+  return Underscore.array(fullSchedule).filter(^BOOL(Schedule *schedule) {
+                              NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
+                                                                                             fromDate:schedule.date];
+                              return [components month] == currentMonth;
+                            }).unwrap;
 }
 
 @end

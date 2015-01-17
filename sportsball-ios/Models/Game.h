@@ -19,7 +19,7 @@
 @property (nonatomic, strong) Boxscore *boxscore;
 @property (nonatomic, strong) Preview *preview;
 
-@property (nonatomic, strong) NSString *league;
+@property (nonatomic, strong) NSString *leagueName;
 
 @property (nonatomic, strong) NSString *moneyLine;
 @property (nonatomic, strong) NSString *location;

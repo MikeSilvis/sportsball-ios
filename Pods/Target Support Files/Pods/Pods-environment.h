@@ -84,6 +84,12 @@
 #define COCOAPODS_VERSION_MINOR_UIImage_Helpers 0
 #define COCOAPODS_VERSION_PATCH_UIImage_Helpers 3
 
+// Underscore.m
+#define COCOAPODS_POD_AVAILABLE_Underscore_m
+#define COCOAPODS_VERSION_MAJOR_Underscore_m 0
+#define COCOAPODS_VERSION_MINOR_Underscore_m 2
+#define COCOAPODS_VERSION_PATCH_Underscore_m 1
+
 // XHRealTimeBlur
 #define COCOAPODS_POD_AVAILABLE_XHRealTimeBlur
 #define COCOAPODS_VERSION_MAJOR_XHRealTimeBlur 1

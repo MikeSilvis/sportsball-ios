@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Game *game;
 @property (nonatomic, strong) Team *currentTeam;
+@property (nonatomic, strong) NSDateFormatter *monthFormatter;
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width;
 

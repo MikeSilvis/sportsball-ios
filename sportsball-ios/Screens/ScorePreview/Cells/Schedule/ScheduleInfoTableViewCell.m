@@ -39,7 +39,7 @@
     }
   }
   else {
-    self.score.text = [schedule.dateFormatter stringFromDate:schedule.startTime];
+    self.score.text = schedule.localStartTime;
     self.winOrLoss.hidden = YES;
   }
 
@@ -56,7 +56,7 @@
 -(NSDateFormatter *)dateFormatter {
   if (!_dateFormatter) {
     _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateFormat:@"MM/dd"];
+    [_dateFormatter setDateFormat:@"M/dd"];
     [_dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
   }
 

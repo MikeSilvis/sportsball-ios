@@ -63,6 +63,27 @@ static const NSInteger scheduleCellLocation   = 0;
 
   self.loadingIndicator.hidden = YES;
   self.shouldRenderTable = NO;
+
+  // Logo clicked
+  UITapGestureRecognizer *awayTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedAwayLogo)];
+  awayTap.numberOfTapsRequired = 1;
+  [self.awayTeamLogo setUserInteractionEnabled:YES];
+  [self.awayTeamLogo addGestureRecognizer:awayTap];
+
+  UITapGestureRecognizer *homeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHomeLogo)];
+  homeTap.numberOfTapsRequired = 1;
+  [self.homeTeamLogo setUserInteractionEnabled:YES];
+  [self.homeTeamLogo addGestureRecognizer:homeTap];
+}
+
+-(void)clickedAwayLogo{
+  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+  [self changedTeam:self.game.awayTeam];
+}
+
+-(void)clickedHomeLogo {
+  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+  [self changedTeam:self.game.homeTeam];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

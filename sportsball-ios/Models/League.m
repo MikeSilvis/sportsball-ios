@@ -25,6 +25,7 @@ static NSString *leaguesKey = @"allLeagues";
     self.header = [NSURL URLWithString:json[@"header_image"]];
     self.blurredHeader = [NSURL URLWithString:json[@"header_blurred_image"]];
     self.name = json[@"name"];
+    self.isMonthlySchedule = [NSNumber numberWithBool:json[@"monthly_schedule"]];
 
     NSMutableArray *dates = [NSMutableArray array];
     for (NSString  *dateString in json[@"schedule"]) {

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSURL *header;
 @property (nonatomic, strong) NSURL *blurredHeader;
 @property (nonatomic, strong) NSArray *schedule;
+@property (nonatomic, strong) NSNumber *isMonthlySchedule;
 
 +(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure;

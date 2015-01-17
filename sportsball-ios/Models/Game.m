@@ -49,7 +49,7 @@
     self.awayTeam = [[Team alloc] initWithJson:json[@"away_team"]];
     self.awayTeam.isAway = true;
     self.awayScore = json[@"away_score"];
-    self.league = json[@"league"];
+    self.leagueName = json[@"league"];
 
     self.timeRemaining = json[@"time_remaining"];
     self.currentPeriod = json[@"progress"];
@@ -70,7 +70,7 @@
             success:(void (^) (Boxscore *))success
             failure:(void (^) (NSError *error))failure {
 
-    NSString *path = [NSString stringWithFormat:@"leagues/%@/boxscores/%@", self.league, self.boxscoreId];
+    NSString *path = [NSString stringWithFormat:@"leagues/%@/boxscores/%@", self.leagueName, self.boxscoreId];
 
     [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
       Boxscore *boxscore = [[Boxscore alloc] initWithJson:responseObject[@"boxscore"]];
@@ -86,7 +86,7 @@
             success:(void (^) (Preview *))success
             failure:(void (^) (NSError *error))failure {
 
-    NSString *path = [NSString stringWithFormat:@"leagues/%@/previews/%@", self.league, self.previewId];
+    NSString *path = [NSString stringWithFormat:@"leagues/%@/previews/%@", self.leagueName, self.previewId];
 
     [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
       Preview *preview = [[Preview alloc] initWithJson:responseObject[@"preview"]];
@@ -111,7 +111,7 @@
 }
 
 -(int)favoriteScore {
-  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.league];
+  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.leagueName];
 
   return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
 }

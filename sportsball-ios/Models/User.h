@@ -8,10 +8,12 @@
 
 #import "SportsBallModel.h"
 #import "Team.h"
+#import "League.h"
 
 @interface User : SportsBallModel
 
-@property (nonatomic, copy) NSNumber *lastOpenedLeague;
+@property (nonatomic, strong) League *lastOpenedLeague;
+@property (nonatomic, copy) NSNumber *lastOpenedLeagueIindex;
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, copy) NSDictionary *favoriteTeams;
 

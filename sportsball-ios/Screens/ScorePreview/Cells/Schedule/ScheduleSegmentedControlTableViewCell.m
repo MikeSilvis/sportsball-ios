@@ -17,8 +17,12 @@ static int headerHeight = 44;
 -(void)layoutSubviews {
   [super layoutSubviews];
 
-  // Hack to ensure control is centered
+  // Hack to ensure control is centered & Full width
   CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+  CGFloat width = (screenWidth / 2) - 20;
+  [self.segmentedControl setWidth:width forSegmentAtIndex:awayIndex];
+  [self.segmentedControl setWidth:width forSegmentAtIndex:homeIndex];
+
   CGFloat controlWidth = self.segmentedControl.frame.size.width;
   CGRect f = self.segmentedControl.frame;
   f.origin.x = (screenWidth - controlWidth) / 2;

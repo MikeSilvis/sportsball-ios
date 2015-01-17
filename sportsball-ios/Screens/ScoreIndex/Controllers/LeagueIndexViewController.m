@@ -75,7 +75,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 -(void)openAtLastSelectedIndex {
-  int openedIndex = [[User currentUser].lastOpenedLeague intValue];
+  int openedIndex = [[User currentUser].lastOpenedLeagueIindex intValue];
 
   if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
@@ -91,7 +91,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 -(void)selectedGame:(Game *)game {
   self.selectedGame = game;
 
-  [[User currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.league];
+  [[User currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.leagueName];
 
   if (game.isPregame) {
     [self performSegueWithIdentifier:scorePreviewSegue sender:self];
@@ -110,7 +110,8 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
-    [User currentUser].lastOpenedLeague = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
+    [User currentUser].lastOpenedLeagueIindex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
+    [User currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
