@@ -23,10 +23,9 @@ static int headerHeight = 44;
   [self.segmentedControl setWidth:width forSegmentAtIndex:awayIndex];
   [self.segmentedControl setWidth:width forSegmentAtIndex:homeIndex];
 
-  CGFloat controlWidth = self.segmentedControl.frame.size.width;
+  CGFloat controlWidth = width * 2;
   CGRect f = self.segmentedControl.frame;
   f.origin.x = (screenWidth - controlWidth) / 2;
-  f.origin.y = (self.bounds.size.height - self.segmentedControl.frame.size.height) / 2;
   self.segmentedControl.frame = f;
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,8 +13,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgb-0d-XEw" id="5zF-OV-A4c">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-ba-k2Q">
-                        <rect key="frame" x="238.5" y="8" width="123" height="29"/>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-ba-k2Q">
+                        <rect key="frame" x="28" y="8" width="544" height="29"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -25,6 +26,11 @@
                     </segmentedControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Cbg-ba-k2Q" secondAttribute="trailing" constant="20" id="StH-FE-Fb8"/>
+                    <constraint firstItem="Cbg-ba-k2Q" firstAttribute="leading" secondItem="5zF-OV-A4c" secondAttribute="leadingMargin" constant="20" id="VTE-g5-FP2"/>
+                    <constraint firstAttribute="centerY" secondItem="Cbg-ba-k2Q" secondAttribute="centerY" id="bwJ-Oe-loN"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="segmentedControl" destination="Cbg-ba-k2Q" id="h6k-Bm-jFa"/>
