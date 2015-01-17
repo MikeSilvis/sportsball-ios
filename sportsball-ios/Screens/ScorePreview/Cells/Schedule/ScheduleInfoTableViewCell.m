@@ -8,6 +8,7 @@
 
 #import "ScheduleInfoTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "EDColor.h"
 
 @implementation ScheduleInfoTableViewCell
 
@@ -31,11 +32,11 @@
 
     if (schedule.isWin) {
       self.winOrLoss.text = @"W";
-      self.winOrLoss.textColor = [UIColor greenColor];
+      self.winOrLoss.textColor = [UIColor colorWithHexString:@"70b425"];
     }
     else {
       self.winOrLoss.text = @"L";
-      self.winOrLoss.textColor = [UIColor redColor];
+      self.winOrLoss.textColor = [UIColor colorWithHexString:@"C72929"];
     }
   }
   else {

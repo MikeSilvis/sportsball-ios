@@ -11,11 +11,15 @@
 #import <UIImageView+AFNetworking.h>
 #import "Underscore.h"
 #import "User.h"
+#import "ScoreDetailHeaderCollectionViewCell.h"
 
 @implementation ScheduleTableViewCell
 
 static int const cellRowHeight = 40;
 static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
+
+static int const cellRowHeaderHeight = 20;
+static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
 -(void)awakeFromNib {
   [super awakeFromNib];
@@ -29,6 +33,8 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
   // Register Nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"ScheduleInfoTableViewCell" bundle:nil]
        forCellReuseIdentifier:scheduleInfoViewCell];
+
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:scoreDetailHeaderCell];
 }
 
 -(void)setCurrentTeam:(Team *)currentTeam {
@@ -54,16 +60,12 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
   return cellRowHeight;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-  UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *)view;
-  tableViewHeaderFooterView.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
-  tableViewHeaderFooterView.textLabel.textColor = [UIColor lightGrayColor];
-  tableViewHeaderFooterView.contentView.backgroundColor = [UIColor clearColor];
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   if ([[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
-    return [self.monthFormatter stringFromDate:[NSDate date]];
+    ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:scoreDetailHeaderCell];
+    cell.label.text = [self.monthFormatter stringFromDate:[NSDate date]];
+
+    return cell;
   }
 
   return nil;
@@ -76,7 +78,11 @@ static NSString * const scheduleInfoViewCell = @"scheduleInfoViewCell";
 #pragma mark - Measure
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width {
-  CGFloat height = 50;
+  CGFloat height = 20;
+
+  if ([[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
+    height = height + cellRowHeaderHeight;
+  }
 
   height = height + [schedules count] * cellRowHeight;
 

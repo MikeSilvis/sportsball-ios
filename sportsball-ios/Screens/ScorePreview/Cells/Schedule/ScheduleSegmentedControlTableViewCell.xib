@@ -12,7 +12,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgb-0d-XEw" id="5zF-OV-A4c">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-ba-k2Q">
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-ba-k2Q">
                         <rect key="frame" x="238.5" y="8" width="123" height="29"/>
                         <segments>
                             <segment title="First"/>
@@ -25,10 +25,6 @@
                     </segmentedControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                <constraints>
-                    <constraint firstAttribute="centerY" secondItem="Cbg-ba-k2Q" secondAttribute="centerY" id="L4P-rn-BZU"/>
-                    <constraint firstAttribute="centerX" secondItem="Cbg-ba-k2Q" secondAttribute="centerX" id="zLc-y0-Ucf"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="segmentedControl" destination="Cbg-ba-k2Q" id="h6k-Bm-jFa"/>
