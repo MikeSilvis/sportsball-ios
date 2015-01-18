@@ -28,7 +28,7 @@
   self.content.text = recap.content;
   [self.headerImage setImageWithURL:recap.photoURL];
 
-  if (recap) {
+  if (recap.headline) {
     self.renderSeperator = YES;
   }
 }
@@ -39,7 +39,7 @@
   self.headline.text = preview.headline;
   self.content.text = preview.content;
 
-  if (preview) {
+  if (preview.headline) {
     self.renderSeperator = YES;
   }
 }
