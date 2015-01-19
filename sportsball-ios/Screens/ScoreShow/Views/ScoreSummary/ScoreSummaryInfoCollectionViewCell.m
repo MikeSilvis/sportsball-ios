@@ -20,30 +20,31 @@
 -(void)setGame:(Game *)game {
   _game = game;
 
+  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:12];
+  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:10];
+
   Team *team = [self.game teamFromDataName:[self summary]];
   if (team) {
     self.score.text = team.name;
     self.score.textAlignment = NSTextAlignmentLeft;
+    self.score.font = boldFont;
   }
   else {
     self.score.text = [self summary];
     self.score.textAlignment = NSTextAlignmentRight;
+    self.score.font = regularFont;
   }
 
   if (self.section == 0 && self.row == 0 ) {
     self.score.textAlignment = NSTextAlignmentLeft;
   }
 
-  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
-  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
-  self.score.font = regularFont;
-
   if (self.section == 0) {
     self.score.font = boldFont;
   }
 
   NSArray *rowCount = self.game.boxscore.scoreSummary[self.section];
-  if (self.row == [rowCount count]) {
+  if (self.row == ([rowCount count] -1)) {
     self.score.font = boldFont;
   }
 }

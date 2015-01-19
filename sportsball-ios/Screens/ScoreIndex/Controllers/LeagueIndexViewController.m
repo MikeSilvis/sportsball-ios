@@ -75,6 +75,10 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 -(void)openAtLastSelectedIndex {
+  if (![User currentUser].lastOpenedLeagueIindex) {
+    return;
+  }
+
   int openedIndex = [[User currentUser].lastOpenedLeagueIindex intValue];
 
   if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {

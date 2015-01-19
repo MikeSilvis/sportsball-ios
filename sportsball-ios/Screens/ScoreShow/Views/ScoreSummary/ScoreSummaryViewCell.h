@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSArray *scoreSummary;
 @property (nonatomic, strong) Game *game;
 
-
 +(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width;
 
 @end
