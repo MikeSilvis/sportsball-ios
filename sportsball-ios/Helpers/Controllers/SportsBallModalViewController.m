@@ -35,6 +35,10 @@
 }
 
 -(void)openURL:(NSURL *)url {
+  if (!url) {
+    return;
+  }
+
   SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
   webViewController.title = @"";
 

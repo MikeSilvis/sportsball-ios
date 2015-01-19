@@ -143,4 +143,15 @@
   return [NSString stringWithFormat:@"%@", self.awayScore];
 }
 
+-(BOOL)hasPreviewOrRecap {
+  if (self.isPregame && self.preview && self.preview.headline) {
+    return YES;
+  }
+  else if (self.isOver && self.boxscore && self.boxscore.recap && self.boxscore.recap.headline) {
+    return YES;
+  }
+
+  return NO;
+}
+
 @end

@@ -24,23 +24,31 @@
 -(void)setRecap:(Recap *)recap {
   _recap = recap;
 
-  self.headline.text = recap.headline;
-  self.content.text = recap.content;
-  [self.headerImage setImageWithURL:recap.photoURL];
+  self.headline.text = self.recap.headline;
+  self.content.text = self.recap.content;
+  [self.headerImage setImageWithURL:self.recap.photoURL];
 
   if (recap.headline) {
     self.renderSeperator = YES;
+    self.hidden = NO;
+  }
+  else {
+    self.hidden = YES;
   }
 }
 
 -(void)setPreview:(Preview *)preview {
   _preview = preview;
 
-  self.headline.text = preview.headline;
-  self.content.text = preview.content;
+  self.headline.text = self.preview.headline;
+  self.content.text = self.preview.content;
 
-  if (preview.headline) {
+  if (self.preview.headline) {
     self.renderSeperator = YES;
+    self.hidden = NO;
+  }
+  else {
+    self.hidden = YES;
   }
 }
 
@@ -63,15 +71,13 @@
 }
 
 +(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
-  if (resource.isOver) {
-    return CGSizeMake(width, 300);
+  CGFloat height = resource.isOver ? 300 : 80;
+
+  if (resource.hasPreviewOrRecap) {
+    return CGSizeMake(width, height);
   }
-  else if (resource.isPregame) {
-    return CGSizeMake(width, 80);
-  }
-  else {
-    return CGSizeZero;
-  }
+
+  return CGSizeZero;
 }
 
 @end
