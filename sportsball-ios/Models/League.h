@@ -15,6 +15,10 @@
 @property (nonatomic, strong) NSURL *logo;
 @property (nonatomic, strong) NSURL *header;
 @property (nonatomic, strong) NSURL *blurredHeader;
+
+@property (nonatomic, strong) NSDictionary *headers;
+@property (nonatomic, strong) NSDictionary *blurredHeaders;
+
 @property (nonatomic, strong) NSArray *schedule;
 @property (nonatomic, strong) NSNumber *isMonthlySchedule;
 

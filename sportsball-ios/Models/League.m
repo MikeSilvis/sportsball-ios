@@ -22,18 +22,40 @@ static NSString *leaguesKey = @"allLeagues";
 
   if (self) {
     self.logo = [NSURL URLWithString:json[@"logo"]];
-    self.header = [NSURL URLWithString:json[@"header_image"]];
-    self.blurredHeader = [NSURL URLWithString:json[@"header_blurred_image"]];
     self.name = json[@"name"];
     self.isMonthlySchedule = [NSNumber numberWithBool:[json[@"monthly_schedule"] boolValue]];
 
+    // Dates
     NSMutableArray *dates = [NSMutableArray array];
     for (NSString  *dateString in json[@"schedule"]) {
       NSDate *date = [self.dateFormatter dateFromString:dateString];
       [dates addObject:date];
     }
-
     self.schedule = dates;
+
+    // Header Images
+    NSMutableDictionary *headerURLS = [NSMutableDictionary dictionary];
+    for (NSDictionary *headerURL in json[@"header_images"]) {
+      headerURLS[headerURL] = [NSURL URLWithString:json[@"header_images"][headerURL]];
+    }
+    self.headers = headerURLS;
+
+    // Blurred Header Images
+    NSMutableDictionary *blurredHeaderURLS = [NSMutableDictionary dictionary];
+    for (NSDictionary *headerURL in json[@"header_blurred_images"]) {
+      blurredHeaderURLS[headerURL] = [NSURL URLWithString:json[@"header_blurred_images"][headerURL]];
+    }
+    self.blurredHeaders = blurredHeaderURLS;
+
+    NSString *favoriteTeamName = [[User currentUser] favoriteTeam:self];
+    if (favoriteTeamName && self.blurredHeaders[favoriteTeamName]) {
+      self.header = self.headers[favoriteTeamName];
+      self.blurredHeader = self.blurredHeaders[favoriteTeamName];
+    }
+    else {
+      self.header = [NSURL URLWithString:json[@"header_image"]];
+      self.blurredHeader = [NSURL URLWithString:json[@"header_blurred_image"]];
+    }
   }
 
   return self;

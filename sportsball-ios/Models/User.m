@@ -67,6 +67,29 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   [self syncUserDefaults];
 }
 
+- (NSString *)favoriteTeam:(League *)league {
+  NSDictionary *teams = self.favoriteTeams[league.name];
+
+  if (self.favoriteTeams && teams) {
+    NSString *largestTeamName;
+
+    for (NSString *teamName in [teams allKeys]) {
+      // If there is no largest team name yet
+      if (!largestTeamName) {
+        largestTeamName = teamName;
+      }
+      else if (teams[largestTeamName] < teams[teamName]) {
+        largestTeamName = teamName;
+      }
+
+    }
+
+    return largestTeamName;
+  }
+
+  return nil;
+}
+
 #pragma mark - Sync settings
 
 - (void)syncUserDefaults {

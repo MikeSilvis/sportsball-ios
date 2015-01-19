@@ -19,5 +19,6 @@
 
 + (User *)currentUser;
 - (void)appendFavoriteTeams:(Team *)team andTeam:(Team *)team2 andLeague:(NSString *)league;
+- (NSString *)favoriteTeam:(League *)league;
 
 @end
