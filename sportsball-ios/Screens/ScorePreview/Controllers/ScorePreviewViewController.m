@@ -194,7 +194,7 @@ static const NSInteger scheduleCellLocation   = 0;
     return nil;
   }
 
-  if (section == 1) {
+  if (section == 1 && [self.game.preview scheduleForTeam:self.currentTeamSchedule]) {
     ScheduleSegmentedControlTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:segmentedScheduleHeaderCell];
     cell.delegate = self;
     cell.selectedTeam = self.currentTeamSchedule;
@@ -219,7 +219,7 @@ static const NSInteger scheduleCellLocation   = 0;
     return 0;
   }
 
-  if (section == 1) {
+  if (section == 1 && [self.game.preview scheduleForTeam:self.currentTeamSchedule]) {
     return [ScheduleSegmentedControlTableViewCell measureCellSizeWithResource:self.game andWidth:self.view.bounds.size.width].height;
   }
 

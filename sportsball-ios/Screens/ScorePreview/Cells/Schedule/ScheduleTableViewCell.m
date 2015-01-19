@@ -40,6 +40,13 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 -(void)setCurrentTeam:(Team *)currentTeam {
   _currentTeam = currentTeam;
 
+  if (![self schedule]) {
+    self.hidden = YES;
+  }
+  else {
+    self.hidden = NO;
+  }
+
   [self.tableView reloadData];
 }
 
