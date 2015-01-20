@@ -20,8 +20,8 @@
 -(void)setGame:(Game *)game {
   _game = game;
 
-  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:12];
-  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:10];
+  UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
+  UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
 
   Team *team = [self.game teamFromDataName:[self summary]];
   if (team) {
@@ -31,7 +31,7 @@
   }
   else {
     self.score.text = [self summary];
-    self.score.textAlignment = NSTextAlignmentRight;
+    self.score.textAlignment = NSTextAlignmentCenter;
     self.score.font = regularFont;
   }
 

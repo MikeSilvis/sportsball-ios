@@ -13,8 +13,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOi-xg-1Uj">
-                        <rect key="frame" x="10.5" y="17" width="29.5" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOi-xg-1Uj">
+                        <rect key="frame" x="0.0" y="17" width="50" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -24,9 +24,9 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="oOi-xg-1Uj" secondAttribute="centerY" constant="-0.25" id="RWw-Jk-nl6"/>
-                <constraint firstItem="oOi-xg-1Uj" firstAttribute="leading" secondItem="ta3-VP-R0h" secondAttribute="leading" constant="10.5" id="VhL-1x-9ot"/>
-                <constraint firstAttribute="trailing" secondItem="oOi-xg-1Uj" secondAttribute="trailing" constant="10" id="We6-TZ-hXj"/>
+                <constraint firstAttribute="centerY" secondItem="oOi-xg-1Uj" secondAttribute="centerY" id="RWw-Jk-nl6"/>
+                <constraint firstItem="oOi-xg-1Uj" firstAttribute="leading" secondItem="ta3-VP-R0h" secondAttribute="leading" id="VhL-1x-9ot"/>
+                <constraint firstAttribute="trailing" secondItem="oOi-xg-1Uj" secondAttribute="trailing" id="We6-TZ-hXj"/>
             </constraints>
             <connections>
                 <outlet property="score" destination="oOi-xg-1Uj" id="nRk-FJ-YHg"/>
