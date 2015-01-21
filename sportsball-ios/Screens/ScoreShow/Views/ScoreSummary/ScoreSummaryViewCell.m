@@ -52,8 +52,9 @@ static int const cellPaddingHeight = 10;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *itemsForSection = self.scoreSummary[indexPath.section];
 
-  CGFloat largeritemWidth = self.collectionView.bounds.size.width * 0.30f;
-  CGFloat smallerItemWidth = (self.collectionView.bounds.size.width - largeritemWidth) / (itemsForSection.count - 1);
+  CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
+  CGFloat largeritemWidth = floor(collectionViewWidth * 0.40f);
+  CGFloat smallerItemWidth = floor((collectionViewWidth - largeritemWidth) / (itemsForSection.count - 1));
 
   CGFloat width = (indexPath.row == 0) ? largeritemWidth : smallerItemWidth;
 
@@ -79,5 +80,18 @@ static int const cellPaddingHeight = 10;
 
   return cell;
 }
+
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+  return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+  return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+  return 0;
+}
+
 
 @end
