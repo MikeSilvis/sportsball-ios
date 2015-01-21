@@ -53,8 +53,8 @@ static int const cellPaddingHeight = 10;
   NSArray *itemsForSection = self.scoreSummary[indexPath.section];
 
   CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
-  CGFloat largeritemWidth = floor(collectionViewWidth * 0.40f);
-  CGFloat smallerItemWidth = floor((collectionViewWidth - largeritemWidth) / (itemsForSection.count - 1));
+  CGFloat smallerItemWidth = 40;
+  CGFloat largeritemWidth = collectionViewWidth - (smallerItemWidth * (itemsForSection.count - 1));
 
   CGFloat width = (indexPath.row == 0) ? largeritemWidth : smallerItemWidth;
 

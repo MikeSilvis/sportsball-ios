@@ -24,6 +24,7 @@
   UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
 
   Team *team = [self.game teamFromDataName:[self summary]];
+
   if (team) {
     self.score.text = team.name;
     self.score.textAlignment = NSTextAlignmentLeft;
