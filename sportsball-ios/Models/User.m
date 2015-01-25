@@ -36,8 +36,8 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   return self;
 }
 
-- (void)setLastOpenedLeagueIindex:(NSNumber *)lastOpenedLeague {
-  _lastOpenedLeagueIindex = lastOpenedLeague;
+- (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeague {
+  _lastOpenedLeagueIndex = lastOpenedLeague;
 
   [self syncUserDefaults];
 }
@@ -95,7 +95,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 - (void)syncUserDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  [defaults setObject:self.lastOpenedLeagueIindex forKey:lastOpenedLeagueKey];
+  [defaults setObject:self.lastOpenedLeagueIndex forKey:lastOpenedLeagueKey];
 
   if (self.favoriteTeams.count > 0) {
     [defaults setObject:self.favoriteTeams forKey:favoriteTeamsKey];
@@ -118,7 +118,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 - (void)setUserDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  _lastOpenedLeagueIindex = [defaults objectForKey:lastOpenedLeagueKey];
+  _lastOpenedLeagueIndex = [defaults objectForKey:lastOpenedLeagueKey];
   _favoriteTeams = [defaults objectForKey:favoriteTeamsKey] ? [defaults objectForKey:favoriteTeamsKey] : @{};
 
   // Retrieve leagues

@@ -11,9 +11,9 @@
 
 @implementation UIImage (FontAwesome)
 
-+(UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)color {
-  UIColor *hamburgerColor = [UIColor colorWithHexString:color];;
-  [icon addAttribute:NSForegroundColorAttributeName value:hamburgerColor];
++(UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)colorString {
+  UIColor *color = [UIColor colorWithHexString:colorString];;
+  [icon addAttribute:NSForegroundColorAttributeName value:color];
   return [icon imageWithSize:CGSizeMake(iconSize, iconSize)];
 }
 

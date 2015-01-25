@@ -45,6 +45,7 @@
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
 		117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */; };
+		11824D441A73062300DF0E05 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11824D431A73062300DF0E05 /* MessageUI.framework */; };
 		1189A3F61A31337E00575E07 /* ScoreDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3F51A31337E00575E07 /* ScoreDetailCollectionViewCell.m */; };
 		1189A3F81A31338A00575E07 /* ScoreDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3F71A31338A00575E07 /* ScoreDetailCollectionViewCell.xib */; };
 		1189A3FB1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3FA1A31377F00575E07 /* ScoreDetailInfoCollectionViewCell.m */; };
@@ -144,6 +145,7 @@
 		116591E71A156F2C00016D90 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
 		117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SBDateWithYear.h"; sourceTree = "<group>"; };
 		117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SBDateWithYear.m"; sourceTree = "<group>"; };
+		11824D431A73062300DF0E05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1189A3F41A31337E00575E07 /* ScoreDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		1189A3F51A31337E00575E07 /* ScoreDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		1189A3F71A31338A00575E07 /* ScoreDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11824D441A73062300DF0E05 /* MessageUI.framework in Frameworks */,
 				11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */,
 				E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */,
 				11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */,
@@ -205,6 +208,7 @@
 		07B475A5F1B88F143ED57614 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11824D431A73062300DF0E05 /* MessageUI.framework */,
 				17F32CCB664364F1DD9C1C6E /* libPods.a */,
 			);
 			name = Frameworks;

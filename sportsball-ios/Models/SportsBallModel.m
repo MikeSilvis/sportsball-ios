@@ -11,7 +11,7 @@
 
 @implementation SportsBallModel
 
-static NSString * const serverURL = @"https://getbaryab.com/api/%@";
+static NSString * const serverURL = @"https://api.jumbotron.io/%@";
 //static NSString * const serverURL = @"http://localhost:3000/api/%@";
 
 -(id)initWithJson:(id)json {

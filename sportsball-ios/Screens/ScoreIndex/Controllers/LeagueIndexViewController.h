@@ -13,8 +13,10 @@
 #import "SportsBallModalViewController.h"
 #import "SportsBallViewController.h"
 #import "LeagueIndexHeader.h"
+#import <MessageUI/MessageUI.h> 
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface LeagueIndexViewController : SportsBallViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate, SportsBallModalDelegate>
+@interface LeagueIndexViewController : SportsBallViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, ScoreIndexViewDelegate, SportsBallModalDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -24,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
 @property (nonatomic, strong) Game *selectedGame;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+@property (weak, nonatomic) IBOutlet UIButton *supportButton;
+- (IBAction)supportRequestClicked:(id)sender;
 
 - (IBAction)didRequestClose:(id)sender;
 

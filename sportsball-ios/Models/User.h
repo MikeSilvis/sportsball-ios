@@ -13,7 +13,7 @@
 @interface User : SportsBallModel
 
 @property (nonatomic, strong) League *lastOpenedLeague;
-@property (nonatomic, copy) NSNumber *lastOpenedLeagueIindex;
+@property (nonatomic, copy) NSNumber *lastOpenedLeagueIndex;
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, copy) NSDictionary *favoriteTeams;
 

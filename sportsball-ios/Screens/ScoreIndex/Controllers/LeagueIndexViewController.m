@@ -72,14 +72,24 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
                                                name:UIApplicationDidBecomeActiveNotification
                                              object:nil];
   [self openAtLastSelectedIndex];
+  [self buildHelpIcon];
+}
+
+-(void)buildHelpIcon {
+  CGFloat iconSize = 30;
+  FAKFontAwesome *questionImage = [FAKFontAwesome questionCircleIconWithSize:iconSize];
+  [self.supportButton setImage:[UIImage imageWithFontAwesomeIcon:questionImage andSize:iconSize andColor:@"#fffff"] forState:UIControlStateNormal];
+  [self.supportButton setTitle:@"" forState:UIControlStateNormal];
+  [self.supportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [self.supportButton setTintColor:[UIColor whiteColor]];
 }
 
 -(void)openAtLastSelectedIndex {
-  if (![User currentUser].lastOpenedLeagueIindex) {
+  if (![User currentUser].lastOpenedLeagueIndex) {
     return;
   }
 
-  int openedIndex = [[User currentUser].lastOpenedLeagueIindex intValue];
+  int openedIndex = [[User currentUser].lastOpenedLeagueIndex intValue];
 
   if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
@@ -114,7 +124,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
-    [User currentUser].lastOpenedLeagueIindex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
+    [User currentUser].lastOpenedLeagueIndex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
     [User currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
@@ -126,13 +136,34 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   }
 }
 
+- (IBAction)supportRequestClicked:(id)sender {
+  if ([MFMailComposeViewController canSendMail]) {
+    MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+    mailCont.mailComposeDelegate = self;
+
+    [mailCont setSubject:@"Hello!"];
+    [mailCont setToRecipients:[NSArray arrayWithObject:@"mike@jumbotron.io"]];
+
+    [self presentViewController:mailCont animated:YES completion:^{
+      [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }];
+  }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+  [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)didRequestClose:(id)sender {
+  [User currentUser].lastOpenedLeague = nil;
+  [User currentUser].lastOpenedLeagueIndex = nil;
   [self closeWindow];
 }
 
 -(void)closeWindow {
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
+  self.supportButton.hidden = NO;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
 }
 
@@ -141,6 +172,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
     if (completed) {
       self.pageControl.hidden = NO;
       self.toolBar.hidden = NO;
+      self.supportButton.hidden = YES;
     }
   } animated:animated];
 }
