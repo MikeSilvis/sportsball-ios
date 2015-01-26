@@ -14,14 +14,14 @@
 
 @implementation LeagueLoadingViewController
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
   [super viewDidLoad];
 
   [self didStartLoading];
   
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
   if ([User currentUser].leagues) {
@@ -29,7 +29,7 @@
   }
 }
 
--(void)requestLeagues {
+- (void)requestLeagues {
   [League getSupportedLeagues:^(NSArray *leagues) {
     self.leagues = leagues;
   } failure:^(NSError *error) {
@@ -37,13 +37,13 @@
   }];
 }
 
--(void)setLeagues:(NSArray *)leagues {
+- (void)setLeagues:(NSArray *)leagues {
   _leagues = leagues;
 
   [self performSegueWithIdentifier:@"leagueIndexSegue" sender:self];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{ 
+- (UIStatusBarStyle)preferredStatusBarStyle{
   return UIStatusBarStyleLightContent;
 }
 

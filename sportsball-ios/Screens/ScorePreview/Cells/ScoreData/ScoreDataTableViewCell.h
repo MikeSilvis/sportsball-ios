@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *elements;
 
-+(CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width;
++ (CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width;
 
 @end

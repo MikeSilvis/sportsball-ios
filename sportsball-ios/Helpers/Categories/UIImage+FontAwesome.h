@@ -12,6 +12,6 @@
 
 @interface UIImage (FontAwesome)
 
-+(UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)colorString;
++ (UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)colorString;
 
 @end

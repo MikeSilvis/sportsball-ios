@@ -11,7 +11,7 @@
 
 @implementation UIImage (FontAwesome)
 
-+(UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)colorString {
++ (UIImage *)imageWithFontAwesomeIcon:(FAKFontAwesome *)icon andSize:(CGFloat)iconSize andColor:(NSString *)colorString {
   UIColor *color = [UIColor colorWithHexString:colorString];;
   [icon addAttribute:NSForegroundColorAttributeName value:color];
   return [icon imageWithSize:CGSizeMake(iconSize, iconSize)];

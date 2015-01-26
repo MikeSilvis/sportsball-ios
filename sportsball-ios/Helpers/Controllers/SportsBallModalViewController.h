@@ -13,7 +13,7 @@
 
 @protocol SportsBallModalDelegate <NSObject>
 
--(void)dismissedModal;
+- (void)dismissedModal;
 
 @end
 
@@ -23,6 +23,6 @@
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (nonatomic, strong) Game *game;
 
--(void)openURL:(NSURL *)url;
+- (void)openURL:(NSURL *)url;
 
 @end

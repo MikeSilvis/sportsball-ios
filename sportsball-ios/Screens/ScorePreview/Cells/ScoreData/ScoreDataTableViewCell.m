@@ -25,14 +25,14 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
        forCellReuseIdentifier:scoreDataInfoViewCell];
 }
 
--(void)setGame:(Game *)game {
+- (void)setGame:(Game *)game {
   _game = game;
 
   _elements = nil;
   [self.tableView reloadData];
 }
 
--(NSArray *)elements {
+- (NSArray *)elements {
   if (!_elements) {
     _elements = [self.class calculateElements:self.game];
   }
@@ -40,7 +40,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   return _elements;
 }
 
-+(NSArray *)calculateElements:(Game *)game {
++ (NSArray *)calculateElements:(Game *)game {
   NSMutableArray *localElements = [NSMutableArray array];
 
   if (game.startTime) {
@@ -78,7 +78,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
 
 #pragma mark - Table Methods
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ScoreDataInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDataInfoViewCell forIndexPath:indexPath];
   NSArray *currentElement = self.elements[indexPath.row];
 
@@ -88,23 +88,23 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return cellRowHeight;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return [self.class numOfRows:self.game];
 }
 
 #pragma mark - Measure
 
-+(CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width {
   CGFloat height = [self numOfRows:game] * cellRowHeight;
 
   return CGSizeMake(width, height);
 }
 
-+(NSUInteger)numOfRows:(Game *)game {
++ (NSUInteger)numOfRows:(Game *)game {
   return [[self calculateElements:game] count];
 }
 

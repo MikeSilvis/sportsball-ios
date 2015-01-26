@@ -28,13 +28,13 @@
   [self.view sendSubviewToBack:self.blurView];
 }
 
--(void)viewWillLayoutSubviews {
+- (void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
 
   self.blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
--(void)openURL:(NSURL *)url {
+- (void)openURL:(NSURL *)url {
   if (!url) {
     return;
   }

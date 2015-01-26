@@ -12,7 +12,7 @@
 
 @implementation ContentTableViewCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
@@ -21,7 +21,7 @@
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
--(void)setRecap:(Recap *)recap {
+- (void)setRecap:(Recap *)recap {
   _recap = recap;
 
   self.headline.text = self.recap.headline;
@@ -37,7 +37,7 @@
   }
 }
 
--(void)setPreview:(Preview *)preview {
+- (void)setPreview:(Preview *)preview {
   _preview = preview;
 
   self.headline.text = self.preview.headline;
@@ -52,7 +52,7 @@
   }
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
   [super layoutSubviews];
 
   // TODO: Add support for images in preview
@@ -70,7 +70,7 @@
   }
 }
 
-+(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
   CGFloat height = resource.isOver ? 300 : 80;
 
   if (resource.hasPreviewOrRecap) {

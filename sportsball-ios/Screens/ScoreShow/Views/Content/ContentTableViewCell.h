@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 
-+(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width;
++ (CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width;
 
 @end

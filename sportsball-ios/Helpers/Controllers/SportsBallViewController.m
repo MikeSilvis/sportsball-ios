@@ -11,12 +11,12 @@
 
 @implementation SportsBallViewController
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
   [super viewDidLoad];
   self.view.layer.contents = (id)[UIImage imageNamed:@"background"].CGImage;
 }
 
--(void)didStartLoading {
+- (void)didStartLoading {
   [self.view showRealTimeBlurWithBlurStyle:XHBlurStyleTranslucent];
 
   if (!self.activityView) {
@@ -32,7 +32,7 @@
   self.activityView.hidden = NO;
 }
 
--(void)didEndLoading {
+- (void)didEndLoading {
   [self.view disMissRealTimeBlur];
 
   if (self.activityView) {

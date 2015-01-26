@@ -16,7 +16,7 @@
 
 @implementation SportsBallTableViewCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   // Seperator
@@ -26,7 +26,7 @@
   [self addSubview:self.separatorLineView];
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
   [super layoutSubviews];
 
   CGFloat height = 0.5f;

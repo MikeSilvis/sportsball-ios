@@ -77,17 +77,17 @@ static const NSInteger scheduleCellLocation   = 0;
   [self.homeTeamLogo addGestureRecognizer:homeTap];
 }
 
--(void)clickedAwayLogo{
+- (void)clickedAwayLogo{
   [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
   [self changedTeam:self.game.awayTeam];
 }
 
--(void)clickedHomeLogo {
+- (void)clickedHomeLogo {
   [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
   [self changedTeam:self.game.homeTeam];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
   if (!self.game.previewId) {
@@ -101,7 +101,7 @@ static const NSInteger scheduleCellLocation   = 0;
   [self setHeaderInfo];
 }
 
--(void)findPreview {
+- (void)findPreview {
   [self.game findPreview:nil success:^(Preview *preview) {
     self.game.preview = preview;
 
@@ -111,18 +111,18 @@ static const NSInteger scheduleCellLocation   = 0;
   }];
 }
 
--(void)setDataLoaded {
+- (void)setDataLoaded {
   self.shouldRenderTable = YES;
   self.loadingIndicator.hidden = YES;
   [self.tableView reloadData];
 }
 
--(void)closeModal {
+- (void)closeModal {
   [self dismissViewControllerAnimated:YES completion:nil];
   [self.delegate dismissedModal];
 }
 
--(void)setGame:(Game *)game {
+- (void)setGame:(Game *)game {
   [super setGame:game];
 
   self.currentTeamSchedule = self.game.awayTeam;
@@ -130,7 +130,7 @@ static const NSInteger scheduleCellLocation   = 0;
   [self setHeaderInfo];
 }
 
--(void)setHeaderInfo {
+- (void)setHeaderInfo {
   Team *homeTeam = self.game.homeTeam;
   [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamRecord.text = homeTeam.record;
@@ -142,7 +142,7 @@ static const NSInteger scheduleCellLocation   = 0;
   self.awayTeamName.text = awayTeam.name;
 }
 
--(void)changedTeam:(Team *)updatedTeam {
+- (void)changedTeam:(Team *)updatedTeam {
   self.currentTeamSchedule = updatedTeam;
 
   [self.tableView reloadData];
@@ -150,11 +150,11 @@ static const NSInteger scheduleCellLocation   = 0;
 
 #pragma mark - Table View
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 2;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if (!self.shouldRenderTable) {
     return 0;
   }
@@ -167,7 +167,7 @@ static const NSInteger scheduleCellLocation   = 0;
   }
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 0) {
     if (indexPath.row == scoreRecapViewLocation) {
       ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreContentCell forIndexPath:indexPath];
@@ -195,7 +195,7 @@ static const NSInteger scheduleCellLocation   = 0;
   return nil;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   if (!self.shouldRenderTable) {
     return nil;
   }
@@ -212,7 +212,7 @@ static const NSInteger scheduleCellLocation   = 0;
   return nil;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 0 ) {
     if (indexPath.row == scoreRecapViewLocation) {
       [self openURL:self.game.preview.url];
@@ -220,7 +220,7 @@ static const NSInteger scheduleCellLocation   = 0;
   }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   if (!self.shouldRenderTable) {
     return 0;
   }
@@ -232,7 +232,7 @@ static const NSInteger scheduleCellLocation   = 0;
   return 0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   CGFloat width = self.view.bounds.size.width;
 
   if (indexPath.section == 0) {

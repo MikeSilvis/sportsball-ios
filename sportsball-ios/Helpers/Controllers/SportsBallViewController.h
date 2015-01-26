@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
--(void)didStartLoading;
--(void)didEndLoading;
+- (void)didStartLoading;
+- (void)didEndLoading;
 
 @end

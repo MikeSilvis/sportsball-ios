@@ -70,7 +70,6 @@
 		11BA1C541A65B118005C61AB /* ScheduleInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C531A65B118005C61AB /* ScheduleInfoTableViewCell.m */; };
 		11BB2B171A03F8F10059B4C1 /* LeagueHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */; };
 		11BB2B1C1A03FC430059B4C1 /* LeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */; };
-		11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BCD67D1A424932009516A6 /* UIImage+Resize.m */; };
 		E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F32CCB664364F1DD9C1C6E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -183,8 +182,6 @@
 		11BB2B151A03F8F10059B4C1 /* LeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* LeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueHeader.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* LeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueHeader.xib; sourceTree = "<group>"; };
-		11BCD67C1A424932009516A6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		11BCD67D1A424932009516A6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		17F32CCB664364F1DD9C1C6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3DD2F7CF6680422AFFC35B4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,8 +218,6 @@
 				1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */,
 				117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */,
 				117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */,
-				11BCD67C1A424932009516A6 /* UIImage+Resize.h */,
-				11BCD67D1A424932009516A6 /* UIImage+Resize.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -767,7 +762,6 @@
 				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
 				119909201A4F535B00F2ED1B /* SportsBallViewController.m in Sources */,
 				1149A6A21A49B04300928ECA /* ContentTableViewCell.m in Sources */,
-				11BCD67E1A424932009516A6 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
