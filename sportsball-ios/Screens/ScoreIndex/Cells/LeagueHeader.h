@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "League.h"
+#import "SBLeague.h"
 
 
 @protocol LeagueHeaderProtocal <NSObject>
@@ -24,7 +24,7 @@
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
 
-@property (nonatomic, strong) League *currentLeague;
+@property (nonatomic, strong) SBLeague *currentLeague;
 
 @property (nonatomic, weak) id<LeagueHeaderProtocal> delegate;
 

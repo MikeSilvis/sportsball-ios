@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SportsBallModel.h"
+#import "SBModel.h"
 
-@interface Team : SportsBallModel
+@interface SBTeam : SBModel
 
 @property (nonatomic, strong) NSURL *logoUrl;
 @property (nonatomic, strong) NSString *name;

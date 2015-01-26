@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *scoreViews;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
-@property (nonatomic, strong) Game *selectedGame;
+@property (nonatomic, strong) SBGame *selectedGame;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 - (IBAction)supportRequestClicked:(id)sender;

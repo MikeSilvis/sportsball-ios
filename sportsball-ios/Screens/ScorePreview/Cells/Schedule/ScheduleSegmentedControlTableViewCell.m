@@ -29,14 +29,14 @@ static int headerHeight = 44;
   self.segmentedControl.frame = f;
 }
 
--(void)setGame:(Game *)game {
+-(void)setGame:(SBGame *)game {
   _game = game;
 
   [self.segmentedControl setTitle:self.game.awayTeam.name forSegmentAtIndex:awayIndex];
   [self.segmentedControl setTitle:self.game.homeTeam.name forSegmentAtIndex:homeIndex];
 }
 
--(void)setSelectedTeam:(Team *)selectedTeam {
+-(void)setSelectedTeam:(SBTeam *)selectedTeam {
   _selectedTeam = selectedTeam;
 
   if (self.selectedTeam.isAway) {
@@ -56,7 +56,7 @@ static int headerHeight = 44;
   }
 }
 
-+(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
++(CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width {
   return CGSizeMake(width, headerHeight);
 }
 

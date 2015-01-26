@@ -6,23 +6,23 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Boxscore.h"
+#import "SBBoxscore.h"
 
-@implementation Boxscore
+@implementation SBBoxscore
 
 - (id)initWithJson:(id)json {
-  Boxscore *boxscore = [[Boxscore alloc] init];
+  SBBoxscore *boxscore = [[SBBoxscore alloc] init];
 
   boxscore.scoreSummary = json[@"score_summary"];
 
   NSMutableArray *scoreDetails = [NSMutableArray array];
   for (id scoreDetail in json[@"score_detail"]) {
-    ScoreDetail *detail = [[ScoreDetail alloc] initWithJson:scoreDetail];
+    SBScoreDetail *detail = [[SBScoreDetail alloc] initWithJson:scoreDetail];
     [scoreDetails addObject:detail];
   }
 
   boxscore.scoreDetail = scoreDetails;
-  boxscore.recap = [[Recap alloc] initWithJson:json[@"recap"]];
+  boxscore.recap = [[SBRecap alloc] initWithJson:json[@"recap"]];
 
   return boxscore;
 }

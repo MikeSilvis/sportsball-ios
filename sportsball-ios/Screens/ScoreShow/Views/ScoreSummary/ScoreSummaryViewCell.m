@@ -9,7 +9,7 @@
 #import "ScoreSummaryViewCell.h"
 #import "ScoreSummaryInfoCollectionViewCell.h"
 #import "ScoreDetailHeaderCollectionViewCell.h"
-#import "Team.h"
+#import "SBTeam.h"
 
 @implementation ScoreSummaryViewCell
 
@@ -31,7 +31,7 @@ static int const cellPaddingHeight = 10;
   return CGSizeMake(width, (resource.count * cellRowHeight) + cellPaddingHeight);
 }
 
-- (void)setGame:(Game *)game {
+- (void)setGame:(SBGame *)game {
   _game = game;
 
   self.scoreSummary = self.game.boxscore.scoreSummary;

@@ -7,7 +7,7 @@
 //
 
 #import "ScoreDetailCollectionViewCell.h"
-#import "ScoreDetail.h"
+#import "SBScoreDetail.h"
 #import "ScoreDetailInfoCollectionViewCell.h"
 #import "ScoreDetailHeaderCollectionViewCell.h"
 
@@ -37,7 +37,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
   CGFloat height = 20;
 
-  for (ScoreDetail *scoreDetail in resource) {
+  for (SBScoreDetail *scoreDetail in resource) {
     // Header Size
     height = height + cellRowHeaderHeight;
 
@@ -65,7 +65,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  ScoreDetail *scoreDetail = self.scoreDetails[section];
+  SBScoreDetail *scoreDetail = self.scoreDetails[section];
 
   return scoreDetail.contentInfo.count;
 }
@@ -73,7 +73,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ScoreDetailInfoCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailInfoCell forIndexPath:indexPath];
 
-  ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
+  SBScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
   cell.game = self.game;
   cell.contentInfo = scoreDetail.contentInfo[indexPath.row];
 
@@ -83,7 +83,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:scoreDetailHeaderCell];
 
-  ScoreDetail *scoreDetail = self.scoreDetails[section];
+  SBScoreDetail *scoreDetail = self.scoreDetails[section];
   cell.label.text = scoreDetail.headerInfo;
 
   return cell;

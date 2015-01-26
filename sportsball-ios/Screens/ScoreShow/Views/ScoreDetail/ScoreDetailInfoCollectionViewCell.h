@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScoreDetail.h"
-#import "Game.h"
+#import "SBScoreDetail.h"
+#import "SBGame.h"
 
 @interface ScoreDetailInfoCollectionViewCell : UITableViewCell
 
@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 
 @property (nonatomic, strong) NSArray *contentInfo;
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) SBGame *game;
 
 @end

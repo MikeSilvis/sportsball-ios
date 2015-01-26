@@ -11,8 +11,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "EDColor.h"
-#import "User.h"
-#import "League.h"
+#import "SBUser.h"
+#import "SBLeague.h"
 
 @interface AppDelegate ()
 
@@ -34,9 +34,9 @@
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
   NSString *initialViewId;
-  if ([User currentUser].leagues.count > 0) {
+  if ([SBUser currentUser].leagues.count > 0) {
     initialViewId = @"leagueIndexViewController";
-    [League getSupportedLeagues:nil failure:nil];
+    [SBLeague getSupportedLeagues:nil failure:nil];
   }
   else {
     initialViewId = @"leagueLoadingViewController";

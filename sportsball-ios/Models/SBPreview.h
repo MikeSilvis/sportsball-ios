@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SportsBallModel.h"
-#import "Team.h"
-#import "League.h"
+#import "SBModel.h"
+#import "SBTeam.h"
+#import "SBLeague.h"
 
-@interface Preview : SportsBallModel
+@interface SBPreview : SBModel
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *headline;
@@ -23,6 +23,6 @@
 @property (nonatomic, strong) NSArray *homeTeamSchedule;
 @property (nonatomic, strong) NSArray *awayTeamSchedule;
 
-- (NSArray *)scheduleForTeam:(Team *)team;
+- (NSArray *)scheduleForTeam:(SBTeam *)team;
 
 @end

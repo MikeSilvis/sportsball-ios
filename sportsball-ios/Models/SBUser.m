@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "User.h"
-#import "League.h"
+#import "SBUser.h"
+#import "SBLeague.h"
 
 static NSString *lastOpenedLeagueKey = @"lastOpenedLeague";
 static NSString *allLeagues = @"allLeagues";
 static NSString *favoriteTeamsKey = @"favoriteTeams";
 
-@implementation User
+@implementation SBUser
 
-+ (User *)currentUser {
-  static User *currentUser = nil;
++ (SBUser *)currentUser {
+  static SBUser *currentUser = nil;
 
   @synchronized(self) {
     if (currentUser == nil)
@@ -48,11 +48,11 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   [self syncUserDefaults];
 }
 
-- (void)appendFavoriteTeams:(Team *)homeTeam andTeam:(Team *)awayTeam andLeague:(NSString *)league {
+- (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
   NSMutableDictionary *favoriteTeams = [NSMutableDictionary dictionaryWithDictionary:self.favoriteTeams];
   NSMutableDictionary *leagueFavoriteTeams = favoriteTeams[league] ? [NSMutableDictionary dictionaryWithDictionary:favoriteTeams[league]] : [NSMutableDictionary dictionary];
 
-  for (Team *team in @[homeTeam, awayTeam]) {
+  for (SBTeam *team in @[homeTeam, awayTeam]) {
     NSNumber *teamFavoriteCount = (NSNumber *)leagueFavoriteTeams[team.dataName];
     if (teamFavoriteCount) {
       leagueFavoriteTeams[team.dataName] = [NSNumber numberWithInt:([teamFavoriteCount intValue] + 1)];
@@ -67,7 +67,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   [self syncUserDefaults];
 }
 
-- (NSString *)favoriteTeam:(League *)league {
+- (NSString *)favoriteTeam:(SBLeague *)league {
   NSDictionary *teams = self.favoriteTeams[league.name];
 
   if (self.favoriteTeams && teams) {
@@ -103,7 +103,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 
   // Set Leagues
   NSMutableArray *encodedLeagues = [NSMutableArray array];
-  for (League *league in self.leagues) {
+  for (SBLeague *league in self.leagues) {
     NSData *encodedNewLeague = [NSKeyedArchiver archivedDataWithRootObject:league];
     [encodedLeagues addObject:encodedNewLeague];
   }
@@ -125,7 +125,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   NSArray *encodedLeagues = [defaults objectForKey:allLeagues];
   NSMutableArray *leagues = [NSMutableArray array];
   for (NSData *encodedLeague in encodedLeagues) {
-      League *league = (League *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
+      SBLeague *league = (SBLeague *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
       [leagues addObject:league];
   }
 

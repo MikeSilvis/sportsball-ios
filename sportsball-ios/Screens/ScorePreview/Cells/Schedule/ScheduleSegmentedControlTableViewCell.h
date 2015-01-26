@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 
 @protocol ScheduleSegmentedControlTableViewCellProtocol <NSObject>
 
--(void)changedTeam:(Team *)updatedTeam;
+-(void)changedTeam:(SBTeam *)updatedTeam;
 
 @end
 
@@ -19,10 +19,10 @@
 
 - (IBAction)indexChanged:(UISegmentedControl *)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-@property (nonatomic, strong) Game *game;
-@property (nonatomic, strong) Team *selectedTeam;
+@property (nonatomic, strong) SBGame *game;
+@property (nonatomic, strong) SBTeam *selectedTeam;
 
-+(CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width;
++(CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width;
 @property (nonatomic, assign) id<ScheduleSegmentedControlTableViewCellProtocol> delegate;
 
 @end

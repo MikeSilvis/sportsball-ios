@@ -13,7 +13,7 @@
 #import "UIImage+Blur.h"
 #import "NSDate+SBDateWithYear.h"
 #import "UIImage+FontAwesome.h"
-#import "User.h"
+#import "SBUser.h"
 
 @implementation ScoreIndexView
 
@@ -51,7 +51,7 @@ static CGFloat const headerSize = 74;
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)setLeague:(League *)league {
+- (void)setLeague:(SBLeague *)league {
   _league = league;
 
   [self setUpDatePicker];
@@ -94,7 +94,7 @@ static CGFloat const headerSize = 74;
 - (void)setGames:(NSArray *)games {
   NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
 
-  games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(Game *game1, Game *game2) {
+  games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(SBGame *game1, SBGame *game2) {
     int game1Score = [game1 favoriteScore];
     int game2Score = [game2 favoriteScore];
 
@@ -116,7 +116,7 @@ static CGFloat const headerSize = 74;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  Game *selectedGame = self.games[indexPath.row];
+  SBGame *selectedGame = self.games[indexPath.row];
 
   [self.delegate selectedGame:selectedGame];
 }
@@ -130,7 +130,7 @@ static CGFloat const headerSize = 74;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  Game *currentGame = self.games[indexPath.row];
+  SBGame *currentGame = self.games[indexPath.row];
   GameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:gameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;
 

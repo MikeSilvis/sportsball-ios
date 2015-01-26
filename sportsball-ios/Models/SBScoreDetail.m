@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "ScoreDetail.h"
+#import "SBScoreDetail.h"
 
-@implementation ScoreDetail
+@implementation SBScoreDetail
 
 - (id)initWithJson:(id)json {
   self = [super init];

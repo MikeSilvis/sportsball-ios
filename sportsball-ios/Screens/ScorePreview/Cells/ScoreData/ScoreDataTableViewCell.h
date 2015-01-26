@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 
 @interface ScoreDataTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) SBGame *game;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *elements;
 
-+ (CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width;
++ (CGSize)measureCellSizeWithResource:(SBGame *)game andWidth:(CGFloat)width;
 
 @end

@@ -20,7 +20,7 @@
   _contentInfo = contentInfo;
 
   NSString *teamDataName = self.contentInfo[0];
-  Team *currentTeam = [self.game teamFromDataName:teamDataName];
+  SBTeam *currentTeam = [self.game teamFromDataName:teamDataName];
   [self.teamLogo setImageWithURL:[currentTeam imageURL:currentTeam.logoUrl withSize:@"42x42"]];
 
   self.time.text = self.contentInfo[1];

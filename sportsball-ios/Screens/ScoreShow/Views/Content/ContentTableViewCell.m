@@ -21,7 +21,7 @@
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setRecap:(Recap *)recap {
+- (void)setRecap:(SBRecap *)recap {
   _recap = recap;
 
   self.headline.text = self.recap.headline;
@@ -37,7 +37,7 @@
   }
 }
 
-- (void)setPreview:(Preview *)preview {
+- (void)setPreview:(SBPreview *)preview {
   _preview = preview;
 
   self.headline.text = self.preview.headline;
@@ -70,7 +70,7 @@
   }
 }
 
-+ (CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width {
   CGFloat height = resource.isOver ? 300 : 80;
 
   if (resource.hasPreviewOrRecap) {

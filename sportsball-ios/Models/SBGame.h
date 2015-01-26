@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SportsBallModel.h"
-#import "Team.h"
-#import "Boxscore.h"
-#import "Preview.h"
+#import "SBModel.h"
+#import "SBTeam.h"
+#import "SBBoxscore.h"
+#import "SBPreview.h"
 
-@interface Game : SportsBallModel
+@interface SBGame : SBModel
 
-@property (nonatomic, strong) Team *awayTeam;
-@property (nonatomic, strong) Team *homeTeam;
-@property (nonatomic, strong) Boxscore *boxscore;
-@property (nonatomic, strong) Preview *preview;
+@property (nonatomic, strong) SBTeam *awayTeam;
+@property (nonatomic, strong) SBTeam *homeTeam;
+@property (nonatomic, strong) SBBoxscore *boxscore;
+@property (nonatomic, strong) SBPreview *preview;
 
 @property (nonatomic, strong) NSString *leagueName;
 
@@ -36,8 +36,8 @@
 @property (nonatomic, strong) NSString *endedIn;
 @property (nonatomic, strong) NSDate *startTime;
 
-- (Team *)winningTeam;
-- (Team *)teamFromDataName:(NSString *)dataName;
+- (SBTeam *)winningTeam;
+- (SBTeam *)teamFromDataName:(NSString *)dataName;
 
 - (BOOL)isOver;
 - (BOOL)isInProgress;
@@ -50,10 +50,10 @@
 - (int)favoriteScore;
 
 - (void)findBoxscore:(NSDictionary *)paramaters
-            success:(void (^) (Boxscore *))success
+            success:(void (^) (SBBoxscore *))success
             failure:(void (^) (NSError *error))failure;
 
 - (void)findPreview:(NSDictionary *)paramaters
-            success:(void (^) (Preview *))success
+            success:(void (^) (SBPreview *))success
             failure:(void (^) (NSError *error))failure;
 @end

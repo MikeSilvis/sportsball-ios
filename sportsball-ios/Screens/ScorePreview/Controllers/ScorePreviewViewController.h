@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SportsBallModalViewController.h"
-#import "Game.h"
+#import "SBGame.h"
 #import "ZFModalTransitionAnimator.h"
 #import "ScheduleSegmentedControlTableViewCell.h"
 
@@ -26,6 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamName;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamName;
 
-@property (nonatomic, strong) Team *currentTeamSchedule;
+@property (nonatomic, strong) SBTeam *currentTeamSchedule;
 
 @end

@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SportsBallModel.h"
-#import "Team.h"
+#import "SBModel.h"
+#import "SBTeam.h"
 
-@interface Schedule : SportsBallModel
+@interface SBSchedule : SBModel
 
-@property (nonatomic, strong) Team *opponent;
+@property (nonatomic, strong) SBTeam *opponent;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSString *result;

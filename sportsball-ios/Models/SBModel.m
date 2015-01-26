@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SportsBallModel.h"
+#import "SBModel.h"
 #import <objc/runtime.h>
 
-@implementation SportsBallModel
+@implementation SBModel
 
 static NSString * const serverURL = @"https://api.jumbotron.io/%@";
 //static NSString * const serverURL = @"http://localhost:3000/api/%@";

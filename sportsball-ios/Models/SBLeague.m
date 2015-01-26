@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "League.h"
-#import "Game.h"
+#import "SBLeague.h"
+#import "SBGame.h"
 #import "UIImage+Blur.h"
 #import "XHRealTimeBlur.h"
 #import "NSDate+SBDateWithYear.h"
-#import "User.h"
+#import "SBUser.h"
 
-@implementation League
+@implementation SBLeague
 
 static NSString *leaguesKey = @"allLeagues";
 
@@ -47,7 +47,7 @@ static NSString *leaguesKey = @"allLeagues";
     }
     self.blurredHeaders = blurredHeaderURLS;
 
-    NSString *favoriteTeamName = [[User currentUser] favoriteTeam:self];
+    NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
     if (favoriteTeamName && self.blurredHeaders[favoriteTeamName]) {
       self.header = self.headers[favoriteTeamName];
       self.blurredHeader = self.blurredHeaders[favoriteTeamName];
@@ -66,9 +66,9 @@ static NSString *leaguesKey = @"allLeagues";
 
   bool alreadyReturned = NO;
 
-  if ([User currentUser].leagues.count > 0) {
+  if ([SBUser currentUser].leagues.count > 0) {
     if (success) {
-      success([User currentUser].leagues);
+      success([SBUser currentUser].leagues);
     }
     alreadyReturned = YES;
   }
@@ -77,11 +77,11 @@ static NSString *leaguesKey = @"allLeagues";
     NSMutableArray *leagues = [NSMutableArray array];
 
     for (id league in responseObject[@"leagues"]) {
-      League *newLeague = [[League alloc] initWithJson:league];
+      SBLeague *newLeague = [[SBLeague alloc] initWithJson:league];
       [leagues addObject:newLeague];
     }
 
-    [User currentUser].leagues = leagues;
+    [SBUser currentUser].leagues = leagues;
 
     if (!alreadyReturned && success) {
       success(leagues);
@@ -112,7 +112,7 @@ static NSString *leaguesKey = @"allLeagues";
     NSMutableArray *games = [NSMutableArray array];
 
     for (id score in responseObject[@"scores"]) {
-        Game *newGame = [[Game alloc] initWithJson:score];
+        SBGame *newGame = [[SBGame alloc] initWithJson:score];
         [games addObject:newGame];
     }
 

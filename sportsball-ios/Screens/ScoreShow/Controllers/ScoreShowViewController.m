@@ -69,7 +69,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
 }
 
 -(void)findBoxscore {
-  [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
+  [self.game findBoxscore:nil success:^(SBBoxscore *boxscore) {
     self.game.boxscore = boxscore;
     self.loadingIndicator.hidden = YES;
 
@@ -79,7 +79,7 @@ static const NSInteger scoreDetailViewLocation  = 2;
   }];
 }
 
--(void)setGame:(Game *)game {
+-(void)setGame:(SBGame *)game {
   [super setGame:game];
 
   [self.tableView reloadData];
@@ -88,11 +88,11 @@ static const NSInteger scoreDetailViewLocation  = 2;
 }
 
 -(void)setHeaderInfo {
-  Team *homeTeam = self.game.homeTeam;
+  SBTeam *homeTeam = self.game.homeTeam;
   [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
 
-  Team *awayTeam = self.game.awayTeam;
+  SBTeam *awayTeam = self.game.awayTeam;
   [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamScore.text = self.game.awayScoreString;
 }

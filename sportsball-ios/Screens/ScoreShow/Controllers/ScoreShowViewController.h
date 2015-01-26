@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
-#import "Boxscore.h"
+#import "SBGame.h"
+#import "SBBoxscore.h"
 #import "SportsBallModalViewController.h"
 
 @interface ScoreShowViewController : SportsBallModalViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) Boxscore *boxscore;
+@property (nonatomic, strong) SBBoxscore *boxscore;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

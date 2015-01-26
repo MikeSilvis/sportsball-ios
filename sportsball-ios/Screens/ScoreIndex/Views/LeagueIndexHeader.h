@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "League.h"
+#import "SBLeague.h"
 
 @interface LeagueIndexHeader : UIView
 
-@property (nonatomic, strong) League *league;
+@property (nonatomic, strong) SBLeague *league;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 

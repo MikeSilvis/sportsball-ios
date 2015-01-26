@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "Schedule.h"
+#import "SBSchedule.h"
 
-@implementation Schedule
+@implementation SBSchedule
 
 - (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
-    self.opponent   = [[Team alloc] initWithJson:json[@"opponent"]];
+    self.opponent   = [[SBTeam alloc] initWithJson:json[@"opponent"]];
     self.date       = [self.dateFormatter dateFromString:json[@"date"]];
     self.startTime  = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
     self.result     = json[@"result"];

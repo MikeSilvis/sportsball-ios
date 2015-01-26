@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Schedule.h"
+#import "SBSchedule.h"
 
 @interface ScheduleInfoTableViewCell : UITableViewCell
 
@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *team;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *winOrLoss;
-@property (nonatomic, strong) Schedule *schedule;
+@property (nonatomic, strong) SBSchedule *schedule;
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 

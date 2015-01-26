@@ -7,7 +7,7 @@
 //
 
 #import "ScoreSummaryInfoCollectionViewCell.h"
-#import "Team.h"
+#import "SBTeam.h"
 
 @implementation ScoreSummaryInfoCollectionViewCell
 
@@ -17,13 +17,13 @@
   self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)setGame:(Game *)game {
+- (void)setGame:(SBGame *)game {
   _game = game;
 
   UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
   UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
 
-  Team *team = [self.game teamFromDataName:[self summary]];
+  SBTeam *team = [self.game teamFromDataName:[self summary]];
 
   if (team) {
     self.score.text = team.name;

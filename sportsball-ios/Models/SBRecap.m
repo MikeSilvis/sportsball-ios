@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Recap.h"
+#import "SBRecap.h"
 
-@implementation Recap
+@implementation SBRecap
 
 - (id)initWithJson:(id)json {
   self = [super init];

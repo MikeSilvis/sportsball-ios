@@ -7,13 +7,13 @@
 //
 
 #import "SportsBallTableViewCell.h"
-#import "Game.h"
+#import "SBGame.h"
 
 @interface ScoreSummaryViewCell : SportsBallTableViewCell <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *scoreSummary;
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) SBGame *game;
 
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width;
 

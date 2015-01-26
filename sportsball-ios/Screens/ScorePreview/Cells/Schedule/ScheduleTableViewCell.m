@@ -10,7 +10,7 @@
 #import "ScheduleInfoTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
 #import "Underscore.h"
-#import "User.h"
+#import "SBUser.h"
 #import "ScoreDetailHeaderCollectionViewCell.h"
 
 @implementation ScheduleTableViewCell
@@ -37,7 +37,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:scoreDetailHeaderCell];
 }
 
--(void)setCurrentTeam:(Team *)currentTeam {
+-(void)setCurrentTeam:(SBTeam *)currentTeam {
   _currentTeam = currentTeam;
 
   if (![self schedule]) {
@@ -68,7 +68,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  if ([[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
+  if ([[SBUser currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
     ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:scoreDetailHeaderCell];
     cell.label.text = [self.monthFormatter stringFromDate:[NSDate date]];
 
@@ -87,7 +87,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 +(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width {
   CGFloat height = 20;
 
-  if ([[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
+  if ([[SBUser currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {
     height = height + cellRowHeaderHeight;
   }
 

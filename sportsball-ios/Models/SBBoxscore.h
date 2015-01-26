@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SportsBallModel.h"
-#import "ScoreDetail.h"
-#import "Recap.h"
+#import "SBModel.h"
+#import "SBScoreDetail.h"
+#import "SBRecap.h"
 
-@interface Boxscore : SportsBallModel
+@interface SBBoxscore : SBModel
 
 @property (nonatomic, strong) NSArray *scoreSummary;
 @property (nonatomic, strong) NSArray *scoreDetail;
-@property (nonatomic, strong) Recap *recap;
+@property (nonatomic, strong) SBRecap *recap;
 
 @end

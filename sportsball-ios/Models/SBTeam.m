@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Team.h"
-#import "UIImage+Resize.h"
+#import "SBTeam.h"
 
-@implementation Team
+@implementation SBTeam
 
 - (id)initWithJson:(id)json {
   self = [super init];

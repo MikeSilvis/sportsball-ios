@@ -20,7 +20,7 @@
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
--(void)setSchedule:(Schedule *)schedule {
+-(void)setSchedule:(SBSchedule *)schedule {
   _schedule = schedule;
 
   [self.logo setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"60x60"]];

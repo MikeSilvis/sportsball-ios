@@ -7,9 +7,9 @@
 //
 
 #import "LeagueLoadingViewController.h"
-#import "League.h"
+#import "SBLeague.h"
 #import "LeagueIndexViewController.h"
-#import "User.h"
+#import "SBUser.h"
 #import <CSNotificationView.h>
 
 @implementation LeagueLoadingViewController
@@ -24,13 +24,13 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
-  if ([User currentUser].leagues) {
+  if ([SBUser currentUser].leagues) {
     [self requestLeagues];
   }
 }
 
 - (void)requestLeagues {
-  [League getSupportedLeagues:^(NSArray *leagues) {
+  [SBLeague getSupportedLeagues:^(NSArray *leagues) {
     self.leagues = leagues;
   } failure:^(NSError *error) {
     [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];

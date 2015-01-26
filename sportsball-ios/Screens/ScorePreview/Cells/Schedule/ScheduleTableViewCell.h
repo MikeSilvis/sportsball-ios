@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 
 @interface ScheduleTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) Game *game;
-@property (nonatomic, strong) Team *currentTeam;
+@property (nonatomic, strong) SBGame *game;
+@property (nonatomic, strong) SBTeam *currentTeam;
 @property (nonatomic, strong) NSDateFormatter *monthFormatter;
 
 +(CGSize)measureCellSizeWithResource:(NSArray *)schedules andWidth:(CGFloat)width;

@@ -25,7 +25,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
        forCellReuseIdentifier:scoreDataInfoViewCell];
 }
 
-- (void)setGame:(Game *)game {
+- (void)setGame:(SBGame *)game {
   _game = game;
 
   _elements = nil;
@@ -40,7 +40,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   return _elements;
 }
 
-+ (NSArray *)calculateElements:(Game *)game {
++ (NSArray *)calculateElements:(SBGame *)game {
   NSMutableArray *localElements = [NSMutableArray array];
 
   if (game.startTime) {
@@ -58,7 +58,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
   }
 
   if (game.preview) {
-    Preview *preview = game.preview;
+    SBPreview *preview = game.preview;
     if (preview.channel) {
       [localElements addObject:@[
                                  @"Channel",
@@ -98,13 +98,13 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
 
 #pragma mark - Measure
 
-+ (CGSize)measureCellSizeWithResource:(Game *)game andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(SBGame *)game andWidth:(CGFloat)width {
   CGFloat height = [self numOfRows:game] * cellRowHeight;
 
   return CGSizeMake(width, height);
 }
 
-+ (NSUInteger)numOfRows:(Game *)game {
++ (NSUInteger)numOfRows:(SBGame *)game {
   return [[self calculateElements:game] count];
 }
 

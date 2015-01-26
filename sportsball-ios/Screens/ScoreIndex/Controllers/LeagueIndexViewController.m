@@ -8,10 +8,10 @@
 
 #import "LeagueIndexViewController.h"
 #import "LeagueIndexHeader.h"
-#import "League.h"
+#import "SBLeague.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
-#import "User.h"
+#import "SBUser.h"
 #import "SportsBallModalViewController.h"
 #import "ScoreShowViewController.h"
 #import "ScorePreviewViewController.h"
@@ -26,7 +26,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [super viewDidLoad];
 
   self.scoreViews = [NSMutableArray array];
-  self.leagues = [User currentUser].leagues;
+  self.leagues = [SBUser currentUser].leagues;
 
   // Create the table list
   self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
@@ -86,11 +86,11 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 - (void)openAtLastSelectedIndex {
-  if (![User currentUser].lastOpenedLeagueIndex) {
+  if (![SBUser currentUser].lastOpenedLeagueIndex) {
     return;
   }
 
-  int openedIndex = [[User currentUser].lastOpenedLeagueIndex intValue];
+  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
 
   if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
@@ -103,10 +103,10 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [self startTimer];
 }
 
-- (void)selectedGame:(Game *)game {
+- (void)selectedGame:(SBGame *)game {
   self.selectedGame = game;
 
-  [[User currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.leagueName];
+  [[SBUser currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.leagueName];
 
   if (game.isPregame) {
     [self performSegueWithIdentifier:scorePreviewSegue sender:self];
@@ -125,8 +125,8 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
-    [User currentUser].lastOpenedLeagueIndex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
-    [User currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
+    [SBUser currentUser].lastOpenedLeagueIndex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
+    [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
@@ -156,8 +156,8 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 }
 
 - (IBAction)didRequestClose:(id)sender {
-  [User currentUser].lastOpenedLeague = nil;
-  [User currentUser].lastOpenedLeagueIndex = nil;
+  [SBUser currentUser].lastOpenedLeague = nil;
+  [SBUser currentUser].lastOpenedLeagueIndex = nil;
   [self closeWindow];
 }
 

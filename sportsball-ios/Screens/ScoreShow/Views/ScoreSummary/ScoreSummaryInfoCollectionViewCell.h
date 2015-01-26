@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 
 @interface ScoreSummaryInfoCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *score;
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) SBGame *game;
 @property NSUInteger section;
 @property NSUInteger row;
 

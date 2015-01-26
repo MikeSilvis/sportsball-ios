@@ -102,7 +102,7 @@ static const NSInteger scheduleCellLocation   = 0;
 }
 
 - (void)findPreview {
-  [self.game findPreview:nil success:^(Preview *preview) {
+  [self.game findPreview:nil success:^(SBPreview *preview) {
     self.game.preview = preview;
 
     [self setDataLoaded];
@@ -122,7 +122,7 @@ static const NSInteger scheduleCellLocation   = 0;
   [self.delegate dismissedModal];
 }
 
-- (void)setGame:(Game *)game {
+- (void)setGame:(SBGame *)game {
   [super setGame:game];
 
   self.currentTeamSchedule = self.game.awayTeam;
@@ -131,18 +131,18 @@ static const NSInteger scheduleCellLocation   = 0;
 }
 
 - (void)setHeaderInfo {
-  Team *homeTeam = self.game.homeTeam;
+  SBTeam *homeTeam = self.game.homeTeam;
   [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamRecord.text = homeTeam.record;
   self.homeTeamName.text = homeTeam.name;
 
-  Team *awayTeam = self.game.awayTeam;
+  SBTeam *awayTeam = self.game.awayTeam;
   [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamRecord.text = awayTeam.record;
   self.awayTeamName.text = awayTeam.name;
 }
 
-- (void)changedTeam:(Team *)updatedTeam {
+- (void)changedTeam:(SBTeam *)updatedTeam {
   self.currentTeamSchedule = updatedTeam;
 
   [self.tableView reloadData];

@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "League.h"
+#import "SBLeague.h"
 #import "DIDatepicker.h"
-#import "Game.h"
+#import "SBGame.h"
 #import "LeagueHeader.h"
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
-- (void)selectedGame:(Game *)game;
+- (void)selectedGame:(SBGame *)game;
 - (void)requestClose;
 - (void)requestFailed:(NSString *)message;
 
@@ -24,7 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (nonatomic, strong) League *league;
+@property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) UINib *headerNib;
 @property (nonatomic, strong) NSArray *games;
 @property (nonatomic, strong) NSTimer *scorePuller;

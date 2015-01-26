@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "Game.h"
-#import "User.h"
+#import "SBGame.h"
+#import "SBUser.h"
 
-@interface Game ()
+@interface SBGame ()
 
 @property (nonatomic, strong) NSDateFormatter *localStartTimeDfWithDate;
 
 @end
 
-@implementation Game
+@implementation SBGame
 
-- (Team *)winningTeam {
+- (SBTeam *)winningTeam {
   if ([self.awayScore doubleValue] > [self.homeScore doubleValue]) {
     return self.awayTeam;
   } else {
@@ -25,7 +25,7 @@
   }
 }
 
-- (Team *)teamFromDataName:(NSString *)dataName {
+- (SBTeam *)teamFromDataName:(NSString *)dataName {
   dataName = [dataName lowercaseString];
 
   if ([self.awayTeam.dataName isEqualToString:dataName]) {
@@ -42,11 +42,11 @@
   self = [super init];
 
   if (self) {
-    self.homeTeam = [[Team alloc] initWithJson:json[@"home_team"]];
+    self.homeTeam = [[SBTeam alloc] initWithJson:json[@"home_team"]];
     self.homeTeam.isAway = false;
     self.homeScore = json[@"home_score"];
 
-    self.awayTeam = [[Team alloc] initWithJson:json[@"away_team"]];
+    self.awayTeam = [[SBTeam alloc] initWithJson:json[@"away_team"]];
     self.awayTeam.isAway = true;
     self.awayScore = json[@"away_score"];
     self.leagueName = json[@"league"];
@@ -67,13 +67,13 @@
 }
 
 - (void)findBoxscore:(NSDictionary *)paramaters
-            success:(void (^) (Boxscore *))success
+            success:(void (^) (SBBoxscore *))success
             failure:(void (^) (NSError *error))failure {
 
     NSString *path = [NSString stringWithFormat:@"leagues/%@/boxscores/%@", self.leagueName, self.boxscoreId];
 
     [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
-      Boxscore *boxscore = [[Boxscore alloc] initWithJson:responseObject[@"boxscore"]];
+      SBBoxscore *boxscore = [[SBBoxscore alloc] initWithJson:responseObject[@"boxscore"]];
       success(boxscore);
     } failure:^(NSError *error) {
       if (failure) {
@@ -83,13 +83,13 @@
 }
 
 - (void)findPreview:(NSDictionary *)paramaters
-            success:(void (^) (Preview *))success
+            success:(void (^) (SBPreview *))success
             failure:(void (^) (NSError *error))failure {
 
     NSString *path = [NSString stringWithFormat:@"leagues/%@/previews/%@", self.leagueName, self.previewId];
 
     [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
-      Preview *preview = [[Preview alloc] initWithJson:responseObject[@"preview"]];
+      SBPreview *preview = [[SBPreview alloc] initWithJson:responseObject[@"preview"]];
       success(preview);
     } failure:^(NSError *error) {
       if (failure) {
@@ -111,7 +111,7 @@
 }
 
 - (int)favoriteScore {
-  NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.leagueName];
+  NSDictionary *favoriteTeams = [SBUser currentUser].favoriteTeams[self.leagueName];
 
   return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
 }

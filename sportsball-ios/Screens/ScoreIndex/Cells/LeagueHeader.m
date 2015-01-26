@@ -63,7 +63,7 @@
   }];
 }
 
-- (void)setCurrentLeague:(League *)currentLeague {
+- (void)setCurrentLeague:(SBLeague *)currentLeague {
   _currentLeague = currentLeague;
 
   [self.smallLogo setImageWithURL:[self.currentLeague imageURL:self.currentLeague.logo withSize:@"100x100"]];

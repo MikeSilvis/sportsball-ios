@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 #import "SVModalWebViewController.h"
 #import "ZFModalTransitionAnimator.h"
 
@@ -21,7 +21,7 @@
 
 @property (nonatomic, weak) id<SportsBallModalDelegate> delegate;
 @property (nonatomic, strong) UIVisualEffectView *blurView;
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) SBGame *game;
 
 - (void)openURL:(NSURL *)url;
 

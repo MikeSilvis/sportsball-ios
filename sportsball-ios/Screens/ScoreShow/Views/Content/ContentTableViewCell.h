@@ -7,16 +7,16 @@
 //
 
 #import "SportsBallTableViewCell.h"
-#import "Game.h"
+#import "SBGame.h"
 
 @interface ContentTableViewCell : SportsBallTableViewCell
 
-@property (nonatomic, strong) Recap *recap;
-@property (nonatomic, strong) Preview *preview;
+@property (nonatomic, strong) SBRecap *recap;
+@property (nonatomic, strong) SBPreview *preview;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 
-+ (CGSize)measureCellSizeWithResource:(Game *)resource andWidth:(CGFloat)width;
++ (CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width;
 
 @end

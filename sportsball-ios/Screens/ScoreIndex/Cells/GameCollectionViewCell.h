@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "SBGame.h"
 
 @interface GameCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
@@ -23,6 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
 
-@property(nonatomic, strong) Game *currentGame;
+@property(nonatomic, strong) SBGame *currentGame;
 
 @end

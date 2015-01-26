@@ -39,11 +39,11 @@
   [self.layer addSublayer:upperBorder];
 }
 
-- (void)setCurrentGame:(Game *)currentGame {
+- (void)setCurrentGame:(SBGame *)currentGame {
   _currentGame = currentGame;
 
   // Home Team
-  Team *homeTeam = self.currentGame.homeTeam;
+  SBTeam *homeTeam = self.currentGame.homeTeam;
   self.homeTeamName.text = homeTeam.name;
   self.homeTeamScore.text = [NSString stringWithFormat:@"%@", self.currentGame.homeScore];
   self.homeTeamScore.text = self.currentGame.homeScoreString;
@@ -52,7 +52,7 @@
   [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"60x60"]];
 
   // Away Team
-  Team *awayTeam = self.currentGame.awayTeam;
+  SBTeam *awayTeam = self.currentGame.awayTeam;
   self.awayTeamName.text = awayTeam.name;
   self.awayTeamScore.text = self.currentGame.awayScoreString;
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
