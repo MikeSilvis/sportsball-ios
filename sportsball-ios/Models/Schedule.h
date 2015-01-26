@@ -19,6 +19,6 @@
 @property BOOL isWin;
 @property BOOL isAway;
 
--(NSString *)localStartTime;
+- (NSString *)localStartTime;
 
 @end

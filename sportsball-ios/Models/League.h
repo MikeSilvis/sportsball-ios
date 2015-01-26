@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSArray *schedule;
 @property (nonatomic, strong) NSNumber *isMonthlySchedule;
 
-+(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
++ (void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure;
 
 - (void)allScoresForDate:(NSDate *)date

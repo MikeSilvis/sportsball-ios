@@ -13,7 +13,7 @@
 
 @implementation Preview
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
@@ -59,7 +59,7 @@
   return [self.df stringFromDate:self.startTime];
 }
 
--(NSArray *)scheduleForTeam:(Team *)team {
+- (NSArray *)scheduleForTeam:(Team *)team {
   NSArray *fullSchedule = team.isAway ? self.awayTeamSchedule : self.homeTeamSchedule;
 
   if (![[User currentUser].lastOpenedLeague.isMonthlySchedule boolValue]) {

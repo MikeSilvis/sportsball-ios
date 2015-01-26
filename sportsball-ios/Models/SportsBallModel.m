@@ -14,7 +14,7 @@
 static NSString * const serverURL = @"https://api.jumbotron.io/%@";
 //static NSString * const serverURL = @"http://localhost:3000/api/%@";
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   [NSException raise:@"Should be handled in subclass" format:@"not relevant"];
 
   return nil;
@@ -57,11 +57,11 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
     return rv;
 }
 
-+(NSString *)getPathFromString:(NSString *)path {
++ (NSString *)getPathFromString:(NSString *)path {
   return [NSString stringWithFormat:serverURL, path];
 }
 
-+(void)dispatchRequest:(NSString *)path
++ (void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure {
@@ -84,7 +84,7 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
   }];
 }
 
--(void)dispatchRequest:(NSString *)path
+- (void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure {
@@ -95,7 +95,7 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
                       failure:failure];
 }
 
--(NSDateFormatter *)dateFormatter {
+- (NSDateFormatter *)dateFormatter {
   if (!_dateFormatter) {
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -105,7 +105,7 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
 }
 
 
--(NSDateFormatter *)localStartTimeDf {
+- (NSDateFormatter *)localStartTimeDf {
   if (!_localStartTimeDf) {
     _localStartTimeDf = [[NSDateFormatter alloc] init];
     [_localStartTimeDf setDateFormat: @"h:mm a"];
@@ -115,7 +115,7 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
   return _localStartTimeDf;
 }
 
--(NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size {
+- (NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size {
   return [NSURL URLWithString:[NSString stringWithFormat:@"%@?size=%@", url.absoluteString, size]];
 }
 

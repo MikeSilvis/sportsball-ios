@@ -14,18 +14,18 @@
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSDateFormatter *localStartTimeDf;
 
--(id)initWithJson:(id)json;
+- (id)initWithJson:(id)json;
 
-+(void)dispatchRequest:(NSString *)path
++ (void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure;
 
--(void)dispatchRequest:(NSString *)path
+- (void)dispatchRequest:(NSString *)path
             parameters:(id)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure;
 
--(NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size;
+- (NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size;
 
 @end

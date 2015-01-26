@@ -10,7 +10,7 @@
 
 @implementation Recap
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {

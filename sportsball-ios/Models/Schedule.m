@@ -10,7 +10,7 @@
 
 @implementation Schedule
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
@@ -26,7 +26,7 @@
   return self;
 }
 
--(NSString *)localStartTime {
+- (NSString *)localStartTime {
   return [self.localStartTimeDf stringFromDate:self.startTime];
 }
 

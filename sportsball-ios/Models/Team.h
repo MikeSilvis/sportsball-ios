@@ -18,5 +18,6 @@
 @property BOOL isAway;
 @property (nonatomic, strong) NSDictionary *scaledDownImages;
 
--(NSString *)formattedRecord;
+- (NSString *)formattedRecord;
+
 @end

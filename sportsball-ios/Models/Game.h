@@ -36,24 +36,24 @@
 @property (nonatomic, strong) NSString *endedIn;
 @property (nonatomic, strong) NSDate *startTime;
 
--(Team *)winningTeam;
--(Team *)teamFromDataName:(NSString *)dataName;
+- (Team *)winningTeam;
+- (Team *)teamFromDataName:(NSString *)dataName;
 
--(BOOL)isOver;
--(BOOL)isInProgress;
--(BOOL)isPregame;
--(BOOL)hasPreviewOrRecap;
--(NSString *)localStartTime;
--(NSString *)localStartTimeWithDate;
--(NSString *)homeScoreString;
--(NSString *)awayScoreString;
--(int)favoriteScore;
+- (BOOL)isOver;
+- (BOOL)isInProgress;
+- (BOOL)isPregame;
+- (BOOL)hasPreviewOrRecap;
+- (NSString *)localStartTime;
+- (NSString *)localStartTimeWithDate;
+- (NSString *)homeScoreString;
+- (NSString *)awayScoreString;
+- (int)favoriteScore;
 
--(void)findBoxscore:(NSDictionary *)paramaters
+- (void)findBoxscore:(NSDictionary *)paramaters
             success:(void (^) (Boxscore *))success
             failure:(void (^) (NSError *error))failure;
 
--(void)findPreview:(NSDictionary *)paramaters
+- (void)findPreview:(NSDictionary *)paramaters
             success:(void (^) (Preview *))success
             failure:(void (^) (NSError *error))failure;
 @end

@@ -17,7 +17,7 @@
 
 static NSString *leaguesKey = @"allLeagues";
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
@@ -61,7 +61,7 @@ static NSString *leaguesKey = @"allLeagues";
   return self;
 }
 
-+(void)getSupportedLeagues:(void (^) (NSArray *leagues))success
++ (void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure {
 
   bool alreadyReturned = NO;
@@ -93,7 +93,7 @@ static NSString *leaguesKey = @"allLeagues";
   }];
 }
 
--(void)allScoresForDate:(NSDate *)date
+- (void)allScoresForDate:(NSDate *)date
              parameters:(NSDictionary *)parameters
                 success:(void (^) (NSArray *games))success
                 failure:(void (^) (NSError *error))failure {

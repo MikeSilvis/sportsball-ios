@@ -23,6 +23,6 @@
 @property (nonatomic, strong) NSArray *homeTeamSchedule;
 @property (nonatomic, strong) NSArray *awayTeamSchedule;
 
--(NSArray *)scheduleForTeam:(Team *)team;
+- (NSArray *)scheduleForTeam:(Team *)team;
 
 @end

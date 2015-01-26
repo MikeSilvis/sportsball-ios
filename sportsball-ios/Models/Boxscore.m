@@ -10,7 +10,7 @@
 
 @implementation Boxscore
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   Boxscore *boxscore = [[Boxscore alloc] init];
 
   boxscore.scoreSummary = json[@"score_summary"];

@@ -50,12 +50,12 @@
   return YES;
 }
 
--(void)defaultCache {
+- (void)defaultCache {
   [[NSURLCache sharedURLCache] setMemoryCapacity:(20*1024*1024)];
   [[NSURLCache sharedURLCache] setDiskCapacity:(400*1024*1024)];
 }
 
--(void)defaultStyles{
+- (void)defaultStyles{
   UIColor *barTintColor = [UIColor colorWithHexString:@"120c06"];
   [[UINavigationBar appearance] setBarTintColor:barTintColor];
   [[UIToolbar appearance] setBarTintColor:barTintColor];

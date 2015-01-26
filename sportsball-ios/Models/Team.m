@@ -11,7 +11,7 @@
 
 @implementation Team
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
@@ -24,11 +24,11 @@
   return self;
 }
 
--(NSString *)dataName {
+- (NSString *)dataName {
   return [_dataName lowercaseString];
 }
 
--(NSString *)formattedRecord {
+- (NSString *)formattedRecord {
   return [NSString stringWithFormat:@"(%@)", self.record];
 }
 

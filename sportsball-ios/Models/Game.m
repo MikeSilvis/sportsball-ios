@@ -17,7 +17,7 @@
 
 @implementation Game
 
--(Team *)winningTeam {
+- (Team *)winningTeam {
   if ([self.awayScore doubleValue] > [self.homeScore doubleValue]) {
     return self.awayTeam;
   } else {
@@ -25,7 +25,7 @@
   }
 }
 
--(Team *)teamFromDataName:(NSString *)dataName {
+- (Team *)teamFromDataName:(NSString *)dataName {
   dataName = [dataName lowercaseString];
 
   if ([self.awayTeam.dataName isEqualToString:dataName]) {
@@ -38,7 +38,7 @@
   return nil;
 }
 
--(id)initWithJson:(id)json {
+- (id)initWithJson:(id)json {
   self = [super init];
 
   if (self) {
@@ -66,7 +66,7 @@
   return self;
 }
 
--(void)findBoxscore:(NSDictionary *)paramaters
+- (void)findBoxscore:(NSDictionary *)paramaters
             success:(void (^) (Boxscore *))success
             failure:(void (^) (NSError *error))failure {
 
@@ -82,7 +82,7 @@
     }];
 }
 
--(void)findPreview:(NSDictionary *)paramaters
+- (void)findPreview:(NSDictionary *)paramaters
             success:(void (^) (Preview *))success
             failure:(void (^) (NSError *error))failure {
 
@@ -102,21 +102,21 @@
   return [self.state isEqualToString:@"postgame"];
 }
 
--(BOOL)isInProgress {
+- (BOOL)isInProgress {
   return [self.state isEqualToString:@"in-progress"];
 }
 
--(BOOL)isPregame {
+- (BOOL)isPregame {
   return [self.state isEqualToString:@"pregame"];
 }
 
--(int)favoriteScore {
+- (int)favoriteScore {
   NSDictionary *favoriteTeams = [User currentUser].favoriteTeams[self.leagueName];
 
   return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
 }
 
--(NSDateFormatter *)localStartTimeDfWithDate {
+- (NSDateFormatter *)localStartTimeDfWithDate {
   if (!_localStartTimeDfWithDate) {
     _localStartTimeDfWithDate = [[NSDateFormatter alloc] init];
     _localStartTimeDfWithDate.dateStyle = NSDateFormatterMediumStyle;
@@ -127,23 +127,23 @@
   return _localStartTimeDfWithDate;
 }
 
--(NSString *)localStartTime {
+- (NSString *)localStartTime {
   return [self.localStartTimeDf stringFromDate:self.startTime];
 }
 
--(NSString *)localStartTimeWithDate {
+- (NSString *)localStartTimeWithDate {
   return [self.localStartTimeDfWithDate stringFromDate:self.startTime];
 }
 
--(NSString *)homeScoreString {
+- (NSString *)homeScoreString {
   return [NSString stringWithFormat:@"%@", self.homeScore];
 }
 
--(NSString *)awayScoreString {
+- (NSString *)awayScoreString {
   return [NSString stringWithFormat:@"%@", self.awayScore];
 }
 
--(BOOL)hasPreviewOrRecap {
+- (BOOL)hasPreviewOrRecap {
   if (self.isPregame && self.preview && self.preview.headline) {
     return YES;
   }
