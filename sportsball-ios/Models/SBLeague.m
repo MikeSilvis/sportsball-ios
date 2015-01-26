@@ -15,8 +15,6 @@
 
 @implementation SBLeague
 
-static NSString *leaguesKey = @"allLeagues";
-
 - (id)initWithJson:(id)json {
   self = [super init];
 

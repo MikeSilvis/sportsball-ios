@@ -11,8 +11,8 @@
 
 @implementation SBModel
 
-static NSString * const serverURL = @"https://api.jumbotron.io/%@";
-//static NSString * const serverURL = @"http://localhost:3000/api/%@";
+static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
+//static NSString * const kServerURL = @"http://localhost:3000/api/%@";
 
 - (id)initWithJson:(id)json {
   [NSException raise:@"Should be handled in subclass" format:@"not relevant"];
@@ -58,7 +58,7 @@ static NSString * const serverURL = @"https://api.jumbotron.io/%@";
 }
 
 + (NSString *)getPathFromString:(NSString *)path {
-  return [NSString stringWithFormat:serverURL, path];
+  return [NSString stringWithFormat:kServerURL, path];
 }
 
 + (void)dispatchRequest:(NSString *)path

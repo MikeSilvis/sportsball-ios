@@ -9,9 +9,9 @@
 #import "SBUser.h"
 #import "SBLeague.h"
 
-static NSString *lastOpenedLeagueKey = @"lastOpenedLeague";
-static NSString *allLeagues = @"allLeagues";
-static NSString *favoriteTeamsKey = @"favoriteTeams";
+static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
+static NSString *kAllLeagues = @"allLeagues-1";
+static NSString *kFavoriteTeams = @"favoriteTeams-1";
 
 @implementation SBUser
 
@@ -95,10 +95,10 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 - (void)syncUserDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  [defaults setObject:self.lastOpenedLeagueIndex forKey:lastOpenedLeagueKey];
+  [defaults setObject:self.lastOpenedLeagueIndex forKey:kLastOpenedLeague];
 
   if (self.favoriteTeams.count > 0) {
-    [defaults setObject:self.favoriteTeams forKey:favoriteTeamsKey];
+    [defaults setObject:self.favoriteTeams forKey:kFavoriteTeams];
   }
 
   // Set Leagues
@@ -109,7 +109,7 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
   }
 
   if (encodedLeagues.count > 0) {
-    [defaults setObject:encodedLeagues forKey:allLeagues];
+    [defaults setObject:encodedLeagues forKey:kAllLeagues];
   }
 
   [defaults synchronize];
@@ -118,11 +118,11 @@ static NSString *favoriteTeamsKey = @"favoriteTeams";
 - (void)setUserDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  _lastOpenedLeagueIndex = [defaults objectForKey:lastOpenedLeagueKey];
-  _favoriteTeams = [defaults objectForKey:favoriteTeamsKey] ? [defaults objectForKey:favoriteTeamsKey] : @{};
+  _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
+  _favoriteTeams = [defaults objectForKey:kFavoriteTeams] ? [defaults objectForKey:kFavoriteTeams] : @{};
 
   // Retrieve leagues
-  NSArray *encodedLeagues = [defaults objectForKey:allLeagues];
+  NSArray *encodedLeagues = [defaults objectForKey:kAllLeagues];
   NSMutableArray *leagues = [NSMutableArray array];
   for (NSData *encodedLeague in encodedLeagues) {
       SBLeague *league = (SBLeague *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
