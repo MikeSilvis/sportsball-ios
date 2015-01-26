@@ -12,6 +12,7 @@
 #import "ContentTableViewCell.h"
 #import "ScoreDataTableViewCell.h"
 #import "ScheduleTableViewCell.h"
+#import <CSNotificationView.h>
 
 @interface ScorePreviewViewController ()
 
@@ -94,15 +95,20 @@ static const NSInteger scheduleCellLocation   = 0;
   }
   else {
     self.loadingIndicator.hidden = NO;
-
-    [self.game findPreview:nil success:^(Preview *preview) {
-      self.game.preview = preview;
-
-      [self setDataLoaded];
-    } failure:nil];
+    [self findPreview];
   }
 
   [self setHeaderInfo];
+}
+
+-(void)findPreview {
+  [self.game findPreview:nil success:^(Preview *preview) {
+    self.game.preview = preview;
+
+    [self setDataLoaded];
+  } failure:^(NSError *error) {
+    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];
+  }];
 }
 
 -(void)setDataLoaded {

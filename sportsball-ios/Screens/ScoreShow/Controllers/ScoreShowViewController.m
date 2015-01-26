@@ -14,6 +14,7 @@
 #import "ContentTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
 #import "UIImage+FontAwesome.h"
+#import <CSNotificationView.h>
 
 @implementation ScoreShowViewController
 
@@ -64,14 +65,18 @@ static const NSInteger scoreDetailViewLocation  = 2;
     self.loadingIndicator.hidden = NO;
   }
 
+  [self setHeaderInfo];
+}
+
+-(void)findBoxscore {
   [self.game findBoxscore:nil success:^(Boxscore *boxscore) {
     self.game.boxscore = boxscore;
     self.loadingIndicator.hidden = YES;
 
     [self.tableView reloadData];
-  } failure:nil];
-
-  [self setHeaderInfo];
+  } failure:^(NSError *error) {
+    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];
+  }];
 }
 
 -(void)setGame:(Game *)game {

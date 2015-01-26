@@ -36,8 +36,7 @@
   NSString *initialViewId;
   if ([User currentUser].leagues.count > 0) {
     initialViewId = @"leagueIndexViewController";
-    [League getSupportedLeagues:^(NSArray *leagues) {
-    } failure:nil];
+    [League getSupportedLeagues:nil failure:nil];
   }
   else {
     initialViewId = @"leagueLoadingViewController";

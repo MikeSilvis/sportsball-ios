@@ -67,7 +67,9 @@ static NSString *leaguesKey = @"allLeagues";
   bool alreadyReturned = NO;
 
   if ([User currentUser].leagues.count > 0) {
-    success([User currentUser].leagues);
+    if (success) {
+      success([User currentUser].leagues);
+    }
     alreadyReturned = YES;
   }
 
@@ -81,7 +83,7 @@ static NSString *leaguesKey = @"allLeagues";
 
     [User currentUser].leagues = leagues;
 
-    if (!alreadyReturned) {
+    if (!alreadyReturned && success) {
       success(leagues);
     }
   } failure:^(NSError *error) {
