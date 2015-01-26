@@ -20,8 +20,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O/U 6" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-bj-DjG">
-                        <rect key="frame" x="441" y="14" width="38.5" height="19.5"/>
-                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <rect key="frame" x="49.5" y="16.5" width="33" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -29,16 +29,14 @@
                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="1Mq-bj-DjG" firstAttribute="trailing" secondItem="riP-y9-h56" secondAttribute="trailingMargin" id="9bm-zu-ny5"/>
-                    <constraint firstAttribute="centerY" secondItem="1Mq-bj-DjG" secondAttribute="centerY" constant="0.5" id="KKL-gs-5CH"/>
-                    <constraint firstItem="1Mq-bj-DjG" firstAttribute="top" secondItem="riP-y9-h56" secondAttribute="topMargin" constant="6" id="hEJ-Qq-4g9"/>
-                    <constraint firstItem="Fag-TD-0HQ" firstAttribute="top" secondItem="riP-y9-h56" secondAttribute="topMargin" constant="6" id="ubN-Ze-qb6"/>
-                    <constraint firstAttribute="centerY" secondItem="Fag-TD-0HQ" secondAttribute="centerY" constant="0.5" id="uwL-eC-VUd"/>
+                    <constraint firstItem="1Mq-bj-DjG" firstAttribute="leading" secondItem="Fag-TD-0HQ" secondAttribute="trailing" constant="10" id="GGp-Hl-xIy"/>
+                    <constraint firstAttribute="centerY" secondItem="1Mq-bj-DjG" secondAttribute="centerY" id="KKL-gs-5CH"/>
+                    <constraint firstAttribute="centerY" secondItem="Fag-TD-0HQ" secondAttribute="centerY" id="uwL-eC-VUd"/>
                     <constraint firstItem="Fag-TD-0HQ" firstAttribute="leading" secondItem="riP-y9-h56" secondAttribute="leadingMargin" id="zIk-aw-Zyt"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="ubN-Ze-qb6"/>
-                        <exclude reference="hEJ-Qq-4g9"/>
+                        <exclude reference="9bm-zu-ny5"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

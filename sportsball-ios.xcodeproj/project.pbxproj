@@ -343,6 +343,7 @@
 		1154F6191A03D60E009F560B /* sportsball-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1154F6451A03D743009F560B /* Models */,
 				1199091C1A4F532900F2ED1B /* Helpers */,
 				119909181A4F503D00F2ED1B /* Screens */,
 				111696651A0E8EE500F0E1CD /* LaunchImage.xib */,
@@ -350,7 +351,6 @@
 				1154F61F1A03D60F009F560B /* AppDelegate.m */,
 				1154F6271A03D60F009F560B /* Images.xcassets */,
 				1154F6241A03D60F009F560B /* Main.storyboard */,
-				1154F6451A03D743009F560B /* Models */,
 				1154F61A1A03D60F009F560B /* Supporting Files */,
 			);
 			path = "sportsball-ios";

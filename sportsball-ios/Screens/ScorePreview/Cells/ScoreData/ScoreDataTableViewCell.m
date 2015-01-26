@@ -11,7 +11,7 @@
 
 @implementation ScoreDataTableViewCell
 
-static int const cellRowHeight = 40;
+static int const cellRowHeight = 30;
 static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
 
 - (void)awakeFromNib {
@@ -68,7 +68,7 @@ static NSString * const scoreDataInfoViewCell = @"scoreDataInfoViewCell";
     if (preview.location) {
       [localElements addObject:@[
                                  @"Location",
-                                 preview.locationWithSplit
+                                 preview.location
                                 ]];
     }
   }

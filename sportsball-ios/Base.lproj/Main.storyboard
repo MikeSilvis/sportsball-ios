@@ -53,7 +53,7 @@
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-0N-epK">
-                                <rect key="frame" x="554" y="565" width="30" height="30"/>
+                                <rect key="frame" x="559" y="565" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="KDY-sI-pVm"/>
                                     <constraint firstAttribute="height" constant="30" id="iKP-2s-3c0"/>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="D0m-nY-021" secondAttribute="trailing" constant="-16" id="ZqV-Vk-JS9"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="aLv-tI-DIr"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="width" secondItem="iKJ-Oi-PAX" secondAttribute="width" id="bZZ-PZ-iFL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rsx-0N-epK" secondAttribute="trailing" id="krr-2W-xrb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rsx-0N-epK" secondAttribute="trailing" constant="-5" id="krr-2W-xrb"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leading" id="vCc-zz-FkF"/>
                         </constraints>
                         <variation key="default">

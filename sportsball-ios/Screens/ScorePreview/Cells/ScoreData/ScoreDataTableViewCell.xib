@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xml-CP-prA">
-                        <rect key="frame" x="0.0" y="0.5" width="500" height="300"/>
+                        <rect key="frame" x="0.0" y="8" width="500" height="292.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="oNz-aY-wcr" id="Vlg-sa-qrK"/>
@@ -26,7 +26,7 @@
                     <constraint firstItem="xml-CP-prA" firstAttribute="leading" secondItem="cow-d9-J88" secondAttribute="leadingMargin" constant="-8" id="7Zv-LK-Dlq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xml-CP-prA" secondAttribute="trailing" constant="-8" id="SDR-wV-3Sk"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xml-CP-prA" secondAttribute="bottom" constant="-9" id="icU-jg-g88"/>
-                    <constraint firstItem="xml-CP-prA" firstAttribute="top" secondItem="cow-d9-J88" secondAttribute="topMargin" constant="-8" id="qGy-Yt-TiS"/>
+                    <constraint firstItem="xml-CP-prA" firstAttribute="top" secondItem="cow-d9-J88" secondAttribute="topMargin" id="qGy-Yt-TiS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
