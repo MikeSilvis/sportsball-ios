@@ -13,7 +13,7 @@
 
 @implementation LeagueIndexHeader
 
--(void)setLeague:(League *)league {
+- (void)setLeague:(League *)league {
   _league = league;
 
   [self.backgroundImage setImageWithURL:[league imageURL:league.blurredHeader withSize:@"1000x563"]];

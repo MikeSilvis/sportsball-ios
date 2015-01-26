@@ -12,7 +12,7 @@
 
 @protocol LeagueHeaderProtocal <NSObject>
 
--(void)logoClicked;
+- (void)logoClicked;
 
 @end
 

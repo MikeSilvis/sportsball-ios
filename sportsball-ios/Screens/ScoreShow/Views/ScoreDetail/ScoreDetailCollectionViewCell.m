@@ -19,7 +19,7 @@ static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCel
 static int const cellRowHeaderHeight = 20;
 static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
@@ -34,7 +34,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:scoreDetailHeaderCell];
 }
 
-+(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
   CGFloat height = 20;
 
   for (ScoreDetail *scoreDetail in resource) {
@@ -48,7 +48,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   return CGSizeMake(width, height);
 }
 
--(void)setScoreDetails:(NSArray *)scoreDetails {
+- (void)setScoreDetails:(NSArray *)scoreDetails {
   _scoreDetails = scoreDetails;
 
   [self.tableView reloadData];
@@ -56,11 +56,11 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 
 #pragma mark - UICollectionView
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return cellRowHeight;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return self.scoreDetails.count;
 }
 
@@ -70,7 +70,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   return scoreDetail.contentInfo.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ScoreDetailInfoCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailInfoCell forIndexPath:indexPath];
 
   ScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];

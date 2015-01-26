@@ -11,12 +11,12 @@
 
 @implementation ScoreDetailInfoCollectionViewCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
   self.backgroundColor = [UIColor clearColor];
 }
 
--(void)setContentInfo:(NSArray *)contentInfo {
+- (void)setContentInfo:(NSArray *)contentInfo {
   _contentInfo = contentInfo;
 
   NSString *teamDataName = self.contentInfo[0];

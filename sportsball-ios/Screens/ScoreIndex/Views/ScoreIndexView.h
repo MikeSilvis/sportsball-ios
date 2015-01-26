@@ -14,9 +14,9 @@
 
 @protocol ScoreIndexViewDelegate <NSObject>
 
--(void)selectedGame:(Game *)game;
--(void)requestClose;
--(void)requestFailed:(NSString *)message;
+- (void)selectedGame:(Game *)game;
+- (void)requestClose;
+- (void)requestFailed:(NSString *)message;
 
 @end
 
@@ -34,8 +34,8 @@
 
 @property (nonatomic, weak) id<ScoreIndexViewDelegate> delegate;
 
--(void)findGames;
--(void)cancelTimer;
--(void)startTimer;
+- (void)findGames;
+- (void)cancelTimer;
+- (void)startTimer;
 
 @end

@@ -11,13 +11,13 @@
 
 @implementation ScoreSummaryInfoCollectionViewCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
 }
 
--(void)setGame:(Game *)game {
+- (void)setGame:(Game *)game {
   _game = game;
 
   UIFont *boldFont = [UIFont fontWithName:@"Avenir-Heavy" size:14];
@@ -50,7 +50,7 @@
   }
 }
 
--(NSString *)summary {
+- (NSString *)summary {
   return self.game.boxscore.scoreSummary[self.section][self.row];
 }
 

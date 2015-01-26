@@ -21,7 +21,7 @@ static NSString * const gameViewCell = @"gameViewCell";
 static NSString * const headerViewCell = @"headerViewCell";
 static CGFloat const headerSize = 74;
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   self.games = [NSMutableArray array];
 
   self.backgroundColor = [UIColor clearColor];
@@ -43,7 +43,7 @@ static CGFloat const headerSize = 74;
   self.activityIndicator.hidden = YES;
 }
 
--(void)setUpDatePicker {
+- (void)setUpDatePicker {
   self.datePicker.dates = self.league.schedule;
   [self.datePicker selectDateClosestToToday];
   self.currentDate = self.datePicker.selectedDate;
@@ -51,7 +51,7 @@ static CGFloat const headerSize = 74;
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
 }
 
--(void)setLeague:(League *)league {
+- (void)setLeague:(League *)league {
   _league = league;
 
   [self setUpDatePicker];
@@ -65,19 +65,19 @@ static CGFloat const headerSize = 74;
   [self startTimer];
 }
 
--(void)cancelTimer {
+- (void)cancelTimer {
   [self.scorePuller invalidate];
   self.scorePuller = nil;
 }
 
--(void)startTimer {
+- (void)startTimer {
   if (!self.scorePuller) {
     [self findGames];
     self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
   }
 }
 
--(void)findGames {
+- (void)findGames {
   if (self.games.count == 0) {
     self.activityIndicator.hidden = NO;
   }
@@ -91,7 +91,7 @@ static CGFloat const headerSize = 74;
   }];
 }
 
--(void)setGames:(NSArray *)games {
+- (void)setGames:(NSArray *)games {
   NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
 
   games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(Game *game1, Game *game2) {
@@ -125,7 +125,7 @@ static CGFloat const headerSize = 74;
   return self.games.count;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   return CGSizeMake(self.bounds.size.width, 60);
 }
 
@@ -152,11 +152,11 @@ static CGFloat const headerSize = 74;
   return nil;
 }
 
--(void)logoClicked {
+- (void)logoClicked {
   [self.delegate requestClose];
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
   [super layoutSubviews];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;

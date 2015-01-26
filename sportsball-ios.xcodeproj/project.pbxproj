@@ -251,7 +251,8 @@
 				116591E31A156F1E00016D90 /* DIDDatePicker */,
 				113845C51A0BFA5500BC7A4D /* APPaginal */,
 			);
-			path = SupportClasses;
+			name = SupportClasses;
+			path = Screens/ScoreIndex/SupportClasses;
 			sourceTree = "<group>";
 		};
 		113845C51A0BFA5500BC7A4D /* APPaginal */ = {
@@ -338,6 +339,7 @@
 		1154F6191A03D60E009F560B /* sportsball-ios */ = {
 			isa = PBXGroup;
 			children = (
+				113845C41A0BFA3D00BC7A4D /* SupportClasses */,
 				1154F6451A03D743009F560B /* Models */,
 				1199091C1A4F532900F2ED1B /* Helpers */,
 				119909181A4F503D00F2ED1B /* Screens */,
@@ -432,7 +434,6 @@
 		1154F6531A03DC9B009F560B /* ScoreIndex */ = {
 			isa = PBXGroup;
 			children = (
-				113845C41A0BFA3D00BC7A4D /* SupportClasses */,
 				113845BE1A0BF93500BC7A4D /* Views */,
 				1154F6401A03D618009F560B /* Controllers */,
 				1154F64F1A03D9C5009F560B /* Cells */,

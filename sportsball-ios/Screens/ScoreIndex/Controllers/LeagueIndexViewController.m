@@ -76,7 +76,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [self buildHelpIcon];
 }
 
--(void)buildHelpIcon {
+- (void)buildHelpIcon {
   CGFloat iconSize = 30;
   FAKFontAwesome *questionImage = [FAKFontAwesome questionCircleIconWithSize:iconSize];
   [self.supportButton setImage:[UIImage imageWithFontAwesomeIcon:questionImage andSize:iconSize andColor:@"#fffff"] forState:UIControlStateNormal];
@@ -85,7 +85,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [self.supportButton setTintColor:[UIColor whiteColor]];
 }
 
--(void)openAtLastSelectedIndex {
+- (void)openAtLastSelectedIndex {
   if (![User currentUser].lastOpenedLeagueIndex) {
     return;
   }
@@ -97,13 +97,13 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   }
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 
   [self startTimer];
 }
 
--(void)selectedGame:(Game *)game {
+- (void)selectedGame:(Game *)game {
   self.selectedGame = game;
 
   [[User currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.leagueName];
@@ -116,12 +116,12 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   }
 }
 
--(void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
+- (void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
   [self stopTimer];
   [self startTimer];
 }
 
--(void)startTimer {
+- (void)startTimer {
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
@@ -131,7 +131,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   }
 }
 
--(void)stopTimer {
+- (void)stopTimer {
   for (ScoreIndexView *view in self.scoreViews) {
     [view cancelTimer];
   }
@@ -268,19 +268,19 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   [self stopTimer];
 }
 
--(void)dismissedModal {
+- (void)dismissedModal {
   [self startTimer];
 }
 
--(void)requestClose {
+- (void)requestClose {
   [self closeWindow];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{ 
+- (UIStatusBarStyle)preferredStatusBarStyle{
   return UIStatusBarStyleLightContent;
 }
 
--(void)requestFailed:(NSString *)message {
+- (void)requestFailed:(NSString *)message {
   [CSNotificationView showInViewController:self
                                     style:CSNotificationViewStyleError
                                    message:message];

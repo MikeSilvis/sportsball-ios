@@ -14,7 +14,7 @@
 
 @implementation GameCollectionViewCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   self.backgroundColor = [UIColor clearColor];
 
   // Winner Image
@@ -25,7 +25,7 @@
   self.homeTeamWinner.image = iconImage;
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
   [super layoutSubviews];
 
   // Upper Border
@@ -39,7 +39,7 @@
   [self.layer addSublayer:upperBorder];
 }
 
--(void)setCurrentGame:(Game *)currentGame {
+- (void)setCurrentGame:(Game *)currentGame {
   _currentGame = currentGame;
 
   // Home Team

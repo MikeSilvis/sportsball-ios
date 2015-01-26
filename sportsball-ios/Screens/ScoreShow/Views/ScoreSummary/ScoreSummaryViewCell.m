@@ -17,7 +17,7 @@ static NSString * const scoreSummaryinfoCell = @"scoreSummaryinfoCell";
 static int const cellRowHeight = 30;
 static int const cellPaddingHeight = 10;
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   self.backgroundColor = [UIColor clearColor];
@@ -27,11 +27,11 @@ static int const cellPaddingHeight = 10;
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryInfoViewCell" bundle:nil] forCellWithReuseIdentifier:scoreSummaryinfoCell];
 }
 
-+(CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
++ (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
   return CGSizeMake(width, (resource.count * cellRowHeight) + cellPaddingHeight);
 }
 
--(void)setGame:(Game *)game {
+- (void)setGame:(Game *)game {
   _game = game;
 
   self.scoreSummary = self.game.boxscore.scoreSummary;
@@ -41,7 +41,7 @@ static int const cellPaddingHeight = 10;
   }
 }
 
--(void)setScoreSummary:(NSArray *)scoreSummary {
+- (void)setScoreSummary:(NSArray *)scoreSummary {
   _scoreSummary = scoreSummary;
 
   [self.collectionView reloadData];

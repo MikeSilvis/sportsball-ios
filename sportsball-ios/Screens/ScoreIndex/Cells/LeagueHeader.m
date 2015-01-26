@@ -13,7 +13,7 @@
 
 @implementation LeagueHeader
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
   [super awakeFromNib];
 
   // Logo Gesture
@@ -23,7 +23,7 @@
   [self.smallLogo addGestureRecognizer:singleTap];
 }
 
--(void)logoClicked {
+- (void)logoClicked {
   [self.delegate logoClicked];
 }
 
@@ -63,7 +63,7 @@
   }];
 }
 
--(void)setCurrentLeague:(League *)currentLeague {
+- (void)setCurrentLeague:(League *)currentLeague {
   _currentLeague = currentLeague;
 
   [self.smallLogo setImageWithURL:[self.currentLeague imageURL:self.currentLeague.logo withSize:@"100x100"]];
