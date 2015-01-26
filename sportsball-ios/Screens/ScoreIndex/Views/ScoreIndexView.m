@@ -46,7 +46,6 @@ static CGFloat const headerSize = 74;
 -(void)setUpDatePicker {
   self.datePicker.dates = self.league.schedule;
   [self.datePicker selectDateClosestToToday];
-//  [self.datePicker selectDate:[NSDate dateWithYear:2015 month:1 day:4]];
   self.currentDate = self.datePicker.selectedDate;
 
   [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
@@ -87,14 +86,7 @@ static CGFloat const headerSize = 74;
     self.games = games;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Sorry :("
-                                                    message: @"Something happened, and the data failed to load."
-                                                   delegate: nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    if (self.games.count == 0) {
-      [alert show];
-    }
+    [self.delegate requestFailed:error.localizedDescription];
     self.activityIndicator.hidden = YES;
   }];
 }

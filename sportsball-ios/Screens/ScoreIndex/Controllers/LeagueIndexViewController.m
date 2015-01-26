@@ -15,6 +15,7 @@
 #import "SportsBallModalViewController.h"
 #import "ScoreShowViewController.h"
 #import "ScorePreviewViewController.h"
+#import <CSNotificationView/CSNotificationView.h>
 
 @implementation LeagueIndexViewController
 
@@ -277,6 +278,12 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 
 -(UIStatusBarStyle)preferredStatusBarStyle{ 
   return UIStatusBarStyleLightContent;
+}
+
+-(void)requestFailed:(NSString *)message {
+  [CSNotificationView showInViewController:self
+                                    style:CSNotificationViewStyleError
+                                   message:message];
 }
 
 @end
