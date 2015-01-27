@@ -19,7 +19,7 @@
 
 @implementation LeagueIndexViewController
 
-static  NSString *scoreShowSegue = @"scoreShowSegue";
+static  NSString *kScoreShowSegue = @"scoreShowSegue";
 static  NSString *scorePreviewSegue = @"scorePreviewSegue";
 
 - (void)viewDidLoad {
@@ -112,7 +112,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
     [self performSegueWithIdentifier:scorePreviewSegue sender:self];
   }
   else {
-    [self performSegueWithIdentifier:scoreShowSegue sender:self];
+    [self performSegueWithIdentifier:kScoreShowSegue sender:self];
   }
 }
 
@@ -261,7 +261,7 @@ static  NSString *scorePreviewSegue = @"scorePreviewSegue";
   if ([segue.identifier isEqualToString:scorePreviewSegue]) {
     [self.animator setContentScrollView:((ScorePreviewViewController *)viewController).tableView];
   }
-  else if ([segue.identifier isEqualToString:scoreShowSegue]) {
+  else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
     [self.animator setContentScrollView:((ScoreShowViewController *)viewController).tableView];
   }
 

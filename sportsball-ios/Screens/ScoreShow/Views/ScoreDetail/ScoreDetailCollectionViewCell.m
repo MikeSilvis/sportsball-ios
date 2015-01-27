@@ -13,11 +13,11 @@
 
 @implementation ScoreDetailCollectionViewCell
 
-static int const cellRowHeight = 40;
-static NSString * const scoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
+static int const kCellRowHeight = 40;
+static NSString * const kScoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
 
-static int const cellRowHeaderHeight = 20;
-static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
+static int const kCellRowHeaderHeight = 20;
+static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
 - (void)awakeFromNib {
   [super awakeFromNib];
@@ -29,9 +29,9 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 
   [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailInfoCollectionViewCell" bundle:nil]
-       forCellReuseIdentifier:scoreDetailInfoCell];
+       forCellReuseIdentifier:kScoreDetailInfoCell];
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:scoreDetailHeaderCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kScoreDetailHeaderCell];
 }
 
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
@@ -39,10 +39,10 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 
   for (SBScoreDetail *scoreDetail in resource) {
     // Header Size
-    height = height + cellRowHeaderHeight;
+    height = height + kCellRowHeaderHeight;
 
     // Row size
-    height = height + (cellRowHeight * [scoreDetail.contentInfo count]);
+    height = height + (kCellRowHeight * [scoreDetail.contentInfo count]);
   }
 
   return CGSizeMake(width, height);
@@ -57,7 +57,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 #pragma mark - UICollectionView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  return cellRowHeight;
+  return kCellRowHeight;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,7 +71,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  ScoreDetailInfoCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:scoreDetailInfoCell forIndexPath:indexPath];
+  ScoreDetailInfoCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreDetailInfoCell forIndexPath:indexPath];
 
   SBScoreDetail *scoreDetail = self.scoreDetails[indexPath.section];
   cell.game = self.game;
@@ -81,7 +81,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:scoreDetailHeaderCell];
+  ScoreDetailHeaderCollectionViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kScoreDetailHeaderCell];
 
   SBScoreDetail *scoreDetail = self.scoreDetails[section];
   cell.label.text = scoreDetail.headerInfo;
@@ -90,7 +90,7 @@ static NSString * const scoreDetailHeaderCell = @"scoreDetailHeaderCollectionVie
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return cellRowHeaderHeight;
+  return kCellRowHeaderHeight;
 }
 
 @end

@@ -29,7 +29,7 @@
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.1 animations:^{
-    CGFloat yOrigin = layoutAttributes.frame.origin.y;
+    CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
     if (yOrigin >= 0) {
       float alpha = 1;
 

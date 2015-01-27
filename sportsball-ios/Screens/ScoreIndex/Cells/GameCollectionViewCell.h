@@ -10,6 +10,7 @@
 #import "SBGame.h"
 
 @interface GameCollectionViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamName;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamRecord;
@@ -22,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lowerInfo;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
 @property (weak, nonatomic) IBOutlet UILabel *awayTeamScore;
-
 @property(nonatomic, strong) SBGame *currentGame;
 
 @end

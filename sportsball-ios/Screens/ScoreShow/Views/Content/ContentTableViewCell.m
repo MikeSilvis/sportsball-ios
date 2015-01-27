@@ -65,7 +65,7 @@
     self.headline.frame = f;
 
     f = self.content.frame;
-    f.origin.y = self.headline.frame.origin.y + self.headline.frame.size.height + 5;
+    f.origin.y = CGRectGetMinY(self.headline.frame) + CGRectGetHeight(self.headline.frame) + 5;
     self.content.frame = f;
   }
 }
