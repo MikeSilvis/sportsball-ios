@@ -8,7 +8,7 @@
         <!--League Loading View Controller-->
         <scene sceneID="3TH-vs-1gd">
             <objects>
-                <viewController storyboardIdentifier="leagueLoadingViewController" id="zKZ-R2-vu6" customClass="LeagueLoadingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leagueLoadingViewController" id="zKZ-R2-vu6" customClass="SBLeagueLoadingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O0B-hd-5Sz"/>
                         <viewControllerLayoutGuide type="bottom" id="tN6-Zs-vZl"/>
@@ -29,7 +29,7 @@
         <!--League Index View Controller-->
         <scene sceneID="HJR-4K-spF">
             <objects>
-                <viewController storyboardIdentifier="leagueIndexViewController" id="9Mo-0L-q5c" customClass="LeagueIndexViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leagueIndexViewController" id="9Mo-0L-q5c" customClass="SBLeagueIndexViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEf-Fj-rTq"/>
                         <viewControllerLayoutGuide type="bottom" id="pi4-Sc-wgO"/>
@@ -90,7 +90,7 @@
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
                         <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
                         <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
-                        <segue destination="oMw-bz-9BN" kind="presentation" identifier="scorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
+                        <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,7 +100,7 @@
         <!--Score Show View Controller-->
         <scene sceneID="N7Q-ZS-BaW">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="I4h-tI-kLt" customClass="ScoreShowViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="I4h-tI-kLt" customClass="SBScoreShowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xG2-KE-QUh"/>
                         <viewControllerLayoutGuide type="bottom" id="Diu-U0-7hl"/>
@@ -230,7 +230,7 @@
         <!--Score Preview View Controller-->
         <scene sceneID="t5x-Bo-WWE">
             <objects>
-                <viewController id="oMw-bz-9BN" customClass="ScorePreviewViewController" sceneMemberID="viewController">
+                <viewController id="oMw-bz-9BN" customClass="SBScorePreviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oKx-SQ-TS2"/>
                         <viewControllerLayoutGuide type="bottom" id="Qlx-HB-MAH"/>
