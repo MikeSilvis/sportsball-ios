@@ -8,7 +8,6 @@
 
 #import "SBContentTableViewCell.h"
 #import <UIImageView+AFNetworking.h>
-#import <UIImage+Blur.h>
 
 @implementation SBContentTableViewCell
 

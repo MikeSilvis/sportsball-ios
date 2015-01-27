@@ -12,7 +12,7 @@
 @implementation SBScoreDataTableViewCell
 
 static int const kCellRowHeight = 30;
-static NSString * const kScoreDataInfoViewCell = @"kScoreDataInfoViewCell";
+static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 
 - (void)awakeFromNib {
   self.backgroundColor = [UIColor clearColor];
@@ -21,8 +21,8 @@ static NSString * const kScoreDataInfoViewCell = @"kScoreDataInfoViewCell";
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Register Nibs
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDataInfoTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kScoreDataInfoViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDataInfoTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScoreDataInfoViewCell];
 }
 
 - (void)setGame:(SBGame *)game {

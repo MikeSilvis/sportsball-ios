@@ -7,7 +7,6 @@
 //
 
 #import "SBScoreSummaryInfoCollectionViewCell.h"
-#import "SBTeam.h"
 
 @implementation SBScoreSummaryInfoCollectionViewCell
 

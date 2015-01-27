@@ -7,7 +7,6 @@
 //
 
 #import "APPaginalTableView.h"
-#import "APPaginalTableViewElement.h"
 #import "APPaginalContainerView.h"
 
 @interface APPaginalTableView () < UITableViewDataSource,
@@ -242,7 +241,7 @@ NSUInteger kAPPaginalTableViewSection = 0;
 
 - (APPaginalTableViewElement *)elementAtIndex:(NSUInteger)index
 {
-    APPaginalTableViewElement *element = [_elementViews objectAtIndex:index];
+    APPaginalTableViewElement *element = _elementViews[index];
     return element;
 }
 
@@ -394,7 +393,7 @@ NSUInteger kAPPaginalTableViewSection = 0;
 
     cell.layoutMargins = UIEdgeInsetsZero;
   
-    if (self.isInPaginalPresentation == NO) {
+    if (!self.isInPaginalPresentation) {
         APPaginalTableViewElement *view = _elementViews[indexPath.row];
         [cell.contentView addSubview:view];
     }

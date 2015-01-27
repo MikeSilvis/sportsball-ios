@@ -8,8 +8,6 @@
 
 #import "SBScoreSummaryViewCell.h"
 #import "SBScoreSummaryInfoCollectionViewCell.h"
-#import "SBScoreDetailHeaderCollectionViewCell.h"
-#import "SBTeam.h"
 
 @implementation SBScoreSummaryViewCell
 

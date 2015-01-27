@@ -7,7 +7,6 @@
 //
 
 #import "SBScoreDetailCollectionViewCell.h"
-#import "SBScoreDetail.h"
 #import "SBScoreDetailInfoCollectionViewCell.h"
 #import "SBScoreDetailHeaderCollectionViewCell.h"
 
@@ -28,10 +27,10 @@ static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionVi
 
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailInfoCollectionViewCell" bundle:nil]
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDetailInfoCollectionViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreDetailInfoCell];
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kScoreDetailHeaderCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kScoreDetailHeaderCell];
 }
 
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {

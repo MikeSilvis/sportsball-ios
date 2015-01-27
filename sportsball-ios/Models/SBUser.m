@@ -7,7 +7,6 @@
 //
 
 #import "SBUser.h"
-#import "SBLeague.h"
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
 static NSString *kAllLeagues = @"allLeagues-1";
@@ -55,7 +54,7 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   for (SBTeam *team in @[homeTeam, awayTeam]) {
     NSNumber *teamFavoriteCount = (NSNumber *)leagueFavoriteTeams[team.dataName];
     if (teamFavoriteCount) {
-      leagueFavoriteTeams[team.dataName] = [NSNumber numberWithInt:([teamFavoriteCount intValue] + 1)];
+      leagueFavoriteTeams[team.dataName] = @([teamFavoriteCount intValue] + 1);
     }
     else {
       leagueFavoriteTeams[team.dataName] = @1;

@@ -281,7 +281,7 @@
     APPaginalContainerViewPage *page = nil;
     
     if (index != NSNotFound) {
-        page = [_pages objectAtIndex:index];
+        page = _pages[index];
         NSParameterAssert(page);
     }
     
@@ -339,7 +339,7 @@
     _scrollView.contentSize = CGSizeMake(self.numberOfPages * self.pageSizeAbsolute.width, self.pageSizeAbsolute.height);
     
     for (NSUInteger i = 0; i < _pages.count; i++) {
-        APPaginalContainerViewPage *page = [_pages objectAtIndex:i];
+        APPaginalContainerViewPage *page = _pages[i];
         page.frame = (CGRect){.origin = CGPointMake(self.pageSizeAbsolute.width * i, 0.f), .size = self.pageSizeAbsolute};
     }
 }

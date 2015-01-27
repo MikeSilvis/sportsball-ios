@@ -7,8 +7,6 @@
 //
 
 #import "SBLeagueIndexHeader.h"
-#import "CSStickyHeaderFlowLayoutAttributes.h"
-#import "UIImage+Blur.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @implementation SBLeagueIndexHeader

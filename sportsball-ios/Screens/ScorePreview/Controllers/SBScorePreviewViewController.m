@@ -23,8 +23,8 @@
 @implementation SBScorePreviewViewController
 
 // Cell Identifiers
-static NSString *kScoreContentCell = @"kScoreContentCell";
-static NSString *kScoreDataCell = @"kScoreDataCell";
+static NSString *kScoreContentCell = @"ScoreContentCell";
+static NSString *kScoreDataCell = @"ScoreDataCell";
 static NSString *kScheduleCell = @"scheduleTableViewCell";
 
 // Cell Headers
@@ -48,12 +48,12 @@ static const NSInteger kScheduleCellLocation = 0;
   // Register nibs
     [self.tableView registerNib:[UINib nibWithNibName:@"SBContentTableViewCell" bundle:nil]
          forCellReuseIdentifier:kScoreContentCell];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDataTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDataTableViewCell" bundle:nil]
          forCellReuseIdentifier:kScoreDataCell];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScheduleTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleTableViewCell" bundle:nil]
          forCellReuseIdentifier:kScheduleCell];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScheduleSegmentedControlTableViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kSegmentedScheduleHeaderCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleSegmentedControlTableViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kSegmentedScheduleHeaderCell];
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -280,7 +280,7 @@ static const NSInteger kScheduleCellLocation = 0;
   CAGradientLayer *mask = [CAGradientLayer layer];
   mask.frame = cell.bounds;
   mask.colors = @[(id)[[UIColor colorWithWhite:1 alpha:0] CGColor], (id)[[UIColor colorWithWhite:1 alpha:1] CGColor]];
-  mask.locations = @[[NSNumber numberWithFloat:location], [NSNumber numberWithFloat:location]];
+  mask.locations = @[@(location), @(location)];
   return mask;
 }
 

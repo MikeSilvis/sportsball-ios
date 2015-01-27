@@ -55,10 +55,6 @@
   return _df;
 }
 
-- (NSString *)localStartTime {
-  return [self.df stringFromDate:self.startTime];
-}
-
 - (NSArray *)scheduleForTeam:(SBTeam *)team {
   NSArray *fullSchedule = team.isAway ? self.awayTeamSchedule : self.homeTeamSchedule;
 

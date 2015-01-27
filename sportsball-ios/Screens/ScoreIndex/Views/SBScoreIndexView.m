@@ -8,12 +8,7 @@
 
 #import "SBScoreIndexView.h"
 #import "SBGameCollectionViewCell.h"
-#import "SBLeagueHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
-#import "UIImage+Blur.h"
-#import "NSDate+SBDateWithYear.h"
-#import "UIImage+FontAwesome.h"
-#import "SBUser.h"
 
 @implementation SBScoreIndexView
 
@@ -133,7 +128,6 @@ static CGFloat const kHeaderSize = 74;
   SBGame *currentGame = self.games[indexPath.row];
   SBGameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;
-
 
   return cell;
 }

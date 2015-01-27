@@ -8,8 +8,6 @@
 
 #import "SBScheduleTableViewCell.h"
 #import "SBScheduleInfoTableViewCell.h"
-#import <UIImageView+AFNetworking.h>
-#import "Underscore.h"
 #import "SBUser.h"
 #import "SBScoreDetailHeaderCollectionViewCell.h"
 
@@ -31,21 +29,16 @@ static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionVi
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Register Nibs
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScheduleInfoTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kScheduleInfoViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleInfoTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScheduleInfoViewCell];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kScoreDetailHeaderCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDetailHeaderCollectionViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kScoreDetailHeaderCell];
 }
 
 -(void)setCurrentTeam:(SBTeam *)currentTeam {
   _currentTeam = currentTeam;
 
-  if (![self schedule]) {
-    self.hidden = YES;
-  }
-  else {
-    self.hidden = NO;
-  }
+   self.hidden = ![self schedule];
 
   [self.tableView reloadData];
 }

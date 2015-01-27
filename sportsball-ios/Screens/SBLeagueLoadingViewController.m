@@ -8,7 +8,6 @@
 
 #import "SBLeagueLoadingViewController.h"
 #import "SBLeague.h"
-#import "SBLeagueIndexViewController.h"
 #import "SBUser.h"
 #import <CSNotificationView.h>
 

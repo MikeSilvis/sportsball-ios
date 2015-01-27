@@ -7,8 +7,6 @@
 //
 
 #import "SBScoreShowViewController.h"
-#import "CSStickyHeaderFlowLayout.h"
-#import "SBLeagueHeader.h"
 #import "SBScoreSummaryViewCell.h"
 #import "SBScoreDetailCollectionViewCell.h"
 #import "SBContentTableViewCell.h"
@@ -35,10 +33,10 @@ static const NSInteger kScoreDetailViewLocation  = 2;
   self.tableView.backgroundColor = [UIColor clearColor];
 
   // Register nibs
-  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreSummaryViewCell" bundle:nil]
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreSummaryViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreSummaryViewCell];
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"ScoreDetailCollectionViewCell" bundle:nil]
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDetailCollectionViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreDetailCollectionViewCell];
 
   [self.tableView registerNib:[UINib nibWithNibName:@"SBContentTableViewCell" bundle:nil]

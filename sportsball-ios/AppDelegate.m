@@ -12,7 +12,6 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "EDColor.h"
 #import "SBUser.h"
-#import "SBLeague.h"
 
 @interface AppDelegate ()
 

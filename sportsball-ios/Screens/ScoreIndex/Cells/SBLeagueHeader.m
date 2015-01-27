@@ -7,8 +7,6 @@
 //
 
 #import "SBLeagueHeader.h"
-#import "CSStickyHeaderFlowLayoutAttributes.h"
-#import "UIImage+Blur.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @implementation SBLeagueHeader
@@ -27,7 +25,7 @@
   [self.delegate logoClicked];
 }
 
-- (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.1 animations:^{
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
     if (yOrigin >= 0) {

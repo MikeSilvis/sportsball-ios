@@ -30,7 +30,7 @@
   [super layoutSubviews];
 
   CGFloat height = 0.5f;
-  int y = self.frame.size.height - height;
+  int y = (int)(self.frame.size.height - height);
   self.separatorLineView.frame = CGRectMake(0, y, CGRectGetWidth(self.bounds), height);
 
   if (self.renderSeperator) {

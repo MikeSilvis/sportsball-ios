@@ -8,7 +8,6 @@
 
 #import "SBGameCollectionViewCell.h"
 #import <FontAwesomeKit/FAKFontAwesome.h>
-#import "EDColor.h"
 #import <UIImageView+AFNetworking.h>
 #import "UIImage+FontAwesome.h"
 

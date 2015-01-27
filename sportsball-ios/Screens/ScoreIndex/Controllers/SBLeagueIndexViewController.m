@@ -7,12 +7,8 @@
 //
 
 #import "SBLeagueIndexViewController.h"
-#import "SBLeagueIndexHeader.h"
-#import "SBLeague.h"
-#import <QuartzCore/QuartzCore.h>
 #import "UIImage+FontAwesome.h"
 #import "SBUser.h"
-#import "SBModalViewController.h"
 #import "SBScoreShowViewController.h"
 #import "SBScorePreviewViewController.h"
 #import <CSNotificationView/CSNotificationView.h>
@@ -92,7 +88,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
 
-  if ((openedIndex >= 0) && [self.scoreViews objectAtIndex:openedIndex]) {
+  if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
   }
 }
@@ -125,7 +121,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
-    [SBUser currentUser].lastOpenedLeagueIndex = [NSNumber numberWithInteger:self.paginalTableView.indexOpenedElement];
+    [SBUser currentUser].lastOpenedLeagueIndex = @(self.paginalTableView.indexOpenedElement);
     [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
@@ -143,7 +139,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     mailCont.mailComposeDelegate = self;
 
     [mailCont setSubject:@"Hello!"];
-    [mailCont setToRecipients:[NSArray arrayWithObject:@"mike@jumbotron.io"]];
+    [mailCont setToRecipients:@[@"mike@jumbotron.io"]];
 
     [self presentViewController:mailCont animated:YES completion:^{
       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
