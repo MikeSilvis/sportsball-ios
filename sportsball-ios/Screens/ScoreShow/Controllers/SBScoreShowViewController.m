@@ -13,18 +13,22 @@
 #import <UIImageView+AFNetworking.h>
 #import "UIImage+FontAwesome.h"
 #import <CSNotificationView.h>
+#import "SBScoreDataTableViewCell.h"
+#import "SBUser.h"
 
 @implementation SBScoreShowViewController
 
 static NSString * const kScoreSummaryViewCell = @"ScoreSummaryViewCell";
 static NSString * const kScoreDetailCollectionViewCell = @"ScoreDetailCollectionViewCell";
 static NSString * const kScoreRecapCollectionViewCell = @"ScoreRecapCollectionViewCell";
+static NSString * const kScoreDataCell = @"ScoreDataCell";
 
 static NSString * const kWebViewSegue = @"webViewSegue";
 
 static const NSInteger kScoreSummaryViewLocation = 0;
 static const NSInteger kScoreRecapViewLocation   = 1;
 static const NSInteger kScoreDetailViewLocation  = 2;
+static const NSInteger kScoreDataViewLocation    = 3;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -35,12 +39,12 @@ static const NSInteger kScoreDetailViewLocation  = 2;
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreSummaryViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreSummaryViewCell];
-
   [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDetailCollectionViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreDetailCollectionViewCell];
-
   [self.tableView registerNib:[UINib nibWithNibName:@"SBContentTableViewCell" bundle:nil]
        forCellReuseIdentifier:kScoreRecapCollectionViewCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDataTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScoreDataCell];
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -74,7 +78,7 @@ static const NSInteger kScoreDetailViewLocation  = 2;
 
     [self.tableView reloadData];
   } failure:^(NSError *error) {
-    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];
+    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:[[SBUser currentUser] networkConnectionErrorMessage:error]];
   }];
 }
 
@@ -105,7 +109,7 @@ static const NSInteger kScoreDetailViewLocation  = 2;
 #pragma mark 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 3;
+  return 4;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -132,6 +136,12 @@ static const NSInteger kScoreDetailViewLocation  = 2;
 
     return cell;
   }
+  else if (indexPath.section == kScoreDataViewLocation) {
+    SBScoreDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreDataCell forIndexPath:indexPath];
+    cell.game = self.game;
+
+    return cell;
+  }
 
   return nil;
 }
@@ -152,7 +162,10 @@ static const NSInteger kScoreDetailViewLocation  = 2;
     return [SBContentTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
   else if (indexPath.section == kScoreDetailViewLocation) {
-    return [SBScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:self.view.bounds.size.width].height;
+    return [SBScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:width].height;
+  }
+  else if (indexPath.section == kScoreDataViewLocation) {
+    return [SBScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
   }
   else {
     return 0;

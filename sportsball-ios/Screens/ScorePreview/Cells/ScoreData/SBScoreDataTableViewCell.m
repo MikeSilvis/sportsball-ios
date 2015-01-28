@@ -11,7 +11,7 @@
 
 @implementation SBScoreDataTableViewCell
 
-static int const kCellRowHeight = 30;
+static int const kCellRowHeight = 20;
 static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 
 - (void)awakeFromNib {
@@ -43,13 +43,6 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 + (NSArray *)calculateElements:(SBGame *)game {
   NSMutableArray *localElements = [NSMutableArray array];
 
-  if (game.startTime) {
-    [localElements addObject:@[
-                               @"Start Time",
-                               game.localStartTimeWithDate
-                              ]];
-  }
-
   if (game.moneyLine) {
     [localElements addObject:@[
                                @"Odds",
@@ -59,6 +52,11 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 
   if (game.preview) {
     SBPreview *preview = game.preview;
+    [localElements addObject:@[
+                               @"Start Time",
+                               game.localStartTimeWithDate
+                              ]];
+
     if (preview.channel) {
       [localElements addObject:@[
                                  @"Channel",
@@ -69,6 +67,26 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
       [localElements addObject:@[
                                  @"Location",
                                  preview.location
+                                ]];
+    }
+  }
+
+  else if (game.boxscore) {
+    SBBoxscore *boxscore = game.boxscore;
+    [localElements addObject:@[
+                               @"Start Time",
+                               boxscore.localStartTimeWithDate
+                              ]];
+    if (boxscore.channel) {
+      [localElements addObject:@[
+                                 @"Channel",
+                                 boxscore.channel
+                                ]];
+    }
+    if (boxscore.location) {
+      [localElements addObject:@[
+                                 @"Location",
+                                 boxscore.location
                                 ]];
     }
   }
@@ -99,7 +117,8 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 #pragma mark - Measure
 
 + (CGSize)measureCellSizeWithResource:(SBGame *)game andWidth:(CGFloat)width {
-  CGFloat height = [self numOfRows:game] * kCellRowHeight;
+  CGFloat height = 20;
+  height = height + [self numOfRows:game] * kCellRowHeight;
 
   return CGSizeMake(width, height);
 }

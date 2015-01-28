@@ -10,6 +10,7 @@
 #import "SBLeague.h"
 #import "SBUser.h"
 #import <CSNotificationView.h>
+#import "SBUser.h"
 
 @implementation SBLeagueLoadingViewController
 
@@ -31,7 +32,9 @@
   [SBLeague getSupportedLeagues:^(NSArray *leagues) {
     self.leagues = leagues;
   } failure:^(NSError *error) {
-    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];
+    [CSNotificationView showInViewController:self
+                                       style:CSNotificationViewStyleError
+                                     message:[[SBUser currentUser] networkConnectionErrorMessage:error]];
   }];
 }
 

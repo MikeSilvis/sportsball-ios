@@ -12,10 +12,10 @@
 
 @implementation SBScoreDetailCollectionViewCell
 
-static int const kCellRowHeight = 40;
+static int const kCellRowHeight = 30;
 static NSString * const kScoreDetailInfoCell = @"scoreDetailInfoCollectionViewCell";
 
-static int const kCellRowHeaderHeight = 20;
+static int const kCellRowHeaderHeight = 15;
 static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionViewCell";
 
 - (void)awakeFromNib {

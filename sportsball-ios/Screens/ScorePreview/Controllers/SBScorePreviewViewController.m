@@ -13,6 +13,7 @@
 #import "SBScoreDataTableViewCell.h"
 #import "SBScheduleTableViewCell.h"
 #import <CSNotificationView.h>
+#import "SBUser.h"
 
 @interface SBScorePreviewViewController ()
 
@@ -46,14 +47,14 @@ static const NSInteger kScheduleCellLocation = 0;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
   // Register nibs
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBContentTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kScoreContentCell];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDataTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kScoreDataCell];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kScheduleCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBContentTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScoreContentCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreDataTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScoreDataCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleTableViewCell" bundle:nil]
+       forCellReuseIdentifier:kScheduleCell];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleSegmentedControlTableViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kSegmentedScheduleHeaderCell];
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBScheduleSegmentedControlTableViewCell" bundle:nil] forHeaderFooterViewReuseIdentifier:kSegmentedScheduleHeaderCell];
 
   // Close Icon
   CGFloat iconSize = 25;
@@ -107,7 +108,7 @@ static const NSInteger kScheduleCellLocation = 0;
 
     [self setDataLoaded];
   } failure:^(NSError *error) {
-    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:error.localizedDescription];
+    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:[[SBUser currentUser] networkConnectionErrorMessage:error]];
   }];
 }
 

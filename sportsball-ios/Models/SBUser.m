@@ -89,6 +89,10 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   return nil;
 }
 
+- (NSString *)networkConnectionErrorMessage:(NSError *)error {
+  return @"No Network Connectoin";
+}
+
 #pragma mark - Sync settings
 
 - (void)syncUserDefaults {

@@ -9,6 +9,7 @@
 #import "SBScoreIndexView.h"
 #import "SBGameCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "SBUser.h"
 
 @implementation SBScoreIndexView
 
@@ -81,7 +82,7 @@ static CGFloat const kHeaderSize = 74;
     self.games = games;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    [self.delegate requestFailed:error.localizedDescription];
+    [self.delegate requestFailed:[[SBUser currentUser] networkConnectionErrorMessage:error]];
     self.activityIndicator.hidden = YES;
   }];
 }
