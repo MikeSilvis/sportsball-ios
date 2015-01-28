@@ -34,9 +34,7 @@ static int const kCellPaddingHeight = 10;
 
   self.scoreSummary = self.game.boxscore.scoreSummary;
 
-  if (self.game.boxscore) {
-    self.renderSeperator = YES;
-  }
+  self.renderSeperator = !!self.game.boxscore;
 }
 
 - (void)setScoreSummary:(NSArray *)scoreSummary {

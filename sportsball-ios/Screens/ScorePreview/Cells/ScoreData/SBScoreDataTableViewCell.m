@@ -29,6 +29,11 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
   _game = game;
 
   _elements = nil;
+
+  if ([[self.elements allKeys] count] > 0) {
+    self.renderSeperator = YES;
+  }
+
   [self.tableView reloadData];
 }
 
@@ -41,14 +46,19 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 }
 
 + (NSDictionary *)calculateElements:(SBGame *)game {
+  NSMutableDictionary *elements = [NSMutableDictionary dictionary];
+
+  if (game.moneyLine) {
+    elements[@"Odds"] = game.moneyLine;
+  }
   if (game.preview && game.preview.gameInfo) {
-    return game.preview.gameInfo.elements;
+    [elements addEntriesFromDictionary:game.preview.gameInfo.elements];
   }
   else if (game.boxscore && game.boxscore.gameInfo) {
-    return game.boxscore.gameInfo.elements;
+    [elements addEntriesFromDictionary:game.boxscore.gameInfo.elements];
   }
 
-  return @{};
+  return elements;
 }
 
 #pragma mark - Table Methods

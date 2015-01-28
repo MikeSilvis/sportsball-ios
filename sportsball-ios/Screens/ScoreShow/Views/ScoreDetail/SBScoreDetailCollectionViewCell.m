@@ -50,9 +50,7 @@ static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionVi
 - (void)setScoreDetails:(NSArray *)scoreDetails {
   _scoreDetails = scoreDetails;
 
-  if ([self.scoreDetails count] > 0) {
-    self.renderSeperator = YES;
-  }
+  self.renderSeperator = ([self.scoreDetails count] > 0);
 
   [self.tableView reloadData];
 }
