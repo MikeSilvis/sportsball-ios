@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="776" y="1836"/>
         </scene>
-        <!--Score Show View Controller-->
+        <!--Boxscore View Controller-->
         <scene sceneID="N7Q-ZS-BaW">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="I4h-tI-kLt" customClass="SBScoreShowViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="I4h-tI-kLt" customClass="SBBoxscoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xG2-KE-QUh"/>
                         <viewControllerLayoutGuide type="bottom" id="Diu-U0-7hl"/>

@@ -8,6 +8,7 @@
 
 #import "SBGame.h"
 #import "SBUser.h"
+#import "SBSchedule.h"
 
 @interface SBGame ()
 
@@ -91,6 +92,34 @@
     [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
       SBPreview *preview = [[SBPreview alloc] initWithJson:responseObject[@"preview"]];
       success(preview);
+    } failure:^(NSError *error) {
+      if (failure) {
+        failure(error);
+      }
+    }];
+}
+
+- (void)findSchedules:(NSDictionary *)paramaters
+              success:(void (^) (NSArray *))success
+              failure:(void (^) (NSError *error))failure {
+
+    NSString *path = [NSString stringWithFormat:@"leagues/%@/schedules", self.leagueName];
+
+    [self dispatchRequest:path parameters:paramaters success:^(id responseObject) {
+      NSMutableArray *schedules = [NSMutableArray array];
+
+      // All Teams Schedules
+      for (id teamScheduleJson in responseObject[@"schedules"]) {
+        NSMutableArray *teamSchedules = [NSMutableArray array];
+        for (id scheduleJson in teamScheduleJson[@"games"]) {
+          SBSchedule *schedule = [[SBSchedule alloc] initWithJson:scheduleJson];
+          [teamSchedules addObject:schedule];
+        }
+
+        [schedules addObject:teamSchedules];
+      }
+
+      success(schedules);
     } failure:^(NSError *error) {
       if (failure) {
         failure(error);

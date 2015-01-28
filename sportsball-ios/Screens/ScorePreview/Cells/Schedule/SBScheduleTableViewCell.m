@@ -13,7 +13,7 @@
 
 @implementation SBScheduleTableViewCell
 
-static int const kCellRowHeight = 30;
+static int const kCellRowHeight = 35;
 static NSString * const kScheduleInfoViewCell = @"kScheduleInfoViewCell";
 
 static int const kCellRowHeaderHeight = 20;

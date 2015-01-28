@@ -14,6 +14,7 @@
 #import "SBScheduleTableViewCell.h"
 #import <CSNotificationView.h>
 #import "SBUser.h"
+#import "SBSchedule.h"
 
 @interface SBScorePreviewViewController ()
 
@@ -90,16 +91,37 @@ static const NSInteger kScheduleCellLocation = 0;
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  self.loadingIndicator.hidden = NO;
 
   if (!self.game.previewId) {
-    [self setDataLoaded];
+    [self findSchedule];
   }
   else {
-    self.loadingIndicator.hidden = NO;
     [self findPreview];
   }
 
   [self setHeaderInfo];
+}
+
+- (void)findSchedule {
+  NSDictionary *params = @{
+                           @"teams" : @[
+                                         self.game.awayTeam.dataName,
+                                         self.game.homeTeam.dataName
+                                       ],
+                          };
+
+  [self.game findSchedules:params success:^(NSArray *schedules) {
+    SBPreview *preview = [[SBPreview alloc] init];
+    preview.awayTeamSchedule = [schedules firstObject];
+    preview.homeTeamSchedule = [schedules lastObject];
+
+    self.game.preview = preview;
+
+    [self setDataLoaded];
+  } failure:^(NSError *error) {
+  }];
+
 }
 
 - (void)findPreview {

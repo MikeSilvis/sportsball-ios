@@ -9,7 +9,7 @@
 #import "SBLeagueIndexViewController.h"
 #import "UIImage+FontAwesome.h"
 #import "SBUser.h"
-#import "SBScoreShowViewController.h"
+#import "SBBoxscoreViewController.h"
 #import "SBScorePreviewViewController.h"
 #import <CSNotificationView/CSNotificationView.h>
 
@@ -258,7 +258,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
   }
   else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
-    [self.animator setContentScrollView:((SBScoreShowViewController *)viewController).tableView];
+    [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];
   }
 
   [self stopTimer];

@@ -11,7 +11,7 @@
 #import "SBBoxscore.h"
 #import "SBModalViewController.h"
 
-@interface SBScoreShowViewController : SBModalViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBBoxscoreViewController : SBModalViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) SBBoxscore *boxscore;
 

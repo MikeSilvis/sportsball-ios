@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SBScoreShowViewController.h"
+#import "SBBoxscoreViewController.h"
 #import "SBScoreSummaryViewCell.h"
 #import "SBScoreDetailCollectionViewCell.h"
 #import "SBContentTableViewCell.h"
@@ -16,7 +16,7 @@
 #import "SBScoreDataTableViewCell.h"
 #import "SBUser.h"
 
-@implementation SBScoreShowViewController
+@implementation SBBoxscoreViewController
 
 static NSString * const kScoreSummaryViewCell = @"ScoreSummaryViewCell";
 static NSString * const kScoreDetailCollectionViewCell = @"ScoreDetailCollectionViewCell";

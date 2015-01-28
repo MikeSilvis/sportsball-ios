@@ -56,4 +56,8 @@
 - (void)findPreview:(NSDictionary *)paramaters
             success:(void (^) (SBPreview *))success
             failure:(void (^) (NSError *error))failure;
+
+- (void)findSchedules:(NSDictionary *)paramaters
+            success:(void (^) (NSArray *))success
+            failure:(void (^) (NSError *error))failure;
 @end
