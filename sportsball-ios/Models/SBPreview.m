@@ -19,11 +19,8 @@
   if (self) {
     self.headline   = json[@"headline"];
     self.content    = json[@"content"];
-    self.startTime  = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
-    self.location   = json[@"location"];
-    self.channel    = json[@"channel"];
     self.url        = [NSURL URLWithString:json[@"url"]];
-
+    self.gameInfo   = [[SBGameInfo alloc] initWithJson:json[@"game_info"]];
 
     // Away Team Schedule
     NSMutableArray *awayTeamSchedule = [NSMutableArray array];

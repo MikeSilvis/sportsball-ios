@@ -8,12 +8,6 @@
 
 #import "SBBoxscore.h"
 
-@interface SBBoxscore ()
-
-@property (nonatomic, strong) NSDateFormatter *localStartTimeDfWithDate;
-
-@end
-
 @implementation SBBoxscore
 
 - (id)initWithJson:(id)json {
@@ -21,9 +15,6 @@
 
   if (self) {
     self.scoreSummary = json[@"score_summary"];
-    self.startTime    = [NSDate dateWithTimeIntervalSince1970:[json[@"start_time"] doubleValue]];
-    self.location     = json[@"location"];
-    self.channel      = json[@"channel"];
 
     NSMutableArray *scoreDetails = [NSMutableArray array];
     for (id scoreDetail in json[@"score_detail"]) {
@@ -33,24 +24,10 @@
 
     self.scoreDetail = scoreDetails;
     self.recap = [[SBRecap alloc] initWithJson:json[@"recap"]];
+    self.gameInfo = [[SBGameInfo alloc] initWithJson:json[@"game_info"]];
   }
 
   return self;
-}
-
-- (NSString *)localStartTimeWithDate {
-  return [self.localStartTimeDfWithDate stringFromDate:self.startTime];
-}
-
-- (NSDateFormatter *)localStartTimeDfWithDate {
-  if (!_localStartTimeDfWithDate) {
-    _localStartTimeDfWithDate = [[NSDateFormatter alloc] init];
-    _localStartTimeDfWithDate.dateStyle = NSDateFormatterMediumStyle;
-    _localStartTimeDfWithDate.timeStyle = NSDateFormatterShortStyle;
-    [_localStartTimeDfWithDate setTimeZone:[NSTimeZone localTimeZone]];
-  }
-
-  return _localStartTimeDfWithDate;
 }
 
 @end

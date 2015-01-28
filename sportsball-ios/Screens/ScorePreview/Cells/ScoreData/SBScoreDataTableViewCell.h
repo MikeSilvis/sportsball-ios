@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) SBGame *game;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *elements;
+@property (nonatomic, strong) NSDictionary *elements;
 
 + (CGSize)measureCellSizeWithResource:(SBGame *)game andWidth:(CGFloat)width;
 

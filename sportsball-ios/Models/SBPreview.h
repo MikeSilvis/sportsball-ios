@@ -9,16 +9,15 @@
 #import "SBModel.h"
 #import "SBTeam.h"
 #import "SBLeague.h"
+#import "SBGameInfo.h"
 
 @interface SBPreview : SBModel
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *headline;
-@property (nonatomic, strong) NSDate *startTime;
-@property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) NSString *channel;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSDateFormatter *df;
+@property (nonatomic, strong) SBGameInfo *gameInfo;
 
 @property (nonatomic, strong) NSArray *homeTeamSchedule;
 @property (nonatomic, strong) NSArray *awayTeamSchedule;

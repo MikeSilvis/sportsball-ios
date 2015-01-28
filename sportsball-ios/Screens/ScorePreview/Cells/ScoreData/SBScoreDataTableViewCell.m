@@ -32,7 +32,7 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
   [self.tableView reloadData];
 }
 
-- (NSArray *)elements {
+- (NSDictionary *)elements {
   if (!_elements) {
     _elements = [self.class calculateElements:self.game];
   }
@@ -40,68 +40,25 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
   return _elements;
 }
 
-+ (NSArray *)calculateElements:(SBGame *)game {
-  NSMutableArray *localElements = [NSMutableArray array];
-
-  if (game.moneyLine) {
-    [localElements addObject:@[
-                               @"Odds",
-                               game.moneyLine
-                              ]];
++ (NSDictionary *)calculateElements:(SBGame *)game {
+  if (game.preview && game.preview.gameInfo) {
+    return game.preview.gameInfo.elements;
+  }
+  else if (game.boxscore && game.boxscore.gameInfo) {
+    return game.boxscore.gameInfo.elements;
   }
 
-  if (game.preview) {
-    SBPreview *preview = game.preview;
-    [localElements addObject:@[
-                               @"Start Time",
-                               game.localStartTimeWithDate
-                              ]];
-
-    if (preview.channel) {
-      [localElements addObject:@[
-                                 @"Channel",
-                                 preview.channel
-                                ]];
-    }
-    if (preview.location) {
-      [localElements addObject:@[
-                                 @"Location",
-                                 preview.location
-                                ]];
-    }
-  }
-
-  else if (game.boxscore) {
-    SBBoxscore *boxscore = game.boxscore;
-    [localElements addObject:@[
-                               @"Start Time",
-                               boxscore.localStartTimeWithDate
-                              ]];
-    if (boxscore.channel) {
-      [localElements addObject:@[
-                                 @"Channel",
-                                 boxscore.channel
-                                ]];
-    }
-    if (boxscore.location) {
-      [localElements addObject:@[
-                                 @"Location",
-                                 boxscore.location
-                                ]];
-    }
-  }
-
-  return localElements;
+  return @{};
 }
 
 #pragma mark - Table Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   SBScoreDataInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreDataInfoViewCell forIndexPath:indexPath];
-  NSArray *currentElement = self.elements[indexPath.row];
+  NSString *currentKey = [self.elements allKeys][indexPath.row];
 
-  cell.header.text = [NSString stringWithFormat:@"%@:", currentElement[0]];
-  cell.info.text   = currentElement[1];
+  cell.header.text = [NSString stringWithFormat:@"%@:", currentKey];
+  cell.info.text   = self.elements[currentKey];
 
   return cell;
 }
@@ -124,7 +81,7 @@ static NSString * const kScoreDataInfoViewCell = @"ScoreDataInfoViewCell";
 }
 
 + (NSUInteger)numOfRows:(SBGame *)game {
-  return [[self calculateElements:game] count];
+  return [[[self calculateElements:game] allKeys] count];
 }
 
 

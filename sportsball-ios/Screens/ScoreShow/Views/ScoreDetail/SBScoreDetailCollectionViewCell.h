@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SBGame.h"
+#import "SBTableViewCell.h"
 
-@interface SBScoreDetailCollectionViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
+@interface SBScoreDetailCollectionViewCell : SBTableViewCell <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *scoreDetails;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

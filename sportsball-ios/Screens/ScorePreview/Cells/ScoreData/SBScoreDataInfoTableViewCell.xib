@@ -20,7 +20,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O/U 6" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-bj-DjG">
-                        <rect key="frame" x="48" y="17" width="33" height="16.5"/>
+                        <rect key="frame" x="42" y="17" width="33" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="1Mq-bj-DjG" firstAttribute="trailing" secondItem="riP-y9-h56" secondAttribute="trailingMargin" id="9bm-zu-ny5"/>
-                    <constraint firstItem="1Mq-bj-DjG" firstAttribute="leading" secondItem="Fag-TD-0HQ" secondAttribute="trailing" constant="10" id="GGp-Hl-xIy"/>
+                    <constraint firstItem="1Mq-bj-DjG" firstAttribute="leading" secondItem="Fag-TD-0HQ" secondAttribute="trailing" constant="4" id="GGp-Hl-xIy"/>
                     <constraint firstAttribute="centerY" secondItem="1Mq-bj-DjG" secondAttribute="centerY" id="KKL-gs-5CH"/>
                     <constraint firstAttribute="centerY" secondItem="Fag-TD-0HQ" secondAttribute="centerY" id="uwL-eC-VUd"/>
                     <constraint firstItem="Fag-TD-0HQ" firstAttribute="leading" secondItem="riP-y9-h56" secondAttribute="leadingMargin" id="zIk-aw-Zyt"/>

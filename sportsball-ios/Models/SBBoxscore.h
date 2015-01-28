@@ -9,16 +9,13 @@
 #import "SBModel.h"
 #import "SBScoreDetail.h"
 #import "SBRecap.h"
+#import "SBGameInfo.h"
 
 @interface SBBoxscore : SBModel
 
 @property (nonatomic, strong) NSArray *scoreSummary;
 @property (nonatomic, strong) NSArray *scoreDetail;
 @property (nonatomic, strong) SBRecap *recap;
-@property (nonatomic, strong) NSDate *startTime;
-@property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) NSString *channel;
-
-- (NSString *)localStartTimeWithDate;
+@property (nonatomic, strong) SBGameInfo *gameInfo;
 
 @end

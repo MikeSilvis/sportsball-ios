@@ -14,6 +14,7 @@
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
 		112BEE8D1A31304B00DCE472 /* SBScoreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 112BEE8C1A31304B00DCE472 /* SBScoreDetail.m */; };
+		1135429B1A78A14E0047C2D7 /* SBGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1135429A1A78A14E0047C2D7 /* SBGameInfo.m */; };
 		113845C01A0BF94400BC7A4D /* SBScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* SBScoreIndexView.xib */; };
 		113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */; };
 		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
@@ -86,6 +87,8 @@
 		1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		112BEE8B1A31304B00DCE472 /* SBScoreDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScoreDetail.h; sourceTree = "<group>"; };
 		112BEE8C1A31304B00DCE472 /* SBScoreDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScoreDetail.m; sourceTree = "<group>"; };
+		113542991A78A14E0047C2D7 /* SBGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameInfo.h; sourceTree = "<group>"; };
+		1135429A1A78A14E0047C2D7 /* SBGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameInfo.m; sourceTree = "<group>"; };
 		113845BF1A0BF94400BC7A4D /* SBScoreIndexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBScoreIndexView.xib; sourceTree = "<group>"; };
 		113845C11A0BF9A600BC7A4D /* SBLeagueIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueIndexViewController.h; sourceTree = "<group>"; };
 		113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueIndexViewController.m; sourceTree = "<group>"; };
@@ -411,6 +414,8 @@
 				1154F6471A03D754009F560B /* SBTeam.m */,
 				1101C60B1A22842E0086AF16 /* SBUser.h */,
 				1101C60C1A22842E0086AF16 /* SBUser.m */,
+				113542991A78A14E0047C2D7 /* SBGameInfo.h */,
+				1135429A1A78A14E0047C2D7 /* SBGameInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -533,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				11BA1C4A1A65A454005C61AB /* Schedule */,
-				11BA1C3C1A64ABAD005C61AB /* ScoreData */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -548,7 +552,8 @@
 				11BA1C431A64B2D0005C61AB /* SBScoreDataInfoTableViewCell.m */,
 				11BA1C451A64B2F7005C61AB /* SBScoreDataInfoTableViewCell.xib */,
 			);
-			path = ScoreData;
+			name = ScoreData;
+			path = ../../Screens/ScorePreview/Cells/ScoreData;
 			sourceTree = "<group>";
 		};
 		11BA1C4A1A65A454005C61AB /* Schedule */ = {
@@ -570,6 +575,7 @@
 		11D198A01A606FC800729FE6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11BA1C3C1A64ABAD005C61AB /* ScoreData */,
 				1149A69F1A49B02000928ECA /* GameContent */,
 				11BA1C381A6096C4005C61AB /* SBTableViewCell.h */,
 				11BA1C391A6096C4005C61AB /* SBTableViewCell.m */,
@@ -746,6 +752,7 @@
 				116591E21A154D7300016D90 /* SBScoreShowViewController.m in Sources */,
 				113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* SBLeagueHeader.m in Sources */,
+				1135429B1A78A14E0047C2D7 /* SBGameInfo.m in Sources */,
 				11BA1C541A65B118005C61AB /* SBScheduleInfoTableViewCell.m in Sources */,
 				114E87A21A5F8A0E007C2CF7 /* SBModalViewController.m in Sources */,
 				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
