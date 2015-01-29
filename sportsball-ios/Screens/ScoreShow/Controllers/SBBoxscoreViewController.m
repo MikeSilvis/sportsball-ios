@@ -10,11 +10,11 @@
 #import "SBScoreSummaryViewCell.h"
 #import "SBScoreDetailCollectionViewCell.h"
 #import "SBContentTableViewCell.h"
-#import <UIImageView+AFNetworking.h>
 #import "UIImage+FontAwesome.h"
 #import <CSNotificationView.h>
 #import "SBScoreDataTableViewCell.h"
 #import "SBUser.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SBBoxscoreViewController
 
@@ -92,11 +92,11 @@ static const NSInteger kScoreDataViewLocation    = 3;
 
 -(void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
+  [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
 
   SBTeam *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
+  [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamScore.text = self.game.awayScoreString;
 }
 

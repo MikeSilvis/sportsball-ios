@@ -7,7 +7,7 @@
 //
 
 #import "SBContentTableViewCell.h"
-#import <UIImageView+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SBContentTableViewCell
 
@@ -25,7 +25,7 @@
 
   self.headline.text = self.recap.headline;
   self.content.text = self.recap.content;
-  [self.headerImage setImageWithURL:self.recap.photoURL];
+  [self.headerImage sd_setImageWithURL:self.recap.photoURL];
 
   if (recap.headline) {
     self.renderSeperator = YES;

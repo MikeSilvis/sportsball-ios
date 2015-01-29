@@ -8,13 +8,13 @@
 
 #import "SBScorePreviewViewController.h"
 #import "UIImage+FontAwesome.h"
-#import <UIImageView+AFNetworking.h>
 #import "SBContentTableViewCell.h"
 #import "SBScoreDataTableViewCell.h"
 #import "SBScheduleTableViewCell.h"
 #import <CSNotificationView.h>
 #import "SBUser.h"
 #import "SBSchedule.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SBScorePreviewViewController ()
 
@@ -155,12 +155,12 @@ static const NSInteger kScheduleCellLocation = 0;
 
 - (void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
+  [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamRecord.text = homeTeam.record;
   self.homeTeamName.text = homeTeam.name;
 
   SBTeam *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
+  [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamRecord.text = awayTeam.record;
   self.awayTeamName.text = awayTeam.name;
 }

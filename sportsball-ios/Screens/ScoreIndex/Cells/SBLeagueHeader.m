@@ -7,7 +7,7 @@
 //
 
 #import "SBLeagueHeader.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SBLeagueHeader
 
@@ -64,9 +64,9 @@
 - (void)setCurrentLeague:(SBLeague *)currentLeague {
   _currentLeague = currentLeague;
 
-  [self.smallLogo setImageWithURL:[self.currentLeague imageURL:self.currentLeague.logo withSize:@"100x100"]];
-  [self.headerImage setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:@"1000x563"]];
-  [self.headerImageBlurred setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:@"1000x563"]];
+  [self.smallLogo sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.logo withSize:@"100x100"]];
+  [self.headerImage sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:@"1000x563"]];
+  [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:@"1000x563"]];
 }
 
 @end

@@ -26,6 +26,9 @@ PODS:
   - FontAwesomeKit/Core (2.2.0)
   - FontAwesomeKit/FontAwesome (2.2.0):
     - FontAwesomeKit/Core
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
   - SVWebViewController (1.0)
   - UIImage-Helpers (0.0.3)
   - Underscore.m (0.2.1)
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
+  - SDWebImage
   - SVWebViewController (from `https://github.com/MikeSilvis/SVWebViewController.git`)
   - UIImage-Helpers
   - Underscore.m
@@ -65,6 +69,7 @@ SPEC CHECKSUMS:
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   EDColor: bcdb8600b7a456f4408ce1d7e7fc001588919254
   FontAwesomeKit: 61f0b4f12f1b11b7489bc7d1507a8692547f3857
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVWebViewController: e23a0cf92c2185d584787f0422b14592dd160fca
   UIImage-Helpers: 176819cd1a4cb5beaee859f5b92470fb04be92af
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f

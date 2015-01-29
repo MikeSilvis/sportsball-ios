@@ -7,7 +7,7 @@
 //
 
 #import "SBScheduleInfoTableViewCell.h"
-#import <UIImageView+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "EDColor.h"
 
 @implementation SBScheduleInfoTableViewCell
@@ -23,7 +23,7 @@
 -(void)setSchedule:(SBSchedule *)schedule {
   _schedule = schedule;
 
-  [self.logo setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"60x60"]];
+  [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"60x60"]];
   self.team.text = schedule.opponent.name;
 
   if (schedule.isOver) {

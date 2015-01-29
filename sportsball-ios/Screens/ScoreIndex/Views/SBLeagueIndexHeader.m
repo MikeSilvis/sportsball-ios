@@ -7,16 +7,15 @@
 //
 
 #import "SBLeagueIndexHeader.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SBLeagueIndexHeader
 
 - (void)setLeague:(SBLeague *)league {
   _league = league;
 
-  [self.backgroundImage setImageWithURL:[league imageURL:league.blurredHeader withSize:@"1000x563"]];
-  [self.logoImage setImageWithURL:[league imageURL:league.logo withSize:@"100x100"]];
+  [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:@"1000x563"]];
+  [self.logoImage sd_setImageWithURL:[league imageURL:league.logo withSize:@"100x100"]];
 }
-
 
 @end
