@@ -25,6 +25,7 @@
     self.scoreDetail = scoreDetails;
     self.recap = [[SBRecap alloc] initWithJson:json[@"recap"]];
     self.gameInfo = [[SBGameInfo alloc] initWithJson:json[@"game_info"]];
+    self.gameStats = [[SBGameStats alloc] initWithJson:json[@"game_stats"]];
   }
 
   return self;

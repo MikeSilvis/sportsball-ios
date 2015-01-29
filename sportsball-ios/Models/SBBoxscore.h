@@ -10,6 +10,7 @@
 #import "SBScoreDetail.h"
 #import "SBRecap.h"
 #import "SBGameInfo.h"
+#import "SBGameStats.h"
 
 @interface SBBoxscore : SBModel
 
@@ -17,5 +18,6 @@
 @property (nonatomic, strong) NSArray *scoreDetail;
 @property (nonatomic, strong) SBRecap *recap;
 @property (nonatomic, strong) SBGameInfo *gameInfo;
+@property (nonatomic, strong) SBGameStats *gameStats;
 
 @end

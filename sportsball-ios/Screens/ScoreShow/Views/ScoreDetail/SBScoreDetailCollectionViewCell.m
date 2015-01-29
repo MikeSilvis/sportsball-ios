@@ -55,7 +55,7 @@ static NSString * const kScoreDetailHeaderCell = @"scoreDetailHeaderCollectionVi
   [self.tableView reloadData];
 }
 
-#pragma mark - UICollectionView
+#pragma mark - UITableView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return kCellRowHeight;
