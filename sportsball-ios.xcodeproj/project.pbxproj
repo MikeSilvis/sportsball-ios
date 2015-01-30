@@ -57,9 +57,9 @@
 		11590E791A7C286500D1E7C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E781A7C286500D1E7C1 /* AudioToolbox.framework */; };
 		11590E7B1A7C29D800D1E7C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E7A1A7C29D800D1E7C1 /* Social.framework */; };
 		11590E7D1A7C29DC00D1E7C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E7C1A7C29DC00D1E7C1 /* Accounts.framework */; };
-		11590E881A7C2A2C00D1E7C1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E871A7C2A2C00D1E7C1 /* Parse.framework */; };
-		11590E8A1A7C2A5400D1E7C1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E891A7C2A5400D1E7C1 /* Bolts.framework */; };
 		11590E8C1A7C2B0A00D1E7C1 /* secretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */; };
+		11590E8F1A7C2DA100D1E7C1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */; };
+		11590E901A7C2DA100D1E7C1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8E1A7C2DA100D1E7C1 /* Parse.framework */; };
 		1161A9851A0C1E4A00E40EEC /* SBGameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */; };
 		1161A98A1A0C626100E40EEC /* SBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* SBModel.m */; };
@@ -176,9 +176,9 @@
 		11590E781A7C286500D1E7C1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		11590E7A1A7C29D800D1E7C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		11590E7C1A7C29DC00D1E7C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		11590E871A7C2A2C00D1E7C1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../.Trash/Parse.framework; sourceTree = "<group>"; };
-		11590E891A7C2A5400D1E7C1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../Downloads/parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
 		11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secretKeys.plist; sourceTree = "<group>"; };
+		11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		11590E8E1A7C2DA100D1E7C1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1161A9831A0C1E4A00E40EEC /* SBGameCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameCollectionViewCell.h; sourceTree = "<group>"; };
 		1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameCollectionViewCell.m; sourceTree = "<group>"; };
 		1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBGameCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -241,13 +241,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				11590E7D1A7C29DC00D1E7C1 /* Accounts.framework in Frameworks */,
-				11590E8A1A7C2A5400D1E7C1 /* Bolts.framework in Frameworks */,
 				11590E7B1A7C29D800D1E7C1 /* Social.framework in Frameworks */,
 				11590E791A7C286500D1E7C1 /* AudioToolbox.framework in Frameworks */,
 				11590E771A7C285F00D1E7C1 /* CFNetwork.framework in Frameworks */,
 				11590E751A7C285A00D1E7C1 /* CoreGraphics.framework in Frameworks */,
 				11590E731A7C285500D1E7C1 /* CoreLocation.framework in Frameworks */,
-				11590E881A7C2A2C00D1E7C1 /* Parse.framework in Frameworks */,
 				11590E711A7C285000D1E7C1 /* MobileCoreServices.framework in Frameworks */,
 				11590E6F1A7C284A00D1E7C1 /* QuartzCore.framework in Frameworks */,
 				11590E6D1A7C284200D1E7C1 /* Security.framework in Frameworks */,
@@ -255,8 +253,10 @@
 				11590E691A7C283100D1E7C1 /* SystemConfiguration.framework in Frameworks */,
 				11590E671A7C282C00D1E7C1 /* libz.dylib in Frameworks */,
 				11590E651A7C282700D1E7C1 /* libsqlite3.dylib in Frameworks */,
+				11590E901A7C2DA100D1E7C1 /* Parse.framework in Frameworks */,
 				11824D441A73062300DF0E05 /* MessageUI.framework in Frameworks */,
 				11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */,
+				11590E8F1A7C2DA100D1E7C1 /* Bolts.framework in Frameworks */,
 				E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */,
 				11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */,
 			);
@@ -268,8 +268,8 @@
 		07B475A5F1B88F143ED57614 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11590E891A7C2A5400D1E7C1 /* Bolts.framework */,
-				11590E871A7C2A2C00D1E7C1 /* Parse.framework */,
+				11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */,
+				11590E8E1A7C2DA100D1E7C1 /* Parse.framework */,
 				11590E7C1A7C29DC00D1E7C1 /* Accounts.framework */,
 				11590E7A1A7C29D800D1E7C1 /* Social.framework */,
 				11590E781A7C286500D1E7C1 /* AudioToolbox.framework */,
@@ -977,8 +977,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/silvis/Downloads/parse-library-1",
-					/Users/silvis/.Trash,
 				);
 				INFOPLIST_FILE = "sportsball-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -998,8 +996,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/silvis/Downloads/parse-library-1",
-					/Users/silvis/.Trash,
 				);
 				INFOPLIST_FILE = "sportsball-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

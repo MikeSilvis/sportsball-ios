@@ -7,11 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "SBUser.h"
+
+#import "EDColor.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
-#import "EDColor.h"
-#import "SBUser.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
