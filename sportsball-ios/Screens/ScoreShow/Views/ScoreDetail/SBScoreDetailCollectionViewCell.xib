@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dPN-87-iLB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
+                        <rect key="frame" x="0.0" y="8" width="600" height="291.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="zNW-ff-kmE" id="Hz9-tV-4YE"/>
@@ -24,7 +24,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="dPN-87-iLB" firstAttribute="leading" secondItem="tSa-nd-ZXV" secondAttribute="leadingMargin" constant="-8" id="6Lk-XN-bbR"/>
-                    <constraint firstItem="dPN-87-iLB" firstAttribute="top" secondItem="tSa-nd-ZXV" secondAttribute="topMargin" constant="-8" id="CbV-Yx-bHv"/>
+                    <constraint firstItem="dPN-87-iLB" firstAttribute="top" secondItem="tSa-nd-ZXV" secondAttribute="topMargin" id="CbV-Yx-bHv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dPN-87-iLB" secondAttribute="bottom" constant="-8" id="gCi-Cg-nbn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dPN-87-iLB" secondAttribute="trailing" constant="-8" id="qJe-0S-gpr"/>
                 </constraints>
