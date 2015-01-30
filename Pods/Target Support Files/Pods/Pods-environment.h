@@ -96,12 +96,6 @@
 #define COCOAPODS_VERSION_MINOR_SVWebViewController 0
 #define COCOAPODS_VERSION_PATCH_SVWebViewController 0
 
-// UIImage-Helpers
-#define COCOAPODS_POD_AVAILABLE_UIImage_Helpers
-#define COCOAPODS_VERSION_MAJOR_UIImage_Helpers 0
-#define COCOAPODS_VERSION_MINOR_UIImage_Helpers 0
-#define COCOAPODS_VERSION_PATCH_UIImage_Helpers 3
-
 // Underscore.m
 #define COCOAPODS_POD_AVAILABLE_Underscore_m
 #define COCOAPODS_VERSION_MAJOR_Underscore_m 0
