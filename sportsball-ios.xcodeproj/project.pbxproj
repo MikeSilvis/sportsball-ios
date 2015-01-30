@@ -261,7 +261,8 @@
 				113542A61A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.m */,
 				113542A81A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib */,
 			);
-			path = TeamStats;
+			name = TeamStats;
+			path = ../../Screens/ScoreShow/Views/TeamStats;
 			sourceTree = "<group>";
 		};
 		113845BE1A0BF93500BC7A4D /* Views */ = {
@@ -508,7 +509,6 @@
 		11847BD51A21063800300E28 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1135429C1A79F6550047C2D7 /* TeamStats */,
 				1189A3F31A31335700575E07 /* ScoreDetail */,
 				112BEE8A1A3124A900DCE472 /* ScoreSummary */,
 			);
@@ -606,6 +606,7 @@
 		11D198A01A606FC800729FE6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1135429C1A79F6550047C2D7 /* TeamStats */,
 				11BA1C3C1A64ABAD005C61AB /* ScoreData */,
 				1149A69F1A49B02000928ECA /* GameContent */,
 				11BA1C381A6096C4005C61AB /* SBTableViewCell.h */,

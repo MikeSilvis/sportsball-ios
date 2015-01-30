@@ -23,7 +23,7 @@
 -(void)setSchedule:(SBSchedule *)schedule {
   _schedule = schedule;
 
-  [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"60x60"]];
+  [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"50x50"]];
   self.team.text = schedule.opponent.name;
 
   if (schedule.isOver) {

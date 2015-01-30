@@ -77,6 +77,11 @@ static const NSInteger kScoreDataViewLocation    = 4;
 }
 
 -(void)findBoxscore {
+  if (!self.game.boxscoreId) {
+    self.loadingIndicator.hidden = YES;
+    return;
+  }
+
   [self.game findBoxscore:nil success:^(SBBoxscore *boxscore) {
     self.game.boxscore = boxscore;
     self.loadingIndicator.hidden = YES;
