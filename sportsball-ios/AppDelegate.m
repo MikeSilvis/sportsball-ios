@@ -13,10 +13,6 @@
 #import "EDColor.h"
 #import "SBUser.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 
@@ -28,6 +24,7 @@
 
   [self defaultStyles];
   [self defaultCache];
+  [self configureParse:launchOptions];
 
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -47,6 +44,17 @@
   [self.window makeKeyAndVisible];
 
   return YES;
+}
+
+- (void)configureParse:(NSDictionary *)launchOptions {
+  [Parse enableLocalDatastore];
+
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+  [Parse setApplicationId:[keys objectForKey:@"PARSE_API_KEY"] clientKey:[keys objectForKey:@"PARSE_CLIENT_KEY"]];
+ 
+  [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
 - (void)defaultCache {
