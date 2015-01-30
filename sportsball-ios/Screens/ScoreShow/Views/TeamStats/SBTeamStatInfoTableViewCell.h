@@ -10,4 +10,8 @@
 
 @interface SBTeamStatInfoTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *stat;
+@property (weak, nonatomic) IBOutlet UILabel *homeStat;
+@property (weak, nonatomic) IBOutlet UILabel *awayStat;
+
 @end

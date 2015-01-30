@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,25 +12,43 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4aM-Ot-QbJ" id="M2B-U8-bBS">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heyooo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQe-yP-yDP">
-                        <rect key="frame" x="139" y="14" width="60" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v8-U6-fwv">
+                        <rect key="frame" x="56" y="12" width="34" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-EO-W9J">
+                        <rect key="frame" x="110" y="12" width="100" height="19.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="bzf-L3-TR8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndg-Qu-hAQ">
+                        <rect key="frame" x="230" y="12" width="34" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="centerX" secondItem="vQe-yP-yDP" secondAttribute="centerX" constant="-9" id="7h4-58-iAF"/>
-                    <constraint firstAttribute="centerY" secondItem="vQe-yP-yDP" secondAttribute="centerY" constant="-2.75" id="BSd-Oc-U8f"/>
-                    <constraint firstItem="vQe-yP-yDP" firstAttribute="top" secondItem="M2B-U8-bBS" secondAttribute="topMargin" constant="6" id="Kzh-jx-Hkc"/>
+                    <constraint firstItem="ndg-Qu-hAQ" firstAttribute="leading" secondItem="4H9-EO-W9J" secondAttribute="trailing" constant="20" id="0GD-1F-2Sf"/>
+                    <constraint firstAttribute="centerY" secondItem="0v8-U6-fwv" secondAttribute="centerY" id="8ez-I6-atn"/>
+                    <constraint firstItem="4H9-EO-W9J" firstAttribute="leading" secondItem="0v8-U6-fwv" secondAttribute="trailing" constant="20" id="GMa-d1-rPi"/>
+                    <constraint firstAttribute="centerX" secondItem="4H9-EO-W9J" secondAttribute="centerX" id="e85-jG-Aml"/>
+                    <constraint firstAttribute="centerY" secondItem="4H9-EO-W9J" secondAttribute="centerY" id="fat-ts-1z4"/>
+                    <constraint firstAttribute="centerY" secondItem="ndg-Qu-hAQ" secondAttribute="centerY" id="owI-JT-z5S"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="Kzh-jx-Hkc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="awayStat" destination="0v8-U6-fwv" id="a9D-F9-UMp"/>
+                <outlet property="homeStat" destination="ndg-Qu-hAQ" id="HGK-TC-pyL"/>
+                <outlet property="stat" destination="4H9-EO-W9J" id="gbi-vz-zGD"/>
+            </connections>
             <point key="canvasLocation" x="562" y="349"/>
         </tableViewCell>
     </objects>

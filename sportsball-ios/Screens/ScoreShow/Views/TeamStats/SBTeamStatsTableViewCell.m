@@ -17,42 +17,50 @@ static NSString * const kTeamStatInfoCell = @"teamStatInfoCell";
 - (void)awakeFromNib {
   [super awakeFromNib];
 
-  [self.tableView registerNib:[UINib nibWithNibName:@"SBTeamStatInfoTableViewCell" bundle:nil]
+  self.backgroundColor             = [UIColor clearColor];
+  self.contentView.backgroundColor = [UIColor clearColor];
+  self.tableView.backgroundColor   = [UIColor clearColor];
+  self.tableView.separatorStyle    = UITableViewCellSeparatorStyleNone;
+  self.tableView.allowsSelection   = NO;
+
+  [self.tableView registerNib:[UINib nibWithNibName:@"SBTeamStatinfoTableViewCell" bundle:nil]
        forCellReuseIdentifier:kTeamStatInfoCell];
 }
 
 - (void)setGameStats:(SBGameStats *)gameStats {
   _gameStats = gameStats;
 
+  if ([self.gameStats.headers count] > 0) {
+    self.renderSeperator = YES;
+  }
+
   [self.tableView reloadData];
 }
 
 #pragma mark - UITableView
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 1;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return kCellRowHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//  return [self.gameStats.headers count];
-  return 10;
+  return [self.gameStats.headers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"HERE");
   SBTeamStatInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTeamStatInfoCell forIndexPath:indexPath];
+  
+  cell.awayStat.text = self.gameStats.awayTeamStats[indexPath.row];
+  cell.homeStat.text = self.gameStats.homeTeamStats[indexPath.row];
+  cell.stat.text     = self.gameStats.headers[indexPath.row];
 
   return cell;
 }
 
 #pragma mark - Measurements
 
-+ (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, 100);
++ (CGSize)measureCellSizeWithResource:(SBGameStats *)gameStats andWidth:(CGFloat)width {
+  return CGSizeMake(width, ([gameStats.headers count] * kCellRowHeight));
 }
 
 @end

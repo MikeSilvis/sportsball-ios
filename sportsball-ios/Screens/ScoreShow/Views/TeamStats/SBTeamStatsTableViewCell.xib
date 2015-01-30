@@ -16,12 +16,14 @@
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HUe-Xe-7Un">
                         <rect key="frame" x="0.0" y="0.0" width="494" height="203.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="pVZ-Mr-jTW" id="dsh-5D-lQX"/>
                             <outlet property="delegate" destination="pVZ-Mr-jTW" id="EqM-Eu-pVU"/>
                         </connections>
                     </tableView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="HUe-Xe-7Un" firstAttribute="leading" secondItem="G52-O8-cEv" secondAttribute="leadingMargin" constant="-8" id="S4k-Yo-uyi"/>
                     <constraint firstAttribute="trailingMargin" secondItem="HUe-Xe-7Un" secondAttribute="trailing" constant="-8" id="exN-5G-seT"/>

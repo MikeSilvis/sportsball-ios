@@ -175,8 +175,8 @@ static const NSInteger kScoreDataViewLocation    = 4;
   else if (indexPath.section == kScoreDetailViewLocation) {
     return [SBScoreDetailCollectionViewCell measureCellSizeWithResource:self.game.boxscore.scoreDetail andWidth:width].height;
   }
-  else if (indexPath.section == kScoreRecapViewLocation) {
-    return [SBTeamStatsTableViewCell measureCellSizeWithResource:@[] andWidth:width].height;
+  else if (indexPath.section == kTeamStatsLocation) {
+    return [SBTeamStatsTableViewCell measureCellSizeWithResource:self.game.boxscore.gameStats andWidth:width].height;
   }
   else if (indexPath.section == kScoreDataViewLocation) {
     return [SBScoreDataTableViewCell measureCellSizeWithResource:self.game andWidth:width].height;
