@@ -7,10 +7,17 @@
 //
 
 #import "SBUser.h"
+#import <Parse/Parse.h>
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
 static NSString *kAllLeagues = @"allLeagues-1";
 static NSString *kFavoriteTeams = @"favoriteTeams-1";
+
+@interface SBUser ()
+
+@property (nonatomic, strong) PFUser *currentPfUser;
+
+@end
 
 @implementation SBUser
 
@@ -30,13 +37,18 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 
   if (self) {
     [self setUserDefaults];
+    [PFUser enableAutomaticUser];
+    [[PFUser currentUser] incrementKey:@"openCount"];
+    self.currentPfUser = [PFUser currentUser];
   }
 
   return self;
 }
 
-- (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeague {
-  _lastOpenedLeagueIndex = lastOpenedLeague;
+- (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeagueIndex {
+  _lastOpenedLeagueIndex = lastOpenedLeagueIndex;
+
+  self.currentPfUser[@"lastOpenedLeague"] = self.lastOpenedLeagueIndex;
 
   [self syncUserDefaults];
 }
@@ -64,6 +76,10 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   favoriteTeams[league] = leagueFavoriteTeams;
   self.favoriteTeams = favoriteTeams;
   [self syncUserDefaults];
+
+  // Save for parse
+  [SBTeam incrementFavoriteTeam:homeTeam];
+  [SBTeam incrementFavoriteTeam:awayTeam];
 }
 
 - (NSString *)favoriteTeam:(SBLeague *)league {
@@ -116,6 +132,8 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   }
 
   [defaults synchronize];
+
+  [self.currentPfUser saveInBackground];
 }
 
 - (void)setUserDefaults {

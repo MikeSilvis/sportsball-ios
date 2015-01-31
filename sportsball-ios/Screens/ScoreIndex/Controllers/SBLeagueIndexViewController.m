@@ -153,7 +153,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (IBAction)didRequestClose:(id)sender {
   [SBUser currentUser].lastOpenedLeague = nil;
-  [SBUser currentUser].lastOpenedLeagueIndex = nil;
+  [SBUser currentUser].lastOpenedLeagueIndex = @-1;
   [self closeWindow];
 }
 

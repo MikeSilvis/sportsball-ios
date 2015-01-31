@@ -7,6 +7,7 @@
 //
 
 #import "SBTeam.h"
+#import <Parse/Parse.h>
 
 @implementation SBTeam
 
@@ -18,6 +19,7 @@
     self.logoUrl = [NSURL URLWithString:json[@"logo"]];
     self.record = json[@"record"];
     self.dataName = json[@"data_name"];
+    self.leagueName = json[@"league"];
   }
 
   return self;
@@ -29,6 +31,33 @@
 
 - (NSString *)formattedRecord {
   return [NSString stringWithFormat:@"(%@)", self.record];
+}
+
++ (void)incrementFavoriteTeam:(SBTeam *)team {
+  NSString *parseClassName = @"TeamCount";
+  NSString *favoriteCount = @"favoriteCount";
+
+  PFQuery *query = [PFQuery queryWithClassName:parseClassName];
+  [query whereKey:@"user" equalTo:[PFUser currentUser]];
+  [query whereKey:@"league" equalTo:team.leagueName];
+  [query whereKey:@"team" equalTo:team.name];
+
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if ([objects count] > 0) {
+      PFObject *teamRecord = [objects firstObject];
+      [teamRecord incrementKey:favoriteCount];
+      [teamRecord saveInBackground];
+    }
+    else {
+      PFObject *teamRecord = [PFObject objectWithClassName:parseClassName];
+      teamRecord[@"user"] = [PFUser currentUser];
+      teamRecord[@"league"] = team.leagueName;
+      teamRecord[@"team"] = team.name;
+      teamRecord[favoriteCount] = @1;
+      [teamRecord saveInBackground];
+    }
+  }];
+
 }
 
 @end

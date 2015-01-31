@@ -15,8 +15,10 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *record;
 @property (nonatomic, strong) NSString *dataName;
+@property (nonatomic, strong) NSString *leagueName;
 @property BOOL isAway;
 
 - (NSString *)formattedRecord;
++ (void)incrementFavoriteTeam:(SBTeam *)team;
 
 @end
