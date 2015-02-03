@@ -47,7 +47,7 @@
   MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
                                                                                 title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
                                                                              subtitle:nil
-                                                                      backgroundColor:[UIColor redColor]
+                                                                      backgroundColor:[UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000]
                                                                             iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
   notification.animationType = MPGNotificationAnimationTypeDrop;
   [notification show];
