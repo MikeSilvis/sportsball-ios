@@ -11,7 +11,7 @@
 #import "SBUser.h"
 #import "SBBoxscoreViewController.h"
 #import "SBScorePreviewViewController.h"
-#import <CSNotificationView/CSNotificationView.h>
+//#import <CSNotificationView/CSNotificationView.h>
 
 @implementation SBLeagueIndexViewController
 
@@ -276,10 +276,8 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   return UIStatusBarStyleLightContent;
 }
 
-- (void)requestFailed:(NSString *)message {
-  [CSNotificationView showInViewController:self
-                                    style:CSNotificationViewStyleError
-                                   message:message];
+- (void)requestFailed:(NSError *)error {
+  [self showNetworkError:error];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SBUser.h"
+#import "UIImage+FontAwesome.h"
 #import <Parse/Parse.h>
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
@@ -106,7 +107,14 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 }
 
 - (NSString *)networkConnectionErrorMessage:(NSError *)error {
-  return @"No Network Connectoin";
+  return @"No Network Connection";
+}
+
+- (UIImage *)networkConnectionErrorIcon {
+  CGFloat iconSize = 15;
+  FAKFontAwesome *carretIcon = [FAKFontAwesome warningIconWithSize:iconSize];
+
+  return [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
 }
 
 #pragma mark - Sync settings

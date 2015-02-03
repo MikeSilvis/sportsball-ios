@@ -11,11 +11,11 @@
 #import "SBScoreDetailCollectionViewCell.h"
 #import "SBContentTableViewCell.h"
 #import "UIImage+FontAwesome.h"
-#import <CSNotificationView.h>
 #import "SBScoreDataTableViewCell.h"
 #import "SBUser.h"
 #import "SBTeamStatsTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MPGNotification/MPGNotification.h>
 
 @implementation SBBoxscoreViewController
 
@@ -88,7 +88,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
     [self.tableView reloadData];
   } failure:^(NSError *error) {
-    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:[[SBUser currentUser] networkConnectionErrorMessage:error]];
+    [self showNetworkError:error];
   }];
 }
 

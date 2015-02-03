@@ -16,7 +16,7 @@
 
 - (void)selectedGame:(SBGame *)game;
 - (void)requestClose;
-- (void)requestFailed:(NSString *)message;
+- (void)requestFailed:(NSError *)error;
 
 @end
 

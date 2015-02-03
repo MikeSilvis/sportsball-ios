@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
+#import <MPGNotification.h>
 #import "SBModalViewController.h"
+#import "SBUser.h"
 
 @interface SBModalViewController ()
 
@@ -53,6 +55,16 @@
   webViewController.modalPresentationStyle = UIModalPresentationCustom;
 
   [self presentViewController:webViewController animated:YES completion:NULL];
+}
+
+- (void)showNetworkError:(NSError *)error {
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
+                                                                             subtitle:nil
+                                                                      backgroundColor:[UIColor redColor]
+                                                                            iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  [notification show];
 }
 
 @end

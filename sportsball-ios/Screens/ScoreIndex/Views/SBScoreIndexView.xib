@@ -31,7 +31,7 @@
                     </constraints>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Q1X-o7-TxH">
-                    <rect key="frame" x="281.5" y="261.5" width="37" height="37"/>
+                    <rect key="frame" x="282" y="262" width="37" height="37"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

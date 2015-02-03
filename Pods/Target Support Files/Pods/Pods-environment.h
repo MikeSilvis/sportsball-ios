@@ -48,12 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
-// CSNotificationView
-#define COCOAPODS_POD_AVAILABLE_CSNotificationView
-#define COCOAPODS_VERSION_MAJOR_CSNotificationView 0
-#define COCOAPODS_VERSION_MINOR_CSNotificationView 5
-#define COCOAPODS_VERSION_PATCH_CSNotificationView 3
-
 // CSStickyHeaderFlowLayout
 #define COCOAPODS_POD_AVAILABLE_CSStickyHeaderFlowLayout
 #define COCOAPODS_VERSION_MAJOR_CSStickyHeaderFlowLayout 0
@@ -77,6 +71,12 @@
 #define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_FontAwesome 2
 #define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 2
 #define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 0
+
+// MPGNotification
+#define COCOAPODS_POD_AVAILABLE_MPGNotification
+#define COCOAPODS_VERSION_MAJOR_MPGNotification 1
+#define COCOAPODS_VERSION_MINOR_MPGNotification 2
+#define COCOAPODS_VERSION_PATCH_MPGNotification 0
 
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage

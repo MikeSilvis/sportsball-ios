@@ -24,12 +24,12 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xek-d8-sX4" userLabel="homeTeamName">
-                        <rect key="frame" x="44" y="8" width="78" height="20"/>
+                        <rect key="frame" x="44" y="8" width="76" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="254" id="j43-c1-Wha"/>
                             <constraint firstAttribute="height" constant="20" id="oR6-7w-mcz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
@@ -39,7 +39,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(6-1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-Kx-tTH" userLabel="homeTeamRecord">
-                        <rect key="frame" x="127" y="10" width="24.5" height="16.5"/>
+                        <rect key="frame" x="125" y="10" width="25" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,13 +52,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0a-bd-CvG" userLabel="awayTeamName">
-                        <rect key="frame" x="44" y="33" width="75.5" height="20"/>
+                        <rect key="frame" x="44" y="33" width="72" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="570-AF-ewx"/>
                             <constraint firstAttribute="width" constant="254" id="Cp1-fY-Zsv"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="xEU-s5-GMO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
@@ -69,22 +69,22 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3-4)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-1v-9An" userLabel="awayTeamRecord">
-                        <rect key="frame" x="124" y="35" width="24.5" height="16.5"/>
+                        <rect key="frame" x="121" y="35" width="25" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAN-Nf-OiC" userLabel="homeTeamWinner">
-                        <rect key="frame" x="511" y="8" width="20" height="19"/>
+                        <rect key="frame" x="511" y="8" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="3We-J0-QFv"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lOU-h5-Low" userLabel="awayTeamWinner">
-                        <rect key="frame" x="511" y="32" width="20" height="22"/>
+                        <rect key="frame" x="511" y="32" width="20" height="23"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Vx-bUF" userLabel="upperInfo">
-                        <rect key="frame" x="531" y="7" width="55" height="20.5"/>
+                        <rect key="frame" x="531" y="7" width="55" height="22"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
-                        <rect key="frame" x="336" y="35" width="250" height="16.5"/>
+                        <rect key="frame" x="336" y="35" width="250" height="17"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

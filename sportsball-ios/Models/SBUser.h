@@ -21,5 +21,6 @@
 - (void)appendFavoriteTeams:(SBTeam *)team andTeam:(SBTeam *)team2 andLeague:(NSString *)league;
 - (NSString *)favoriteTeam:(SBLeague *)league;
 - (NSString *)networkConnectionErrorMessage:(NSError *)error;
+- (UIImage *)networkConnectionErrorIcon;
 
 @end

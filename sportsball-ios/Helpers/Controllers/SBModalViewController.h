@@ -24,5 +24,6 @@
 @property (nonatomic, strong) SBGame *game;
 
 - (void)openURL:(NSURL *)url;
+- (void)showNetworkError:(NSError *)error;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "SBViewController.h"
 #import "XHRealTimeBlur.h"
+#import <MPGNotification.h>
+#import "SBUser.h"
 
 @implementation SBViewController
 
@@ -41,5 +43,14 @@
   }
 }
 
+- (void)showNetworkError:(NSError *)error {
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
+                                                                             subtitle:nil
+                                                                      backgroundColor:[UIColor redColor]
+                                                                            iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  [notification show];
+}
 
 @end

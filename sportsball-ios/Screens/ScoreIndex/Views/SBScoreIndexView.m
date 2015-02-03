@@ -82,7 +82,7 @@ static CGFloat const kHeaderSize = 74;
     self.games = games;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    [self.delegate requestFailed:[[SBUser currentUser] networkConnectionErrorMessage:error]];
+    [self.delegate requestFailed:nil];
     self.activityIndicator.hidden = YES;
   }];
 }

@@ -20,12 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CSNotificationView (0.5.3)
   - CSStickyHeaderFlowLayout (0.2.3)
   - EDColor (0.4.0)
   - FontAwesomeKit/Core (2.2.0)
   - FontAwesomeKit/FontAwesome (2.2.0):
     - FontAwesomeKit/Core
+  - MPGNotification (1.2)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -36,10 +36,10 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - CSNotificationView
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
+  - MPGNotification
   - SDWebImage
   - SVWebViewController (from `https://github.com/MikeSilvis/SVWebViewController.git`)
   - Underscore.m
@@ -63,10 +63,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  CSNotificationView: e4d26da44dfb569ab284949c822a8239f23cc13d
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   EDColor: bcdb8600b7a456f4408ce1d7e7fc001588919254
   FontAwesomeKit: 61f0b4f12f1b11b7489bc7d1507a8692547f3857
+  MPGNotification: 0b93e5466a007593228595a10e8dd7b9848185ca
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVWebViewController: e23a0cf92c2185d584787f0422b14592dd160fca
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f

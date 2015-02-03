@@ -11,7 +11,6 @@
 #import "SBContentTableViewCell.h"
 #import "SBScoreDataTableViewCell.h"
 #import "SBScheduleTableViewCell.h"
-#import <CSNotificationView.h>
 #import "SBUser.h"
 #import "SBSchedule.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -130,7 +129,7 @@ static const NSInteger kScheduleCellLocation = 0;
 
     [self setDataLoaded];
   } failure:^(NSError *error) {
-    [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:[[SBUser currentUser] networkConnectionErrorMessage:error]];
+    [self showNetworkError:error];
   }];
 }
 
