@@ -19,6 +19,7 @@
 @property BOOL isAway;
 
 - (NSString *)formattedRecord;
+- (int)favoriteScore;
 + (void)incrementFavoriteTeam:(SBTeam *)team;
 
 @end

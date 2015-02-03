@@ -7,6 +7,7 @@
 //
 
 #import "SBTeam.h"
+#import "SBUser.h"
 #import <Parse/Parse.h>
 
 @implementation SBTeam
@@ -58,6 +59,12 @@
     }
   }];
 
+}
+
+- (int)favoriteScore {
+  NSDictionary *favoriteTeams = [SBUser currentUser].favoriteTeams[self.leagueName];
+
+  return [favoriteTeams[self.dataName] intValue];
 }
 
 @end

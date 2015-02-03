@@ -16,6 +16,7 @@
 static NSString * const kGameViewCell = @"GameViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static CGFloat const kHeaderSize = 74;
+static int const kFavoriteCount = 10;
 
 - (void)awakeFromNib {
   self.games = [NSMutableArray array];
@@ -105,10 +106,32 @@ static CGFloat const kHeaderSize = 74;
     }
   }];
 
-
   _games = games;
 
+  [self showFavoriteNotification];
+
   [self.collectionView reloadData];
+}
+
+- (void)showFavoriteNotification {
+  for (SBGame *game in self.games) {
+    int awayTeamScore = [game.awayTeam favoriteScore];
+    int homeTeamScore = [game.homeTeam favoriteScore];
+
+    if (awayTeamScore == homeTeamScore) {
+      continue;
+    }
+
+    if (awayTeamScore > kFavoriteCount) {
+      [self.delegate askForFavoriteTeam:game.awayTeam];
+      return;
+    }
+    else if (homeTeamScore > kFavoriteCount) {
+      [self.delegate askForFavoriteTeam:game.homeTeam];
+      return;
+    }
+
+  }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

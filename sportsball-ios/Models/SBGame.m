@@ -140,9 +140,7 @@
 }
 
 - (int)favoriteScore {
-  NSDictionary *favoriteTeams = [SBUser currentUser].favoriteTeams[self.leagueName];
-
-  return [favoriteTeams[self.awayTeam.dataName] intValue] + [favoriteTeams[self.homeTeam.dataName] intValue];
+  return [self.awayTeam favoriteScore] + [self.homeTeam favoriteScore];
 }
 
 - (NSDateFormatter *)localStartTimeDfWithDate {

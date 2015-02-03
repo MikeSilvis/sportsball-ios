@@ -11,7 +11,8 @@
 #import "SBUser.h"
 #import "SBBoxscoreViewController.h"
 #import "SBScorePreviewViewController.h"
-//#import <CSNotificationView/CSNotificationView.h>
+#import <MPGNotification.h>
+#import "EDColor.h"
 
 @implementation SBLeagueIndexViewController
 
@@ -278,6 +279,34 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)requestFailed:(NSError *)error {
   [self showNetworkError:error];
+}
+
+- (void)askForFavoriteTeam:(SBTeam *)team {
+  NSString *headerFavoriteTeamRequest = @"Favorite Team";
+  NSString *subtitleFavoriteTeamRequest = [NSString stringWithFormat:@"We see you really like the %@, would you like to favorite them?", team.name];
+
+  CGFloat iconSize = 32;
+  FAKFontAwesome *boltIcon = [FAKFontAwesome boltIconWithSize:iconSize];
+  UIImage *boltIconImage = [UIImage imageWithFontAwesomeIcon:boltIcon andSize:iconSize andColor:@"fff"];
+
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:headerFavoriteTeamRequest
+                                                                             subtitle:subtitleFavoriteTeamRequest
+                                                                      backgroundColor:[UIColor colorWithHexString:@"274385"]
+                                                                            iconImage:boltIconImage];
+  [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"Cancel"]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  notification.swipeToDismissEnabled = NO;
+
+  [notification showWithButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
+    if (buttonIndex == notification.firstButton.tag) {
+      NSLog(@"YES");
+    }
+    else if (buttonIndex == notification.secondButton.tag) {
+      NSLog(@"Cancel");
+    }
+  }];
+
 }
 
 @end

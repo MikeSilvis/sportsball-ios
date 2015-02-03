@@ -111,10 +111,10 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 }
 
 - (UIImage *)networkConnectionErrorIcon {
-  CGFloat iconSize = 15;
-  FAKFontAwesome *carretIcon = [FAKFontAwesome warningIconWithSize:iconSize];
+  CGFloat iconSize = 32;
+  FAKFontAwesome *warningIcon = [FAKFontAwesome warningIconWithSize:iconSize];
 
-  return [UIImage imageWithFontAwesomeIcon:carretIcon andSize:iconSize andColor:@"#c4eefe"];
+  return [UIImage imageWithFontAwesomeIcon:warningIcon andSize:iconSize andColor:@"#c4eefe"];
 }
 
 #pragma mark - Sync settings
