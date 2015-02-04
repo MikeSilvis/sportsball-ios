@@ -14,6 +14,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <Parse/Parse.h>
+#import <MPGNotification.h>
+#import "UIImage+FontAwesome.h"
 
 @implementation AppDelegate
 
@@ -64,6 +66,21 @@
   [currentInstallation setDeviceTokenFromData:deviceToken];
   currentInstallation.channels = @[ userChannel ];
   [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+
+  CGFloat iconSize = 32;
+  FAKFontAwesome *warningIcon = [FAKFontAwesome thumbsUpIconWithSize:iconSize];
+  UIImage *notificationIcon =  [UIImage imageWithFontAwesomeIcon:warningIcon andSize:iconSize andColor:@"#fff"];
+
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self.window.rootViewController
+                                                                                title:@"New Notification"
+                                                                             subtitle:userInfo[@"aps"][@"alert"]
+                                                                      backgroundColor:[UIColor colorWithHexString:@"274385"]
+                                                                            iconImage:notificationIcon];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  [notification show];
 }
 
 - (void)defaultCache {
