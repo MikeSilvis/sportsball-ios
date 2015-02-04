@@ -292,7 +292,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   self.isNotificationOpen = YES;
   NSString *headerFavoriteTeamRequest = @"Favorite Team";
-  NSString *subtitleFavoriteTeamRequest = [NSString stringWithFormat:@"We see you really like the %@, would you like to favorite them?", team.name];
+  NSString *subtitleFavoriteTeamRequest = [NSString stringWithFormat:@"Love the %@?", team.name];
 
   CGFloat iconSize = 32;
   FAKFontAwesome *boltIcon = [FAKFontAwesome boltIconWithSize:iconSize];
@@ -303,7 +303,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                                              subtitle:subtitleFavoriteTeamRequest
                                                                       backgroundColor:[UIColor colorWithHexString:@"274385"]
                                                                             iconImage:boltIconImage];
-  [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"Cancel"]];
+  [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"No"]];
   notification.animationType = MPGNotificationAnimationTypeDrop;
   notification.swipeToDismissEnabled = NO;
   notification.backgroundTapsEnabled = NO;
