@@ -12,11 +12,6 @@
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
 static NSString *kAllLeagues = @"allLeagues-1";
-static NSString *kFavoriteTeams = @"favoriteTeams-1";
-
-@interface SBUser ()
-
-@end
 
 @implementation SBUser
 
@@ -36,8 +31,14 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 
   if (self) {
     [PFUser enableAutomaticUser];
-    [[PFUser currentUser] incrementKey:@"openCount"];
     self.currentPfUser = [PFUser currentUser];
+    [self.currentPfUser incrementKey:@"openCount"];
+
+    if (!self.currentPfUser[@"timeZone"]) {
+      self.currentPfUser[@"timeZone"] = [[NSTimeZone localTimeZone] name];
+      [self.currentPfUser saveEventually];
+    }
+
     [self setUserDefaults];
   }
 
