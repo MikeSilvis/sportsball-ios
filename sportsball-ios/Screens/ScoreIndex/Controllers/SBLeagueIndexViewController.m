@@ -310,7 +310,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       self.isNotificationOpen = NO;
     }
     else if (buttonIndex == notification.secondButton.tag) {
-      NSLog(@"Cancel");
       self.isNotificationOpen = NO;
     }
   }];

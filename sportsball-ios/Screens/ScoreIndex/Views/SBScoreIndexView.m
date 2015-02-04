@@ -122,12 +122,12 @@ static int const kFavoriteCount = 10;
       continue;
     }
 
-    if (awayTeamScore > kFavoriteCount) {
-      [self.delegate askForFavoriteTeam:game.awayTeam];
+    if (homeTeamScore > kFavoriteCount) {
+      [self.delegate askForFavoriteTeam:game.homeTeam];
       return;
     }
-    else if (homeTeamScore > kFavoriteCount) {
-      [self.delegate askForFavoriteTeam:game.homeTeam];
+    else if (awayTeamScore > kFavoriteCount) {
+      [self.delegate askForFavoriteTeam:game.awayTeam];
       return;
     }
 
