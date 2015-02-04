@@ -39,7 +39,7 @@ DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
-  - MPGNotification
+  - MPGNotification (from `git@github.com:MikeSilvis/MPGNotification.git`)
   - SDWebImage
   - SVWebViewController (from `https://github.com/MikeSilvis/SVWebViewController.git`)
   - Underscore.m
@@ -47,6 +47,8 @@ DEPENDENCIES:
   - ZFDragableModalTransition (from `git@github.com:MikeSilvis/ZFDragableModalTransition.git`, branch `adding-top-and-mutliple-transitions`)
 
 EXTERNAL SOURCES:
+  MPGNotification:
+    :git: git@github.com:MikeSilvis/MPGNotification.git
   SVWebViewController:
     :git: https://github.com/MikeSilvis/SVWebViewController.git
   ZFDragableModalTransition:
@@ -54,6 +56,9 @@ EXTERNAL SOURCES:
     :git: git@github.com:MikeSilvis/ZFDragableModalTransition.git
 
 CHECKOUT OPTIONS:
+  MPGNotification:
+    :commit: b7490b68787f953766e86783bdeda55126c3b5bd
+    :git: git@github.com:MikeSilvis/MPGNotification.git
   SVWebViewController:
     :commit: cde5d0a17d7db275c31c013b92f032d8b2824e0d
     :git: https://github.com/MikeSilvis/SVWebViewController.git
@@ -66,7 +71,7 @@ SPEC CHECKSUMS:
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   EDColor: bcdb8600b7a456f4408ce1d7e7fc001588919254
   FontAwesomeKit: 61f0b4f12f1b11b7489bc7d1507a8692547f3857
-  MPGNotification: 0b93e5466a007593228595a10e8dd7b9848185ca
+  MPGNotification: 86a3a3a4902bc4388ae0daa78fcde6545bcc47dd
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVWebViewController: e23a0cf92c2185d584787f0422b14592dd160fca
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f

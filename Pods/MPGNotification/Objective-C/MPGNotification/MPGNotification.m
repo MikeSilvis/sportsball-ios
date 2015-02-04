@@ -33,7 +33,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static const CGFloat kNotificationHeight = 64;
+static const CGFloat kNotificationHeight = 80;
 static const CGFloat kIconImageSize = 32.0;
 static const NSTimeInterval kLinearAnimationTime = 0.25;
 
@@ -153,7 +153,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     CGFloat notificationWidth = CGRectGetWidth(self.bounds);
     
     // ICON IMAGE
-    static const CGFloat kIconPaddingY = 15;
+    static const CGFloat kIconPaddingY = 32;
     
     self.iconImageView.frame = CGRectMake(kPaddingX, kIconPaddingY, kIconImageSize, kIconImageSize);
     
@@ -165,14 +165,14 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     static const CGFloat kButtonWidthDefault = 64;
     static const CGFloat kButtonPadding = 2.5;
     
-    static const CGFloat kCloseButtonOriginY = 17;
+    static const CGFloat kCloseButtonOriginY = 30;
     static const CGFloat kCloseButtonWidth = 25;
     static const CGFloat kCloseButtonHeight = 30;
     
     CGFloat buttonOriginX = notificationWidth - kButtonOriginXOffset;
     CGFloat closeButtonOriginX = notificationWidth - kCloseButtonOriginXOffset;
     
-    CGFloat firstButtonOriginY = (self.secondButton) ? 6 : 17;
+    CGFloat firstButtonOriginY = (self.secondButton) ? 23 : 30;
     CGFloat buttonHeight = (self.firstButton && self.secondButton) ? 25 : 30;
     CGFloat secondButtonOriginY = firstButtonOriginY + buttonHeight + kButtonPadding;
     
@@ -215,7 +215,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     BOOL subtitleEmpty = (self.subtitle == nil || self.subtitle.length == 0);
     BOOL subtitleOneLiner = (expectedSubtitleSize.height < 25 && subtitleEmpty == NO);
     
-    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 18 : (subtitleOneLiner) ? 13 : 3;
+    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 18 : (subtitleOneLiner) ? 13 : 22;
     
     self.titleLabel.frame = CGRectMake(textPaddingX,
                                        titleLabelPaddingY,

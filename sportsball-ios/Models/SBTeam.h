@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SBModel.h"
+#import <Parse/Parse.h>
 
 @interface SBTeam : SBModel
 
@@ -20,6 +21,6 @@
 
 - (NSString *)formattedRecord;
 - (int)favoriteScore;
-+ (void)incrementFavoriteTeam:(SBTeam *)team;
++ (void)incrementFavoriteTeam:(SBTeam *)team withSuccess:(void (^) (PFObject *object))success;
 
 @end

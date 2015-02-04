@@ -8,15 +8,13 @@
 
 #import "SBUser.h"
 #import "UIImage+FontAwesome.h"
-#import <Parse/Parse.h>
+#import <Underscore.h>
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
 static NSString *kAllLeagues = @"allLeagues-1";
 static NSString *kFavoriteTeams = @"favoriteTeams-1";
 
 @interface SBUser ()
-
-@property (nonatomic, strong) PFUser *currentPfUser;
 
 @end
 
@@ -37,10 +35,10 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   self = [super init];
 
   if (self) {
-    [self setUserDefaults];
     [PFUser enableAutomaticUser];
     [[PFUser currentUser] incrementKey:@"openCount"];
     self.currentPfUser = [PFUser currentUser];
+    [self setUserDefaults];
   }
 
   return self;
@@ -61,46 +59,25 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 }
 
 - (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
-  NSMutableDictionary *favoriteTeams = [NSMutableDictionary dictionaryWithDictionary:self.favoriteTeams];
-  NSMutableDictionary *leagueFavoriteTeams = favoriteTeams[league] ? [NSMutableDictionary dictionaryWithDictionary:favoriteTeams[league]] : [NSMutableDictionary dictionary];
+  [SBTeam incrementFavoriteTeam:homeTeam withSuccess:^(PFObject *object) {
+    [self getFavoriteTeams:YES];
+  }];
 
-  for (SBTeam *team in @[homeTeam, awayTeam]) {
-    NSNumber *teamFavoriteCount = (NSNumber *)leagueFavoriteTeams[team.dataName];
-    if (teamFavoriteCount) {
-      leagueFavoriteTeams[team.dataName] = @([teamFavoriteCount intValue] + 1);
-    }
-    else {
-      leagueFavoriteTeams[team.dataName] = @1;
-    }
-  }
+  [SBTeam incrementFavoriteTeam:awayTeam withSuccess:^(PFObject *object) {
+    [self getFavoriteTeams:YES];
+  }];
 
-  favoriteTeams[league] = leagueFavoriteTeams;
-  self.favoriteTeams = favoriteTeams;
-  [self syncUserDefaults];
-
-  // Save for parse
-  [SBTeam incrementFavoriteTeam:homeTeam];
-  [SBTeam incrementFavoriteTeam:awayTeam];
 }
 
 - (NSString *)favoriteTeam:(SBLeague *)league {
-  NSDictionary *teams = self.favoriteTeams[league.name];
+  NSArray *arrayToWrap = self.favoriteTeams;
 
-  if (self.favoriteTeams && teams) {
-    NSString *largestTeamName;
+  NSArray *filteredArray = Underscore.array(arrayToWrap).filter(^BOOL(PFObject *object) {
+    return object[@"league"] == league;
+  }).unwrap;
 
-    for (NSString *teamName in [teams allKeys]) {
-      // If there is no largest team name yet
-      if (!largestTeamName) {
-        largestTeamName = teamName;
-      }
-      else if (teams[largestTeamName] < teams[teamName]) {
-        largestTeamName = teamName;
-      }
-
-    }
-
-    return largestTeamName;
+  if (filteredArray) {
+    return [filteredArray firstObject][@"teamDataName"];
   }
 
   return nil;
@@ -124,10 +101,6 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 
   [defaults setObject:self.lastOpenedLeagueIndex forKey:kLastOpenedLeague];
 
-  if (self.favoriteTeams.count > 0) {
-    [defaults setObject:self.favoriteTeams forKey:kFavoriteTeams];
-  }
-
   // Set Leagues
   NSMutableArray *encodedLeagues = [NSMutableArray array];
   for (SBLeague *league in self.leagues) {
@@ -148,7 +121,7 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
-  _favoriteTeams = [defaults objectForKey:kFavoriteTeams] ? [defaults objectForKey:kFavoriteTeams] : @{};
+  _favoriteTeams = @[];
 
   // Retrieve leagues
   NSArray *encodedLeagues = [defaults objectForKey:kAllLeagues];
@@ -159,6 +132,24 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
   }
 
   _leagues = leagues;
+  _favoriteTeams = @[];
+
+  [self getFavoriteTeams:NO];
+}
+
+- (void)getFavoriteTeams:(BOOL)clearCache {
+  PFQuery *query = [PFQuery queryWithClassName:@"TeamCount"];
+  query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+  [query whereKey:@"user" equalTo:self.currentPfUser];
+  [query orderByDescending:@"favoriteCount"];
+
+  if (clearCache) {
+    [query clearCachedResult];
+  }
+
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    _favoriteTeams = objects;
+  }];
 }
 
 @end

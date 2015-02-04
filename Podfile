@@ -9,4 +9,4 @@ pod 'ZFDragableModalTransition', :git => 'git@github.com:MikeSilvis/ZFDragableMo
 pod 'SVWebViewController', :git => 'https://github.com/MikeSilvis/SVWebViewController.git'
 pod 'Underscore.m'
 pod 'SDWebImage'
-pod 'MPGNotification'
+pod 'MPGNotification', :git => 'git@github.com:MikeSilvis/MPGNotification.git'

@@ -282,6 +282,11 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (void)askForFavoriteTeam:(SBTeam *)team {
+  if (self.isNotificationOpen) {
+    return;
+  }
+
+  self.isNotificationOpen = YES;
   NSString *headerFavoriteTeamRequest = @"Favorite Team";
   NSString *subtitleFavoriteTeamRequest = [NSString stringWithFormat:@"We see you really like the %@, would you like to favorite them?", team.name];
 
@@ -297,13 +302,16 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"Cancel"]];
   notification.animationType = MPGNotificationAnimationTypeDrop;
   notification.swipeToDismissEnabled = NO;
+  notification.backgroundTapsEnabled = NO;
 
   [notification showWithButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
     if (buttonIndex == notification.firstButton.tag) {
       NSLog(@"YES");
+      self.isNotificationOpen = NO;
     }
     else if (buttonIndex == notification.secondButton.tag) {
       NSLog(@"Cancel");
+      self.isNotificationOpen = NO;
     }
   }];
 

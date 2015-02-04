@@ -49,7 +49,7 @@
 }
 
 - (void)configureParse:(NSDictionary *)launchOptions {
-  [Parse enableLocalDatastore];
+//  [Parse enableLocalDatastore];
 
   NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
   NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];

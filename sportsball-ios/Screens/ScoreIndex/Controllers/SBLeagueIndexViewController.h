@@ -27,6 +27,7 @@
 @property (nonatomic, strong) SBGame *selectedGame;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
+@property BOOL isNotificationOpen;
 
 - (IBAction)supportRequestClicked:(id)sender;
 - (IBAction)didRequestClose:(id)sender;

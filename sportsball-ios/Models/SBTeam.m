@@ -8,7 +8,6 @@
 
 #import "SBTeam.h"
 #import "SBUser.h"
-#import <Parse/Parse.h>
 
 @implementation SBTeam
 
@@ -34,37 +33,45 @@
   return [NSString stringWithFormat:@"(%@)", self.record];
 }
 
-+ (void)incrementFavoriteTeam:(SBTeam *)team {
++ (void)incrementFavoriteTeam:(SBTeam *)team withSuccess:(void (^) (PFObject *object))success {
   NSString *parseClassName = @"TeamCount";
   NSString *favoriteCount = @"favoriteCount";
 
   PFQuery *query = [PFQuery queryWithClassName:parseClassName];
-  [query whereKey:@"user" equalTo:[PFUser currentUser]];
+  [query whereKey:@"user" equalTo:[SBUser currentUser].currentPfUser];
   [query whereKey:@"league" equalTo:team.leagueName];
   [query whereKey:@"team" equalTo:team.name];
+  [query whereKey:@"teamDataName" equalTo:team.dataName];
 
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if ([objects count] > 0) {
       PFObject *teamRecord = [objects firstObject];
       [teamRecord incrementKey:favoriteCount];
       [teamRecord saveInBackground];
+      success(teamRecord);
     }
     else {
       PFObject *teamRecord = [PFObject objectWithClassName:parseClassName];
-      teamRecord[@"user"] = [PFUser currentUser];
+      teamRecord[@"user"] = [SBUser currentUser].currentPfUser;
       teamRecord[@"league"] = team.leagueName;
       teamRecord[@"team"] = team.name;
+      teamRecord[@"teamDataName"] = team.dataName;
       teamRecord[favoriteCount] = @1;
       [teamRecord saveInBackground];
+      success(teamRecord);
     }
   }];
 
 }
 
 - (int)favoriteScore {
-  NSDictionary *favoriteTeams = [SBUser currentUser].favoriteTeams[self.leagueName];
+  for (PFObject *object in [SBUser currentUser].favoriteTeams) {
+    if ([object[@"teamDataName"] isEqualToString:self.dataName]) {
+      return [object[@"favoriteCount"] intValue];
+    }
+  }
 
-  return [favoriteTeams[self.dataName] intValue];
+  return 0;
 }
 
 @end

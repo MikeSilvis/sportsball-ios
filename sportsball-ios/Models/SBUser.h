@@ -9,13 +9,16 @@
 #import "SBModel.h"
 #import "SBTeam.h"
 #import "SBLeague.h"
+#import <Parse/Parse.h>
 
 @interface SBUser : SBModel
 
 @property (nonatomic, strong) SBLeague *lastOpenedLeague;
 @property (nonatomic, copy) NSNumber *lastOpenedLeagueIndex;
 @property (nonatomic, copy) NSArray *leagues;
-@property (nonatomic, copy) NSDictionary *favoriteTeams;
+@property (nonatomic, copy) NSArray *favoriteTeams;
+@property (nonatomic, strong) PFUser *currentPfUser;
+
 
 + (SBUser *)currentUser;
 - (void)appendFavoriteTeams:(SBTeam *)team andTeam:(SBTeam *)team2 andLeague:(NSString *)league;
