@@ -22,5 +22,6 @@
 - (NSString *)formattedRecord;
 - (int)favoriteScore;
 + (void)incrementFavoriteTeam:(SBTeam *)team withSuccess:(void (^) (PFObject *object))success;
+- (PFObject *)parseObject;
 
 @end

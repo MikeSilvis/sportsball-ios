@@ -49,14 +49,21 @@
 }
 
 - (void)configureParse:(NSDictionary *)launchOptions {
-//  [Parse enableLocalDatastore];
-
   NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
   NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 
   [Parse setApplicationId:[keys objectForKey:@"PARSE_API_KEY"] clientKey:[keys objectForKey:@"PARSE_CLIENT_KEY"]];
  
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  NSString *userChannel = [NSString stringWithFormat: @"user_%@", [SBUser currentUser].currentPfUser.objectId];
+
+  PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+  [currentInstallation setDeviceTokenFromData:deviceToken];
+  currentInstallation.channels = @[ userChannel ];
+  [currentInstallation saveInBackground];
 }
 
 - (void)defaultCache {

@@ -70,10 +70,8 @@ static NSString *kFavoriteTeams = @"favoriteTeams-1";
 }
 
 - (NSString *)favoriteTeam:(SBLeague *)league {
-  NSArray *arrayToWrap = self.favoriteTeams;
-
-  NSArray *filteredArray = Underscore.array(arrayToWrap).filter(^BOOL(PFObject *object) {
-    return object[@"league"] == league;
+  NSArray *filteredArray = Underscore.array(self.favoriteTeams).filter(^BOOL(PFObject *object) {
+    return [object[@"league"] isEqualToString:league.name];
   }).unwrap;
 
   if (filteredArray) {

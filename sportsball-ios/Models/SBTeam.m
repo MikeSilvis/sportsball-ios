@@ -64,11 +64,19 @@
 
 }
 
-- (int)favoriteScore {
+- (PFObject *)parseObject {
   for (PFObject *object in [SBUser currentUser].favoriteTeams) {
     if ([object[@"teamDataName"] isEqualToString:self.dataName]) {
-      return [object[@"favoriteCount"] intValue];
+      return object;
     }
+  }
+
+  return nil;
+}
+
+- (int)favoriteScore {
+  if ([self parseObject]) {
+    return [[self parseObject][@"favoriteCount"] intValue];
   }
 
   return 0;

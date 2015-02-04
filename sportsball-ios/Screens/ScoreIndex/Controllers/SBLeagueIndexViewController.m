@@ -286,6 +286,10 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     return;
   }
 
+  if ([team parseObject][@"pushEnabled"] != nil) {
+    return;
+  }
+
   self.isNotificationOpen = YES;
   NSString *headerFavoriteTeamRequest = @"Favorite Team";
   NSString *subtitleFavoriteTeamRequest = [NSString stringWithFormat:@"We see you really like the %@, would you like to favorite them?", team.name];
@@ -306,14 +310,35 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   [notification showWithButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
     if (buttonIndex == notification.firstButton.tag) {
-      NSLog(@"YES");
+      [self registerForPushWithFavoriteTeam:(SBTeam *)team];
       self.isNotificationOpen = NO;
     }
     else if (buttonIndex == notification.secondButton.tag) {
+      [self registerNoPushForTeam:(SBTeam *)team];
       self.isNotificationOpen = NO;
     }
   }];
 
+}
+
+- (void)registerForPushWithFavoriteTeam:(SBTeam *)team {
+  UIApplication *application = [UIApplication sharedApplication];
+
+  UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                           categories:nil];
+  [application registerUserNotificationSettings:settings];
+  [application registerForRemoteNotifications];
+
+  PFObject *object = [team parseObject];
+  object[@"pushEnabled"] = @YES;
+  [object saveEventually];
+}
+
+- (void)registerNoPushForTeam:(SBTeam *)team {
+  PFObject *object = [team parseObject];
+  object[@"pushEnabled"] = @NO;
+  [object saveEventually];
 }
 
 @end
