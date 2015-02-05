@@ -37,7 +37,7 @@
     _localStartTimeDfWithDate = [[NSDateFormatter alloc] init];
     _localStartTimeDfWithDate.dateStyle = NSDateFormatterMediumStyle;
     _localStartTimeDfWithDate.timeStyle = NSDateFormatterShortStyle;
-    [_localStartTimeDfWithDate setTimeZone:[NSTimeZone localTimeZone]];
+    _localStartTimeDfWithDate.timeZone = [NSTimeZone localTimeZone];
   }
 
   return _localStartTimeDfWithDate;

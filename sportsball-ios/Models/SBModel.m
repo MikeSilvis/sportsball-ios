@@ -62,19 +62,18 @@ static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
 }
 
 + (void)dispatchRequest:(NSString *)path
-            parameters:(id)parameters
+            parameters:(NSDictionary *)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure {
 
   NSString *url = [self getPathFromString:path];
 
-  if (!parameters) {
-    parameters = @{};
-  }
+  NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:parameters];
+  mutableParams[@"time_zone"] = [[NSTimeZone localTimeZone] name];
 
   NSLog(@"making request with path: %@", path);
 
-  [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[AFHTTPRequestOperationManager manager] GET:url parameters:mutableParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
     success(responseObject);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     if (failure) {
@@ -85,7 +84,7 @@ static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
 }
 
 - (void)dispatchRequest:(NSString *)path
-            parameters:(id)parameters
+            parameters:(NSDictionary *)parameters
                success:(void (^) (id responseObject))success
                failure:(void (^) (NSError *error))failure {
 
