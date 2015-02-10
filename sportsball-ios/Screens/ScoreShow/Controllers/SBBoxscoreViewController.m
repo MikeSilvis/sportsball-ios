@@ -61,12 +61,6 @@ static const NSInteger kScoreDataViewLocation    = 4;
   self.loadingIndicator.hidden = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-
-  [self showNetworkError:nil];
-}
-
 - (void)closeModal {
   [self dismissViewControllerAnimated:YES completion:nil];
 }
