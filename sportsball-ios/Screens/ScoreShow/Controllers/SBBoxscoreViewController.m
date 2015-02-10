@@ -61,11 +61,17 @@ static const NSInteger kScoreDataViewLocation    = 4;
   self.loadingIndicator.hidden = YES;
 }
 
--(void)closeModal {
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  [self showNetworkError:nil];
+}
+
+- (void)closeModal {
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
   if (!self.game.boxscore) {
@@ -76,7 +82,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self setHeaderInfo];
 }
 
--(void)findBoxscore {
+- (void)findBoxscore {
   if (!self.game.boxscoreId) {
     self.loadingIndicator.hidden = YES;
     return;
@@ -92,7 +98,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }];
 }
 
--(void)setGame:(SBGame *)game {
+- (void)setGame:(SBGame *)game {
   [super setGame:game];
 
   [self.tableView reloadData];
@@ -100,7 +106,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self setHeaderInfo];
 }
 
--(void)setHeaderInfo {
+- (void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
   [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
@@ -110,7 +116,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   self.awayTeamScore.text = self.game.awayScoreString;
 }
 
--(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
   [super dismissViewControllerAnimated:flag completion:^{
     [self.delegate dismissedModal];
   }];
@@ -118,15 +124,15 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
 #pragma mark 
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 5;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return 1;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == kScoreSummaryViewLocation) {
     SBScoreSummaryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreSummaryViewCell forIndexPath:indexPath];
     cell.game = self.game;
@@ -162,13 +168,13 @@ static const NSInteger kScoreDataViewLocation    = 4;
   return nil;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == kScoreRecapViewLocation) {
     [self openURL:self.game.boxscore.recap.url];
   }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   CGFloat width = self.view.bounds.size.width;
 
   if (indexPath.section == kScoreSummaryViewLocation) {
