@@ -215,7 +215,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     BOOL subtitleEmpty = (self.subtitle == nil || self.subtitle.length == 0);
     BOOL subtitleOneLiner = (expectedSubtitleSize.height < 25 && subtitleEmpty == NO);
 
-    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 38 : (subtitleOneLiner) ? 13 : 22;
+    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 38 : (subtitleOneLiner) ? 22 : 22;
 
     self.titleLabel.frame = CGRectMake(textPaddingX,
                                        titleLabelPaddingY,
