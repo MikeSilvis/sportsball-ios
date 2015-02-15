@@ -102,12 +102,15 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
 - (void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamScore.text = self.game.homeScoreString;
 
   SBTeam *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamScore.text = self.game.awayScoreString;
+
+  if ([SBUser currentUser].teamLogos) {
+    [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
+    [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
+  }
 }
 
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {

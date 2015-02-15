@@ -25,5 +25,6 @@
 - (NSString *)networkConnectionErrorMessage:(NSError *)error;
 - (UIImage *)networkConnectionErrorIcon;
 - (BOOL)secondaryLogos;
+- (BOOL)teamLogos;
 
 @end

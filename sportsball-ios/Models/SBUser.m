@@ -156,4 +156,8 @@ static NSString *kAllLeagues = @"allLeagues-1";
   return (self.currentPfUser[@"secondaryLogo"] == nil) || (self.currentPfUser[@"secondaryLogo"] == NO);
 }
 
+- (BOOL)teamLogos {
+  return [self.currentPfUser[@"teamLogos"] boolValue];
+}
+
 @end

@@ -10,6 +10,7 @@
 #import <FontAwesomeKit/FAKFontAwesome.h>
 #import "UIImage+FontAwesome.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SBUser.h"
 
 @implementation SBGameCollectionViewCell
 
@@ -48,7 +49,6 @@
   self.homeTeamScore.text = self.currentGame.homeScoreString;
   self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
-  [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"60x60"]];
 
   // Away Team
   SBTeam *awayTeam = self.currentGame.awayTeam;
@@ -56,7 +56,12 @@
   self.awayTeamScore.text = self.currentGame.awayScoreString;
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
-  [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"60x60"]];
+
+  // Logos
+  if ([SBUser currentUser].teamLogos) {
+    [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"60x60"]];
+    [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"60x60"]];
+  }
 
   self.upperInfo.text = self.currentGame.timeRemaining;
 

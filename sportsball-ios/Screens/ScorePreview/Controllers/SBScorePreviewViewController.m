@@ -154,14 +154,17 @@ static const NSInteger kScheduleCellLocation = 0;
 
 - (void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
-  [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
   self.homeTeamRecord.text = homeTeam.record;
   self.homeTeamName.text = homeTeam.name;
 
   SBTeam *awayTeam = self.game.awayTeam;
-  [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
   self.awayTeamRecord.text = awayTeam.record;
   self.awayTeamName.text = awayTeam.name;
+
+  if ([SBUser currentUser].teamLogos) {
+    [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
+    [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
+  }
 }
 
 - (void)changedTeam:(SBTeam *)updatedTeam {
