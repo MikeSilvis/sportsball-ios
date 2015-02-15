@@ -27,7 +27,7 @@
   if ([SBUser currentUser].teamLogos) {
     [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"50x50"]];
   }
-  
+
   self.team.text = schedule.opponent.name;
 
   if (schedule.isOver) {

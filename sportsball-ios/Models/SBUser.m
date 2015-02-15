@@ -32,12 +32,15 @@ static NSString *kAllLeagues = @"allLeagues-1";
 
   if (self) {
     [PFUser enableAutomaticUser];
-    self.currentPfUser = [PFUser currentUser];
-    [self.currentPfUser incrementKey:@"openCount"];
 
-    if (!self.currentPfUser[@"timeZone"]) {
-      self.currentPfUser[@"timeZone"] = [[NSTimeZone localTimeZone] name];
-      [self.currentPfUser saveEventually];
+    self.currentPfUser = [PFUser currentUser];
+    [[PFUser currentUser] fetchInBackground];
+
+    [[PFUser currentUser] incrementKey:@"openCount"];
+
+    if (![PFUser currentUser][@"timeZone"]) {
+      [PFUser currentUser][@"timeZone"] = [[NSTimeZone localTimeZone] name];
+      [[PFUser currentUser] saveEventually];
     }
 
     [self setUserDefaults];
@@ -152,8 +155,8 @@ static NSString *kAllLeagues = @"allLeagues-1";
   }];
 }
 
-- (BOOL)secondaryLogos {
-  return (self.currentPfUser[@"secondaryLogo"] == nil) || (self.currentPfUser[@"secondaryLogo"] == NO);
+- (BOOL)leagueLogos {
+  return [self.currentPfUser[@"leagueLogos"] boolValue];
 }
 
 - (BOOL)teamLogos {

@@ -66,7 +66,7 @@
   _currentLeague = currentLeague;
 
   NSURL *logoUrl = self.currentLeague.logo;
-  if ([SBUser currentUser].secondaryLogos) {
+  if ([SBUser currentUser].leagueLogos) {
     logoUrl = self.currentLeague.secondaryLogo;
   }
 
