@@ -136,11 +136,14 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (IBAction)supportRequestClicked:(id)sender {
   if ([MFMailComposeViewController canSendMail]) {
+    NSString *messageBody = [NSString stringWithFormat:@"\n%@", [SBUser currentUser].currentPfUser.objectId];
+
     MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
     mailCont.mailComposeDelegate = self;
 
     [mailCont setSubject:@"Hello!"];
     [mailCont setToRecipients:@[@"mike@jumbotron.io"]];
+    [mailCont setMessageBody:messageBody isHTML:NO];
 
     [self presentViewController:mailCont animated:YES completion:^{
       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
