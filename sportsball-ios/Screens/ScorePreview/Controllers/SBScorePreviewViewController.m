@@ -306,4 +306,5 @@ static const NSInteger kScheduleCellLocation = 0;
   return mask;
 }
 
+
 @end

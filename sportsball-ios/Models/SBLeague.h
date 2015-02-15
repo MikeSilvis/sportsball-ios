@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSURL *logo;
+@property (nonatomic, strong) NSURL *secondaryLogo;
 @property (nonatomic, strong) NSURL *header;
 @property (nonatomic, strong) NSURL *blurredHeader;
 

@@ -17,6 +17,11 @@
 #import <MPGNotification.h>
 #import "UIImage+FontAwesome.h"
 
+#import <SVModalWebViewController.h>
+#import <SVWebViewController.h>
+#import "SBBoxscoreViewController.h"
+#import "SBModalViewController.h"
+
 @implementation AppDelegate
 
 
@@ -98,6 +103,15 @@
   [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor whiteColor]
                                                         }];
+}
+
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  if ([[window.rootViewController presentedViewController] isKindOfClass:[SBModalViewController class]]) {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+  }
+  else {
+      return UIInterfaceOrientationMaskPortrait;
+  }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -22,6 +22,7 @@
 @property (nonatomic, weak) id<SportsBallModalDelegate> delegate;
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (nonatomic, strong) SBGame *game;
+@property BOOL allowRotation;
 
 - (void)openURL:(NSURL *)url;
 - (void)showNetworkError:(NSError *)error;

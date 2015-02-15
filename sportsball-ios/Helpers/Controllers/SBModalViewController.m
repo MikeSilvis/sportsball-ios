@@ -41,6 +41,8 @@
     return;
   }
 
+  self.allowRotation = YES;
+
   SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
   webViewController.title = @"";
 
@@ -58,7 +60,7 @@
 
 - (void)showNetworkError:(NSError *)error {
   MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
-                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
+                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:error]
                                                                              subtitle:nil
                                                                       backgroundColor:[UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000]
                                                                             iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];

@@ -23,6 +23,7 @@ static NSString *kAllLeagues = @"allLeagues-1";
       currentUser = [[self alloc] init];
   }
 
+
   return currentUser;
 }
 
@@ -149,6 +150,10 @@ static NSString *kAllLeagues = @"allLeagues-1";
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     _favoriteTeams = objects;
   }];
+}
+
+- (BOOL)secondaryLogos {
+  return (self.currentPfUser[@"secondaryLogo"] == nil) || (self.currentPfUser[@"secondaryLogo"] == NO);
 }
 
 @end

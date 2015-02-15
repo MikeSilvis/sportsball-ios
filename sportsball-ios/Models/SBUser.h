@@ -19,11 +19,11 @@
 @property (nonatomic, copy) NSArray *favoriteTeams;
 @property (nonatomic, strong) PFUser *currentPfUser;
 
-
 + (SBUser *)currentUser;
 - (void)appendFavoriteTeams:(SBTeam *)team andTeam:(SBTeam *)team2 andLeague:(NSString *)league;
 - (NSString *)favoriteTeam:(SBLeague *)league;
 - (NSString *)networkConnectionErrorMessage:(NSError *)error;
 - (UIImage *)networkConnectionErrorIcon;
+- (BOOL)secondaryLogos;
 
 @end
