@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -39,6 +39,23 @@
                             <constraint firstAttribute="width" constant="20" id="rGe-ig-EJ6"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxA-aK-1IO" userLabel="teamName">
+                        <rect key="frame" x="8" y="0.0" width="20" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="IsF-Bf-aPu"/>
+                            <constraint firstAttribute="width" constant="37" id="JZY-qx-ncZ"/>
+                            <constraint firstAttribute="width" constant="20" id="MHq-px-qs8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="10"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="IsF-Bf-aPu"/>
+                                <exclude reference="JZY-qx-ncZ"/>
+                            </mask>
+                        </variation>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="smb-Jd-qYY" secondAttribute="centerY" id="5aK-d2-O0L"/>
@@ -47,8 +64,11 @@
                     <constraint firstItem="7MV-rT-kAn" firstAttribute="leading" secondItem="smb-Jd-qYY" secondAttribute="trailing" constant="5" id="FGx-ya-9VR"/>
                     <constraint firstItem="smb-Jd-qYY" firstAttribute="leading" secondItem="DIg-eL-Qon" secondAttribute="leadingMargin" id="FLQ-Qr-Ot1"/>
                     <constraint firstItem="7MV-rT-kAn" firstAttribute="top" secondItem="DIg-eL-Qon" secondAttribute="topMargin" constant="-8" id="JRh-zX-lbL"/>
+                    <constraint firstItem="bxA-aK-1IO" firstAttribute="top" secondItem="DIg-eL-Qon" secondAttribute="topMargin" constant="-8" id="NW6-xk-zhM"/>
                     <constraint firstItem="I5q-fz-0ac" firstAttribute="leading" secondItem="7MV-rT-kAn" secondAttribute="trailing" constant="8" id="V97-Bd-HUL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bxA-aK-1IO" secondAttribute="bottom" constant="-8" id="Vb3-qm-43c"/>
                     <constraint firstItem="smb-Jd-qYY" firstAttribute="top" secondItem="DIg-eL-Qon" secondAttribute="topMargin" constant="13" id="Vda-qn-1CU"/>
+                    <constraint firstItem="bxA-aK-1IO" firstAttribute="leading" secondItem="DIg-eL-Qon" secondAttribute="leadingMargin" id="d1X-O3-CUD"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -60,6 +80,7 @@
             <connections>
                 <outlet property="summary" destination="I5q-fz-0ac" id="5Uo-ag-FY2"/>
                 <outlet property="teamLogo" destination="smb-Jd-qYY" id="si0-G6-L2T"/>
+                <outlet property="teamName" destination="bxA-aK-1IO" id="tRa-Qv-auG"/>
                 <outlet property="time" destination="7MV-rT-kAn" id="eAj-AG-yCY"/>
             </connections>
             <point key="canvasLocation" x="520" y="334.75"/>

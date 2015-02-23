@@ -26,6 +26,12 @@
     self.recap = [[SBRecap alloc] initWithJson:json[@"recap"]];
     self.gameInfo = [[SBGameInfo alloc] initWithJson:json[@"game_info"]];
     self.gameStats = [[SBGameStats alloc] initWithJson:json[@"game_stats"]];
+
+    self.awayTeam = [[SBTeam alloc] initWithJson:json[@"away_team"]];
+    self.awayTeam.isAway = YES;
+
+    self.homeTeam = [[SBTeam alloc] initWithJson:json[@"home_team"]];
+    self.homeTeam.isAway = NO;
   }
 
   return self;

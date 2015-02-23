@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *record;
 @property (nonatomic, strong) NSString *dataName;
 @property (nonatomic, strong) NSString *leagueName;
+@property (nonatomic, strong) NSString *abbr;
 @property BOOL isAway;
 
 - (NSString *)formattedRecord;

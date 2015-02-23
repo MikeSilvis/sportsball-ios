@@ -15,11 +15,12 @@
   self = [super init];
 
   if (self) {
-    self.name = json[@"name"];
-    self.logoUrl = [NSURL URLWithString:json[@"logo"]];
-    self.record = json[@"record"];
-    self.dataName = json[@"data_name"];
+    self.name       = json[@"name"];
+    self.logoUrl    = [NSURL URLWithString:json[@"logo"]];
+    self.record     = json[@"record"];
+    self.dataName   = json[@"data_name"];
     self.leagueName = json[@"league"];
+    self.abbr       = json[@"abbr"];
   }
 
   return self;

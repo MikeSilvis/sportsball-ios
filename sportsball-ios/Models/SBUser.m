@@ -34,11 +34,15 @@ static NSString *kAllLeagues = @"allLeagues-1";
     [PFUser enableAutomaticUser];
 
     self.currentPfUser = [PFUser currentUser];
-    [[PFUser currentUser] fetchInBackground];
+
+    if (self.currentPfUser.objectId) {
+      [[PFUser currentUser] fetchInBackground];
+    }
 
     [[PFUser currentUser] incrementKey:@"openCount"];
 
-    if (![PFUser currentUser][@"timeZone"]) {
+    NSString *currentTimeZone = [PFUser currentUser][@"timeZone"];
+    if (!currentTimeZone || ![[[NSTimeZone localTimeZone] name] isEqualToString:currentTimeZone]) {
       [PFUser currentUser][@"timeZone"] = [[NSTimeZone localTimeZone] name];
       [[PFUser currentUser] saveEventually];
     }

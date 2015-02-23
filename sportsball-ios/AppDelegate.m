@@ -17,10 +17,8 @@
 #import <MPGNotification.h>
 #import "UIImage+FontAwesome.h"
 
-#import <SVModalWebViewController.h>
-#import <SVWebViewController.h>
-#import "SBBoxscoreViewController.h"
-#import "SBModalViewController.h"
+#import "SBWebViewController.h"
+#import <AVKit/AVKit.h>
 
 @implementation AppDelegate
 
@@ -106,12 +104,11 @@
 }
 
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-  if ([[window.rootViewController presentedViewController] isKindOfClass:[SBModalViewController class]]) {
+  if ([NSStringFromClass([[window.rootViewController presentedViewController] class]) isEqualToString:@"AVFullScreenViewController"]) {
     return UIInterfaceOrientationMaskAllButUpsideDown;
   }
-  else {
-      return UIInterfaceOrientationMaskPortrait;
-  }
+
+  return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

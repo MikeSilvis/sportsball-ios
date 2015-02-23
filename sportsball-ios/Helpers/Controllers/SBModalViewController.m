@@ -9,12 +9,16 @@
 #import <MPGNotification.h>
 #import "SBModalViewController.h"
 #import "SBUser.h"
+#import "SBWebViewController.h"
+#import "XHRealTimeBlur.h"
 
 @interface SBModalViewController ()
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 
 @end
+
+static  NSString *kWebSegue = @"webViewSegue";
 
 @implementation SBModalViewController
 
@@ -41,21 +45,8 @@
     return;
   }
 
-  self.allowRotation = YES;
-
-  SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:url];
-  webViewController.title = @"";
-
-  // Transition
-  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:webViewController];
-  self.animator.direction = ZFModalTransitonDirectionRight;
-  self.animator.dragable = YES;
-
-  // set transition delegate of modal view controller to our object
-  webViewController.transitioningDelegate = self.animator;
-  webViewController.modalPresentationStyle = UIModalPresentationCustom;
-
-  [self presentViewController:webViewController animated:YES completion:NULL];
+  self.selectedURL = url;
+  [self performSegueWithIdentifier:kWebSegue sender:self];
 }
 
 - (void)showNetworkError:(NSError *)error {
@@ -66,6 +57,40 @@
                                                                             iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
   notification.animationType = MPGNotificationAnimationTypeDrop;
   [notification show];
+}
+
+- (void)didStartLoading {
+  if (!self.activityView) {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(50, 50);
+    self.activityView.frame = self.view.bounds;
+    self.activityView.hidesWhenStopped = YES;
+    self.activityView.transform = CGAffineTransformMakeScale(2, 2);
+    [self.activityView startAnimating];
+  }
+
+  [self.view addSubview:self.activityView];
+  self.activityView.hidden = NO;
+}
+
+- (void)didEndLoading {
+  if (self.activityView) {
+    self.activityView.hidden = YES;
+    [self.activityView removeFromSuperview];
+  }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  SBWebViewController *viewController = segue.destinationViewController;
+  viewController.view.frame = self.view.bounds;
+  viewController.url = self.selectedURL;
+  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
+  self.animator.dragable = YES;
+  self.animator.direction = ZFModalTransitonDirectionRight;
+
+  // set transition delegate of modal view controller to our object
+  viewController.transitioningDelegate = self.animator;
+  viewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 @end

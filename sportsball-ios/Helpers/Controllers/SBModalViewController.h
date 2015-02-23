@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SBGame.h"
-#import "SVModalWebViewController.h"
 #import "ZFModalTransitionAnimator.h"
 
 @protocol SportsBallModalDelegate <NSObject>
@@ -22,9 +21,12 @@
 @property (nonatomic, weak) id<SportsBallModalDelegate> delegate;
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (nonatomic, strong) SBGame *game;
-@property BOOL allowRotation;
+@property (nonatomic, strong) NSURL *selectedURL;
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 - (void)openURL:(NSURL *)url;
 - (void)showNetworkError:(NSError *)error;
+- (void)didStartLoading;
+- (void)didEndLoading;
 
 @end

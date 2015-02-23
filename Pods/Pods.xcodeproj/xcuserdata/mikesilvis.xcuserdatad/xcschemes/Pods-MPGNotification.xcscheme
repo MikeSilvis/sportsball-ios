@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "01C52B6CB5DD8862547AA7E0"
+               BlueprintIdentifier = "29B1E4A18EAB68CFF0D59DF0"
                BuildableName = "libPods-MPGNotification.a"
                BlueprintName = "Pods-MPGNotification"
                ReferencedContainer = "container:Pods.xcodeproj">

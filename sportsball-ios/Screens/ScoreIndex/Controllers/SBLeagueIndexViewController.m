@@ -136,7 +136,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (IBAction)supportRequestClicked:(id)sender {
   if ([MFMailComposeViewController canSendMail]) {
-    NSString *messageBody = [NSString stringWithFormat:@"\n%@", [SBUser currentUser].currentPfUser.objectId];
+    NSString *messageBody = [NSString stringWithFormat:@"\nUser ID: %@", [SBUser currentUser].currentPfUser.objectId];
 
     MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
     mailCont.mailComposeDelegate = self;

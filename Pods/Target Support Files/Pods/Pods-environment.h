@@ -90,12 +90,6 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
-// SVWebViewController
-#define COCOAPODS_POD_AVAILABLE_SVWebViewController
-#define COCOAPODS_VERSION_MAJOR_SVWebViewController 1
-#define COCOAPODS_VERSION_MINOR_SVWebViewController 0
-#define COCOAPODS_VERSION_PATCH_SVWebViewController 0
-
 // Underscore.m
 #define COCOAPODS_POD_AVAILABLE_Underscore_m
 #define COCOAPODS_VERSION_MAJOR_Underscore_m 0

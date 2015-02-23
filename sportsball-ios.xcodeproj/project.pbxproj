@@ -60,6 +60,7 @@
 		11590E8C1A7C2B0A00D1E7C1 /* secretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */; };
 		11590E8F1A7C2DA100D1E7C1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */; };
 		11590E901A7C2DA100D1E7C1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8E1A7C2DA100D1E7C1 /* Parse.framework */; };
+		115AF8511A9972BA006C77ED /* SBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 115AF8501A9972BA006C77ED /* SBWebViewController.m */; };
 		1161A9851A0C1E4A00E40EEC /* SBGameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */; };
 		1161A98A1A0C626100E40EEC /* SBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* SBModel.m */; };
@@ -181,6 +182,8 @@
 		11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secretKeys.plist; sourceTree = "<group>"; };
 		11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		11590E8E1A7C2DA100D1E7C1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		115AF84F1A9972BA006C77ED /* SBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWebViewController.h; sourceTree = "<group>"; };
+		115AF8501A9972BA006C77ED /* SBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWebViewController.m; sourceTree = "<group>"; };
 		1161A9831A0C1E4A00E40EEC /* SBGameCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameCollectionViewCell.h; sourceTree = "<group>"; };
 		1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameCollectionViewCell.m; sourceTree = "<group>"; };
 		1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBGameCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -548,6 +551,15 @@
 			path = ScoreIndex;
 			sourceTree = "<group>";
 		};
+		115AF84E1A99728E006C77ED /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				115AF84F1A9972BA006C77ED /* SBWebViewController.h */,
+				115AF8501A9972BA006C77ED /* SBWebViewController.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		116591E31A156F1E00016D90 /* DIDDatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +619,7 @@
 		119909181A4F503D00F2ED1B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				115AF84E1A99728E006C77ED /* Web */,
 				114E87981A5F863C007C2CF7 /* Preview */,
 				1154F6531A03DC9B009F560B /* ScoreIndex */,
 				11847BD31A21045800300E28 /* Boxscore */,
@@ -836,6 +849,7 @@
 			files = (
 				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
 				1143DE061A310D53001868C6 /* SBScoreSummaryInfoCollectionViewCell.m in Sources */,
+				115AF8511A9972BA006C77ED /* SBWebViewController.m in Sources */,
 				11BA1C3F1A64ACFB005C61AB /* SBScoreDataTableViewCell.m in Sources */,
 				1189A3F61A31337E00575E07 /* SBScoreDetailCollectionViewCell.m in Sources */,
 				1154F64B1A03D77C009F560B /* SBGame.m in Sources */,

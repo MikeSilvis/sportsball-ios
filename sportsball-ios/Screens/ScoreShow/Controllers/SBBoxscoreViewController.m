@@ -84,6 +84,10 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
   [self.game findBoxscore:nil success:^(SBBoxscore *boxscore) {
     self.game.boxscore = boxscore;
+    self.game.awayTeam = boxscore.awayTeam;
+    self.game.homeTeam = boxscore.homeTeam;
+    [self setHeaderInfo];
+    
     self.loadingIndicator.hidden = YES;
 
     [self.tableView reloadData];
@@ -110,6 +114,12 @@ static const NSInteger kScoreDataViewLocation    = 4;
   if ([SBUser currentUser].teamLogos) {
     [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];
     [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"120x120"]];
+    self.awayTeamName.text = @"";
+    self.homeTeamName.text = @"";
+  }
+  else {
+    self.homeTeamName.text = homeTeam.abbr;
+    self.awayTeamName.text = awayTeam.abbr;
   }
 }
 
@@ -119,7 +129,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }];
 }
 
-#pragma mark 
+#pragma mark - Table Stuff
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 5;

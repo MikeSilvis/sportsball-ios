@@ -11,6 +11,7 @@
 #import "SBRecap.h"
 #import "SBGameInfo.h"
 #import "SBGameStats.h"
+#import "SBTeam.h"
 
 @interface SBBoxscore : SBModel
 
@@ -19,5 +20,7 @@
 @property (nonatomic, strong) SBRecap *recap;
 @property (nonatomic, strong) SBGameInfo *gameInfo;
 @property (nonatomic, strong) SBGameStats *gameStats;
+@property (nonatomic, strong) SBTeam *awayTeam;
+@property (nonatomic, strong) SBTeam *homeTeam;
 
 @end

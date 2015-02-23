@@ -65,9 +65,9 @@
 - (void)setCurrentLeague:(SBLeague *)currentLeague {
   _currentLeague = currentLeague;
 
-  NSURL *logoUrl = self.currentLeague.logo;
+  NSURL *logoUrl = self.currentLeague.secondaryLogo;
   if ([SBUser currentUser].leagueLogos) {
-    logoUrl = self.currentLeague.secondaryLogo;
+    logoUrl = self.currentLeague.logo;
   }
 
   [self.smallLogo sd_setImageWithURL:[self.currentLeague imageURL:logoUrl withSize:@"100x100"]];
