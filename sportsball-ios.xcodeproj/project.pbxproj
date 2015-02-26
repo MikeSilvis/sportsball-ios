@@ -236,6 +236,7 @@
 		11BB2B151A03F8F10059B4C1 /* SBLeagueHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueHeader.h; sourceTree = "<group>"; };
 		11BB2B161A03F8F10059B4C1 /* SBLeagueHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueHeader.m; sourceTree = "<group>"; };
 		11BB2B1B1A03FC430059B4C1 /* SBLeagueHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBLeagueHeader.xib; sourceTree = "<group>"; };
+		11F5D6FD1A9EAD4C003EE351 /* SBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBConstants.h; sourceTree = "<group>"; };
 		11FBB1F21A912362000AF0FB /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
 		11FBB1F31A912362000AF0FB /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
 		17F32CCB664364F1DD9C1C6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,6 +357,7 @@
 			children = (
 				116591E31A156F1E00016D90 /* DIDDatePicker */,
 				113845C51A0BFA5500BC7A4D /* APPaginal */,
+				11F5D6FD1A9EAD4C003EE351 /* SBConstants.h */,
 			);
 			name = SupportClasses;
 			path = Screens/ScoreIndex/SupportClasses;

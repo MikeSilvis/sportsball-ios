@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImage+ColorImage.h"
 #import "SBUser.h"
+#import "SBConstants.h"
 
 @implementation SBLeagueIndexHeader
 
@@ -23,9 +24,9 @@
 
   [self.logoImage sd_setImageWithURL:[league imageURL:logoUrl withSize:@"100x100"]];
 
-  [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:@"600x300"]
+  [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:kPlaceholderImageSize]
+                          placeholderImage:[UIImage imageNamed:kPlaceholderImage]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-
                                    if (![SBUser currentUser].leagueLogos) {
                                      UIColor *blackColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
                                      image = [UIImage colorizeImage:image withColor:blackColor];
