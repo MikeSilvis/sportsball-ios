@@ -22,8 +22,8 @@
   }
 
   [self.logoImage sd_setImageWithURL:[league imageURL:logoUrl withSize:@"100x100"]];
-  
-  [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:@"1000x563"]
+
+  [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:@"600x300"]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 
                                    if (![SBUser currentUser].leagueLogos) {
