@@ -134,27 +134,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }
 }
 
-- (IBAction)supportRequestClicked:(id)sender {
-  if ([MFMailComposeViewController canSendMail]) {
-    NSString *messageBody = [NSString stringWithFormat:@"\nUser ID: %@", [SBUser currentUser].currentPfUser.objectId];
-
-    MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
-    mailCont.mailComposeDelegate = self;
-
-    [mailCont setSubject:@"Hello!"];
-    [mailCont setToRecipients:@[@"mike@jumbotron.io"]];
-    [mailCont setMessageBody:messageBody isHTML:NO];
-
-    [self presentViewController:mailCont animated:YES completion:^{
-      [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    }];
-  }
-}
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-  [controller dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (IBAction)didRequestClose:(id)sender {
   [SBUser currentUser].lastOpenedLeague = nil;
   [SBUser currentUser].lastOpenedLeagueIndex = @-1;
@@ -247,8 +226,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   SBModalViewController *viewController = segue.destinationViewController;
-  viewController.game = self.selectedGame;
-  viewController.delegate = self;
   viewController.view.frame = self.view.bounds;
   self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
   self.animator.dragable = YES;
@@ -258,11 +235,16 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   viewController.transitioningDelegate = self.animator;
   viewController.modalPresentationStyle = UIModalPresentationCustom;
 
-  if ([segue.identifier isEqualToString:kScorePreviewSegue]) {
-    [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
-  }
-  else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
-    [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];
+  if ([segue.identifier isEqualToString:kScorePreviewSegue] || [segue.identifier isEqualToString:kScoreShowSegue]) {
+    viewController.game = self.selectedGame;
+    viewController.delegate = self;
+    
+    if ([segue.identifier isEqualToString:kScorePreviewSegue]) {
+      [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
+    }
+    else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
+      [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];
+    }
   }
 
   [self stopTimer];

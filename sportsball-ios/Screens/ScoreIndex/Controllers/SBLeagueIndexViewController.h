@@ -13,10 +13,8 @@
 #import "SBModalViewController.h"
 #import "SBViewController.h"
 #import "SBLeagueIndexHeader.h"
-#import <MessageUI/MessageUI.h>
-#import <MessageUI/MFMailComposeViewController.h>
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate, MFMailComposeViewControllerDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate>
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -29,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property BOOL isNotificationOpen;
 
-- (IBAction)supportRequestClicked:(id)sender;
+//- (IBAction)supportRequestClicked:(id)sender;
 - (IBAction)didRequestClose:(id)sender;
 - (void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
