@@ -11,8 +11,9 @@
 
 @implementation SBModel
 
-//static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
-static NSString * const kServerURL = @"http://localhost:3000/%@";
+static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
+//static NSString * const kServerURL = @"http://localhost:3000/%@";
+static NSString * const kVersionURL = @"2";
 
 - (id)initWithJson:(id)json {
   [NSException raise:@"Should be handled in subclass" format:@"not relevant"];
@@ -70,6 +71,7 @@ static NSString * const kServerURL = @"http://localhost:3000/%@";
 
   NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:parameters];
   mutableParams[@"time_zone"] = [[NSTimeZone localTimeZone] name];
+  mutableParams[@"version"] = kVersionURL;
 
   NSLog(@"making request with path: %@", path);
 
