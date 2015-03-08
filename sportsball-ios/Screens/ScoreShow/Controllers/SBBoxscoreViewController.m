@@ -38,6 +38,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
   // Collection View Styles
   self.tableView.backgroundColor = [UIColor clearColor];
+  self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 
   // Register nibs
   [self.tableView registerNib:[UINib nibWithNibName:@"SBScoreSummaryViewCell" bundle:nil]
@@ -148,7 +149,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
   else if (indexPath.section == kScoreRecapViewLocation) {
     SBContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreRecapCollectionViewCell forIndexPath:indexPath];
-    cell.recap = self.game.boxscore.recap;
+    cell.game = self.game;
 
     return cell;
   }

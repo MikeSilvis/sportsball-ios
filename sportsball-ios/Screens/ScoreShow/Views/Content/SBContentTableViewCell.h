@@ -11,8 +11,7 @@
 
 @interface SBContentTableViewCell : SBTableViewCell
 
-@property (nonatomic, strong) SBRecap *recap;
-@property (nonatomic, strong) SBPreview *preview;
+@property (nonatomic, strong) SBGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;

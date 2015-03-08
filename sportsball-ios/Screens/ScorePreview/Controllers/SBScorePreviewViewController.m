@@ -196,7 +196,7 @@ static const NSInteger kScheduleCellLocation = 0;
   if (indexPath.section == 0) {
     if (indexPath.row == kScoreRecapViewLocation) {
       SBContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreContentCell forIndexPath:indexPath];
-      cell.preview = self.game.preview;
+      cell.game = self.game;
 
       return cell;
     }

@@ -38,13 +38,11 @@
   if (self.section == 0 && self.row == 0 ) {
     self.score.textAlignment = NSTextAlignmentLeft;
   }
-
-  if (self.section == 0) {
+  if (self.row == 0) {
     self.score.font = boldFont;
   }
 
-  NSArray *rowCount = self.game.boxscore.scoreSummary[self.section];
-  if (self.row == ([rowCount count] -1)) {
+  if (self.section == ([self.game.boxscore.scoreSummary count] - 1)) {
     self.score.font = boldFont;
   }
 }

@@ -9,6 +9,13 @@
 #import "SBContentTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+@interface SBContentTableViewCell ()
+
+@property (nonatomic, strong) SBRecap *recap;
+@property (nonatomic, strong) SBPreview *preview;
+
+@end
+
 @implementation SBContentTableViewCell
 
 - (void)awakeFromNib {
@@ -20,6 +27,16 @@
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+- (void)setGame:(SBGame *)game {
+  _game = game;
+
+  if (self.game.boxscore && self.game.boxscore.recap) {
+    self.recap = self.game.boxscore.recap;
+  }
+
+  self.preview = self.game.preview;
+}
+
 - (void)setRecap:(SBRecap *)recap {
   _recap = recap;
 
@@ -27,7 +44,7 @@
   self.content.text = self.recap.content;
   [self.headerImage sd_setImageWithURL:self.recap.photoURL];
 
-  if (recap.headline) {
+  if (self.recap.headline) {
     self.renderSeperator = YES;
     self.hidden = NO;
   }
@@ -54,7 +71,6 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  // TODO: Add support for images in preview
   if (self.preview) {
     self.headerImage.frame = CGRectMake(0, 0, 0, 0);
     self.headerImage.hidden = YES;
@@ -70,9 +86,9 @@
 }
 
 + (CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width {
-  CGFloat height = resource.isOver ? 300 : 80;
+  CGFloat height = [resource hasRecapPhoto] ? 300 : 80;
 
-  if (resource.hasPreviewOrRecap) {
+  if ([resource hasPreviewOrRecap]) {
     return CGSizeMake(width, height);
   }
 

@@ -181,4 +181,12 @@
   return NO;
 }
 
+- (BOOL)hasRecapPhoto {
+  if (self.isOver && self.boxscore && self.boxscore.recap && self.boxscore.recap.photoURL) {
+    return YES;
+  }
+
+  return NO;
+}
+
 @end

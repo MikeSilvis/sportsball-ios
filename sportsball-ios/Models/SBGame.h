@@ -43,6 +43,7 @@
 - (BOOL)isInProgress;
 - (BOOL)isPregame;
 - (BOOL)hasPreviewOrRecap;
+- (BOOL)hasRecapPhoto;
 - (NSString *)localStartTime;
 - (NSString *)localStartTimeWithDate;
 - (NSString *)homeScoreString;

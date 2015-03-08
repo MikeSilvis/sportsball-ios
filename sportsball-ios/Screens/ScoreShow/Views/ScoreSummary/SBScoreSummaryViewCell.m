@@ -13,7 +13,7 @@
 
 static NSString * const kScoreSummaryinfoCell = @"kScoreSummaryinfoCell";
 static int const kCellRowHeight = 30;
-static int const kCellPaddingHeight = 10;
+static int const kMinTeamNameSize = 130;
 
 - (void)awakeFromNib {
   [super awakeFromNib];
@@ -23,10 +23,11 @@ static int const kCellPaddingHeight = 10;
   self.selectionStyle = UITableViewCellSelectionStyleNone;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSummaryInfoViewCell" bundle:nil] forCellWithReuseIdentifier:kScoreSummaryinfoCell];
+  self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 }
 
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, (resource.count * kCellRowHeight) + kCellPaddingHeight);
+  return CGSizeMake(width, ([((NSArray *)[resource firstObject]) count] * kCellRowHeight));
 }
 
 - (void)setGame:(SBGame *)game {
@@ -46,13 +47,17 @@ static int const kCellPaddingHeight = 10;
 #pragma mark - UICollectionView
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  NSArray *itemsForSection = self.scoreSummary[indexPath.section];
+  NSArray *itemsForSection = self.scoreSummary;
 
   CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
   CGFloat smallerItemWidth = 40;
-  CGFloat largeritemWidth = collectionViewWidth - (smallerItemWidth * (itemsForSection.count - 1));
+  CGFloat largeritemWidth = collectionViewWidth - (smallerItemWidth * (itemsForSection.count -1));
 
-  CGFloat width = (indexPath.row == 0) ? largeritemWidth : smallerItemWidth;
+  if (largeritemWidth < kMinTeamNameSize) {
+    largeritemWidth = kMinTeamNameSize;
+  }
+
+  CGFloat width = (indexPath.section == 0) ? largeritemWidth : smallerItemWidth;
 
   return CGSizeMake(width, kCellRowHeight);
 }

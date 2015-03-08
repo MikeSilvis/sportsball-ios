@@ -14,7 +14,23 @@
   self = [super init];
 
   if (self) {
-    self.scoreSummary = json[@"score_summary"];
+    // Converts the score summary to be vertical
+    NSMutableArray *verticleScoreSummary = [NSMutableArray array];
+    for (NSArray *row in json[@"score_summary"]) {
+      for (int i = 0; i < row.count; i++) {
+        if ([verticleScoreSummary count] > i) {
+          [verticleScoreSummary[i] addObject:row[i]];
+        }
+        else {
+          [verticleScoreSummary addObject:[NSMutableArray arrayWithArray:@[
+                                                                      row[i]
+                                                                    ]
+                                    ]
+           ];
+        }
+      }
+    }
+    self.scoreSummary = [NSArray arrayWithArray:verticleScoreSummary];
 
     NSMutableArray *scoreDetails = [NSMutableArray array];
     for (id scoreDetail in json[@"score_detail"]) {
