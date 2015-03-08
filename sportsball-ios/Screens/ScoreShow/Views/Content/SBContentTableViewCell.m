@@ -11,7 +11,6 @@
 
 @interface SBContentTableViewCell ()
 
-@property (nonatomic, strong) SBRecap *recap;
 @property (nonatomic, strong) SBPreview *preview;
 
 @end
@@ -71,7 +70,11 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  if (self.preview) {
+  if (!self.preview && !self.recap) {
+    return;
+  }
+
+  if (![self.game hasRecapPhoto]) {
     self.headerImage.frame = CGRectMake(0, 0, 0, 0);
     self.headerImage.hidden = YES;
 

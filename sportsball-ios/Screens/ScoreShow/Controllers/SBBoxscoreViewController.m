@@ -150,6 +150,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   else if (indexPath.section == kScoreRecapViewLocation) {
     SBContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kScoreRecapCollectionViewCell forIndexPath:indexPath];
     cell.game = self.game;
+    cell.recap = self.game.boxscore.recap;
 
     return cell;
   }
