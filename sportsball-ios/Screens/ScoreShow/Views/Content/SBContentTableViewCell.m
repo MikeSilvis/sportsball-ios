@@ -29,10 +29,6 @@
 - (void)setGame:(SBGame *)game {
   _game = game;
 
-  if (self.game.boxscore && self.game.boxscore.recap) {
-    self.recap = self.game.boxscore.recap;
-  }
-
   self.preview = self.game.preview;
 }
 
@@ -74,7 +70,7 @@
     return;
   }
 
-  if (![self.game hasRecapPhoto]) {
+  if (![self.game hasPreviewOrRecapPhoto]) {
     self.headerImage.frame = CGRectMake(0, 0, 0, 0);
     self.headerImage.hidden = YES;
 
@@ -89,7 +85,7 @@
 }
 
 + (CGSize)measureCellSizeWithResource:(SBGame *)resource andWidth:(CGFloat)width {
-  CGFloat height = [resource hasRecapPhoto] ? 300 : 80;
+  CGFloat height = [resource hasPreviewOrRecapPhoto] ? 300 : 80;
 
   if ([resource hasPreviewOrRecap]) {
     return CGSizeMake(width, height);

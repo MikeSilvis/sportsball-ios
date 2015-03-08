@@ -181,7 +181,7 @@
   return NO;
 }
 
-- (BOOL)hasRecapPhoto {
+- (BOOL)hasPreviewOrRecapPhoto {
   if (self.isOver && self.boxscore && self.boxscore.recap && self.boxscore.recap.photoURL) {
     return YES;
   }
