@@ -128,6 +128,10 @@ static NSString *kAllLeagues = @"allLeagues-1";
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
+  if (!_lastOpenedLeague) {
+    _lastOpenedLeagueIndex = [NSNumber numberWithInt:-1];
+  }
+
   _favoriteTeams = @[];
 
   // Retrieve leagues

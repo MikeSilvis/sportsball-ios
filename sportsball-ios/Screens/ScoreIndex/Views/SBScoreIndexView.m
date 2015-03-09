@@ -15,6 +15,7 @@
 
 static NSString * const kGameViewCell = @"GameViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
+static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 static CGFloat const kHeaderSize = 74;
 static int const kFavoriteCount = 10;
 
@@ -24,42 +25,45 @@ static int const kFavoriteCount = 10;
   self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBGameCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:kGameViewCell];
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:kHeaderViewCell];
+  // Cells
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBGameCollectionViewCell" bundle:nil]
+        forCellWithReuseIdentifier:kGameViewCell];
+  // Headers
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
+        forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+               withReuseIdentifier:kHeaderViewCell];
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBDatePickerCollectionViewCell" bundle:nil]
+        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+               withReuseIdentifier:kHeaderDatePickerViewCell];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
       layout.parallaxHeaderAlwaysOnTop = YES;
-      layout.disableStickyHeaders = YES;
   }
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize, 0, 0, 0);
 
-  self.currentDate = [NSDate date];
   self.activityIndicator.hidden = YES;
 }
 
-- (void)setUpDatePicker {
-  self.datePicker.dates = self.league.schedule;
-  [self.datePicker selectDateClosestToToday];
-  self.currentDate = self.datePicker.selectedDate;
-
-  [self.datePicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
+- (void)updateSelectedDate:(NSDate *)selectedDate {
+  self.currentDate = selectedDate;
 }
 
-- (void)setLeague:(SBLeague *)league {
-  _league = league;
+- (void)setCurrentDate:(NSDate *)currentDate {
+  NSDate *previouslySelectedDate = self.currentDate;
+  _currentDate = currentDate;
 
-  [self setUpDatePicker];
-}
+  if (!self.scorePuller) {
+    return;
+  }
 
-- (void)updateSelectedDate {
-  self.currentDate = self.datePicker.selectedDate;
-
-  self.games = @[];
-  [self cancelTimer];
-  [self startTimer];
+  if (![previouslySelectedDate isEqualToDate:currentDate]) {
+    self.games = @[];
+    [self cancelTimer];
+    [self startTimer];
+  }
 }
 
 - (void)cancelTimer {
@@ -75,6 +79,10 @@ static int const kFavoriteCount = 10;
 }
 
 - (void)findGames {
+  if (!self.currentDate) {
+    return;
+  }
+
   if (self.games.count == 0) {
     self.activityIndicator.hidden = NO;
   }
@@ -134,6 +142,19 @@ static int const kFavoriteCount = 10;
   }
 }
 
+- (void)logoClicked {
+  [self.delegate requestClose];
+}
+
+- (void)layoutSubviews {
+  [super layoutSubviews];
+
+  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+  layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, kHeaderSize);
+  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, kHeaderSize);
+  layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
   SBGame *selectedGame = self.games[indexPath.row];
 
@@ -146,6 +167,10 @@ static int const kFavoriteCount = 10;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   return CGSizeMake(self.bounds.size.width, 60);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+  return CGSizeMake(self.bounds.size.width, 50);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -166,21 +191,23 @@ static int const kFavoriteCount = 10;
 
     return cell;
   }
+  else if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+    SBDatePickerCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                              withReuseIdentifier:kHeaderDatePickerViewCell
+                                                                                     forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.dates = self.league.schedule;
+    if (!self.currentDate) {
+      [cell.datePicker selectDateClosestToToday];
+    }
+    else {
+      [cell.datePicker selectDate:self.currentDate];
+    }
+
+    return cell;
+  }
 
   return nil;
-}
-
-- (void)logoClicked {
-  [self.delegate requestClose];
-}
-
-- (void)layoutSubviews {
-  [super layoutSubviews];
-
-  CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-  layout.parallaxHeaderReferenceSize = CGSizeMake(self.bounds.size.width, kHeaderSize);
-  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.bounds.size.width, kHeaderSize);
-  layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
 }
 
 @end

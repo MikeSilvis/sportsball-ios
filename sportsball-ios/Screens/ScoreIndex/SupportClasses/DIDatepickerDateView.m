@@ -55,7 +55,7 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:8],
-                                NSForegroundColorAttributeName: [UIColor colorWithRed:153./255. green:153./255. blue:153./255. alpha:1.]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(0, monthFormattedString.length)];
 

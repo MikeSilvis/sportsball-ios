@@ -11,6 +11,7 @@
 #import "DIDatepicker.h"
 #import "SBGame.h"
 #import "SBLeagueHeader.h"
+#import "SBDatePickerCollectionViewCell.h"
 
 @protocol SBScoreIndexViewDelegate <NSObject>
 
@@ -21,7 +22,7 @@
 
 @end
 
-@interface SBScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, SBLeagueHeaderProtocol>
+@interface SBScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, SBLeagueHeaderProtocol, SBDatePickerCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -29,7 +30,6 @@
 @property (nonatomic, strong) UINib *headerNib;
 @property (nonatomic, strong) NSArray *games;
 @property (nonatomic, strong) NSTimer *scorePuller;
-@property (weak, nonatomic) IBOutlet DIDatepicker *datePicker;
 @property (nonatomic, strong) NSDate *currentDate;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
