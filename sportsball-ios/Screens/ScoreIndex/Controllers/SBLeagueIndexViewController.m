@@ -36,7 +36,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
   self.paginalTableView.backgroundColor = [UIColor clearColor];
   [self.view insertSubview:self.paginalTableView belowSubview:self.toolBar];
-
+  
   // Create the page control
   self.pageControl = [[UIPageControl alloc] init];
   self.pageControl.numberOfPages = self.leagues.count;

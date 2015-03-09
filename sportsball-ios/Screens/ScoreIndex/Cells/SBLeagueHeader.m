@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SBUser.h"
 #import "SBConstants.h"
+#import "CSStickyHeaderFlowLayoutAttributes.h"
 
 @implementation SBLeagueHeader
 
@@ -27,39 +28,16 @@
   [self.delegate logoClicked];
 }
 
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
-  [UIView animateWithDuration:0.1 animations:^{
+- (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
+  [UIView animateWithDuration:0.3 animations:^{
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
-    if (yOrigin >= 0) {
-      float alpha = 1;
 
-      self.smallLogo.alpha = alpha;
-      self.headerImageBlurred.alpha = alpha;
-    }
-    else if (yOrigin >= -5) {
-      float alpha = 0.90;
+    float alpha = yOrigin == 0 ? 1 : 0;
 
-      self.smallLogo.alpha = alpha;
-      self.headerImageBlurred.alpha = alpha;
-    }
-    else if (yOrigin >= -10) {
-      float alpha = 0.75;
+    self.smallLogo.alpha = alpha;
+    self.headerImageBlurred.alpha = alpha;
 
-      self.smallLogo.alpha = alpha;
-      self.headerImageBlurred.alpha = alpha;
-    }
-    else if (yOrigin >= -20) {
-      float alpha = 0.5;
-
-      self.smallLogo.alpha = alpha;
-      self.headerImageBlurred.alpha = alpha;
-    }
-    else if (yOrigin >= -30) {
-      float alpha = 0;
-
-      self.smallLogo.alpha = alpha;
-      self.headerImageBlurred.alpha = alpha;
-    }
+    [[UIApplication sharedApplication] setStatusBarHidden:![[NSNumber numberWithFloat:alpha] boolValue]];
   }];
 }
 
