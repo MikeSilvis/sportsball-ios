@@ -50,31 +50,26 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     [dateFormatter setDateFormat:@"MMMM"];
     NSString *monthFormattedString = [[dateFormatter stringFromDate:date] uppercaseString];
 
-    NSMutableAttributedString *dateString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@\n%@", dayFormattedString, [dayInWeekFormattedString uppercaseString], monthFormattedString]];
-
-    [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:20],
-                                NSForegroundColorAttributeName: [UIColor whiteColor]
-                                }
-                        range:NSMakeRange(0, dayFormattedString.length)];
-
-    [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"Avenir-Medium" size:8],
-                                NSForegroundColorAttributeName: [UIColor whiteColor]
-                                }
-                        range:NSMakeRange(dayFormattedString.length + 1, dayInWeekFormattedString.length)];
+    NSString *overallFormattedString = [NSString stringWithFormat:@"%@\n%@ %@", monthFormattedString, dayFormattedString, [dayInWeekFormattedString uppercaseString]];
+    NSMutableAttributedString *dateString = [[NSMutableAttributedString alloc] initWithString:overallFormattedString];
 
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:8],
                                 NSForegroundColorAttributeName: [UIColor colorWithRed:153./255. green:153./255. blue:153./255. alpha:1.]
                                 }
-                        range:NSMakeRange(dateString.string.length - monthFormattedString.length, monthFormattedString.length)];
+                        range:NSMakeRange(0, monthFormattedString.length)];
 
-    if ([self isWeekday:date]) {
-        [dateString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"Avenir-Medium" size:8]
-                           range:NSMakeRange(dayFormattedString.length + 1, dayInWeekFormattedString.length)];
-    }
+    [dateString addAttributes:@{
+                                NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:20],
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
+                                }
+                        range:NSMakeRange(monthFormattedString.length + 1, dayFormattedString.length)];
+
+    [dateString addAttributes:@{
+                                NSFontAttributeName: [UIFont fontWithName:@"Avenir-Medium" size:8],
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
+                                }
+                        range:NSMakeRange(dateString.string.length - dayInWeekFormattedString.length, dayInWeekFormattedString.length)];
 
     self.dateLabel.attributedText = dateString;
 }
@@ -101,7 +96,7 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 - (UIView *)selectionView
 {
     if (!_selectionView) {
-        _selectionView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width - 51) / 2, 0, 51, 3)];
+        _selectionView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width - 51) / 2, (self.frame.size.height - 3), 51, 3)];
         _selectionView.alpha = 0;
         _selectionView.backgroundColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
         [self addSubview:_selectionView];
@@ -127,18 +122,6 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 
 
 #pragma mark Other methods
-
-- (BOOL)isWeekday:(NSDate *)date
-{
-    NSInteger day = [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:date] weekday];
-
-    const NSInteger kSunday = 1;
-    const NSInteger kSaturday = 7;
-
-    BOOL isWeekdayResult = day == kSunday || day == kSaturday;
-
-    return isWeekdayResult;
-}
 
 - (void)dateWasSelected
 {
