@@ -8,3 +8,5 @@
 
 #define kPlaceholderImageSize @"600x300"
 #define kPlaceholderImage @"placeholder"
+
+#define kNotificationHideEvent @"hideNotificationEvent"

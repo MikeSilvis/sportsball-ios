@@ -11,6 +11,7 @@
 #import "SBUser.h"
 #import "SBConstants.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
+#import "SBConstants.h"
 
 @implementation SBLeagueHeader
 
@@ -32,12 +33,16 @@
   [UIView animateWithDuration:0.3 animations:^{
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
-    float alpha = yOrigin == 0 ? 1 : 0;
+    float alpha = yOrigin >= -50 ? 1 : 0;
 
     self.smallLogo.alpha = alpha;
     self.headerImageBlurred.alpha = alpha;
 
-    [[UIApplication sharedApplication] setStatusBarHidden:![[NSNumber numberWithFloat:alpha] boolValue]];
+    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
+    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
+                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
+                                                                                              }];
   }];
 }
 

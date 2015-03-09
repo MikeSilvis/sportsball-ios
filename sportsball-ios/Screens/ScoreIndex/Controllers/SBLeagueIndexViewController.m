@@ -13,6 +13,7 @@
 #import "SBScorePreviewViewController.h"
 #import <MPGNotification.h>
 #import "EDColor.h"
+#import "SBConstants.h"
 
 @implementation SBLeagueIndexViewController
 
@@ -69,8 +70,22 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                            selector:@selector(startTimer)
                                                name:UIApplicationDidBecomeActiveNotification
                                              object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(hideMenuIems:)
+                                                   name:kNotificationHideEvent object:nil];
+
   [self openAtLastSelectedIndex];
   [self buildHelpIcon];
+}
+
+- (void)hideMenuIems:(NSNotification *)notification {
+  bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
+
+  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
+  if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
+    self.pageControl.hidden = alphaHidden;
+    self.toolBar.hidden = alphaHidden;
+  }
 }
 
 - (void)buildHelpIcon {

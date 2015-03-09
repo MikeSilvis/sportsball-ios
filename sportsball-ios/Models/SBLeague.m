@@ -51,8 +51,8 @@
       self.blurredHeader = self.blurredHeaders[favoriteTeamName];
     }
     else {
-      self.header = [NSURL URLWithString:json[@"header_image"]];
-      self.blurredHeader = [NSURL URLWithString:json[@"header_blurred_image"]];
+      self.header = [[self.headers allValues] firstObject];
+      self.blurredHeader = [[self.blurredHeaders allValues] firstObject];
     }
   }
 
