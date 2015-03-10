@@ -23,7 +23,6 @@ static NSString *kAllLeagues = @"allLeagues-1";
       currentUser = [[self alloc] init];
   }
 
-
   return currentUser;
 }
 
@@ -44,7 +43,7 @@ static NSString *kAllLeagues = @"allLeagues-1";
     NSString *currentTimeZone = [PFUser currentUser][@"timeZone"];
     if (!currentTimeZone || ![[[NSTimeZone localTimeZone] name] isEqualToString:currentTimeZone]) {
       [PFUser currentUser][@"timeZone"] = [[NSTimeZone localTimeZone] name];
-      [[PFUser currentUser] saveEventually];
+      [[PFUser currentUser] saveInBackground];
     }
 
     [self setUserDefaults];
