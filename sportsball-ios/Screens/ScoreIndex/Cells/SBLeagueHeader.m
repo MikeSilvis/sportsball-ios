@@ -19,13 +19,13 @@
   [super awakeFromNib];
 
   // Logo Gesture
-  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoClicked)];
+  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leagueTextClicked)];
   singleTap.numberOfTapsRequired = 1;
-  [self.smallLogo setUserInteractionEnabled:YES];
-  [self.smallLogo addGestureRecognizer:singleTap];
+  [self.leagueText setUserInteractionEnabled:YES];
+  [self.leagueText addGestureRecognizer:singleTap];
 }
 
-- (void)logoClicked {
+- (void)leagueTextClicked {
   [self.delegate logoClicked];
 }
 
@@ -35,8 +35,8 @@
 
     float alpha = yOrigin >= -50 ? 1 : 0;
 
-    self.smallLogo.alpha = alpha;
-    self.headerImageBlurred.alpha = alpha;
+    self.leagueText.alpha = alpha;
+    self.headerImage.alpha = !alpha;
 
     bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
     [[UIApplication sharedApplication] setStatusBarHidden:hidden];
@@ -48,13 +48,7 @@
 
 - (void)setCurrentLeague:(SBLeague *)currentLeague {
   _currentLeague = currentLeague;
-
-  NSURL *logoUrl = self.currentLeague.secondaryLogo;
-  if ([SBUser currentUser].leagueLogos) {
-    logoUrl = self.currentLeague.logo;
-  }
-
-  [self.smallLogo sd_setImageWithURL:[self.currentLeague imageURL:logoUrl withSize:@"100x100"]];
+  self.leagueText.text = self.currentLeague.englishName;
 
   [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
   [self.headerImage sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:kPlaceholderImageSize]];

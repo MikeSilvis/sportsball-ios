@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *smallLogo;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageBlurred;
+@property (weak, nonatomic) IBOutlet UILabel *leagueText;
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
 @property (nonatomic, strong) SBLeague *currentLeague;

@@ -12,6 +12,7 @@
 @interface SBLeague : SBModel
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *englishName;
 @property (nonatomic, strong) NSURL *logo;
 @property (nonatomic, strong) NSURL *secondaryLogo;
 @property (nonatomic, strong) NSURL *header;

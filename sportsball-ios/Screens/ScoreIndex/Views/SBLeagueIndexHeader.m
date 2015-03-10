@@ -17,12 +17,7 @@
 - (void)setLeague:(SBLeague *)league {
   _league = league;
 
-  NSURL *logoUrl = league.secondaryLogo;
-  if ([SBUser currentUser].leagueLogos) {
-    logoUrl = league.logo;
-  }
-
-  [self.logoImage sd_setImageWithURL:[league imageURL:logoUrl withSize:@"100x100"]];
+  self.leagueText.text = self.league.englishName;
 
   [self.backgroundImage sd_setImageWithURL:[league imageURL:league.blurredHeader withSize:kPlaceholderImageSize]
                           placeholderImage:[UIImage imageNamed:kPlaceholderImage]];

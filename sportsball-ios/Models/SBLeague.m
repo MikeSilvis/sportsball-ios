@@ -21,6 +21,7 @@
     self.secondaryLogo = [NSURL URLWithString:json[@"secondary_logo"]];
 
     self.name = json[@"name"];
+    self.englishName = json[@"english_name"];
     self.isMonthlySchedule = [NSNumber numberWithBool:[json[@"monthly_schedule"] boolValue]];
 
     // Dates
