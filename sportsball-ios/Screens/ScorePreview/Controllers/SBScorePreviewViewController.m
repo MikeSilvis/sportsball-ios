@@ -277,7 +277,7 @@ static const NSInteger kScheduleCellLocation = 0;
   return 0;
 }
 
-#pragma mark - Hack to enable heawder to have see through background
+#pragma mark - Hack to enable header to have see through background
 
 // http://stackoverflow.com/questions/12127138/how-to-mask-uitableviewcells-underneath-a-uitableview-transparent-header
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -304,7 +304,7 @@ static const NSInteger kScheduleCellLocation = 0;
 - (CAGradientLayer *)visibilityMaskForCell:(UITableViewCell *)cell withLocation:(CGFloat)location {
   CAGradientLayer *mask = [CAGradientLayer layer];
   mask.frame = cell.bounds;
-  mask.colors = @[(id)[[UIColor colorWithWhite:1 alpha:0] CGColor], (id)[[UIColor colorWithWhite:1 alpha:1] CGColor]];
+  mask.colors = @[(id)[[UIColor colorWithWhite:1 alpha:0] CGColor],  (id)[[UIColor colorWithWhite:1 alpha:1] CGColor]];
   mask.locations = @[@(location), @(location)];
   return mask;
 }
