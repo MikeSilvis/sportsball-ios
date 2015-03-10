@@ -17,6 +17,7 @@ static NSString * const kGameViewCell = @"GameViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 static CGFloat const kHeaderSize = 74;
+static CGFloat const kDatePickerSize = 50;
 static int const kFavoriteCount = 10;
 
 - (void)awakeFromNib {
@@ -42,7 +43,7 @@ static int const kFavoriteCount = 10;
   }
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-  self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize, 0, 0, 0);
+  self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
 
   self.activityIndicator.hidden = YES;
 }
@@ -172,7 +173,7 @@ static int const kFavoriteCount = 10;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-  return CGSizeMake(self.bounds.size.width, 50);
+  return CGSizeMake(self.bounds.size.width, kDatePickerSize);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -84,6 +84,7 @@
 		1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */; };
 		119909201A4F535B00F2ED1B /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SBViewController.m */; };
 		119B873C1A819BED0018F099 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119B873B1A819BED0018F099 /* ParseUI.framework */; };
+		11AA9D911AAF6AED00E81FB6 /* SBDefaultTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AA9D901AAF6AED00E81FB6 /* SBDefaultTabViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
 		11B946331A0466A300BEECBB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946311A0466A300BEECBB /* Fabric.framework */; };
 		11BA1C3A1A6096C4005C61AB /* SBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA1C391A6096C4005C61AB /* SBTableViewCell.m */; };
@@ -226,6 +227,8 @@
 		1199091E1A4F535B00F2ED1B /* SBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
 		1199091F1A4F535B00F2ED1B /* SBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 		119B873B1A819BED0018F099 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		11AA9D8F1AAF6AED00E81FB6 /* SBDefaultTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDefaultTabViewController.h; sourceTree = "<group>"; };
+		11AA9D901AAF6AED00E81FB6 /* SBDefaultTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDefaultTabViewController.m; sourceTree = "<group>"; };
 		11B946301A0466A300BEECBB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		11B946311A0466A300BEECBB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		11BA1C381A6096C4005C61AB /* SBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableViewCell.h; sourceTree = "<group>"; };
@@ -683,6 +686,8 @@
 				1199091F1A4F535B00F2ED1B /* SBViewController.m */,
 				114E87A01A5F8A0E007C2CF7 /* SBModalViewController.h */,
 				114E87A11A5F8A0E007C2CF7 /* SBModalViewController.m */,
+				11AA9D8F1AAF6AED00E81FB6 /* SBDefaultTabViewController.h */,
+				11AA9D901AAF6AED00E81FB6 /* SBDefaultTabViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -924,6 +929,7 @@
 				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */,
 				114E879F1A5F86D3007C2CF7 /* SBPreview.m in Sources */,
+				11AA9D911AAF6AED00E81FB6 /* SBDefaultTabViewController.m in Sources */,
 				11BA1C4D1A65A5C7005C61AB /* SBScheduleTableViewCell.m in Sources */,
 				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
 				1189A4021A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m in Sources */,

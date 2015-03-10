@@ -42,7 +42,11 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl = [[UIPageControl alloc] init];
   self.pageControl.numberOfPages = self.leagues.count;
   self.pageControl.currentPage = 1;
-  self.pageControl.frame = CGRectMake(0, (self.view.bounds.size.height - 30), 200, 50);
+  self.pageControl.frame = CGRectMake(0,
+                                      (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - 30),
+                                      200,
+                                      50
+                                     );
   [self.pageControl sizeToFit];
   CGRect f = self.pageControl.frame;
   f.origin.x = (self.view.bounds.size.width - self.pageControl.bounds.size.width) / 2;
@@ -74,6 +78,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                selector:@selector(hideMenuIems:)
                                                    name:kNotificationHideEvent object:nil];
 
+  self.tabBarController.tabBar.hidden = YES;
   [self openAtLastSelectedIndex];
   [self buildHelpIcon];
 }
@@ -165,6 +170,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
   [self.paginalTableView openElementAtIndex:index completion:^(BOOL completed) {
     if (completed) {
+      self.tabBarController.tabBar.hidden = NO;
       self.pageControl.hidden = NO;
       self.toolBar.hidden = NO;
       self.supportButton.hidden = YES;
@@ -232,7 +238,11 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (UIView *)createExpandedViewAtIndex:(NSUInteger)index {
   SBScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
-  scoreIndex.frame = self.view.bounds;
+  scoreIndex.frame = CGRectMake(0,
+                                0,
+                                self.view.bounds.size.width,
+                                (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height)
+                               );
   scoreIndex.delegate = self;
   [self.scoreViews addObject:scoreIndex];
 

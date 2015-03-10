@@ -102,6 +102,14 @@ static NSString *kPlaceholderImageSize = @"600x300";
   [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor whiteColor]
                                                         }];
+
+  [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+  [[UITabBar appearance] setTintColor:[UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.]];
+  [[UITabBarItem appearance] setTitleTextAttributes:@{
+                     NSForegroundColorAttributeName: [UIColor whiteColor],
+                                NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:10.0f]
+  }
+forState:UIControlStateNormal];
 }
 
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {

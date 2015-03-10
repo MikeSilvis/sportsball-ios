@@ -34,7 +34,7 @@
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
     float alpha = yOrigin >= -50 ? 1 : 0;
-
+    
     self.leagueText.alpha = alpha;
     self.headerImage.alpha = !alpha;
 
@@ -50,8 +50,8 @@
   _currentLeague = currentLeague;
   self.leagueText.text = self.currentLeague.englishName;
 
-  [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
   [self.headerImage sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:kPlaceholderImageSize]];
+  [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
 }
 
 @end
