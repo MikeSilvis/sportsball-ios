@@ -128,7 +128,7 @@ static NSString *kAllLeagues = @"allLeagues-1";
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
-  if (!_lastOpenedLeague) {
+  if (!_lastOpenedLeagueIndex) {
     _lastOpenedLeagueIndex = [NSNumber numberWithInt:-1];
   }
 
@@ -149,6 +149,10 @@ static NSString *kAllLeagues = @"allLeagues-1";
 }
 
 - (void)getFavoriteTeams:(BOOL)clearCache {
+  if (!self.currentPfUser.objectId) {
+    return;
+  }
+
   PFQuery *query = [PFQuery queryWithClassName:@"TeamCount"];
   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
   [query whereKey:@"user" equalTo:self.currentPfUser];
