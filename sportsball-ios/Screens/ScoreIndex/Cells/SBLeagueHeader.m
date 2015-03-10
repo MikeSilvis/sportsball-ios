@@ -34,7 +34,7 @@
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
     float alpha = yOrigin >= -50 ? 1 : 0;
-    
+
     self.leagueText.alpha = alpha;
     self.headerImage.alpha = !alpha;
 

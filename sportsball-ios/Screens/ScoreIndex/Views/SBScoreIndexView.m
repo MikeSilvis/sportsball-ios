@@ -44,8 +44,6 @@ static int const kFavoriteCount = 10;
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
-
-  self.activityIndicator.hidden = YES;
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -61,9 +59,11 @@ static int const kFavoriteCount = 10;
   }
 
   if (![previouslySelectedDate isEqualToDate:currentDate]) {
-    self.games = @[];
-    [self cancelTimer];
-    [self startTimer];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.games = @[];
+      [self cancelTimer];
+      [self startTimer];
+    });
   }
 }
 
@@ -90,9 +90,8 @@ static int const kFavoriteCount = 10;
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
-    self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    [self.delegate requestFailed:nil];
+    [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
   }];
 }
@@ -177,6 +176,8 @@ static int const kFavoriteCount = 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  self.activityIndicator.hidden = YES;
+
   SBGame *currentGame = self.games[indexPath.row];
   SBGameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;

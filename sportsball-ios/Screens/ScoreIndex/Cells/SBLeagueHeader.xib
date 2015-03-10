@@ -19,6 +19,17 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5G-uZ-nBU" userLabel="headerBlurred">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
+                            <visualEffectView opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-um-fYf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hdh-Do-rPM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
@@ -39,9 +50,13 @@
                             <constraint firstAttribute="centerX" secondItem="l5G-uZ-nBU" secondAttribute="centerX" id="84y-WP-U4J"/>
                             <constraint firstAttribute="trailing" secondItem="l5G-uZ-nBU" secondAttribute="trailing" id="9nc-VR-QYA"/>
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
+                            <constraint firstAttribute="bottom" secondItem="hBN-um-fYf" secondAttribute="bottom" id="TKt-1N-IEM"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="TXl-aq-VgQ"/>
                             <constraint firstAttribute="centerY" secondItem="S7J-yo-Mxv" secondAttribute="centerY" constant="-7" id="eY7-Qd-81Q"/>
+                            <constraint firstAttribute="trailing" secondItem="hBN-um-fYf" secondAttribute="trailing" id="hDI-fd-J8l"/>
+                            <constraint firstItem="hBN-um-fYf" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="mKR-cl-d5G"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="mYm-Gc-Qgv"/>
+                            <constraint firstItem="hBN-um-fYf" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="pSY-Pl-cuM"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="riN-mo-fhY"/>
                             <constraint firstAttribute="bottom" secondItem="l5G-uZ-nBU" secondAttribute="bottom" id="sOX-Ws-CtW"/>
                             <constraint firstAttribute="bottom" secondItem="4PO-fa-s9b" secondAttribute="bottom" id="w3B-v7-3iu"/>
@@ -60,6 +75,7 @@
             </constraints>
             <size key="customSize" width="320" height="426"/>
             <connections>
+                <outlet property="blurEffect" destination="hBN-um-fYf" id="0ko-EC-33d"/>
                 <outlet property="headerImage" destination="4PO-fa-s9b" id="ln6-YW-tPb"/>
                 <outlet property="headerImageBlurred" destination="l5G-uZ-nBU" id="VK0-H5-A1d"/>
                 <outlet property="leagueText" destination="S7J-yo-Mxv" id="ZTA-Oh-s1C"/>

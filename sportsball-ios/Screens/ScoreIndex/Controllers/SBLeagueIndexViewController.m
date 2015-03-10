@@ -164,6 +164,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
   self.supportButton.hidden = NO;
+  self.tabBarController.tabBar.hidden = YES;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
 }
 
