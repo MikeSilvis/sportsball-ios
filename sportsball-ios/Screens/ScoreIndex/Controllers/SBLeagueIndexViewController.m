@@ -88,7 +88,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
   if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
-    self.pageControl.hidden = alphaHidden;
     self.toolBar.hidden = alphaHidden;
   }
 }
