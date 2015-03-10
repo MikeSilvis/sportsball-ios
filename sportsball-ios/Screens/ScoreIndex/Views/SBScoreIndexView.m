@@ -118,7 +118,9 @@ static int const kFavoriteCount = 10;
 
   [self showFavoriteNotification];
 
-  [self.collectionView reloadData];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.collectionView reloadData];
+  });
 }
 
 - (void)showFavoriteNotification {
