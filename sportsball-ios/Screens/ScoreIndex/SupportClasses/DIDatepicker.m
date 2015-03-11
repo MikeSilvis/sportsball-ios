@@ -68,9 +68,7 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
         }
     }
 
-    [self updateSelectedDatePosition];
-
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    [self updateSelectedDatePosition:YES];
 }
 
 - (UIScrollView *)datesScrollView
@@ -219,10 +217,10 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
 -(void)layoutSubviews {
   [super layoutSubviews];
-  [self updateSelectedDatePosition];
+  [self updateSelectedDatePosition:NO];
 }
 
-- (void)updateSelectedDatePosition
+- (void)updateSelectedDatePosition:(BOOL)sendEvent
 {
     NSUInteger itemIndex = [self.dates indexOfObject:self.selectedDate];
 
@@ -231,7 +229,12 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
     itemOffset = MAX(0, MIN(self.datesScrollView.contentSize.width - (self.frame.size.width ), itemOffset));
 
-    [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:YES];
+    [UIView performWithoutAnimation:^{
+      [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:NO];
+      if (sendEvent) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+      }
+    }];
 }
 
 @end

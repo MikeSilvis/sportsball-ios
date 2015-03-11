@@ -1,14 +1,14 @@
 //
-//  SBDefaultTabViewController.m
+//  SBStandingsViewController.m
 //  sportsball-ios
 //
 //  Created by Mike Silvis on 3/10/15.
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SBDefaultTabViewController.h"
+#import "SBStandingsViewController.h"
 
-@implementation SBDefaultTabViewController
+@implementation SBStandingsViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];

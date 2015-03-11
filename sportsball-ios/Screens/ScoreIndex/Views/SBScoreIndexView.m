@@ -18,7 +18,7 @@ static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 static CGFloat const kHeaderSize = 74;
 static CGFloat const kDatePickerSize = 50;
-static int const kFavoriteCount = 10;
+static int const kFavoriteCount = 6;
 
 - (void)awakeFromNib {
   self.games = [NSMutableArray array];
@@ -118,9 +118,7 @@ static int const kFavoriteCount = 10;
 
   [self showFavoriteNotification];
 
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [self.collectionView reloadData];
-  });
+  [self.collectionView reloadData];
 }
 
 - (void)showFavoriteNotification {

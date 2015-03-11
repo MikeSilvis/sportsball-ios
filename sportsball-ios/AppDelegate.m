@@ -93,6 +93,7 @@ static NSString *kPlaceholderImageSize = @"600x300";
 }
 
 - (void)defaultStyles{
+  // UINavigatoinBar
   UIColor *barTintColor = [UIColor colorWithHexString:@"120c06"];
   [[UINavigationBar appearance] setBarTintColor:barTintColor];
   [[UIToolbar appearance] setBarTintColor:barTintColor];
@@ -103,13 +104,23 @@ static NSString *kPlaceholderImageSize = @"600x300";
                                                          NSForegroundColorAttributeName: [UIColor whiteColor]
                                                         }];
 
-  [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-  [[UITabBar appearance] setTintColor:[UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.]];
+
+  // UIToolBar
+//  [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+//  [[UITabBarItem appearance] setTitleTextAttributes:@{
+//                     NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:10.0f]
+//                                                     }
+//                                           forState:UIControlStateNormal];
+
+//  UIColor *selectedColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
+  UIColor *selectedColor = [UIColor whiteColor];
+  [[UITabBar appearance] setTintColor:selectedColor];
   [[UITabBarItem appearance] setTitleTextAttributes:@{
-                     NSForegroundColorAttributeName: [UIColor whiteColor],
+                     NSForegroundColorAttributeName: selectedColor,
                                 NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:10.0f]
-  }
-forState:UIControlStateNormal];
+                                                     }
+                                           forState:UIControlStateSelected];
 }
 
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {

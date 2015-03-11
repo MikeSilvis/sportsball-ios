@@ -34,10 +34,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="7r1-Dw-FKw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="9Mo-0L-q5c" kind="relationship" relationship="viewControllers" id="xrb-Gw-HUn"/>
@@ -51,23 +47,23 @@
         <!--Standings-->
         <scene sceneID="1nF-Wb-d56">
             <objects>
-                <viewController id="vvz-Js-5av" sceneMemberID="viewController">
+                <viewController id="vvz-Js-5av" customClass="SBStandingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OCN-Id-Q3c"/>
                         <viewControllerLayoutGuide type="bottom" id="MfS-9u-O61"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DlU-Py-VJ1">
+                    <view key="view" contentMode="scaleToFill" id="DlU-Py-VJ1" customClass="SBAboutTableViewCell">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STANDINGS CONTROLLER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfO-bV-bgg">
                                 <rect key="frame" x="193" y="290" width="214" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="qfO-bV-bgg" secondAttribute="centerY" id="G0i-H2-dnT"/>
                             <constraint firstAttribute="centerX" secondItem="qfO-bV-bgg" secondAttribute="centerX" id="ccD-I2-6Th"/>
@@ -626,7 +622,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="scores" width="30" height="30"/>
+        <image name="scores" width="22" height="27"/>
         <image name="standings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
