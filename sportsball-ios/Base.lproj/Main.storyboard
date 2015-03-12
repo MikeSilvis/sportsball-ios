@@ -69,11 +69,15 @@
                             <constraint firstAttribute="centerX" secondItem="qfO-bV-bgg" secondAttribute="centerX" id="ccD-I2-6Th"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Standings" image="standings" id="bjH-kq-iH6"/>
+                    <tabBarItem key="tabBarItem" title="Standings" image="standings" id="bjH-kq-iH6">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1I-2z-nNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="1148"/>
+            <point key="canvasLocation" x="2136" y="1154"/>
         </scene>
         <!--Scores-->
         <scene sceneID="HJR-4K-spF">
@@ -133,7 +137,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scores" image="scores" id="oVW-Z1-Pdj"/>
+                    <tabBarItem key="tabBarItem" title="Scores" image="scores" id="oVW-Z1-Pdj">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
@@ -622,8 +630,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="scores" width="22" height="27"/>
-        <image name="standings" width="30" height="30"/>
+        <image name="scores" width="50" height="50"/>
+        <image name="scores-filled" width="50" height="50"/>
+        <image name="standings" width="50" height="50"/>
+        <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAy-Wc-PS9"/>

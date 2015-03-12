@@ -229,12 +229,15 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
     itemOffset = MAX(0, MIN(self.datesScrollView.contentSize.width - (self.frame.size.width ), itemOffset));
 
-    [UIView performWithoutAnimation:^{
-      [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:NO];
-      if (sendEvent) {
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
-      }
-    }];
+    [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:YES];
+    if (sendEvent) {
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [NSThread sleepForTimeInterval:0.3f];
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendActionsForControlEvents:UIControlEventValueChanged];
+        });
+      });
+    }
 }
 
 @end

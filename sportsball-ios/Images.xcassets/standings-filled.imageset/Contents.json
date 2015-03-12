@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "scores.png"
+      "filename" : "standings-filled.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "scores-1.png"
+      "filename" : "standings-filled-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "scores-2.png"
+      "filename" : "standings-filled-2.png"
     }
   ],
   "info" : {

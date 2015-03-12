@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "standings.png"
+      "filename" : "Leaderboard-50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "standings@2x.png"
+      "filename" : "Leaderboard-50-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "standings@3x.png"
+      "filename" : "Leaderboard-50-2.png"
     }
   ],
   "info" : {

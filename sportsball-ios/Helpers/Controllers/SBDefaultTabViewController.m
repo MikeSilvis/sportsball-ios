@@ -12,6 +12,9 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  [self.tabBar setBackgroundColor:[UIColor clearColor]];
+  [self.tabBar setBackgroundImage:[UIImage new]];
 }
 
 @end
