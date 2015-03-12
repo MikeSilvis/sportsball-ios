@@ -26,44 +26,11 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.scoreViews = [NSMutableArray array];
   self.leagues = [SBUser currentUser].leagues;
 
-  // Create the table list
-  self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
-  self.paginalTableView.dataSource = self;
-  self.paginalTableView.delegate = self;
-  self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
-  self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
-  self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
-  self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-  self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
-  self.paginalTableView.backgroundColor = [UIColor clearColor];
-  [self.view insertSubview:self.paginalTableView belowSubview:self.toolBar];
-  
-  // Create the page control
-  self.pageControl = [[UIPageControl alloc] init];
-  self.pageControl.numberOfPages = self.leagues.count;
-  self.pageControl.currentPage = 1;
-  self.pageControl.frame = CGRectMake(0,
-                                      (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - 30),
-                                      200,
-                                      50
-                                     );
-  [self.pageControl sizeToFit];
-  CGRect f = self.pageControl.frame;
-  f.origin.x = (self.view.bounds.size.width - self.pageControl.bounds.size.width) / 2;
-  self.pageControl.frame = f;
-  self.pageControl.hidden = YES;
-  [self.view addSubview:self.pageControl];
-
-  CGFloat iconSize = 25;
-  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
-  self.hamburgerButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#fff"];
-
-  self.toolBar.backgroundColor = [UIColor clearColor];
-  [self.toolBar setBackgroundImage:[UIImage new]
-                forToolbarPosition:UIToolbarPositionAny
-                        barMetrics:UIBarMetricsDefault];
-  self.toolBar.clipsToBounds = YES;
-  self.toolBar.hidden = YES;
+  [self buildPaginalControl];
+  [self buildPageControl];
+  [self buildToolBar];
+  [self buildHamburgerButton];
+  [self buildHelpIcon];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(stopTimer)
@@ -80,7 +47,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   self.tabBarController.tabBar.hidden = YES;
   [self openAtLastSelectedIndex];
-  [self buildHelpIcon];
 }
 
 - (void)hideMenuIems:(NSNotification *)notification {
@@ -90,6 +56,52 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
     self.toolBar.hidden = alphaHidden;
   }
+}
+
+- (void)buildPaginalControl {
+  self.paginalTableView = [[APPaginalTableView alloc] initWithFrame:self.view.bounds];
+  self.paginalTableView.dataSource = self;
+  self.paginalTableView.delegate = self;
+  self.paginalTableView.tableView.separatorColor = [UIColor whiteColor];
+  self.paginalTableView.tableView.separatorInset = UIEdgeInsetsZero;
+  self.paginalTableView.tableView.layoutMargins = UIEdgeInsetsZero;
+  self.paginalTableView.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+  self.paginalTableView.tableView.backgroundColor = [UIColor clearColor];
+  self.paginalTableView.backgroundColor = [UIColor clearColor];
+  [self.view insertSubview:self.paginalTableView belowSubview:self.toolBar];
+}
+
+- (void)buildPageControl {
+  self.pageControl = [[UIPageControl alloc] init];
+  self.pageControl.numberOfPages = self.leagues.count;
+  self.pageControl.currentPage = 1;
+  self.pageControl.frame = CGRectMake(0,
+                                      (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - 30), 200,
+                                      50
+                                     );
+  [self.pageControl sizeToFit];
+  CGRect f = self.pageControl.frame;
+  f.origin.x = (self.view.bounds.size.width - self.pageControl.bounds.size.width) / 2;
+  self.pageControl.frame = f;
+  self.pageControl.hidden = YES;
+  [self.view addSubview:self.pageControl];
+}
+
+- (void)buildHamburgerButton {
+  CGFloat iconSize = 25;
+  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
+  self.hamburgerButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#fff"];
+
+}
+
+- (void)buildToolBar {
+  self.toolBar.backgroundColor = [UIColor clearColor];
+  [self.toolBar setBackgroundImage:[UIImage new]
+                forToolbarPosition:UIToolbarPositionAny
+                        barMetrics:UIBarMetricsDefault];
+  self.toolBar.clipsToBounds = YES;
+  self.toolBar.hidden = YES;
+
 }
 
 - (void)buildHelpIcon {
