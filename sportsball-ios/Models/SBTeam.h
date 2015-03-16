@@ -24,5 +24,6 @@
 - (int)favoriteScore;
 + (void)incrementFavoriteTeam:(SBTeam *)team withSuccess:(void (^) (PFObject *object))success;
 - (PFObject *)parseObject;
+- (BOOL)isFavorableTeam;
 
 @end

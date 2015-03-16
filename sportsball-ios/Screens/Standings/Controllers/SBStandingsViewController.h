@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBLeague.h"
+#import "SBUser.h"
 
 @interface SBStandingsViewController : UIViewController
+
+@property (nonatomic, strong) SBLeague *league;
 
 @end

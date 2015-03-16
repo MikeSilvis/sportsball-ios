@@ -123,4 +123,14 @@
   }];
 }
 
+- (void)getStandings:(void (^) (NSArray *standings))success
+             failure:(void (^) (NSError *error))failure {
+
+  NSString *path = [NSString stringWithFormat:@"leagues/%@/standings", self.name];
+
+  [self dispatchRequest:path parameters:nil success:^(id responseObject) {
+  } failure:^(NSError *error) {
+  }];
+}
+
 @end

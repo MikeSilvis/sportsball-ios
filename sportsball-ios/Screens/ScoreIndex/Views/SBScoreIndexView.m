@@ -18,7 +18,6 @@ static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 static CGFloat const kHeaderSize = 74;
 static CGFloat const kDatePickerSize = 50;
-static int const kFavoriteCount = 6;
 
 - (void)awakeFromNib {
   self.games = [NSMutableArray array];
@@ -90,6 +89,10 @@ static int const kFavoriteCount = 6;
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
+
+    if (self.games.count == 0) {
+      self.activityIndicator.hidden = YES;
+    }
   } failure:^(NSError *error) {
     [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
@@ -123,22 +126,18 @@ static int const kFavoriteCount = 6;
 
 - (void)showFavoriteNotification {
   for (SBGame *game in self.games) {
-    int awayTeamScore = [game.awayTeam favoriteScore];
-    int homeTeamScore = [game.homeTeam favoriteScore];
-
-    if (awayTeamScore == homeTeamScore) {
+    if ([game.awayTeam favoriteScore] == [game.homeTeam favoriteScore]) {
       continue;
     }
 
-    if (homeTeamScore > kFavoriteCount) {
+    if ([game.awayTeam isFavorableTeam]) {
       [self.delegate askForFavoriteTeam:game.homeTeam];
       return;
     }
-    else if (awayTeamScore > kFavoriteCount) {
+    else if ([game.homeTeam isFavorableTeam]) {
       [self.delegate askForFavoriteTeam:game.awayTeam];
       return;
     }
-
   }
 }
 

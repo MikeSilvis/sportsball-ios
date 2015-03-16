@@ -12,6 +12,13 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  self.league = [SBUser currentUser].lastOpenedLeague;
 }
 
 @end

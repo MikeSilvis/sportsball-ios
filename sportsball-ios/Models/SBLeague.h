@@ -32,4 +32,7 @@
                 success:(void (^) (NSArray *games))success
                 failure:(void (^) (NSError *error))failure;
 
+- (void)getStandings:(void (^) (NSArray *games))success
+                failure:(void (^) (NSError *error))failure;
+
 @end

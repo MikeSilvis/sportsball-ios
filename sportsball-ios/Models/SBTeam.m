@@ -11,6 +11,8 @@
 
 @implementation SBTeam
 
+static int const kFavoriteCount = 6;
+
 - (id)initWithJson:(id)json {
   self = [super init];
 

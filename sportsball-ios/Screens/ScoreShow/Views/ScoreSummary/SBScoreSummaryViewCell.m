@@ -12,7 +12,8 @@
 @implementation SBScoreSummaryViewCell
 
 static NSString * const kScoreSummaryinfoCell = @"kScoreSummaryinfoCell";
-static int const kCellRowHeight = 30;
+static int const kCellRowHeight = 25;
+static int const kCellPadding = 30;
 static int const kMinTeamNameSize = 130;
 
 - (void)awakeFromNib {
@@ -27,7 +28,9 @@ static int const kMinTeamNameSize = 130;
 }
 
 + (CGSize)measureCellSizeWithResource:(NSArray *)resource andWidth:(CGFloat)width {
-  return CGSizeMake(width, ([((NSArray *)[resource firstObject]) count] * kCellRowHeight));
+  CGFloat cellHeight = ([((NSArray *)[resource firstObject]) count] * kCellRowHeight);
+
+  return CGSizeMake(width, cellHeight + kCellPadding);
 }
 
 - (void)setGame:(SBGame *)game {

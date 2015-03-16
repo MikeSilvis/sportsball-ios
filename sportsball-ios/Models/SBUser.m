@@ -67,13 +67,19 @@ static NSString *kAllLeagues = @"allLeagues-1";
 }
 
 - (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
-  [SBTeam incrementFavoriteTeam:homeTeam withSuccess:^(PFObject *object) {
-    [self getFavoriteTeams:YES];
-  }];
+  // Only if the opposite team is not favorable
+  if (![awayTeam isFavorableTeam]) {
+    [SBTeam incrementFavoriteTeam:homeTeam withSuccess:^(PFObject *object) {
+      [self getFavoriteTeams:YES];
+    }];
+  }
 
-  [SBTeam incrementFavoriteTeam:awayTeam withSuccess:^(PFObject *object) {
-    [self getFavoriteTeams:YES];
-  }];
+  // Only if the opposite team is not favorable
+  if (![homeTeam isFavorableTeam]) {
+    [SBTeam incrementFavoriteTeam:awayTeam withSuccess:^(PFObject *object) {
+      [self getFavoriteTeams:YES];
+    }];
+  }
 
 }
 
