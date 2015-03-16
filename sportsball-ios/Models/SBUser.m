@@ -38,8 +38,6 @@ static NSString *kAllLeagues = @"allLeagues-1";
       [[PFUser currentUser] fetchInBackground];
     }
 
-    [[PFUser currentUser] incrementKey:@"openCount"];
-
     NSString *currentTimeZone = [PFUser currentUser][@"timeZone"];
     if (!currentTimeZone || ![[[NSTimeZone localTimeZone] name] isEqualToString:currentTimeZone]) {
       [PFUser currentUser][@"timeZone"] = [[NSTimeZone localTimeZone] name];

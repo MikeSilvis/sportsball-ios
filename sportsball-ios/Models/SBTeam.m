@@ -85,4 +85,8 @@ static int const kFavoriteCount = 6;
   return 0;
 }
 
+- (BOOL)isFavorableTeam {
+  return ([self favoriteScore] > kFavoriteCount) && (([self parseObject][@"pushEnabled"] == nil) || [self parseObject][@"pushEnabled"]);
+}
+
 @end

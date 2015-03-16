@@ -130,11 +130,11 @@ static CGFloat const kDatePickerSize = 50;
       continue;
     }
 
-    if ([game.awayTeam isFavorableTeam]) {
+    if ([game.homeTeam isFavorableTeam]) {
       [self.delegate askForFavoriteTeam:game.homeTeam];
       return;
     }
-    else if ([game.homeTeam isFavorableTeam]) {
+    else if ([game.awayTeam isFavorableTeam]) {
       [self.delegate askForFavoriteTeam:game.awayTeam];
       return;
     }

@@ -261,32 +261,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   return scoreIndex;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  SBModalViewController *viewController = segue.destinationViewController;
-  viewController.view.frame = self.view.bounds;
-  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
-  self.animator.dragable = YES;
-  self.animator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
-
-  // set transition delegate of modal view controller to our object
-  viewController.transitioningDelegate = self.animator;
-  viewController.modalPresentationStyle = UIModalPresentationCustom;
-
-  if ([segue.identifier isEqualToString:kScorePreviewSegue] || [segue.identifier isEqualToString:kScoreShowSegue]) {
-    viewController.game = self.selectedGame;
-    viewController.delegate = self;
-    
-    if ([segue.identifier isEqualToString:kScorePreviewSegue]) {
-      [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
-    }
-    else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
-      [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];
-    }
-  }
-
-  [self stopTimer];
-}
-
 - (void)dismissedModal {
   [self startTimer];
 }
@@ -361,6 +335,32 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   PFObject *object = [team parseObject];
   object[@"pushEnabled"] = @NO;
   [object saveEventually];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  SBModalViewController *viewController = segue.destinationViewController;
+  viewController.view.frame = self.view.bounds;
+  self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
+  self.animator.dragable = YES;
+  self.animator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
+
+  // set transition delegate of modal view controller to our object
+  viewController.transitioningDelegate = self.animator;
+  viewController.modalPresentationStyle = UIModalPresentationCustom;
+
+  if ([segue.identifier isEqualToString:kScorePreviewSegue] || [segue.identifier isEqualToString:kScoreShowSegue]) {
+    viewController.game = self.selectedGame;
+    viewController.delegate = self;
+    
+    if ([segue.identifier isEqualToString:kScorePreviewSegue]) {
+      [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
+    }
+    else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
+      [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];
+    }
+  }
+
+  [self stopTimer];
 }
 
 @end

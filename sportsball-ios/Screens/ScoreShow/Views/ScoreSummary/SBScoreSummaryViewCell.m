@@ -47,6 +47,25 @@ static int const kMinTeamNameSize = 130;
   [self.collectionView reloadData];
 }
 
+- (int)minTeamSize {
+  int screenHeightFloat = (int)[[UIScreen mainScreen] bounds].size.height;
+  NSString *screenHeightString = [NSString stringWithFormat:@"%i", screenHeightFloat];
+
+  NSDictionary *teamSizes = @{
+                              @"667" : @138, // iPhone 6
+                              @"736" : @130, // iPhone 6+
+                              @"568" : @125, // iPhone 5
+                              @"480" : @125 // iPhone 4
+                              };
+
+  if (teamSizes[screenHeightString]) {
+    return [teamSizes[screenHeightString] intValue];
+  }
+  else {
+    return kMinTeamNameSize;
+  }
+}
+
 #pragma mark - UICollectionView
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,8 +75,8 @@ static int const kMinTeamNameSize = 130;
   CGFloat smallerItemWidth = 40;
   CGFloat largeritemWidth = collectionViewWidth - (smallerItemWidth * (itemsForSection.count -1));
 
-  if (largeritemWidth < kMinTeamNameSize) {
-    largeritemWidth = kMinTeamNameSize;
+  if (largeritemWidth < [self minTeamSize]) {
+    largeritemWidth = [self minTeamSize];
   }
 
   CGFloat width = (indexPath.section == 0) ? largeritemWidth : smallerItemWidth;
