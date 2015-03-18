@@ -8,6 +8,7 @@
 
 #import "SBStandingsViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "SBTeamStandingsCollectionViewCell.h"
 
 @implementation SBStandingsViewController
 
@@ -21,10 +22,10 @@ static CGFloat const kHeaderSize = 74;
   self.divisionStandings = [NSMutableDictionary dictionary];
 
   self.view.backgroundColor = [UIColor purpleColor];
-  self.collectionView.backgroundColor = [UIColor yellowColor];
+  self.collectionView.backgroundColor = [UIColor clearColor];
 
   // Cells
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBTeamViewCell" bundle:nil]
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBteamStandingsCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:kTeamViewCell];
   // Headers
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
@@ -44,11 +45,10 @@ static CGFloat const kHeaderSize = 74;
   [super viewDidAppear:animated];
 
   self.league = [SBUser currentUser].lastOpenedLeague;
-//  [self findDivisionStandings];
+  [self findDivisionStandings];
 }
 
 - (void)findDivisionStandings {
-
   [self.league getStandings:^(NSDictionary *divisionStandings) {
     self.divisionStandings = divisionStandings;
   } failure:^(NSError *error) {
@@ -94,12 +94,13 @@ static CGFloat const kHeaderSize = 74;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//  SBGame *currentGame = self.games[indexPath.row];
-//  SBGameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGameViewCell forIndexPath:indexPath];
-//  cell.currentGame = currentGame;
+  NSString *divisionKey = [self.divisionStandings allKeys][indexPath.section];
+  SBTeam *currentTeam = self.divisionStandings[divisionKey][indexPath.row];
 
-//  return cell;
-  return nil;
+  SBTeamStandingsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTeamViewCell forIndexPath:indexPath];
+  cell.team = currentTeam;
+
+  return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {

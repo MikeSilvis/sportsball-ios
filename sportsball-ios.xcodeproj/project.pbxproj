@@ -66,6 +66,8 @@
 		1161A9851A0C1E4A00E40EEC /* SBGameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */; };
 		1161A9871A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */; };
 		1161A98A1A0C626100E40EEC /* SBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* SBModel.m */; };
+		116515AC1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */; };
+		116515AE1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */; };
 		116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* SBBoxscoreViewController.m */; };
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
@@ -199,6 +201,9 @@
 		1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBGameCollectionViewCell.xib; sourceTree = "<group>"; };
 		1161A9881A0C626100E40EEC /* SBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBModel.h; sourceTree = "<group>"; };
 		1161A9891A0C626100E40EEC /* SBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBModel.m; sourceTree = "<group>"; };
+		116515AA1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTeamStandingsCollectionViewCell.h; sourceTree = "<group>"; };
+		116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTeamStandingsCollectionViewCell.m; sourceTree = "<group>"; };
+		116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBteamStandingsCollectionViewCell.xib; sourceTree = "<group>"; };
 		116591E01A154D7300016D90 /* SBBoxscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBoxscoreViewController.h; sourceTree = "<group>"; };
 		116591E11A154D7300016D90 /* SBBoxscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBoxscoreViewController.m; sourceTree = "<group>"; };
 		116591E41A156F2C00016D90 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
@@ -605,6 +610,9 @@
 		116515A91AB8F887007C390B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				116515AA1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.h */,
+				116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */,
+				116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -854,6 +862,7 @@
 				119909121A4B249A00F2ED1B /* SBContentTableViewCell.xib in Resources */,
 				11BA1C461A64B2F7005C61AB /* SBScoreDataInfoTableViewCell.xib in Resources */,
 				11BA1C4F1A65A5F0005C61AB /* SBScheduleTableViewCell.xib in Resources */,
+				116515AE1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib in Resources */,
 				1154F6261A03D60F009F560B /* Main.storyboard in Resources */,
 				1154F6281A03D60F009F560B /* Images.xcassets in Resources */,
 				1179FF1B1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib in Resources */,
@@ -927,6 +936,7 @@
 				1154F64B1A03D77C009F560B /* SBGame.m in Sources */,
 				113845D61A0BFD8100BC7A4D /* SBScoreIndexView.m in Sources */,
 				116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */,
+				116515AC1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m in Sources */,
 				1161A98A1A0C626100E40EEC /* SBModel.m in Sources */,
 				110E33251A2C395000ED333A /* SBBoxscore.m in Sources */,
 				111412161A68464F00744F67 /* SBScheduleSegmentedControlTableViewCell.m in Sources */,

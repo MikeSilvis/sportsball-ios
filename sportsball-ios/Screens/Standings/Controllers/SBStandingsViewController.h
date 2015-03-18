@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SBViewController.h"
 #import "SBLeague.h"
 #import "SBUser.h"
 #import "SBLeagueHeader.h"
 
-@interface SBStandingsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SBStandingsViewController : SBViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) NSDictionary *divisionStandings;
