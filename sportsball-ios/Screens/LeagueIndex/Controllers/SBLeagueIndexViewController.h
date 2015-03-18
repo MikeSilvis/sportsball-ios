@@ -26,8 +26,8 @@
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property BOOL isNotificationOpen;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
-//- (IBAction)supportRequestClicked:(id)sender;
 - (IBAction)didRequestClose:(id)sender;
 - (void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 

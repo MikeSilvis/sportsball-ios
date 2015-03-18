@@ -14,6 +14,7 @@
 #import <MPGNotification.h>
 #import "EDColor.h"
 #import "SBConstants.h"
+#import "SBStandingsView.h"
 
 @implementation SBLeagueIndexViewController
 
@@ -31,6 +32,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self buildToolBar];
   [self buildHamburgerButton];
   [self buildHelpIcon];
+  [self buildTabbar];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(stopTimer)
@@ -45,8 +47,8 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                selector:@selector(hideMenuIems:)
                                                    name:kNotificationHideEvent object:nil];
 
-  self.tabBarController.tabBar.hidden = YES;
   [self openAtLastSelectedIndex];
+
 }
 
 - (void)hideMenuIems:(NSNotification *)notification {
@@ -56,6 +58,13 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
     self.toolBar.hidden = alphaHidden;
   }
+}
+
+- (void)buildTabbar {
+  self.tabBar.hidden = YES;
+  self.tabBar.backgroundColor = [UIColor clearColor];
+  [self.tabBar setBackgroundImage:[UIImage new]];
+  [self.tabBar setSelectedItem:[self.tabBar.items firstObject]];
 }
 
 - (void)buildPaginalControl {
@@ -76,7 +85,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl.numberOfPages = self.leagues.count;
   self.pageControl.currentPage = 1;
   self.pageControl.frame = CGRectMake(0,
-                                      (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - 30), 200,
+                                      (self.view.bounds.size.height - self.tabBar.frame.size.height - 30), 200,
                                       50
                                      );
   [self.pageControl sizeToFit];
@@ -181,14 +190,14 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
   self.supportButton.hidden = NO;
-  self.tabBarController.tabBar.hidden = YES;
+  self.tabBar.hidden = YES;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
 }
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
   [self.paginalTableView openElementAtIndex:index completion:^(BOOL completed) {
     if (completed) {
-      self.tabBarController.tabBar.hidden = NO;
+      self.tabBar.hidden = NO;
       self.pageControl.hidden = NO;
       self.toolBar.hidden = NO;
       self.supportButton.hidden = YES;
@@ -254,12 +263,14 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (UIView *)createExpandedViewAtIndex:(NSUInteger)index {
-  SBScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
+//  SBScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
+  SBStandingsView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBStandingsView" owner:nil options:nil] lastObject];
   scoreIndex.league = self.leagues[index];
+
   scoreIndex.frame = CGRectMake(0,
                                 0,
                                 self.view.bounds.size.width,
-                                (self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height)
+                                (self.view.bounds.size.height - self.tabBar.frame.size.height)
                                );
   scoreIndex.delegate = self;
   [self.scoreViews addObject:scoreIndex];

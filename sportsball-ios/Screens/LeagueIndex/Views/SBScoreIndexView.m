@@ -11,6 +11,14 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBUser.h"
 
+@interface SBScoreIndexView ()
+
+@property (nonatomic, strong) NSTimer *scorePuller;
+@property (nonatomic, strong) NSDate *currentDate;
+@property (nonatomic, strong) NSArray *games;
+
+@end
+
 @implementation SBScoreIndexView
 
 static NSString * const kGameViewCell = @"GameViewCell";

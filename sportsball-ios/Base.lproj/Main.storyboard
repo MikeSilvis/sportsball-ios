@@ -19,88 +19,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="kmK-E3-JhM" kind="presentation" identifier="leagueIndexSegue" modalPresentationStyle="fullScreen" id="NOB-fp-Rra"/>
+                        <segue destination="9Mo-0L-q5c" kind="presentation" identifier="leagueIndexSegue" animates="NO" id="tfC-lL-Zti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qb-Nd-kje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="80" y="1836"/>
         </scene>
-        <!--Default Tab View Controller-->
-        <scene sceneID="0sR-Up-Q02">
-            <objects>
-                <tabBarController storyboardIdentifier="leagueIndexViewController" id="kmK-E3-JhM" customClass="SBDefaultTabViewController" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="7r1-Dw-FKw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="9Mo-0L-q5c" kind="relationship" relationship="viewControllers" id="xrb-Gw-HUn"/>
-                        <segue destination="vvz-Js-5av" kind="relationship" relationship="viewControllers" id="GIq-Dl-uEZ"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O9G-it-qj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1032" y="1836"/>
-        </scene>
-        <!--Standings-->
-        <scene sceneID="1nF-Wb-d56">
-            <objects>
-                <viewController id="vvz-Js-5av" customClass="SBStandingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NjF-tC-Q10"/>
-                        <viewControllerLayoutGuide type="bottom" id="6Jb-qt-mnD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vm5-UG-YiX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="krw-4o-L5a">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nOq-NZ-83d" customClass="CSStickyHeaderFlowLayout">
-                                    <size key="itemSize" width="600" height="60"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <connections>
-                                    <outlet property="dataSource" destination="vvz-Js-5av" id="dZ0-Xm-gZx"/>
-                                    <outlet property="delegate" destination="vvz-Js-5av" id="XFX-k3-zxe"/>
-                                </connections>
-                            </collectionView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iqe-6i-Www">
-                                <rect key="frame" x="281" y="281" width="37" height="37"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="iqe-6i-Www" secondAttribute="centerY" id="254-Bv-h3F"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="krw-4o-L5a" secondAttribute="trailing" constant="-16" id="83Y-0M-C7e"/>
-                            <constraint firstItem="krw-4o-L5a" firstAttribute="top" secondItem="NjF-tC-Q10" secondAttribute="bottom" constant="-20" id="O7y-Ei-3Fu"/>
-                            <constraint firstItem="krw-4o-L5a" firstAttribute="leading" secondItem="Vm5-UG-YiX" secondAttribute="leadingMargin" constant="-16" id="Y7d-Ms-CiT"/>
-                            <constraint firstAttribute="centerX" secondItem="iqe-6i-Www" secondAttribute="centerX" id="gsf-AC-kOO"/>
-                            <constraint firstItem="6Jb-qt-mnD" firstAttribute="top" secondItem="krw-4o-L5a" secondAttribute="bottom" id="lRr-2E-FM9"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Standings" image="standings" id="bjH-kq-iH6">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="iqe-6i-Www" id="jvI-7W-nNm"/>
-                        <outlet property="collectionView" destination="krw-4o-L5a" id="kex-Kr-qhJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o1I-2z-nNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2136" y="1154"/>
-        </scene>
         <!--Scores-->
         <scene sceneID="HJR-4K-spF">
             <objects>
-                <viewController id="9Mo-0L-q5c" customClass="SBLeagueIndexViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leagueIndexViewController" id="9Mo-0L-q5c" customClass="SBLeagueIndexViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEf-Fj-rTq"/>
                         <viewControllerLayoutGuide type="bottom" id="pi4-Sc-wgO"/>
@@ -124,7 +53,7 @@
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-0N-epK">
-                                <rect key="frame" x="559" y="516" width="30" height="30"/>
+                                <rect key="frame" x="559" y="565" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="KDY-sI-pVm"/>
                                     <constraint firstAttribute="height" constant="30" id="iKP-2s-3c0"/>
@@ -137,15 +66,34 @@
                                     <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
                                 </connections>
                             </button>
+                            <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="R2C-zv-Tfb">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Scores" image="scores" id="Lxd-fh-bHM">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem title="Standings" image="standings" id="ynM-iV-dbK">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="Rsx-0N-epK" secondAttribute="bottom" constant="5" id="0Rq-nh-JL4"/>
+                            <constraint firstItem="R2C-zv-Tfb" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="HVh-GM-zFO"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="top" secondItem="rEf-Fj-rTq" secondAttribute="bottom" constant="2" id="Hbm-qC-UMw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R2C-zv-Tfb" secondAttribute="trailing" constant="-16" id="Kdq-mI-bJG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="D0m-nY-021" secondAttribute="trailing" constant="-16" id="ZqV-Vk-JS9"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="aLv-tI-DIr"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="width" secondItem="iKJ-Oi-PAX" secondAttribute="width" id="bZZ-PZ-iFL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rsx-0N-epK" secondAttribute="trailing" constant="-5" id="krr-2W-xrb"/>
+                            <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="R2C-zv-Tfb" secondAttribute="bottom" id="rMc-mI-KBy"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leading" id="vCc-zz-FkF"/>
                         </constraints>
                         <variation key="default">
@@ -164,6 +112,7 @@
                     <connections>
                         <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
+                        <outlet property="tabBar" destination="R2C-zv-Tfb" id="89z-W3-jVk"/>
                         <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
                         <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
                         <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
@@ -171,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136" y="1836"/>
+            <point key="canvasLocation" x="1084" y="1836"/>
         </scene>
         <!--Boxscore View Controller-->
         <scene sceneID="N7Q-ZS-BaW">

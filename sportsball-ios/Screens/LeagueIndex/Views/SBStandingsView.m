@@ -1,17 +1,17 @@
 //
-//  SBStandingsViewController.m
+//  SBStandingsView.m
 //  sportsball-ios
 //
-//  Created by Mike Silvis on 3/10/15.
+//  Created by Mike Silvis on 3/18/15.
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SBStandingsViewController.h"
+#import "SBStandingsView.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBTeamStandingsCollectionViewCell.h"
 #import "SBTeamStandingsHeaderCollectionViewCell.h"
 
-@implementation SBStandingsViewController
+@implementation SBStandingsView
 
 static NSString * const kTeamViewCell = @"TeamViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
@@ -20,10 +20,8 @@ static CGFloat const kHeaderSize = 74;
 static CGFloat const kHeaderStandingsCellSize = 25;
 static CGFloat const kTeamViewCellSize = 45;
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-
-  self.view.backgroundColor = [UIColor clearColor];
+- (void)awakeFromNib {
+  self.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
   // Cells
@@ -46,17 +44,22 @@ static CGFloat const kTeamViewCellSize = 45;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize, 0, 0, 0);
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
+- (void)setLeague:(SBLeague *)league {
+  _league = league;
 
-  self.league = [SBUser currentUser].lastOpenedLeague;
-
+  self.standing = nil;
   // Stub data hack
   self.standing = [[SBStanding alloc] init];
   self.standing.divisions = @{
                               @"stub": @[[[SBTeam alloc] init]]
                               };
 
+}
+
+- (void)cancelTimer {
+}
+
+- (void)startTimer {
   [self findDivisionStandings];
 }
 
@@ -69,14 +72,9 @@ static CGFloat const kTeamViewCellSize = 45;
     self.standing = standing;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    NSLog(@"Standings error %@", error);
+    [self.delegate requestFailed:error];
+    self.activityIndicator.hidden = YES;
   }];
-}
-
-- (void)setLeague:(SBLeague *)league {
-  _league = league;
-
-  self.standing = nil;
 }
 
 - (void)setStanding:(SBStanding *)standing {
@@ -85,8 +83,8 @@ static CGFloat const kTeamViewCellSize = 45;
   [self.collectionView reloadData];
 }
 
-- (void)viewWillLayoutSubviews {
-  [super viewWillLayoutSubviews];
+- (void)layoutSubviews {
+  [super layoutSubviews];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, kHeaderSize);

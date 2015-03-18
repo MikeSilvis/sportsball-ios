@@ -105,15 +105,6 @@ static NSString *kPlaceholderImageSize = @"600x300";
                                                         }];
 
 
-  // UIToolBar
-//  [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-//  [[UITabBarItem appearance] setTitleTextAttributes:@{
-//                     NSForegroundColorAttributeName: [UIColor whiteColor],
-//                                NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:10.0f]
-//                                                     }
-//                                           forState:UIControlStateNormal];
-
-//  UIColor *selectedColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
   UIColor *selectedColor = [UIColor whiteColor];
   [[UITabBar appearance] setTintColor:selectedColor];
   [[UITabBarItem appearance] setTitleTextAttributes:@{
