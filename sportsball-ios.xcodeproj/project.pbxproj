@@ -68,6 +68,8 @@
 		1161A98A1A0C626100E40EEC /* SBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161A9891A0C626100E40EEC /* SBModel.m */; };
 		116515AC1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */; };
 		116515AE1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */; };
+		116515B11AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515B01AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m */; };
+		116515B31AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */; };
 		116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* SBBoxscoreViewController.m */; };
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
@@ -204,6 +206,9 @@
 		116515AA1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTeamStandingsCollectionViewCell.h; sourceTree = "<group>"; };
 		116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTeamStandingsCollectionViewCell.m; sourceTree = "<group>"; };
 		116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBteamStandingsCollectionViewCell.xib; sourceTree = "<group>"; };
+		116515AF1AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTeamStandingsHeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		116515B01AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTeamStandingsHeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTeamStandingsHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		116591E01A154D7300016D90 /* SBBoxscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBoxscoreViewController.h; sourceTree = "<group>"; };
 		116591E11A154D7300016D90 /* SBBoxscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBoxscoreViewController.m; sourceTree = "<group>"; };
 		116591E41A156F2C00016D90 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
@@ -613,6 +618,9 @@
 				116515AA1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.h */,
 				116515AB1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m */,
 				116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */,
+				116515AF1AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.h */,
+				116515B01AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m */,
+				116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -852,6 +860,7 @@
 				1189A3FD1A31378D00575E07 /* SBScoreDetailInfoCollectionViewCell.xib in Resources */,
 				111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */,
 				11BA1C411A64AD21005C61AB /* SBScoreDataTableViewCell.xib in Resources */,
+				116515B31AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib in Resources */,
 				1189A3FF1A31622000575E07 /* SBScoreDetailHeaderCollectionViewCell.xib in Resources */,
 				11BA1C511A65B0CD005C61AB /* SBScheduleInfoTableViewCell.xib in Resources */,
 				1189A3F81A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib in Resources */,
@@ -930,6 +939,7 @@
 			files = (
 				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
 				1143DE061A310D53001868C6 /* SBScoreSummaryInfoCollectionViewCell.m in Sources */,
+				116515B11AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m in Sources */,
 				115AF8511A9972BA006C77ED /* SBWebViewController.m in Sources */,
 				11BA1C3F1A64ACFB005C61AB /* SBScoreDataTableViewCell.m in Sources */,
 				1189A3F61A31337E00575E07 /* SBScoreDetailCollectionViewCell.m in Sources */,

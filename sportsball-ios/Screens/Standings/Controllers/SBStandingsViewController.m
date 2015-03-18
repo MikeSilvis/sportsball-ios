@@ -9,12 +9,16 @@
 #import "SBStandingsViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBTeamStandingsCollectionViewCell.h"
+#import "SBTeamStandingsHeaderCollectionViewCell.h"
 
 @implementation SBStandingsViewController
 
 static NSString * const kTeamViewCell = @"TeamViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
+static NSString * const kHeaderStandingsViewCell = @"HeaderStandingsViewCell";
 static CGFloat const kHeaderSize = 74;
+static CGFloat const kHeaderStandingsCellSize = 25;
+static CGFloat const kTeamViewCellSize = 40;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -31,6 +35,9 @@ static CGFloat const kHeaderSize = 74;
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
         forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                withReuseIdentifier:kHeaderViewCell];
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBTeamStandingsHeaderCollectionViewCell" bundle:nil]
+        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+               withReuseIdentifier:kHeaderStandingsViewCell];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
@@ -89,8 +96,8 @@ static CGFloat const kHeaderSize = 74;
   return [self.divisionStandings[divisionKey] count];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(self.collectionView.bounds.size.width, 60);
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+  return [self.divisionStandings count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,8 +119,24 @@ static CGFloat const kHeaderSize = 74;
 
     return cell;
   }
+  else if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+    SBTeamStandingsHeaderCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                              withReuseIdentifier:kHeaderStandingsViewCell
+                                                                                     forIndexPath:indexPath];
+
+    cell.divisionLabel.text = [self.divisionStandings allKeys][indexPath.section];
+    return cell;
+  }
 
   return nil;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+  return CGSizeMake(self.view.bounds.size.width, kHeaderStandingsCellSize);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+  return CGSizeMake(self.collectionView.bounds.size.width, kTeamViewCellSize);
 }
 
 @end
