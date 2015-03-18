@@ -25,11 +25,11 @@
     self.headerImage.alpha = !alpha;
 
     // TODO: FIX YOU
-//    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
+    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
 //    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
-//                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
-//                                                                                              }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
+                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
+                                                                                              }];
   }];
 }
 

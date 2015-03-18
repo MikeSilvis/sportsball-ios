@@ -70,6 +70,7 @@
 		116515AE1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515AD1AB8FC2E007C390B /* SBteamStandingsCollectionViewCell.xib */; };
 		116515B11AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515B01AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m */; };
 		116515B31AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */; };
+		116515B61AB91BE8007C390B /* SBStanding.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515B51AB91BE8007C390B /* SBStanding.m */; };
 		116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* SBBoxscoreViewController.m */; };
 		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
 		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
@@ -209,6 +210,8 @@
 		116515AF1AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTeamStandingsHeaderCollectionViewCell.h; sourceTree = "<group>"; };
 		116515B01AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTeamStandingsHeaderCollectionViewCell.m; sourceTree = "<group>"; };
 		116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTeamStandingsHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		116515B41AB91BE8007C390B /* SBStanding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStanding.h; sourceTree = "<group>"; };
+		116515B51AB91BE8007C390B /* SBStanding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStanding.m; sourceTree = "<group>"; };
 		116591E01A154D7300016D90 /* SBBoxscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBoxscoreViewController.h; sourceTree = "<group>"; };
 		116591E11A154D7300016D90 /* SBBoxscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBoxscoreViewController.m; sourceTree = "<group>"; };
 		116591E41A156F2C00016D90 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
@@ -570,6 +573,8 @@
 				1154F6471A03D754009F560B /* SBTeam.m */,
 				1101C60B1A22842E0086AF16 /* SBUser.h */,
 				1101C60C1A22842E0086AF16 /* SBUser.m */,
+				116515B41AB91BE8007C390B /* SBStanding.h */,
+				116515B51AB91BE8007C390B /* SBStanding.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -965,6 +970,7 @@
 				1154F6481A03D754009F560B /* SBTeam.m in Sources */,
 				113845DE1A0C052600BC7A4D /* SBLeague.m in Sources */,
 				114E879C1A5F8670007C2CF7 /* SBScorePreviewViewController.m in Sources */,
+				116515B61AB91BE8007C390B /* SBStanding.m in Sources */,
 				116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */,
 				113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* SBLeagueHeader.m in Sources */,

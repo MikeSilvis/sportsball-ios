@@ -97,8 +97,7 @@ static int const kMinTeamNameSize = 130;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   SBScoreSummaryInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kScoreSummaryinfoCell forIndexPath:indexPath];
 
-  cell.section = indexPath.section;
-  cell.row = indexPath.row;
+  cell.indexPath = indexPath;
   cell.game = self.game;
 
   return cell;

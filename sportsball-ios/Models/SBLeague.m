@@ -123,25 +123,14 @@
   }];
 }
 
-- (void)getStandings:(void (^) (NSDictionary *standings))success
+- (void)getStanding:(void (^) (SBStanding *standings))success
              failure:(void (^) (NSError *error))failure {
 
   NSString *path = [NSString stringWithFormat:@"leagues/%@/standings", self.name];
 
   [self dispatchRequest:path parameters:nil success:^(id responseObject) {
-    NSMutableDictionary *divisions = [NSMutableDictionary dictionary];
-
-    for (id division in responseObject[@"standings"][@"divisions"]) {
-      NSMutableArray *teams = [NSMutableArray array];
-
-      for (id team in responseObject[@"standings"][@"divisions"][division]) {
-        SBTeam *newTeam = [[SBTeam alloc] initWithJson:team];
-        [teams addObject:newTeam];
-      }
-      divisions[division] = [NSArray arrayWithArray:teams];
-    }
-
-    success([NSMutableDictionary dictionaryWithDictionary:divisions]);
+    SBStanding *standing = [[SBStanding alloc] initWithJson:responseObject];
+    success(standing);
   } failure:^(NSError *error) {
     if (failure) {
       failure(error);

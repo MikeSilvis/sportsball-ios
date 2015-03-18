@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "SBGame.h"
+#import "SBStanding.h"
 
 @interface SBScoreSummaryInfoCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (nonatomic, strong) SBGame *game;
-@property NSUInteger section;
-@property NSUInteger row;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+@property (nonatomic, strong) SBStanding *standing;
+@property (nonatomic, strong) NSIndexPath *outerIndexPath;
 
 @end

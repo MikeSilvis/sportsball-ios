@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
+#import "SBStanding.h"
 #import <UIKit/UIKit.h>
 
-@interface SBTeamStandingsHeaderCollectionViewCell : UICollectionViewCell
+@interface SBTeamStandingsHeaderCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *divisionLabel;
+@property (nonatomic, strong) SBStanding *standing;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

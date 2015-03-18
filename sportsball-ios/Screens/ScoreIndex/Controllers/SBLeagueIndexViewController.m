@@ -131,6 +131,12 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self startTimer];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+
+  [self stopTimer];
+}
+
 - (void)selectedGame:(SBGame *)game {
   self.selectedGame = game;
 

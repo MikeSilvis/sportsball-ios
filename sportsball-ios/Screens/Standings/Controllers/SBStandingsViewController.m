@@ -23,8 +23,6 @@ static CGFloat const kTeamViewCellSize = 40;
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.divisionStandings = [NSMutableDictionary dictionary];
-
   self.view.backgroundColor = [UIColor purpleColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
@@ -56,8 +54,8 @@ static CGFloat const kTeamViewCellSize = 40;
 }
 
 - (void)findDivisionStandings {
-  [self.league getStandings:^(NSDictionary *divisionStandings) {
-    self.divisionStandings = divisionStandings;
+  [self.league getStanding:^(SBStanding *standing) {
+    self.standing = standing;
   } failure:^(NSError *error) {
     NSLog(@"Standings error %@", error);
   }];
@@ -66,11 +64,11 @@ static CGFloat const kTeamViewCellSize = 40;
 - (void)setLeague:(SBLeague *)league {
   _league = league;
 
-  self.divisionStandings = @{};
+  self.standing = nil;
 }
 
-- (void)setDivisionStandings:(NSDictionary *)divisionStandings {
-  _divisionStandings = divisionStandings;
+- (void)setStanding:(SBStanding *)standing {
+  _standing = standing;
 
   [self.collectionView reloadData];
 }
@@ -87,22 +85,22 @@ static CGFloat const kTeamViewCellSize = 40;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  if ([self.divisionStandings count] == 0) {
+  if ([self.standing.divisions count] == 0) {
     return 0;
   }
 
-  NSString *divisionKey = [self.divisionStandings allKeys][section];
+  NSString *divisionKey = [self.standing.divisions allKeys][section];
 
-  return [self.divisionStandings[divisionKey] count];
+  return [self.standing.divisions[divisionKey] count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-  return [self.divisionStandings count];
+  return [self.standing.divisions count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  NSString *divisionKey = [self.divisionStandings allKeys][indexPath.section];
-  SBTeam *currentTeam = self.divisionStandings[divisionKey][indexPath.row];
+  NSString *divisionKey = [self.standing.divisions allKeys][indexPath.section];
+  SBTeam *currentTeam = self.standing.divisions[divisionKey][indexPath.row];
 
   SBTeamStandingsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTeamViewCell forIndexPath:indexPath];
   cell.team = currentTeam;
@@ -124,7 +122,8 @@ static CGFloat const kTeamViewCellSize = 40;
                                                                               withReuseIdentifier:kHeaderStandingsViewCell
                                                                                      forIndexPath:indexPath];
 
-    cell.divisionLabel.text = [self.divisionStandings allKeys][indexPath.section];
+    cell.indexPath = indexPath;
+    cell.standing = self.standing;
     return cell;
   }
 

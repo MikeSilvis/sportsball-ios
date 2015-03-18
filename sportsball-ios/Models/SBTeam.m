@@ -23,6 +23,7 @@ static int const kFavoriteCount = 6;
     self.dataName   = json[@"data_name"];
     self.leagueName = json[@"league"];
     self.abbr       = json[@"abbr"];
+    self.stats      = json[@"stats"];
   }
 
   return self;

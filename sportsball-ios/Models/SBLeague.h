@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SBModel.h"
+#import "SBStanding.h"
 
 @interface SBLeague : SBModel
 
@@ -24,6 +25,8 @@
 @property (nonatomic, strong) NSArray *schedule;
 @property (nonatomic, strong) NSNumber *isMonthlySchedule;
 
+@property (nonatomic, strong) SBStanding *standing;
+
 + (void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure;
 
@@ -32,7 +35,7 @@
                 success:(void (^) (NSArray *games))success
                 failure:(void (^) (NSError *error))failure;
 
-- (void)getStandings:(void (^) (NSDictionary *games))success
+- (void)getStanding:(void (^) (SBStanding *standing))success
                 failure:(void (^) (NSError *error))failure;
 
 @end
