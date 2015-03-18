@@ -247,8 +247,9 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   standingsView.frame = f;
   standingsView.delegate = self;
   standingsView.hidden = YES;
-  [self.view addSubview:standingsView];
-  [self.view sendSubviewToBack:standingsView];
+//  [self.view addSubview:standingsView];
+//  [self.view sendSubviewToBack:standingsView];
+  [self.view insertSubview:standingsView belowSubview:scoreView];
   [self.standingViews addObject:standingsView];
 
   return scoreView;}

@@ -50,8 +50,9 @@
 
   // One
   int positionNumber = 0;
+  int lastStat = (int)(statsCount - 1);
   if (statsCount > positionNumber) {
-    self.statOne.text = stats[positionNumber];
+    self.statOne.text = stats[lastStat - positionNumber];
   }
   else {
     self.statOne.text = nil;
@@ -60,7 +61,7 @@
   // Two
   positionNumber = 1;
   if (statsCount > positionNumber) {
-    self.statTwo.text = stats[positionNumber];
+    self.statTwo.text = stats[lastStat - positionNumber];
   }
   else {
     self.statTwo.text = nil;
@@ -69,7 +70,7 @@
   // Three
   positionNumber = 2;
   if (statsCount > positionNumber) {
-    self.statThree.text = stats[positionNumber];
+    self.statThree.text = stats[lastStat - positionNumber];
   }
   else {
     self.statThree.text = nil;
@@ -78,7 +79,7 @@
   // Four
   positionNumber = 3;
   if (statsCount > positionNumber) {
-    self.statFour.text = stats[positionNumber];
+    self.statFour.text = stats[lastStat - positionNumber];
   }
   else {
     self.statFour.text = nil;
@@ -87,7 +88,7 @@
   // Five
   positionNumber = 4;
   if (statsCount > positionNumber) {
-    self.statFive.text = stats[positionNumber];
+    self.statFive.text = stats[lastStat  - positionNumber];
   }
   else {
     self.statFive.text = nil;
