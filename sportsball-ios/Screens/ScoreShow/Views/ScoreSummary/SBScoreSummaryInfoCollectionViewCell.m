@@ -50,15 +50,23 @@
 
 - (void)setStanding:(SBStanding *)standing {
   _standing = standing;
+  NSArray *possibleBackgroundColors = @[
+                                        [UIColor yellowColor],
+                                        [UIColor greenColor],
+                                        [UIColor redColor],
+                                        [UIColor whiteColor],
+                                        [UIColor darkGrayColor]
+                                        ];
+
 
   self.textLabel.font = [self boldFont];
-
   if (self.indexPath.row == 0) {
     self.textLabel.text = [self.standing.divisions allKeys][self.outerIndexPath.section];
     self.textLabel.textAlignment = NSTextAlignmentLeft;
   }
   else {
     self.textLabel.text = self.standing.headers[self.indexPath.row - 1];
+  self.backgroundColor = possibleBackgroundColors[self.indexPath.row - 1];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
   }
 }

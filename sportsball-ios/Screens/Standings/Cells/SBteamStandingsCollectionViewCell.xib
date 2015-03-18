@@ -21,7 +21,52 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penguins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lou-Ng-uxj" userLabel="teamName">
-                        <rect key="frame" x="40" y="15" width="58" height="20"/>
+                        <rect key="frame" x="40" y="16" width="58" height="20"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-Xq-T38" userLabel="statOne">
+                        <rect key="frame" x="375" y="16" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="vvZ-pn-vA2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-nP-YwB" userLabel="statTwo">
+                        <rect key="frame" x="335" y="16" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="mjl-1Y-ZBD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5g-m7-ECZ" userLabel="statThree">
+                        <rect key="frame" x="295" y="16" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="OvC-ZY-NwV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q79-II-eT3" userLabel="statFour">
+                        <rect key="frame" x="255" y="16" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="pPy-11-qXO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82Z-C1-3R0" userLabel="statFive">
+                        <rect key="frame" x="215" y="16" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="uQq-I0-v6m"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -34,15 +79,27 @@
                 <constraint firstAttribute="centerY" secondItem="lou-Ng-uxj" secondAttribute="centerY" constant="0.5" id="2yg-3z-CgN"/>
                 <constraint firstItem="gAB-ql-NR2" firstAttribute="leading" secondItem="fpD-k4-XZD" secondAttribute="leading" constant="5" id="8UL-a8-Ntk"/>
                 <constraint firstAttribute="centerY" secondItem="lou-Ng-uxj" secondAttribute="centerY" id="8pT-HA-gnt"/>
+                <constraint firstAttribute="centerY" secondItem="82Z-C1-3R0" secondAttribute="centerY" id="DYQ-jd-2F5"/>
+                <constraint firstAttribute="centerY" secondItem="q79-II-eT3" secondAttribute="centerY" id="E5T-8T-03a"/>
+                <constraint firstAttribute="centerY" secondItem="wtf-nP-YwB" secondAttribute="centerY" id="GZI-vl-ZFo"/>
+                <constraint firstItem="wtf-nP-YwB" firstAttribute="leading" secondItem="N5g-m7-ECZ" secondAttribute="trailing" id="HE2-gA-6LC"/>
                 <constraint firstAttribute="centerY" secondItem="gAB-ql-NR2" secondAttribute="centerY" id="I8B-rq-MwQ"/>
+                <constraint firstItem="N5g-m7-ECZ" firstAttribute="leading" secondItem="q79-II-eT3" secondAttribute="trailing" id="Icj-DW-db5"/>
                 <constraint firstAttribute="centerX" secondItem="lou-Ng-uxj" secondAttribute="centerX" constant="-7.5" id="KYb-go-loj"/>
+                <constraint firstItem="q79-II-eT3" firstAttribute="leading" secondItem="82Z-C1-3R0" secondAttribute="trailing" id="QA0-zo-1fE"/>
+                <constraint firstAttribute="centerY" secondItem="H1N-Xq-T38" secondAttribute="centerY" id="WiU-5Y-0VY"/>
+                <constraint firstAttribute="trailing" secondItem="H1N-Xq-T38" secondAttribute="trailing" constant="8" id="ZUI-kf-NRi"/>
                 <constraint firstItem="lou-Ng-uxj" firstAttribute="leading" secondItem="gAB-ql-NR2" secondAttribute="trailing" constant="10" id="bS3-3b-abb"/>
+                <constraint firstItem="N5g-m7-ECZ" firstAttribute="leading" secondItem="wtf-nP-YwB" secondAttribute="trailing" id="bqV-DR-UJM"/>
+                <constraint firstAttribute="centerY" secondItem="N5g-m7-ECZ" secondAttribute="centerY" id="jJq-M7-3E0"/>
+                <constraint firstItem="H1N-Xq-T38" firstAttribute="leading" secondItem="wtf-nP-YwB" secondAttribute="trailing" id="ukC-be-bvf"/>
             </constraints>
             <size key="customSize" width="423" height="50"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="2yg-3z-CgN"/>
                     <exclude reference="KYb-go-loj"/>
+                    <exclude reference="bqV-DR-UJM"/>
                 </mask>
             </variation>
             <connections>
