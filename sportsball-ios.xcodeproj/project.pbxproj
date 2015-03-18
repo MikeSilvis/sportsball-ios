@@ -15,6 +15,12 @@
 		111412161A68464F00744F67 /* SBScheduleSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111412151A68464F00744F67 /* SBScheduleSegmentedControlTableViewCell.m */; };
 		111696661A0E8EE500F0E1CD /* LaunchImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111696651A0E8EE500F0E1CD /* LaunchImage.xib */; };
 		1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */; };
+		112B05D91AB94D2800DAA466 /* APPaginalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */; };
+		112B05DA1AB94D2800DAA466 /* APPaginalTableViewElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D11A0BFA8C00BC7A4D /* APPaginalTableViewElement.m */; };
+		112B05DB1AB94D2800DAA466 /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
+		112B05DC1AB94D2800DAA466 /* APPaginalContainerViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */; };
+		112B05DD1AB94D3C00DAA466 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
+		112B05DE1AB94D3C00DAA466 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
 		112BEE8D1A31304B00DCE472 /* SBScoreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 112BEE8C1A31304B00DCE472 /* SBScoreDetail.m */; };
 		1135429B1A78A14E0047C2D7 /* SBGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1135429A1A78A14E0047C2D7 /* SBGameInfo.m */; };
 		1135429F1A79F67F0047C2D7 /* SBTeamStatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1135429E1A79F67F0047C2D7 /* SBTeamStatsTableViewCell.m */; };
@@ -24,10 +30,6 @@
 		113542A91A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113542A81A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib */; };
 		113845C01A0BF94400BC7A4D /* SBScoreIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845BF1A0BF94400BC7A4D /* SBScoreIndexView.xib */; };
 		113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */; };
-		113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C91A0BFA8200BC7A4D /* APPaginalContainerView.m */; };
-		113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CB1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m */; };
-		113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845CF1A0BFA8C00BC7A4D /* APPaginalTableView.m */; };
-		113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D11A0BFA8C00BC7A4D /* APPaginalTableViewElement.m */; };
 		113845D61A0BFD8100BC7A4D /* SBScoreIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D51A0BFD8100BC7A4D /* SBScoreIndexView.m */; };
 		113845D91A0C001D00BC7A4D /* SBLeagueIndexHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845D81A0C001D00BC7A4D /* SBLeagueIndexHeader.m */; };
 		113845DB1A0C002B00BC7A4D /* SBLeagueIndexHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113845DA1A0C002B00BC7A4D /* SBLeagueIndexHeader.xib */; };
@@ -72,8 +74,6 @@
 		116515B31AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116515B21AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib */; };
 		116515B61AB91BE8007C390B /* SBStanding.m in Sources */ = {isa = PBXBuildFile; fileRef = 116515B51AB91BE8007C390B /* SBStanding.m */; };
 		116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* SBBoxscoreViewController.m */; };
-		116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E51A156F2C00016D90 /* DIDatepicker.m */; };
-		116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E71A156F2C00016D90 /* DIDatepickerDateView.m */; };
 		1179FF171AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1179FF161AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m */; };
 		1179FF1B1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1179FF1A1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib */; };
 		117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */; };
@@ -409,8 +409,7 @@
 				113845C51A0BFA5500BC7A4D /* APPaginal */,
 				11F5D6FD1A9EAD4C003EE351 /* SBConstants.h */,
 			);
-			name = SupportClasses;
-			path = Screens/ScoreIndex/SupportClasses;
+			path = SupportClasses;
 			sourceTree = "<group>";
 		};
 		113845C51A0BFA5500BC7A4D /* APPaginal */ = {
@@ -598,14 +597,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		1154F6531A03DC9B009F560B /* ScoreIndex */ = {
+		1154F6531A03DC9B009F560B /* LeagueIndex */ = {
 			isa = PBXGroup;
 			children = (
 				113845BE1A0BF93500BC7A4D /* Views */,
 				1154F6401A03D618009F560B /* Controllers */,
 				1154F64F1A03D9C5009F560B /* Cells */,
 			);
-			path = ScoreIndex;
+			path = LeagueIndex;
 			sourceTree = "<group>";
 		};
 		115AF84E1A99728E006C77ED /* Web */ = {
@@ -693,7 +692,7 @@
 				1110C5C01AA0EB0600E04E35 /* About */,
 				115AF84E1A99728E006C77ED /* Web */,
 				114E87981A5F863C007C2CF7 /* Preview */,
-				1154F6531A03DC9B009F560B /* ScoreIndex */,
+				1154F6531A03DC9B009F560B /* LeagueIndex */,
 				11847BD31A21045800300E28 /* Boxscore */,
 				119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */,
 				1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */,
@@ -942,7 +941,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113845D31A0BFA8C00BC7A4D /* APPaginalTableViewElement.m in Sources */,
+				112B05DD1AB94D3C00DAA466 /* DIDatepicker.m in Sources */,
+				112B05DE1AB94D3C00DAA466 /* DIDatepickerDateView.m in Sources */,
+				112B05D91AB94D2800DAA466 /* APPaginalTableView.m in Sources */,
+				112B05DA1AB94D2800DAA466 /* APPaginalTableViewElement.m in Sources */,
+				112B05DB1AB94D2800DAA466 /* APPaginalContainerView.m in Sources */,
+				112B05DC1AB94D2800DAA466 /* APPaginalContainerViewPage.m in Sources */,
 				1143DE061A310D53001868C6 /* SBScoreSummaryInfoCollectionViewCell.m in Sources */,
 				116515B11AB90132007C390B /* SBTeamStandingsHeaderCollectionViewCell.m in Sources */,
 				115AF8511A9972BA006C77ED /* SBWebViewController.m in Sources */,
@@ -950,7 +954,6 @@
 				1189A3F61A31337E00575E07 /* SBScoreDetailCollectionViewCell.m in Sources */,
 				1154F64B1A03D77C009F560B /* SBGame.m in Sources */,
 				113845D61A0BFD8100BC7A4D /* SBScoreIndexView.m in Sources */,
-				116591E91A156F2C00016D90 /* DIDatepickerDateView.m in Sources */,
 				116515AC1AB8FC11007C390B /* SBTeamStandingsCollectionViewCell.m in Sources */,
 				1161A98A1A0C626100E40EEC /* SBModel.m in Sources */,
 				110E33251A2C395000ED333A /* SBBoxscore.m in Sources */,
@@ -979,9 +982,6 @@
 				1110C5C71AA0F2E200E04E35 /* SBAboutTableViewCell.m in Sources */,
 				11BA1C541A65B118005C61AB /* SBScheduleInfoTableViewCell.m in Sources */,
 				114E87A21A5F8A0E007C2CF7 /* SBModalViewController.m in Sources */,
-				116591E81A156F2C00016D90 /* DIDatepicker.m in Sources */,
-				113845D21A0BFA8C00BC7A4D /* APPaginalTableView.m in Sources */,
-				113845CD1A0BFA8200BC7A4D /* APPaginalContainerViewPage.m in Sources */,
 				1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */,
 				114E879F1A5F86D3007C2CF7 /* SBPreview.m in Sources */,
 				11AA9D961AAFBAFE00E81FB6 /* SBStandingsViewController.m in Sources */,
@@ -993,7 +993,6 @@
 				1189A3FB1A31377F00575E07 /* SBScoreDetailInfoCollectionViewCell.m in Sources */,
 				112BEE8D1A31304B00DCE472 /* SBScoreDetail.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,
-				113845CC1A0BFA8200BC7A4D /* APPaginalContainerView.m in Sources */,
 				119909201A4F535B00F2ED1B /* SBViewController.m in Sources */,
 				1149A6A21A49B04300928ECA /* SBContentTableViewCell.m in Sources */,
 				1135429F1A79F67F0047C2D7 /* SBTeamStatsTableViewCell.m in Sources */,

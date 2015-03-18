@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="krw-4o-L5a">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nOq-NZ-83d" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="600" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -70,15 +70,15 @@
                                 </connections>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iqe-6i-Www">
-                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                                <rect key="frame" x="281" y="281" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="iqe-6i-Www" secondAttribute="centerY" id="254-Bv-h3F"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="krw-4o-L5a" secondAttribute="trailing" constant="-20" id="83Y-0M-C7e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="krw-4o-L5a" secondAttribute="trailing" constant="-16" id="83Y-0M-C7e"/>
                             <constraint firstItem="krw-4o-L5a" firstAttribute="top" secondItem="NjF-tC-Q10" secondAttribute="bottom" constant="-20" id="O7y-Ei-3Fu"/>
-                            <constraint firstItem="krw-4o-L5a" firstAttribute="leading" secondItem="Vm5-UG-YiX" secondAttribute="leadingMargin" constant="-20" id="Y7d-Ms-CiT"/>
+                            <constraint firstItem="krw-4o-L5a" firstAttribute="leading" secondItem="Vm5-UG-YiX" secondAttribute="leadingMargin" constant="-16" id="Y7d-Ms-CiT"/>
                             <constraint firstAttribute="centerX" secondItem="iqe-6i-Www" secondAttribute="centerX" id="gsf-AC-kOO"/>
                             <constraint firstItem="6Jb-qt-mnD" firstAttribute="top" secondItem="krw-4o-L5a" secondAttribute="bottom" id="lRr-2E-FM9"/>
                         </constraints>
