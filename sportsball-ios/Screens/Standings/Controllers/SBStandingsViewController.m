@@ -144,15 +144,15 @@ static CGFloat const kTeamViewCellSize = 45;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
   if ([self.standing.headers count] == 0) {
-    return CGSizeZero;
+    return CGSizeMake(self.collectionView.bounds.size.width, 0);
   }
 
-  return CGSizeMake(self.view.bounds.size.width, kHeaderStandingsCellSize);
+  return CGSizeMake(self.collectionView.bounds.size.width, kHeaderStandingsCellSize);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   if ([self.standing.headers count] == 0) {
-    return CGSizeZero;
+    return CGSizeMake(self.collectionView.bounds.size.width, 0);
   }
 
   return CGSizeMake(self.collectionView.bounds.size.width, kTeamViewCellSize);
