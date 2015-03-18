@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SBLeague.h"
 #import "SBUser.h"
+#import "SBLeagueHeader.h"
 
-@interface SBStandingsViewController : UIViewController
+@interface SBStandingsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) SBLeague *league;
+@property (nonatomic, strong) NSDictionary *divisionStandings;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

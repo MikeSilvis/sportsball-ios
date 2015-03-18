@@ -20,8 +20,8 @@ static int kHeaderHeight = 44;
   // Hack to ensure control is centered & Full width
   CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
   CGFloat width = (screenWidth / 2) - 20;
-    [self.segmentedControl setWidth:width forSegmentAtIndex:kAwayIndex];
-    [self.segmentedControl setWidth:width forSegmentAtIndex:kHomeIndex];
+  [self.segmentedControl setWidth:width forSegmentAtIndex:kAwayIndex];
+  [self.segmentedControl setWidth:width forSegmentAtIndex:kHomeIndex];
 
   CGFloat controlWidth = width * 2;
   CGRect f = self.segmentedControl.frame;
@@ -32,18 +32,18 @@ static int kHeaderHeight = 44;
 -(void)setGame:(SBGame *)game {
   _game = game;
 
-    [self.segmentedControl setTitle:self.game.awayTeam.name forSegmentAtIndex:kAwayIndex];
-    [self.segmentedControl setTitle:self.game.homeTeam.name forSegmentAtIndex:kHomeIndex];
+  [self.segmentedControl setTitle:self.game.awayTeam.name forSegmentAtIndex:kAwayIndex];
+  [self.segmentedControl setTitle:self.game.homeTeam.name forSegmentAtIndex:kHomeIndex];
 }
 
 -(void)setSelectedTeam:(SBTeam *)selectedTeam {
   _selectedTeam = selectedTeam;
 
   if (self.selectedTeam.isAway) {
-      [self.segmentedControl setSelectedSegmentIndex:kAwayIndex];
+    [self.segmentedControl setSelectedSegmentIndex:kAwayIndex];
   }
   else {
-      [self.segmentedControl setSelectedSegmentIndex:kHomeIndex];
+    [self.segmentedControl setSelectedSegmentIndex:kHomeIndex];
   }
 }
 

@@ -22,7 +22,7 @@
 
 @end
 
-@interface SBScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, SBLeagueHeaderProtocol, SBDatePickerCollectionViewCellDelegate>
+@interface SBScoreIndexView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

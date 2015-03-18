@@ -9,13 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SBLeague.h"
 
-
-@protocol SBLeagueHeaderProtocol <NSObject>
-
-- (void)logoClicked;
-
-@end
-
 @interface SBLeagueHeader : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -25,6 +18,5 @@
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
 @property (nonatomic, strong) SBLeague *currentLeague;
-@property (nonatomic, weak) id<SBLeagueHeaderProtocol> delegate;
 
 @end

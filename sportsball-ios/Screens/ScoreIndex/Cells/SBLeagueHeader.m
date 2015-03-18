@@ -15,20 +15,6 @@
 
 @implementation SBLeagueHeader
 
-- (void)awakeFromNib {
-  [super awakeFromNib];
-
-  // Logo Gesture
-  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leagueTextClicked)];
-  singleTap.numberOfTapsRequired = 1;
-  [self.leagueText setUserInteractionEnabled:YES];
-  [self.leagueText addGestureRecognizer:singleTap];
-}
-
-- (void)leagueTextClicked {
-  [self.delegate logoClicked];
-}
-
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   [UIView animateWithDuration:0.3 animations:^{
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);

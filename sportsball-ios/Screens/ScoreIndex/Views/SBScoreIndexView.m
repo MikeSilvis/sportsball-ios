@@ -141,10 +141,6 @@ static CGFloat const kDatePickerSize = 50;
   }
 }
 
-- (void)logoClicked {
-  [self.delegate requestClose];
-}
-
 - (void)layoutSubviews {
   [super layoutSubviews];
 
@@ -188,7 +184,6 @@ static CGFloat const kDatePickerSize = 50;
                                                                         withReuseIdentifier:kHeaderViewCell
                                                                                forIndexPath:indexPath];
     cell.currentLeague = self.league;
-    cell.delegate = self;
 
     return cell;
   }

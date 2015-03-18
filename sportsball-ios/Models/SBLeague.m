@@ -111,8 +111,8 @@
     NSMutableArray *games = [NSMutableArray array];
 
     for (id score in responseObject[@"scores"]) {
-        SBGame *newGame = [[SBGame alloc] initWithJson:score];
-        [games addObject:newGame];
+      SBGame *newGame = [[SBGame alloc] initWithJson:score];
+      [games addObject:newGame];
     }
 
     success([NSArray arrayWithArray:games]);
@@ -123,13 +123,29 @@
   }];
 }
 
-- (void)getStandings:(void (^) (NSArray *standings))success
+- (void)getStandings:(void (^) (NSDictionary *standings))success
              failure:(void (^) (NSError *error))failure {
 
   NSString *path = [NSString stringWithFormat:@"leagues/%@/standings", self.name];
 
   [self dispatchRequest:path parameters:nil success:^(id responseObject) {
+    NSMutableDictionary *divisions = [NSMutableDictionary dictionary];
+
+    for (id division in responseObject[@"standings"][@"divisions"]) {
+      NSMutableArray *teams = [NSMutableArray array];
+
+      for (id team in responseObject[@"standings"][@"divisions"][division]) {
+        SBTeam *newTeam = [[SBTeam alloc] initWithJson:team];
+        [teams addObject:newTeam];
+      }
+      divisions[division] = [NSArray arrayWithArray:teams];
+    }
+
+    success([NSMutableDictionary dictionaryWithDictionary:divisions]);
   } failure:^(NSError *error) {
+    if (failure) {
+      failure(error);
+    }
   }];
 }
 

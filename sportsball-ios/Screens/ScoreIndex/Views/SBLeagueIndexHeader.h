@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) SBLeague *league;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-//@property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (weak, nonatomic) IBOutlet UILabel *leagueText;
 
 @end

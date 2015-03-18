@@ -602,6 +602,13 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		116515A91AB8F887007C390B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		116591E31A156F1E00016D90 /* DIDDatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +706,7 @@
 		11AA9D921AAFBACC00E81FB6 /* Standings */ = {
 			isa = PBXGroup;
 			children = (
+				116515A91AB8F887007C390B /* Cells */,
 				11AA9D931AAFBADC00E81FB6 /* Controllers */,
 			);
 			path = Standings;
