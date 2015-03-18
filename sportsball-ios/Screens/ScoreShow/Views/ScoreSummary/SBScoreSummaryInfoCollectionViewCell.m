@@ -20,7 +20,7 @@
   _game = game;
 
   UIFont *regularFont = [UIFont fontWithName:@"Avenir-Roman" size:12];
-
+  int fontSize = 14;
   NSString *summary = self.game.boxscore.scoreSummary[self.indexPath.section][self.indexPath.row];
 
   SBTeam *team = [self.game teamFromDataName:summary];
@@ -28,7 +28,7 @@
   if (team) {
     self.textLabel.text = team.name;
     self.textLabel.textAlignment = NSTextAlignmentLeft;
-    self.textLabel.font = [self boldFont];
+    self.textLabel.font = [self boldFont:fontSize];
   }
   else {
     self.textLabel.text = summary;
@@ -40,39 +40,30 @@
     self.textLabel.textAlignment = NSTextAlignmentLeft;
   }
   if (self.indexPath.row == 0) {
-    self.textLabel.font = [self boldFont];
+    self.textLabel.font = [self boldFont:fontSize];
   }
 
   if (self.indexPath.section == ([self.game.boxscore.scoreSummary count] - 1)) {
-    self.textLabel.font = [self boldFont];
+    self.textLabel.font = [self boldFont:fontSize];
   }
 }
 
 - (void)setStanding:(SBStanding *)standing {
   _standing = standing;
-  NSArray *possibleBackgroundColors = @[
-                                        [UIColor yellowColor],
-                                        [UIColor greenColor],
-                                        [UIColor redColor],
-                                        [UIColor whiteColor],
-                                        [UIColor darkGrayColor]
-                                        ];
 
-
-  self.textLabel.font = [self boldFont];
+  self.textLabel.font = [self boldFont:12];
   if (self.indexPath.row == 0) {
     self.textLabel.text = [self.standing.divisions allKeys][self.outerIndexPath.section];
     self.textLabel.textAlignment = NSTextAlignmentLeft;
   }
   else {
     self.textLabel.text = self.standing.headers[self.indexPath.row - 1];
-  self.backgroundColor = possibleBackgroundColors[self.indexPath.row - 1];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
   }
 }
 
-- (UIFont *)boldFont {
-  return [UIFont fontWithName:@"Avenir-Heavy" size:14];
+- (UIFont *)boldFont:(int)size {
+  return [UIFont fontWithName:@"Avenir-Heavy" size:size];
 }
 
 @end

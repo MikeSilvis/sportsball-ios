@@ -14,5 +14,10 @@
 @property (nonatomic, strong) SBTeam *team;
 @property (weak, nonatomic) IBOutlet UIImageView *teamLogo;
 @property (weak, nonatomic) IBOutlet UILabel *teamName;
+@property (weak, nonatomic) IBOutlet UILabel *statOne;
+@property (weak, nonatomic) IBOutlet UILabel *statTwo;
+@property (weak, nonatomic) IBOutlet UILabel *statThree;
+@property (weak, nonatomic) IBOutlet UILabel *statFour;
+@property (weak, nonatomic) IBOutlet UILabel *statFive;
 
 @end

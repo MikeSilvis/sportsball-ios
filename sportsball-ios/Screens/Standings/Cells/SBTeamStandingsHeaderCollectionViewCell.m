@@ -14,7 +14,7 @@
 static NSString * const kScoreSummaryinfoCell = @"kScoreSummaryinfoCell";
 static int const kCellRowHeight    = 25;
 // If Changing be sure to also update SBTeamStandingsCollectionViewCell items
-static int const kSmallerItemWidth = 40;
+static int const kSmallerItemWidth = 30;
 
 - (void)awakeFromNib {
   [super awakeFromNib];

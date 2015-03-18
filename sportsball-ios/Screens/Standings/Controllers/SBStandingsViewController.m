@@ -114,7 +114,8 @@ static CGFloat const kTeamViewCellSize = 45;
   NSString *divisionKey = [self.standing.divisions allKeys][indexPath.section];
   SBTeam *currentTeam = self.standing.divisions[divisionKey][indexPath.row];
 
-  SBTeamStandingsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTeamViewCell forIndexPath:indexPath];
+  SBTeamStandingsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTeamViewCell
+                                                                                      forIndexPath:indexPath];
   cell.team = currentTeam;
 
   return cell;

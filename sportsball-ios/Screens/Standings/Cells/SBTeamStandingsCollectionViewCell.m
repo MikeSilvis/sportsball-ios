@@ -26,6 +26,8 @@
   if ([SBUser currentUser].teamLogos) {
     [self.teamLogo sd_setImageWithURL:[self.team imageURL:self.team.logoUrl withSize:@"50x50"]];
   }
+
+  [self setStats];
 }
 
 - (void)layoutSubviews {
@@ -40,6 +42,56 @@
   upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
   upperBorder.opacity = 0.5f;
   [self.layer addSublayer:upperBorder];
+}
+
+- (void)setStats {
+  NSArray *stats = self.team.stats;
+  NSUInteger statsCount = [stats count];
+
+  // One
+  int positionNumber = 0;
+  if (statsCount > positionNumber) {
+    self.statOne.text = stats[positionNumber];
+  }
+  else {
+    self.statOne.text = nil;
+  }
+
+  // Two
+  positionNumber = 1;
+  if (statsCount > positionNumber) {
+    self.statTwo.text = stats[positionNumber];
+  }
+  else {
+    self.statTwo.text = nil;
+  }
+
+  // Three
+  positionNumber = 2;
+  if (statsCount > positionNumber) {
+    self.statThree.text = stats[positionNumber];
+  }
+  else {
+    self.statThree.text = nil;
+  }
+
+  // Four
+  positionNumber = 3;
+  if (statsCount > positionNumber) {
+    self.statFour.text = stats[positionNumber];
+  }
+  else {
+    self.statFour.text = nil;
+  }
+
+  // Five
+  positionNumber = 4;
+  if (statsCount > positionNumber) {
+    self.statFive.text = stats[positionNumber];
+  }
+  else {
+    self.statFive.text = nil;
+  }
 }
 
 @end
