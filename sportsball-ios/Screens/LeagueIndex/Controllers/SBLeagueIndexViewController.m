@@ -25,6 +25,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [super viewDidLoad];
 
   self.scoreViews = [NSMutableArray array];
+  self.standingViews = [NSMutableArray array];
   self.leagues = [SBUser currentUser].leagues;
 
   [self buildPaginalControl];
@@ -35,7 +36,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self buildTabbar];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(stopTimer)
+                                           selector:@selector(cancelTimer)
                                                name:UIApplicationDidEnterBackgroundNotification
                                              object:nil];
 
@@ -143,7 +144,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
 
-  [self stopTimer];
+  [self cancelTimer];
 }
 
 - (void)selectedGame:(SBGame *)game {
@@ -152,7 +153,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [[SBUser currentUser] appendFavoriteTeams:game.homeTeam andTeam:game.awayTeam andLeague:game.leagueName];
 
   if (game.isPregame) {
-      [self performSegueWithIdentifier:kScorePreviewSegue sender:self];
+    [self performSegueWithIdentifier:kScorePreviewSegue sender:self];
   }
   else {
     [self performSegueWithIdentifier:kScoreShowSegue sender:self];
@@ -160,7 +161,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView didChangeIndex:(NSUInteger)index {
-  [self stopTimer];
+  [self cancelTimer];
   [self startTimer];
 }
 
@@ -170,12 +171,19 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
     [SBUser currentUser].lastOpenedLeagueIndex = @(self.paginalTableView.indexOpenedElement);
     [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
+
+    // Score Timer
     [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
+    // Standing Timer
+    [self.standingViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
 
-- (void)stopTimer {
+- (void)cancelTimer {
   for (SBScoreIndexView *view in self.scoreViews) {
+    [view cancelTimer];
+  }
+  for (SBStandingsView *view in self.standingViews) {
     [view cancelTimer];
   }
 }
@@ -209,17 +217,41 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     return self.leagues.count;
 }
 
-- (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView collapsedViewAtIndex:(NSUInteger)index
-{
-    UIView *collapsedView = [self createCollapsedViewAtIndex:index];
-    return collapsedView;
+- (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView collapsedViewAtIndex:(NSUInteger)index {
+  CGFloat cellHeight = 100;
+
+  SBLeagueIndexHeader *leagueHeader = [[[NSBundle mainBundle] loadNibNamed:@"SBLeagueIndexHeader" owner:nil options:nil] lastObject];
+  leagueHeader.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), cellHeight);
+  leagueHeader.league = self.leagues[index];
+
+  return leagueHeader;
 }
 
-- (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView expandedViewAtIndex:(NSUInteger)index
-{
-    UIView *expandedView = [self createExpandedViewAtIndex:index];
-    return expandedView;
-}
+- (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView expandedViewAtIndex:(NSUInteger)index {
+  CGRect f = CGRectMake(0,
+                                0,
+                                self.view.bounds.size.width,
+                                (self.view.bounds.size.height - self.tabBar.frame.size.height)
+                               );
+
+  // Create Score View
+  SBScoreIndexView *scoreView = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
+  scoreView.league = self.leagues[index];
+  scoreView.frame = f;
+  scoreView.delegate = self;
+  [self.scoreViews addObject:scoreView];
+
+  // Create Standing View
+  SBStandingsView *standingsView = [[[NSBundle mainBundle] loadNibNamed:@"SBStandingsView" owner:nil options:nil] lastObject];
+  standingsView.league = self.leagues[index];
+  standingsView.frame = f;
+  standingsView.delegate = self;
+  standingsView.hidden = YES;
+  [self.view addSubview:standingsView];
+  [self.view sendSubviewToBack:standingsView];
+  [self.standingViews addObject:standingsView];
+
+  return scoreView;}
 
 #pragma mark - APPaginalTableViewDelegate
 
@@ -250,32 +282,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)paginalTableView:(APPaginalTableView *)paginalTableView didSelectRowAtIndex:(NSUInteger)index {
   [self openScoresAtIndex:index animated:YES];
-}
-
-- (UIView *)createCollapsedViewAtIndex:(NSUInteger)index {
-  CGFloat cellHeight = 100;
-
-  SBLeagueIndexHeader *leagueHeader = [[[NSBundle mainBundle] loadNibNamed:@"SBLeagueIndexHeader" owner:nil options:nil] lastObject];
-  leagueHeader.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), cellHeight);
-  leagueHeader.league = self.leagues[index];
-
-  return leagueHeader;
-}
-
-- (UIView *)createExpandedViewAtIndex:(NSUInteger)index {
-//  SBScoreIndexView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
-  SBStandingsView *scoreIndex = [[[NSBundle mainBundle] loadNibNamed:@"SBStandingsView" owner:nil options:nil] lastObject];
-  scoreIndex.league = self.leagues[index];
-
-  scoreIndex.frame = CGRectMake(0,
-                                0,
-                                self.view.bounds.size.width,
-                                (self.view.bounds.size.height - self.tabBar.frame.size.height)
-                               );
-  scoreIndex.delegate = self;
-  [self.scoreViews addObject:scoreIndex];
-
-  return scoreIndex;
 }
 
 - (void)dismissedModal {
@@ -354,6 +360,26 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [object saveEventually];
 }
 
+#pragma mark - Tab bar
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
+
+  if ([item.title isEqualToString:@"Standings"]) {
+    ((SBScoreIndexView *)self.scoreViews[openedIndex]).hidden   = YES;
+    ((SBStandingsView *)self.standingViews[openedIndex]).hidden = NO;
+  }
+  else if ([item.title isEqualToString:@"Scores"]) {
+    ((SBScoreIndexView *)self.scoreViews[openedIndex]).hidden   = NO;
+    ((SBStandingsView *)self.standingViews[openedIndex]).hidden = YES;
+  }
+
+  [self cancelTimer];
+  [self startTimer];
+}
+
+#pragma mark - Segue
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   SBModalViewController *viewController = segue.destinationViewController;
   viewController.view.frame = self.view.bounds;
@@ -377,7 +403,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     }
   }
 
-  [self stopTimer];
+  [self cancelTimer];
 }
 
 @end

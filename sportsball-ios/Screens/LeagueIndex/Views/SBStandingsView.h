@@ -20,4 +20,7 @@
 @property (nonatomic, strong) SBStanding *standing;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+- (void)cancelTimer;
+- (void)startTimer;
+
 @end

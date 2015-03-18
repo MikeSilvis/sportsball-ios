@@ -14,12 +14,13 @@
 #import "SBViewController.h"
 #import "SBLeagueIndexHeader.h"
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate, UITabBarDelegate>
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, strong) NSMutableArray *scoreViews;
+@property (nonatomic, strong) NSMutableArray *standingViews;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
 @property (nonatomic, strong) SBGame *selectedGame;

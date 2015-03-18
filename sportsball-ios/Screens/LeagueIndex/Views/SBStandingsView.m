@@ -11,6 +11,12 @@
 #import "SBTeamStandingsCollectionViewCell.h"
 #import "SBTeamStandingsHeaderCollectionViewCell.h"
 
+@interface SBStandingsView ()
+
+@property BOOL scorePuller;
+
+@end
+
 @implementation SBStandingsView
 
 static NSString * const kTeamViewCell = @"TeamViewCell";
@@ -57,10 +63,14 @@ static CGFloat const kTeamViewCellSize = 45;
 }
 
 - (void)cancelTimer {
+  self.scorePuller = NO;
 }
 
 - (void)startTimer {
-  [self findDivisionStandings];
+  if (!self.scorePuller) {
+    [self findDivisionStandings];
+    self.scorePuller = YES;
+  }
 }
 
 - (void)findDivisionStandings {

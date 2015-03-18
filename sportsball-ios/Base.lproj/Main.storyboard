@@ -81,6 +81,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </tabBarItem>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="9Mo-0L-q5c" id="178-Iy-JkW"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
