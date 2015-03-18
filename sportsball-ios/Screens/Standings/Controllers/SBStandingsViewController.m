@@ -23,7 +23,7 @@ static CGFloat const kTeamViewCellSize = 45;
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.view.backgroundColor = [UIColor purpleColor];
+  self.view.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
   // Cells
@@ -50,11 +50,18 @@ static CGFloat const kTeamViewCellSize = 45;
   [super viewDidAppear:animated];
 
   self.league = [SBUser currentUser].lastOpenedLeague;
+
+  // Stub data hack
+  self.standing = [[SBStanding alloc] init];
+  self.standing.divisions = @{
+                              @"stub": @[[[SBTeam alloc] init]]
+                              };
+
   [self findDivisionStandings];
 }
 
 - (void)findDivisionStandings {
-  if (!self.standing) {
+  if ([self.standing.headers count] == 0) {
     self.activityIndicator.hidden = NO;
   }
 
@@ -78,8 +85,6 @@ static CGFloat const kTeamViewCellSize = 45;
   [self.collectionView reloadData];
 }
 
-#pragma mark - CollectionView
-
 - (void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
 
@@ -88,6 +93,8 @@ static CGFloat const kTeamViewCellSize = 45;
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, kHeaderSize);
   layout.itemSize = CGSizeMake(self.collectionView.frame.size.width, layout.itemSize.height);
 }
+
+#pragma mark - CollectionView
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
   if ([self.standing.divisions count] == 0) {
@@ -136,10 +143,18 @@ static CGFloat const kTeamViewCellSize = 45;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+  if ([self.standing.headers count] == 0) {
+    return CGSizeZero;
+  }
+
   return CGSizeMake(self.view.bounds.size.width, kHeaderStandingsCellSize);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+  if ([self.standing.headers count] == 0) {
+    return CGSizeZero;
+  }
+
   return CGSizeMake(self.collectionView.bounds.size.width, kTeamViewCellSize);
 }
 
