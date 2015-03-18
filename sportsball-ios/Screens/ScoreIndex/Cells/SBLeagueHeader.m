@@ -24,8 +24,8 @@
     self.leagueText.alpha = alpha;
     self.headerImage.alpha = !alpha;
 
-    // TODO: FIX YOU
     bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
+//    TODO: FIX YOU
 //    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
                                                                                                @"alpha" : [NSNumber numberWithBool:hidden]
