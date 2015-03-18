@@ -18,7 +18,7 @@ static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderStandingsViewCell = @"HeaderStandingsViewCell";
 static CGFloat const kHeaderSize = 74;
 static CGFloat const kHeaderStandingsCellSize = 25;
-static CGFloat const kTeamViewCellSize = 40;
+static CGFloat const kTeamViewCellSize = 45;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
