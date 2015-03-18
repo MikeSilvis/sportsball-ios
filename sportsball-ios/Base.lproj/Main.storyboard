@@ -69,12 +69,17 @@
                                     <outlet property="delegate" destination="vvz-Js-5av" id="XFX-k3-zxe"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iqe-6i-Www">
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="iqe-6i-Www" secondAttribute="centerY" id="254-Bv-h3F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="krw-4o-L5a" secondAttribute="trailing" constant="-20" id="83Y-0M-C7e"/>
                             <constraint firstItem="krw-4o-L5a" firstAttribute="top" secondItem="NjF-tC-Q10" secondAttribute="bottom" constant="-20" id="O7y-Ei-3Fu"/>
                             <constraint firstItem="krw-4o-L5a" firstAttribute="leading" secondItem="Vm5-UG-YiX" secondAttribute="leadingMargin" constant="-20" id="Y7d-Ms-CiT"/>
+                            <constraint firstAttribute="centerX" secondItem="iqe-6i-Www" secondAttribute="centerX" id="gsf-AC-kOO"/>
                             <constraint firstItem="6Jb-qt-mnD" firstAttribute="top" secondItem="krw-4o-L5a" secondAttribute="bottom" id="lRr-2E-FM9"/>
                         </constraints>
                     </view>
@@ -84,6 +89,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="iqe-6i-Www" id="jvI-7W-nNm"/>
                         <outlet property="collectionView" destination="krw-4o-L5a" id="kex-Kr-qhJ"/>
                     </connections>
                 </viewController>

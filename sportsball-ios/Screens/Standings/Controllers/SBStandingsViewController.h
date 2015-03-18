@@ -18,5 +18,6 @@
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) SBStanding *standing;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

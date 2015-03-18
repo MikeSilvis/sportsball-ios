@@ -54,8 +54,13 @@ static CGFloat const kTeamViewCellSize = 45;
 }
 
 - (void)findDivisionStandings {
+  if (!self.standing) {
+    self.activityIndicator.hidden = NO;
+  }
+
   [self.league getStanding:^(SBStanding *standing) {
     self.standing = standing;
+    self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
     NSLog(@"Standings error %@", error);
   }];
