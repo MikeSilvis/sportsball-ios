@@ -89,9 +89,9 @@ static CGFloat const kTeamViewCellSize = 45;
   [super viewWillLayoutSubviews];
 
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
-  layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, kHeaderSize);
-  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, kHeaderSize);
-  layout.itemSize = CGSizeMake(self.collectionView.frame.size.width, layout.itemSize.height);
+  layout.parallaxHeaderReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, kHeaderSize);
+  layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, kHeaderSize);
+  layout.itemSize = CGSizeMake(self.collectionView.bounds.size.width, layout.itemSize.height);
 }
 
 #pragma mark - CollectionView
