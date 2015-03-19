@@ -171,7 +171,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
 
     // Score Timer
-    [self.leagueTabViews[self.paginalTableView.indexOpenedElement] selectedTab:self.tabBar.selectedItem.title];
     [self.leagueTabViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
@@ -344,16 +343,8 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 #pragma mark - Tab bar
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-  SBTabBarView *tabbarView = self.leagueTabViews[openedIndex];
-
-  if ([item.title isEqualToString:@"Standings"]) {
-    tabbarView.standingsView.hidden = NO;
-    tabbarView.scoresView.hidden    = YES;
-  }
-  else if ([item.title isEqualToString:@"Scores"]) {
-    tabbarView.standingsView.hidden = YES;
-    tabbarView.scoresView.hidden    = NO;
+  for (SBTabBarView *tabView in self.leagueTabViews) {
+    [tabView selectedTab:item.title];
   }
 
   [self cancelTimer];
