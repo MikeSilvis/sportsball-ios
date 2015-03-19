@@ -140,8 +140,9 @@ static const NSInteger kScheduleCellLocation = 0;
 }
 
 - (void)closeModal {
-  [self dismissViewControllerAnimated:YES completion:nil];
-  [self.delegate dismissedModal];
+  [self dismissViewControllerAnimated:YES completion:^{
+    [self.delegate dismissedModal];
+  }];
 }
 
 - (void)setGame:(SBGame *)game {
@@ -275,6 +276,12 @@ static const NSInteger kScheduleCellLocation = 0;
   }
 
   return 0;
+}
+
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+  [super dismissViewControllerAnimated:flag completion:^{
+    [self.delegate dismissedModal];
+  }];
 }
 
 #pragma mark - Hack to enable header to have see through background

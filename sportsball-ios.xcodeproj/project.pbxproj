@@ -738,16 +738,8 @@
 			isa = PBXGroup;
 			children = (
 				116515A91AB8F887007C390B /* Cells */,
-				11AA9D931AAFBADC00E81FB6 /* Controllers */,
 			);
 			path = Standings;
-			sourceTree = "<group>";
-		};
-		11AA9D931AAFBADC00E81FB6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		11BA1C3B1A64AB6D005C61AB /* Cells */ = {
