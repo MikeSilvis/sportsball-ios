@@ -457,7 +457,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
-      return [self askControllerForShouldRecieveDrag:gestureRecognizer];
+      return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
     }
 
     if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
@@ -469,7 +469,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
-      return [self askControllerForShouldRecieveDrag:gestureRecognizer];
+      return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
     }
 
     if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
@@ -478,10 +478,14 @@
     return NO;
 }
 
-- (BOOL)askControllerForShouldRecieveDrag:(UIGestureRecognizer *)gestureRecognizer {
+- (NSNumber *)askControllerForShouldRecieveDrag:(UIGestureRecognizer *)gestureRecognizer {
   SEL selector = NSSelectorFromString(@"shouldRecieveDrag:");
   if ([self.modalController respondsToSelector:selector]) {
-    return [self.modalController performSelector:selector withObject:gestureRecognizer];
+    IMP imp = [self.modalController methodForSelector:selector];
+    BOOL (*func)(id, SEL, UIGestureRecognizer*) = (void *)imp;
+    BOOL result = func(self.modalController, selector, gestureRecognizer);
+    
+    return [NSNumber numberWithBool:result];
   }
 
   return nil;
