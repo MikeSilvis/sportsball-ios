@@ -456,6 +456,11 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
+    SEL selector = NSSelectorFromString(@"shouldRecieveDrag:");
+    if ([self.modalController respondsToSelector:selector]) {
+      return [self.modalController performSelector:selector withObject:gestureRecognizer];
+    }
+
     if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
         return YES;
     }
@@ -464,6 +469,11 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
+    SEL selector = NSSelectorFromString(@"shouldRecieveDrag:");
+    if ([self.modalController respondsToSelector:selector]) {
+      return [self.modalController performSelector:selector withObject:gestureRecognizer];
+
+    }
     if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
         return YES;
     }
@@ -526,7 +536,7 @@
         }
         return;
     }
-    
+
     CGFloat topVerticalOffset = -self.scrollview.contentInset.top;
     CGFloat bottomEdge = self.scrollview.contentOffset.y + self.scrollview.frame.size.height;
 

@@ -28,5 +28,6 @@
 - (void)showNetworkError:(NSError *)error;
 - (void)didStartLoading;
 - (void)didEndLoading;
+- (BOOL)shouldRecieveDrag:(UIGestureRecognizer *)gestureRecognizer;
 
 @end

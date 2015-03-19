@@ -93,4 +93,8 @@ static  NSString *kWebSegue = @"webViewSegue";
   viewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
+- (BOOL)shouldRecieveDrag:(UIGestureRecognizer *)gestureRecognizer {
+  return YES;
+}
+
 @end

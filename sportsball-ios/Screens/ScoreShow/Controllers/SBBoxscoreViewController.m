@@ -206,4 +206,21 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 }
 
+- (BOOL)shouldRecieveDrag:(UIGestureRecognizer *)gestureRecognizer {
+  CGPoint touchPoint = [gestureRecognizer locationInView:self.view];
+  CGRect scoreSummary = [self.tableView rectForSection:kScoreSummaryViewLocation];
+  CGRect rectInSuperview = [self.tableView convertRect:scoreSummary toView:[self.tableView superview]];
+
+  CGFloat begin = rectInSuperview.origin.y;
+  CGFloat touchPointAY = touchPoint.y;
+  CGFloat totalHeight = rectInSuperview.size.height + rectInSuperview.origin.y;
+
+  if ((begin < touchPointAY) && (touchPointAY < totalHeight)) {
+    return NO;
+  }
+
+  return YES;
+}
+
+
 @end
