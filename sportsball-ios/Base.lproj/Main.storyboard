@@ -66,15 +66,37 @@
                                     <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
                                 </connections>
                             </button>
+                            <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="R2C-zv-Tfb">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Scores" image="scores" id="Lxd-fh-bHM">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem title="Standings" image="standings" id="ynM-iV-dbK">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="9Mo-0L-q5c" id="178-Iy-JkW"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="Rsx-0N-epK" secondAttribute="bottom" constant="5" id="0Rq-nh-JL4"/>
+                            <constraint firstItem="R2C-zv-Tfb" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="HVh-GM-zFO"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="top" secondItem="rEf-Fj-rTq" secondAttribute="bottom" constant="2" id="Hbm-qC-UMw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R2C-zv-Tfb" secondAttribute="trailing" constant="-16" id="Kdq-mI-bJG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="D0m-nY-021" secondAttribute="trailing" constant="-16" id="ZqV-Vk-JS9"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="aLv-tI-DIr"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="width" secondItem="iKJ-Oi-PAX" secondAttribute="width" id="bZZ-PZ-iFL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rsx-0N-epK" secondAttribute="trailing" constant="-5" id="krr-2W-xrb"/>
+                            <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="R2C-zv-Tfb" secondAttribute="bottom" id="rMc-mI-KBy"/>
                             <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leading" id="vCc-zz-FkF"/>
                         </constraints>
                         <variation key="default">
@@ -93,6 +115,7 @@
                     <connections>
                         <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
+                        <outlet property="tabBar" destination="R2C-zv-Tfb" id="SVr-9C-DOQ"/>
                         <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
                         <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
                         <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
@@ -579,6 +602,8 @@
     <resources>
         <image name="scores" width="50" height="50"/>
         <image name="scores-filled" width="50" height="50"/>
+        <image name="standings" width="50" height="50"/>
+        <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YFp-QS-G4Y"/>

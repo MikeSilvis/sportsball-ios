@@ -15,7 +15,7 @@
 #import "SBTabBarView.h"
 #import "SBLeagueIndexHeader.h"
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBTabBarDelegate, SportsBallModalDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBTabBarDelegate, SportsBallModalDelegate, UITabBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
@@ -28,9 +28,8 @@
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, strong) NSMutableArray *leagueTabViews;
 @property BOOL isNotificationOpen;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 - (IBAction)didRequestClose:(id)sender;
-// TODO: REMOVE YOU
-- (void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
 @end

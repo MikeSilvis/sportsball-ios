@@ -22,7 +22,6 @@
 
 @interface SBTabBarView : UIView <UITabBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) SBStandingsView *standingsView;
 @property (nonatomic, strong) SBScoreIndexView *scoresView;
