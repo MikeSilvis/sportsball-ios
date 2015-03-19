@@ -14,7 +14,6 @@
 
 - (void)selectedGame:(SBGame *)game;
 - (void)askForFavoriteTeam:(SBTeam *)team;
-- (void)requestClose;
 - (void)requestFailed:(NSError *)error;
 
 @end

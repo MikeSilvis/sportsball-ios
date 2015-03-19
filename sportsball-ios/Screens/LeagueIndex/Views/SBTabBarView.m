@@ -15,7 +15,6 @@
   
   self.backgroundColor = [UIColor clearColor];
 
-//  [self buildTabbar];
   [self addScores];
   [self addStandings];
 }
@@ -23,8 +22,9 @@
 - (void)addScores {
   if (!self.scoresView) {
     self.scoresView = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
-    self.scoresView.frame = self.bounds;
+    self.scoresView.frame  = self.bounds;
     self.scoresView.league = self.league;
+    self.scoresView.delegate = self;
     [self addSubview:self.scoresView];
   }
 }
@@ -46,6 +46,16 @@
   self.standingsView.league = self.league;
 }
 
+- (void)selectedTab:(NSString *)selectedItemText {
+  if ([selectedItemText isEqualToString:@"Scores"]) {
+    self.standingsView.hidden = YES;
+    self.scoresView.hidden    = NO;
+  }
+  else if ([selectedItemText isEqualToString:@"Standings"]) {
+    self.standingsView.hidden = NO;
+    self.scoresView.hidden    = YES;
+  }
+}
 
 #pragma mark - Timers
 
@@ -63,5 +73,18 @@
   }
 }
 
+#pragma mark - Delegate Methods
+
+- (void)selectedGame:(SBGame *)game {
+  [self.delegate selectedGame:game];
+}
+
+- (void)askForFavoriteTeam:(SBTeam *)team {
+  [self.delegate askForFavoriteTeam:team];
+}
+
+- (void)requestFailed:(NSError *)error {
+  [self.delegate requestFailed:error];
+}
 
 @end

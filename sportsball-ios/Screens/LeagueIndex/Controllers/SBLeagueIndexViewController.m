@@ -171,12 +171,13 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
 
     // Score Timer
+    [self.leagueTabViews[self.paginalTableView.indexOpenedElement] selectedTab:self.tabBar.selectedItem.title];
     [self.leagueTabViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
 
 - (void)cancelTimer {
-  for (SBScoreIndexView *view in self.leagueTabViews) {
+  for (SBTabBarView *view in self.leagueTabViews) {
     [view cancelTimer];
   }
 }
@@ -207,7 +208,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (NSUInteger)numberOfElementsInPaginalTableView:(APPaginalTableView *)managerView {
-    return self.leagues.count;
+  return self.leagues.count;
 }
 
 - (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView collapsedViewAtIndex:(NSUInteger)index {
@@ -229,6 +230,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                              self.view.bounds.size.height - self.tabBar.frame.size.height
                             );
   tabView.league = self.leagues[index];
+  tabView.delegate = self;
 
   [self.leagueTabViews addObject:tabView];
 
@@ -254,7 +256,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     open = finalHeight > element.expandedHeight * 0.2f;
   }
 
-  SBScoreIndexView *scoreView = self.leagueTabViews[index];
+  SBTabBarView *scoreView = self.leagueTabViews[index];
   [scoreView cancelTimer];
   self.pageControl.hidden = YES;
   self.toolBar.hidden     = YES;
@@ -269,10 +271,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)dismissedModal {
   [self startTimer];
-}
-
-- (void)requestClose {
-  [self closeWindow];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{

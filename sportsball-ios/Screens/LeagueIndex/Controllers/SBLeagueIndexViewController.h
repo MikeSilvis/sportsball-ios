@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "APPaginalTableView.h"
-#import "SBScoreIndexView.h"
 #import "ZFModalTransitionAnimator.h"
 #import "SBModalViewController.h"
 #import "SBViewController.h"

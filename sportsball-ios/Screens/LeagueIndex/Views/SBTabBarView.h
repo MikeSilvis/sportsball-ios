@@ -6,21 +6,19 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "SBLeague.h"
 #import "SBScoreIndexView.h"
 #import "SBStandingsView.h"
 
 @protocol SBTabBarDelegate <NSObject>
 
-//- (void)selectedGame:(SBGame *)game;
-//- (void)askForFavoriteTeam:(SBTeam *)team;
-//- (void)requestClose;
-//- (void)requestFailed:(NSError *)error;
+- (void)selectedGame:(SBGame *)game;
+- (void)askForFavoriteTeam:(SBTeam *)team;
+- (void)requestFailed:(NSError *)error;
 
 @end
 
-@interface SBTabBarView : UIView <UITabBarDelegate>
+@interface SBTabBarView : UIView <UITabBarDelegate, SBScoreIndexViewDelegate>
 
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) SBStandingsView *standingsView;
@@ -29,5 +27,6 @@
 
 - (void)cancelTimer;
 - (void)startTimer;
+- (void)selectedTab:(NSString *)selectedItemText;
 
 @end
