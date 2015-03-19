@@ -12,22 +12,25 @@
 #import "ZFModalTransitionAnimator.h"
 #import "SBModalViewController.h"
 #import "SBViewController.h"
+#import "SBTabBarView.h"
 #import "SBLeagueIndexHeader.h"
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBTabBarDelegate, SportsBallModalDelegate>
+
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
+@property (weak, nonatomic) IBOutlet UIButton *supportButton;
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
+@property (nonatomic, strong) SBGame *selectedGame;
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, strong) NSMutableArray *leagueTabViews;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
-@property (nonatomic, strong) SBGame *selectedGame;
-@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
-@property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property BOOL isNotificationOpen;
 
 - (IBAction)didRequestClose:(id)sender;
+// TODO: REMOVE YOU
 - (void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
 @end

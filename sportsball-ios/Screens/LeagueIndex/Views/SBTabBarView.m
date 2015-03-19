@@ -17,7 +17,7 @@
 
   [self buildTabbar];
   [self addScores];
-  [self addScores];
+  [self addStandings];
 }
 
 - (void)buildTabbar {
@@ -41,6 +41,7 @@
     self.standingsView = [[[NSBundle mainBundle] loadNibNamed:@"SBStandingsView" owner:nil options:nil] lastObject];
     self.standingsView.frame = [self defaultBounds];
     self.standingsView.league = self.league;
+    self.standingsView.hidden = YES;
     [self addSubview:self.standingsView];
   }
 }
@@ -50,7 +51,7 @@
 }
 
 - (void)setLeague:(SBLeague *)league {
-  _league = self.league;
+  _league = league;
 
   self.scoresView.league    = self.league;
   self.standingsView.league = self.league;
@@ -60,11 +61,17 @@
 #pragma mark - Timers
 
 - (void)cancelTimer {
-
+  [self.standingsView cancelTimer];
+  [self.scoresView cancelTimer];
 }
 
 - (void)startTimer {
-
+  if (!self.standingsView.hidden) {
+    [self.standingsView startTimer];
+  }
+  if (!self.scoresView.hidden) {
+    [self.scoresView startTimer];
+  }
 }
 
 #pragma mark - Tab bar

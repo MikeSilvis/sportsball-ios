@@ -14,7 +14,6 @@
 #import <MPGNotification.h>
 #import "EDColor.h"
 #import "SBConstants.h"
-#import "SBTabBarView.h"
 
 @implementation SBLeagueIndexViewController
 
