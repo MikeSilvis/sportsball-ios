@@ -14,7 +14,7 @@
 #import <MPGNotification.h>
 #import "EDColor.h"
 #import "SBConstants.h"
-#import "SBStandingsView.h"
+#import "SBTabBarView.h"
 
 @implementation SBLeagueIndexViewController
 
@@ -24,8 +24,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.scoreViews = [NSMutableArray array];
-  self.standingViews = [NSMutableArray array];
+  self.leagueTabViews = [NSMutableArray array];
   self.leagues = [SBUser currentUser].leagues;
 
   [self buildPaginalControl];
@@ -33,7 +32,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self buildToolBar];
   [self buildHamburgerButton];
   [self buildHelpIcon];
-  [self buildTabbar];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(cancelTimer)
@@ -56,16 +54,9 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-  if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
+  if ((openedIndex >= 0) && (self.leagueTabViews)[openedIndex]) {
     self.toolBar.hidden = alphaHidden;
   }
-}
-
-- (void)buildTabbar {
-  self.tabBar.hidden = YES;
-  self.tabBar.backgroundColor = [UIColor clearColor];
-  [self.tabBar setBackgroundImage:[UIImage new]];
-  [self.tabBar setSelectedItem:[self.tabBar.items firstObject]];
 }
 
 - (void)buildPaginalControl {
@@ -86,7 +77,8 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl.numberOfPages = self.leagues.count;
   self.pageControl.currentPage = 1;
   self.pageControl.frame = CGRectMake(0,
-                                      (self.view.bounds.size.height - self.tabBar.frame.size.height - 30), 200,
+                                      (self.view.bounds.size.height - 80),
+                                      200,
                                       50
                                      );
   [self.pageControl sizeToFit];
@@ -130,7 +122,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
 
-  if ((openedIndex >= 0) && (self.scoreViews)[openedIndex]) {
+  if ((openedIndex >= 0) && (self.leagueTabViews)[openedIndex]) {
     [self openScoresAtIndex:openedIndex animated:NO];
   }
 }
@@ -166,24 +158,19 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (void)startTimer {
-  if (self.scoreViews.count >= self.paginalTableView.indexOpenedElement) {
+  if (self.leagueTabViews.count >= self.paginalTableView.indexOpenedElement) {
     self.pageControl.currentPage = self.paginalTableView.indexOpenedElement;
 
     [SBUser currentUser].lastOpenedLeagueIndex = @(self.paginalTableView.indexOpenedElement);
     [SBUser currentUser].lastOpenedLeague = self.leagues[self.paginalTableView.indexOpenedElement];
 
     // Score Timer
-    [self.scoreViews[self.paginalTableView.indexOpenedElement] startTimer];
-    // Standing Timer
-    [self.standingViews[self.paginalTableView.indexOpenedElement] startTimer];
+    [self.leagueTabViews[self.paginalTableView.indexOpenedElement] startTimer];
   }
 }
 
 - (void)cancelTimer {
-  for (SBScoreIndexView *view in self.scoreViews) {
-    [view cancelTimer];
-  }
-  for (SBStandingsView *view in self.standingViews) {
+  for (SBScoreIndexView *view in self.leagueTabViews) {
     [view cancelTimer];
   }
 }
@@ -198,14 +185,12 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
   self.supportButton.hidden = NO;
-  self.tabBar.hidden = YES;
   [self.paginalTableView closeElementWithCompletion:nil animated:YES];
 }
 
 -(void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated {
   [self.paginalTableView openElementAtIndex:index completion:^(BOOL completed) {
     if (completed) {
-      self.tabBar.hidden = NO;
       self.pageControl.hidden = NO;
       self.toolBar.hidden = NO;
       self.supportButton.hidden = YES;
@@ -228,31 +213,14 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (UIView *)paginalTableView:(APPaginalTableView *)paginalTableView expandedViewAtIndex:(NSUInteger)index {
-  CGRect f = CGRectMake(0,
-                                0,
-                                self.view.bounds.size.width,
-                                (self.view.bounds.size.height - self.tabBar.frame.size.height)
-                               );
+  SBTabBarView *tabView = [[[NSBundle mainBundle] loadNibNamed:@"SBTabBarView" owner:nil options:nil] lastObject];
+  tabView.frame = self.view.bounds;
+  tabView.league = self.leagues[index];
 
-  // Create Score View
-  SBScoreIndexView *scoreView = [[[NSBundle mainBundle] loadNibNamed:@"SBScoreIndexView" owner:nil options:nil] lastObject];
-  scoreView.league = self.leagues[index];
-  scoreView.frame = f;
-  scoreView.delegate = self;
-  [self.scoreViews addObject:scoreView];
+  [self.leagueTabViews addObject:tabView];
 
-  // Create Standing View
-  SBStandingsView *standingsView = [[[NSBundle mainBundle] loadNibNamed:@"SBStandingsView" owner:nil options:nil] lastObject];
-  standingsView.league = self.leagues[index];
-  standingsView.frame = f;
-  standingsView.delegate = self;
-  standingsView.hidden = YES;
-//  [self.view addSubview:standingsView];
-//  [self.view sendSubviewToBack:standingsView];
-  [self.view insertSubview:standingsView belowSubview:scoreView];
-  [self.standingViews addObject:standingsView];
-
-  return scoreView;}
+  return tabView;
+}
 
 #pragma mark - APPaginalTableViewDelegate
 
@@ -273,7 +241,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     open = finalHeight > element.expandedHeight * 0.2f;
   }
 
-  SBScoreIndexView *scoreView = self.scoreViews[index];
+  SBScoreIndexView *scoreView = self.leagueTabViews[index];
   [scoreView cancelTimer];
   self.pageControl.hidden = YES;
   self.toolBar.hidden = YES;
@@ -359,24 +327,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   PFObject *object = [team parseObject];
   object[@"pushEnabled"] = @NO;
   [object saveEventually];
-}
-
-#pragma mark - Tab bar
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-
-  if ([item.title isEqualToString:@"Standings"]) {
-    ((SBScoreIndexView *)self.scoreViews[openedIndex]).hidden   = YES;
-    ((SBStandingsView *)self.standingViews[openedIndex]).hidden = NO;
-  }
-  else if ([item.title isEqualToString:@"Scores"]) {
-    ((SBScoreIndexView *)self.scoreViews[openedIndex]).hidden   = NO;
-    ((SBStandingsView *)self.standingViews[openedIndex]).hidden = YES;
-  }
-
-  [self cancelTimer];
-  [self startTimer];
 }
 
 #pragma mark - Segue

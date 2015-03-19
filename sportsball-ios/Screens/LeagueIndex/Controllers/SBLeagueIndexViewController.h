@@ -14,20 +14,18 @@
 #import "SBViewController.h"
 #import "SBLeagueIndexHeader.h"
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate, UITabBarDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBScoreIndexViewDelegate, SportsBallModalDelegate>
 
 @property (nonatomic, strong) APPaginalTableView *paginalTableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, copy) NSArray *leagues;
-@property (nonatomic, strong) NSMutableArray *scoreViews;
-@property (nonatomic, strong) NSMutableArray *standingViews;
+@property (nonatomic, strong) NSMutableArray *leagueTabViews;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
 @property (nonatomic, strong) SBGame *selectedGame;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property BOOL isNotificationOpen;
-@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 - (IBAction)didRequestClose:(id)sender;
 - (void)openScoresAtIndex:(NSUInteger)index animated:(BOOL)animated;

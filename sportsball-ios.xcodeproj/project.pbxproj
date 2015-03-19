@@ -45,6 +45,8 @@
 		114E879C1A5F8670007C2CF7 /* SBScorePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E879B1A5F8670007C2CF7 /* SBScorePreviewViewController.m */; };
 		114E879F1A5F86D3007C2CF7 /* SBPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E879E1A5F86D3007C2CF7 /* SBPreview.m */; };
 		114E87A21A5F8A0E007C2CF7 /* SBModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E87A11A5F8A0E007C2CF7 /* SBModalViewController.m */; };
+		1150B1C31ABA4C88000602CD /* SBTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1150B1C21ABA4C88000602CD /* SBTabBarView.m */; };
+		1150B1C51ABA4C98000602CD /* SBTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1150B1C41ABA4C98000602CD /* SBTabBarView.xib */; };
 		1154F61D1A03D60F009F560B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61C1A03D60F009F560B /* main.m */; };
 		1154F6201A03D60F009F560B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154F61F1A03D60F009F560B /* AppDelegate.m */; };
 		1154F6261A03D60F009F560B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1154F6241A03D60F009F560B /* Main.storyboard */; };
@@ -174,6 +176,9 @@
 		114E879E1A5F86D3007C2CF7 /* SBPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPreview.m; sourceTree = "<group>"; };
 		114E87A01A5F8A0E007C2CF7 /* SBModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBModalViewController.h; sourceTree = "<group>"; };
 		114E87A11A5F8A0E007C2CF7 /* SBModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBModalViewController.m; sourceTree = "<group>"; };
+		1150B1C11ABA4C88000602CD /* SBTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTabBarView.h; sourceTree = "<group>"; };
+		1150B1C21ABA4C88000602CD /* SBTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTabBarView.m; sourceTree = "<group>"; };
+		1150B1C41ABA4C98000602CD /* SBTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTabBarView.xib; sourceTree = "<group>"; };
 		1154F6171A03D60E009F560B /* Jumbotron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumbotron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -403,6 +408,9 @@
 				112B05DF1ABA150C00DAA466 /* SBStandingsView.h */,
 				112B05E01ABA150C00DAA466 /* SBStandingsView.m */,
 				112B05E21ABA156A00DAA466 /* SBStandingsView.xib */,
+				1150B1C11ABA4C88000602CD /* SBTabBarView.h */,
+				1150B1C21ABA4C88000602CD /* SBTabBarView.m */,
+				1150B1C41ABA4C98000602CD /* SBTabBarView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -869,6 +877,7 @@
 				11BA1C411A64AD21005C61AB /* SBScoreDataTableViewCell.xib in Resources */,
 				116515B31AB9014D007C390B /* SBTeamStandingsHeaderCollectionViewCell.xib in Resources */,
 				1189A3FF1A31622000575E07 /* SBScoreDetailHeaderCollectionViewCell.xib in Resources */,
+				1150B1C51ABA4C98000602CD /* SBTabBarView.xib in Resources */,
 				11BA1C511A65B0CD005C61AB /* SBScheduleInfoTableViewCell.xib in Resources */,
 				1189A3F81A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib in Resources */,
@@ -976,6 +985,7 @@
 				11BA1C441A64B2D0005C61AB /* SBScoreDataInfoTableViewCell.m in Sources */,
 				1101C60D1A22842E0086AF16 /* SBUser.m in Sources */,
 				1154F6481A03D754009F560B /* SBTeam.m in Sources */,
+				1150B1C31ABA4C88000602CD /* SBTabBarView.m in Sources */,
 				113845DE1A0C052600BC7A4D /* SBLeague.m in Sources */,
 				114E879C1A5F8670007C2CF7 /* SBScorePreviewViewController.m in Sources */,
 				116515B61AB91BE8007C390B /* SBStanding.m in Sources */,
