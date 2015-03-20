@@ -170,12 +170,8 @@ static NSString *kAllLeagues = @"allLeagues-1";
   }];
 }
 
-- (BOOL)leagueLogos {
-  return [self.currentPfUser[@"leagueLogos"] boolValue];
-}
-
 - (BOOL)teamLogos {
-  return [self.currentPfUser[@"teamLogos"] boolValue];
+  return YES;
 }
 
 @end

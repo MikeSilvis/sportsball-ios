@@ -484,7 +484,7 @@
     IMP imp = [self.modalController methodForSelector:selector];
     BOOL (*func)(id, SEL, UIGestureRecognizer*) = (void *)imp;
     BOOL result = func(self.modalController, selector, gestureRecognizer);
-    
+
     return [NSNumber numberWithBool:result];
   }
 

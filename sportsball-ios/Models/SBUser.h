@@ -24,7 +24,6 @@
 - (NSString *)favoriteTeam:(SBLeague *)league;
 - (NSString *)networkConnectionErrorMessage:(NSError *)error;
 - (UIImage *)networkConnectionErrorIcon;
-- (BOOL)leagueLogos;
 - (BOOL)teamLogos;
 
 @end
