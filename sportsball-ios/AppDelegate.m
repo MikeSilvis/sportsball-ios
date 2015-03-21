@@ -35,7 +35,6 @@ static NSString *kPlaceholderImageSize = @"600x300";
   [self configureMixPanel];
 
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
   NSString *initialViewId;
   if ([SBUser currentUser].leagues.count > 0) {
@@ -46,6 +45,7 @@ static NSString *kPlaceholderImageSize = @"600x300";
     initialViewId = @"leagueLoadingViewController";
   }
 
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
   UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:initialViewId];
 
   self.window.rootViewController = viewController;
@@ -127,6 +127,26 @@ static NSString *kPlaceholderImageSize = @"600x300";
   }
 
   return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+  if ([url.host isEqualToString:@"scores"]) {
+
+    for (int i = 0; i < [[SBUser currentUser].leagues count]; i++) {
+      SBLeague *league = [SBUser currentUser].leagues[i];
+
+      if ([league.name isEqualToString:[url lastPathComponent]]) {
+        [SBUser currentUser].lastOpenedLeagueIndex = @(i);
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"leagueIndexViewController"];
+
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+      }
+    }
+  }
+
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
