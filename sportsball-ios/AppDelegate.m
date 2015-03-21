@@ -16,9 +16,8 @@
 #import <Parse/Parse.h>
 #import <MPGNotification.h>
 #import "UIImage+FontAwesome.h"
-
-#import "SBWebViewController.h"
 #import <AVKit/AVKit.h>
+#import "Mixpanel.h"
 
 @implementation AppDelegate
 
@@ -33,6 +32,7 @@ static NSString *kPlaceholderImageSize = @"600x300";
   [self defaultStyles];
   [self defaultCache];
   [self configureParse:launchOptions];
+  [self configureMixPanel];
 
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -52,6 +52,15 @@ static NSString *kPlaceholderImageSize = @"600x300";
   [self.window makeKeyAndVisible];
 
   return YES;
+}
+
+- (void)configureMixPanel {
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+  [Mixpanel sharedInstanceWithToken:[keys objectForKey:@"MIXPANEL_TOKEN"]];
+
+  Mixpanel *mixpanel = [Mixpanel sharedInstance];
 }
 
 - (void)configureParse:(NSDictionary *)launchOptions {

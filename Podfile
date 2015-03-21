@@ -9,3 +9,4 @@ pod 'ZFDragableModalTransition', :git => 'git@github.com:MikeSilvis/ZFDragableMo
 pod 'Underscore.m'
 pod 'SDWebImage'
 pod 'MPGNotification', :git => 'git@github.com:MikeSilvis/MPGNotification.git'
+pod 'Mixpanel'
