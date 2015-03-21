@@ -59,8 +59,6 @@ static NSString *kPlaceholderImageSize = @"600x300";
   NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 
   [Mixpanel sharedInstanceWithToken:[keys objectForKey:@"MIXPANEL_TOKEN"]];
-
-  Mixpanel *mixpanel = [Mixpanel sharedInstance];
 }
 
 - (void)configureParse:(NSDictionary *)launchOptions {
