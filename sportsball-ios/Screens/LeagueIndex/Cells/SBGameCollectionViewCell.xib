@@ -23,8 +23,17 @@
                             <constraint firstAttribute="width" constant="20" id="MaQ-Uy-iR3"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTc-HX-4Wr" userLabel="homeTeamRank">
+                        <rect key="frame" x="44" y="11" width="5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="5fY-gq-OWq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xek-d8-sX4" userLabel="homeTeamName">
-                        <rect key="frame" x="44" y="8" width="76" height="20"/>
+                        <rect key="frame" x="54" y="8" width="76" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="254" id="j43-c1-Wha"/>
                             <constraint firstAttribute="height" constant="20" id="oR6-7w-mcz"/>
@@ -39,7 +48,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(6-1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-Kx-tTH" userLabel="homeTeamRecord">
-                        <rect key="frame" x="125" y="11" width="21" height="14"/>
+                        <rect key="frame" x="135" y="11" width="20.5" height="14"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -51,8 +60,17 @@
                             <constraint firstAttribute="width" constant="20" id="fnW-e0-Z9m"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-Q5-QqI" userLabel="awayTeamRank">
+                        <rect key="frame" x="44" y="36" width="5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="Nck-iE-Xq1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0a-bd-CvG" userLabel="awayTeamName">
-                        <rect key="frame" x="44" y="33" width="72" height="20"/>
+                        <rect key="frame" x="54" y="33" width="72" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="570-AF-ewx"/>
                             <constraint firstAttribute="width" constant="254" id="Cp1-fY-Zsv"/>
@@ -69,7 +87,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3-4)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-1v-9An" userLabel="awayTeamRecord">
-                        <rect key="frame" x="121" y="36" width="21" height="14"/>
+                        <rect key="frame" x="131" y="36" width="20.5" height="14"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="10"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -102,7 +120,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4O-uBF">
-                        <rect key="frame" x="336" y="34" width="250" height="17"/>
+                        <rect key="frame" x="336" y="34" width="250" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -116,6 +134,7 @@
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="0ZD-8V-p23"/>
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="leading" secondItem="lOU-h5-Low" secondAttribute="leading" id="1ug-xP-6gF"/>
                 <constraint firstItem="p9q-4O-uBF" firstAttribute="trailing" secondItem="mfr-Vx-bUF" secondAttribute="trailing" id="2XA-Us-lOs"/>
+                <constraint firstItem="Ra7-Q5-QqI" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="trailing" constant="16" id="4Wl-KS-dmg"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="leading" secondItem="feT-TY-olg" secondAttribute="leadingMargin" id="5HP-FQ-wQL"/>
                 <constraint firstItem="fLs-Ab-F21" firstAttribute="top" secondItem="m0a-bd-CvG" secondAttribute="top" id="6VP-qc-Ld1"/>
                 <constraint firstItem="lOU-h5-Low" firstAttribute="centerY" secondItem="wa5-v5-2r9" secondAttribute="centerY" constant="25" id="AaM-0m-bwa"/>
@@ -123,11 +142,12 @@
                 <constraint firstItem="fLs-Ab-F21" firstAttribute="bottom" secondItem="sU5-Mi-yFz" secondAttribute="bottom" id="Ebj-FA-1rq"/>
                 <constraint firstItem="fLs-Ab-F21" firstAttribute="bottom" secondItem="m0a-bd-CvG" secondAttribute="bottom" id="GYJ-Mt-55Y"/>
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="top" secondItem="wa5-v5-2r9" secondAttribute="top" id="I1f-FC-abg"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Ra7-Q5-QqI" secondAttribute="centerY" id="Ici-lM-8yP"/>
                 <constraint firstItem="p9q-4O-uBF" firstAttribute="baseline" secondItem="Qfa-1v-9An" secondAttribute="baseline" id="Idi-ax-Z7n"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="centerY" secondItem="Qfa-1v-9An" secondAttribute="centerY" id="KjE-j3-Q2J"/>
                 <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="1" id="LQI-zm-1eh"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="trailing" secondItem="xek-d8-sX4" secondAttribute="trailing" id="LXq-tx-hw4"/>
-                <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="16" id="Lvd-FY-d2P"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="24" id="Lvd-FY-d2P"/>
                 <constraint firstItem="xek-d8-sX4" firstAttribute="centerY" secondItem="Khl-Kx-tTH" secondAttribute="centerY" id="MFS-IY-Avx"/>
                 <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="iAN-Nf-OiC" secondAttribute="trailing" id="MYv-II-jVO"/>
                 <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" id="MZe-Qe-Ikg"/>
@@ -144,19 +164,23 @@
                 <constraint firstItem="lOU-h5-Low" firstAttribute="leading" secondItem="fLs-Ab-F21" secondAttribute="trailing" constant="1" id="XhF-8S-8FT"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="18" id="Z0e-7q-kGl"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="top" secondItem="xek-d8-sX4" secondAttribute="top" id="ZU6-Ih-zRw"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="Ra7-Q5-QqI" secondAttribute="trailing" constant="5" id="ZdO-WW-Mtv"/>
+                <constraint firstItem="xek-d8-sX4" firstAttribute="leading" secondItem="GTc-HX-4Wr" secondAttribute="trailing" constant="5" id="Zia-Y9-dUL"/>
                 <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="leading" id="d53-Yb-L7O"/>
                 <constraint firstAttribute="centerY" secondItem="mfr-Vx-bUF" secondAttribute="centerY" constant="0.5" id="dWl-vk-vUA"/>
+                <constraint firstItem="GTc-HX-4Wr" firstAttribute="centerY" secondItem="xek-d8-sX4" secondAttribute="centerY" id="i2O-NI-a36"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="6" id="ilA-t8-8a6"/>
                 <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="32" id="jAZ-Tc-eDU"/>
                 <constraint firstItem="Qfa-1v-9An" firstAttribute="leading" secondItem="m0a-bd-CvG" secondAttribute="trailing" constant="5" id="jMX-Qt-jui"/>
                 <constraint firstItem="wa5-v5-2r9" firstAttribute="baseline" secondItem="mfr-Vx-bUF" secondAttribute="firstBaseline" constant="4" id="kbV-8A-ytH"/>
                 <constraint firstItem="Khl-Kx-tTH" firstAttribute="leading" secondItem="xek-d8-sX4" secondAttribute="trailing" id="koa-BT-mXr"/>
                 <constraint firstItem="lOU-h5-Low" firstAttribute="centerY" secondItem="fLs-Ab-F21" secondAttribute="centerY" id="l0F-ag-A8n"/>
+                <constraint firstItem="GTc-HX-4Wr" firstAttribute="leading" secondItem="ksP-5B-CeT" secondAttribute="trailing" constant="16" id="l19-mf-vby"/>
                 <constraint firstAttribute="trailingMargin" secondItem="mfr-Vx-bUF" secondAttribute="trailing" constant="2" id="oHV-mO-H7I"/>
                 <constraint firstItem="fLs-Ab-F21" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="leading" id="tAK-Uu-5pR"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="xek-d8-sX4" secondAttribute="bottom" id="tk0-Cn-mov"/>
                 <constraint firstItem="mfr-Vx-bUF" firstAttribute="leading" secondItem="lOU-h5-Low" secondAttribute="trailing" constant="12" id="u2Q-ij-cuP"/>
-                <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="trailing" constant="16" id="uBx-T4-xag"/>
+                <constraint firstItem="m0a-bd-CvG" firstAttribute="leading" secondItem="sU5-Mi-yFz" secondAttribute="trailing" constant="24" id="uBx-T4-xag"/>
                 <constraint firstItem="iAN-Nf-OiC" firstAttribute="leading" secondItem="wa5-v5-2r9" secondAttribute="trailing" constant="1" id="ufU-qa-fRG"/>
                 <constraint firstItem="sU5-Mi-yFz" firstAttribute="top" secondItem="ksP-5B-CeT" secondAttribute="bottom" constant="5" id="vNW-ir-4mh"/>
                 <constraint firstItem="ksP-5B-CeT" firstAttribute="bottom" secondItem="wa5-v5-2r9" secondAttribute="bottom" id="vz0-el-x16"/>
@@ -170,15 +194,17 @@
             <size key="customSize" width="600" height="60"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="Lvd-FY-d2P"/>
                     <exclude reference="MFS-IY-Avx"/>
                     <exclude reference="xcg-7Y-4q8"/>
                     <exclude reference="KjE-j3-Q2J"/>
                     <exclude reference="LXq-tx-hw4"/>
                     <exclude reference="d53-Yb-L7O"/>
-                    <exclude reference="Bdk-WT-6k5"/>
-                    <exclude reference="koa-BT-mXr"/>
+                    <exclude reference="uBx-T4-xag"/>
                     <exclude reference="MZe-Qe-Ikg"/>
                     <exclude reference="Tgh-qi-w72"/>
+                    <exclude reference="Bdk-WT-6k5"/>
+                    <exclude reference="koa-BT-mXr"/>
                     <exclude reference="6VP-qc-Ld1"/>
                     <exclude reference="GYJ-Mt-55Y"/>
                     <exclude reference="RuN-6K-cVq"/>
@@ -192,11 +218,13 @@
             <connections>
                 <outlet property="awayTeamLogo" destination="sU5-Mi-yFz" id="e7s-TO-5OK"/>
                 <outlet property="awayTeamName" destination="m0a-bd-CvG" id="wZs-pk-Vqr"/>
+                <outlet property="awayTeamRank" destination="Ra7-Q5-QqI" id="FZq-rk-Ar7"/>
                 <outlet property="awayTeamRecord" destination="Qfa-1v-9An" id="34D-uq-Xme"/>
                 <outlet property="awayTeamScore" destination="fLs-Ab-F21" id="f16-or-aBK"/>
                 <outlet property="awayTeamWinner" destination="lOU-h5-Low" id="QSE-Bi-XfU"/>
                 <outlet property="homeTeamLogo" destination="ksP-5B-CeT" id="3wZ-Ij-IWV"/>
                 <outlet property="homeTeamName" destination="xek-d8-sX4" id="acR-Uo-qDu"/>
+                <outlet property="homeTeamRank" destination="GTc-HX-4Wr" id="C9o-h3-kaF"/>
                 <outlet property="homeTeamRecord" destination="Khl-Kx-tTH" id="ceH-r3-dmz"/>
                 <outlet property="homeTeamScore" destination="wa5-v5-2r9" id="cak-TT-Nvj"/>
                 <outlet property="homeTeamWinner" destination="iAN-Nf-OiC" id="9mQ-a5-mwv"/>

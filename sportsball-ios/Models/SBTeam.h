@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *dataName;
 @property (nonatomic, strong) NSString *leagueName;
 @property (nonatomic, strong) NSString *abbr;
+@property (nonatomic, strong) NSString *rank;
 @property (nonatomic, strong) NSArray *stats;
 @property BOOL isAway;
 

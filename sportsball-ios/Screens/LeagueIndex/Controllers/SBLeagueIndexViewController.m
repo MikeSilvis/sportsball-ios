@@ -47,7 +47,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                    name:kNotificationHideEvent object:nil];
 
   [self openAtLastSelectedIndex];
-
 }
 
 - (void)hideMenuIems:(NSNotification *)notification {

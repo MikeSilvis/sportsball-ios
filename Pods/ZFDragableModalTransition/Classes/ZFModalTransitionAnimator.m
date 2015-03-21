@@ -456,25 +456,28 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
-      return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
+    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
+      if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
+        return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
+      }
+
+      return YES;
     }
 
-    if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
-        return YES;
-    }
     return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
-      return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
-    }
 
     if ([self isCurrentDirection:ZFModalTransitonDirectionBottom] || [self isCurrentDirection:ZFModalTransitonDirectionTop]) {
-        return YES;
+      if ([self askControllerForShouldRecieveDrag:gestureRecognizer]) {
+        return [[self askControllerForShouldRecieveDrag:gestureRecognizer] boolValue];
+      }
+
+      return YES;
     }
+  
     return NO;
 }
 
