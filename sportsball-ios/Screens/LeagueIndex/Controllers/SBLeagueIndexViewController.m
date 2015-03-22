@@ -62,6 +62,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.tabBar.backgroundColor = [UIColor clearColor];
   [self.tabBar setBackgroundImage:[UIImage new]];
   [self.tabBar setSelectedItem:[self.tabBar.items firstObject]];
+  self.tabBar.hidden = YES;
 }
 
 - (void)buildPaginalControl {
