@@ -55,8 +55,6 @@ static CGFloat const kDatePickerSize = 50;
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
   self.isActive = NO;
-
-  [self setUpPusher];
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -89,6 +87,7 @@ static CGFloat const kDatePickerSize = 50;
 - (void)startTimer {
   if (!self.isActive) {
     self.isActive = YES;
+    [self setUpPusher];
     [self.client connect];
     [self connectToChannel];
     [self findGames];
@@ -108,7 +107,11 @@ static CGFloat const kDatePickerSize = 50;
     return;
   }
 
-  NSString *channelName = [NSString stringWithFormat:@"scores_%@_%@", self.league.name, [self channelCurrentDateString]];
+  if (![[self dateWithoutTime:self.currentDate] isEqualToDate:[self dateWithoutTime:[NSDate date]]]) {
+    return;
+  }
+
+  NSString *channelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
   self.channel = [self.client subscribeToChannelNamed:channelName];
 
   [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
@@ -116,11 +119,12 @@ static CGFloat const kDatePickerSize = 50;
   }];
 }
 
-- (NSString *)channelCurrentDateString {
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat:@"yyyy-MM-dd"];
+- (NSDate *)dateWithoutTime:(NSDate *)date {
+  unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+  NSCalendar *calendar = [NSCalendar currentCalendar];
+  NSDateComponents *components = [calendar components:flags fromDate:date];
 
-  return [formatter stringFromDate:self.currentDate];
+  return [calendar dateFromComponents:components];
 }
 
 - (void)findGames {
