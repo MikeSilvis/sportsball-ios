@@ -16,6 +16,13 @@
 #import "SBTeamStatsTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MPGNotification/MPGNotification.h>
+#import <Pusher/Pusher.h>
+
+@interface SBBoxscoreViewController () <PTPusherDelegate>
+
+@property (nonatomic, strong) PTPusher *client;
+
+@end
 
 @implementation SBBoxscoreViewController
 
@@ -60,6 +67,28 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
 
   self.loadingIndicator.hidden = YES;
+
+  [self setUpPusher];
+}
+
+- (void)setUpPusher {
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client.reconnectDelay = 3.0;
+  [self.client connect];
+}
+
+- (void)connectToChannel {
+  NSString *channelName = [NSString stringWithFormat:@"boxscore_%@_%@", self.game.leagueName, self.game.boxscoreId];
+  PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
+
+  [channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
+    self.game          = [[SBGame alloc] initWithJson:channelEvent.data[@"game"]];
+    self.game.boxscore = [[SBBoxscore alloc] initWithJson:channelEvent.data[@"boxscore"]];
+    [self.tableView reloadData];
+  }];
 }
 
 - (void)closeModal {
@@ -75,6 +104,13 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 
   [self setHeaderInfo];
+  [self.client connect];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+
+  [self.client disconnect];
 }
 
 - (void)findBoxscore {
@@ -101,6 +137,8 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [super setGame:game];
 
   [self.tableView reloadData];
+
+  [self connectToChannel];
 
   [self setHeaderInfo];
 }

@@ -25,6 +25,10 @@ PODS:
   - FontAwesomeKit/Core (2.2.0)
   - FontAwesomeKit/FontAwesome (2.2.0):
     - FontAwesomeKit/Core
+  - libPusher (1.6):
+    - libPusher/Core (= 1.6)
+  - libPusher/Core (1.6):
+    - SocketRocket (= 0.3.1-beta2)
   - Mixpanel (2.7.2):
     - Mixpanel/MPCategoryHelpers (= 2.7.2)
   - Mixpanel/MPCategoryHelpers (2.7.2)
@@ -32,6 +36,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
+  - SocketRocket (0.3.1-beta2)
   - Underscore.m (0.2.1)
   - XHRealTimeBlur (1.4)
   - ZFDragableModalTransition (0.4)
@@ -41,6 +46,7 @@ DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
+  - libPusher (~> 1.6)
   - Mixpanel
   - MPGNotification (from `git@github.com:MikeSilvis/MPGNotification.git`)
   - SDWebImage
@@ -68,9 +74,11 @@ SPEC CHECKSUMS:
   CSStickyHeaderFlowLayout: c5595da1cf91cce22aca70c44ab80b59247c723c
   EDColor: bcdb8600b7a456f4408ce1d7e7fc001588919254
   FontAwesomeKit: 61f0b4f12f1b11b7489bc7d1507a8692547f3857
+  libPusher: e74dc1751de4e70481e5ec6d327b06baf9db487e
   Mixpanel: def38b9e600f101686b8d647e05660a72c089c65
   MPGNotification: 86a3a3a4902bc4388ae0daa78fcde6545bcc47dd
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
   XHRealTimeBlur: a917ee391b10b9120f5bbd69b6a13d5f211479b0
   ZFDragableModalTransition: ffea05be2dc0a8a8fd50a549e79ea9778cedc259

@@ -77,12 +77,14 @@ static CGFloat const kDatePickerSize = 50;
 - (void)cancelTimer {
   [self.scorePuller invalidate];
   self.scorePuller = nil;
+  [self.client disconnect];
 }
 
 - (void)startTimer {
   if (!self.scorePuller) {
     [self findGames];
     self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
+
   }
 }
 
@@ -212,6 +214,28 @@ static CGFloat const kDatePickerSize = 50;
   }
 
   return nil;
+}
+
+#pragma mark - Pusher
+
+- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel {
+  NSLog(@"Here - didSubscribeToChannel");
+}
+
+- (void)pusher:(PTPusher *)pusher didUnsubscribeFromChannel:(PTPusherChannel *)channel {
+  NSLog(@"Here - didUnsubscribeFromChannel");
+}
+
+- (void)pusher:(PTPusher *)pusher didFailToSubscribeToChannel:(PTPusherChannel *)channel withError:(NSError *)error {
+  NSLog(@"Here - didFailToSubscribeToChannel");
+}
+
+- (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection {
+  NSLog(@"Here - connectionDidConnect");
+}
+
+- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection failedWithError:(NSError *)error {
+  NSLog(@"Here - failedWithError");
 }
 
 @end

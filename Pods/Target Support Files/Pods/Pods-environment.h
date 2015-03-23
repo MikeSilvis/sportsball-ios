@@ -102,6 +102,12 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// SocketRocket
+#define COCOAPODS_POD_AVAILABLE_SocketRocket
+#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
+#define COCOAPODS_VERSION_MINOR_SocketRocket 3
+#define COCOAPODS_VERSION_PATCH_SocketRocket 1
+
 // Underscore.m
 #define COCOAPODS_POD_AVAILABLE_Underscore_m
 #define COCOAPODS_VERSION_MAJOR_Underscore_m 0
@@ -119,4 +125,16 @@
 #define COCOAPODS_VERSION_MAJOR_ZFDragableModalTransition 0
 #define COCOAPODS_VERSION_MINOR_ZFDragableModalTransition 4
 #define COCOAPODS_VERSION_PATCH_ZFDragableModalTransition 0
+
+// libPusher
+#define COCOAPODS_POD_AVAILABLE_libPusher
+#define COCOAPODS_VERSION_MAJOR_libPusher 1
+#define COCOAPODS_VERSION_MINOR_libPusher 6
+#define COCOAPODS_VERSION_PATCH_libPusher 0
+
+// libPusher/Core
+#define COCOAPODS_POD_AVAILABLE_libPusher_Core
+#define COCOAPODS_VERSION_MAJOR_libPusher_Core 1
+#define COCOAPODS_VERSION_MINOR_libPusher_Core 6
+#define COCOAPODS_VERSION_PATCH_libPusher_Core 0
 
