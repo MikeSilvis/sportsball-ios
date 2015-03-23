@@ -79,16 +79,15 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)cancelTimer {
+  [self.channel unsubscribe];
   [self.client disconnect];
   self.isActive = NO;
-  [self.channel unsubscribe];
 }
 
 - (void)startTimer {
   if (!self.isActive) {
     self.isActive = YES;
     [self setUpPusher];
-    [self.client connect];
     [self connectToChannel];
     [self findGames];
   }
@@ -100,6 +99,7 @@ static CGFloat const kDatePickerSize = 50;
 
   self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
   self.client.reconnectDelay = 3.0;
+  [self.client connect];
 }
 
 - (void)connectToChannel {

@@ -21,6 +21,7 @@
 @interface SBBoxscoreViewController () <PTPusherDelegate>
 
 @property (nonatomic, strong) PTPusher *client;
+@property (nonatomic, strong) PTPusherChannel *channel;
 
 @end
 
@@ -67,28 +68,6 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
 
   self.loadingIndicator.hidden = YES;
-
-  [self setUpPusher];
-}
-
-- (void)setUpPusher {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
-  self.client.reconnectDelay = 3.0;
-  [self.client connect];
-}
-
-- (void)connectToChannel {
-  NSString *channelName = [NSString stringWithFormat:@"boxscore_%@_%@", self.game.leagueName, self.game.boxscoreId];
-  PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
-
-  [channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
-    self.game          = [[SBGame alloc] initWithJson:channelEvent.data[@"game"]];
-    self.game.boxscore = [[SBBoxscore alloc] initWithJson:channelEvent.data[@"boxscore"]];
-    [self.tableView reloadData];
-  }];
 }
 
 - (void)closeModal {
@@ -104,12 +83,12 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 
   [self setHeaderInfo];
-  [self.client connect];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
 
+  [self.channel unsubscribe];
   [self.client disconnect];
 }
 
@@ -138,9 +117,36 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
   [self.tableView reloadData];
 
-  [self connectToChannel];
+  if (self.game.isInProgress) {
+    [self setUpPusher];
+    [self connectToChannel];
+  }
 
   [self setHeaderInfo];
+}
+
+- (void)setUpPusher {
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client.reconnectDelay = 3.0;
+  [self.client connect];
+}
+
+- (void)connectToChannel {
+  if (!self.game.boxscoreId) {
+    return;
+  }
+
+  NSString *channelName = [NSString stringWithFormat:@"boxscore_%@_%@", self.game.leagueName, self.game.boxscoreId];
+  self.channel = [self.client subscribeToChannelNamed:channelName];
+
+  [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
+    self.game          = [[SBGame alloc] initWithJson:channelEvent.data[@"game"]];
+    self.game.boxscore = [[SBBoxscore alloc] initWithJson:channelEvent.data[@"boxscore"]];
+    [self.tableView reloadData];
+  }];
 }
 
 - (void)setHeaderInfo {
@@ -258,6 +264,10 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 
   return YES;
+}
+
+- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel {
+  NSLog(@"SUBSCIRBE");
 }
 
 
