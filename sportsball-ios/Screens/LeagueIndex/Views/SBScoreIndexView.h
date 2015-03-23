@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) PTPusher *client;
+@property (nonatomic, strong) NSArray *games;
 
 - (void)findGames;
 - (void)cancelTimer;

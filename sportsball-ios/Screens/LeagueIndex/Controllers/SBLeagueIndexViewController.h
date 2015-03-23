@@ -13,8 +13,9 @@
 #import "SBViewController.h"
 #import "SBTabBarView.h"
 #import "SBLeagueIndexHeader.h"
+#import <Pusher.h>
 
-@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBTabBarDelegate, SportsBallModalDelegate, UITabBarDelegate>
+@interface SBLeagueIndexViewController : SBViewController <APPaginalTableViewDataSource, APPaginalTableViewDelegate, SBTabBarDelegate, SportsBallModalDelegate, UITabBarDelegate, PTPusherDelegate>
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
@@ -27,6 +28,7 @@
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, strong) NSMutableArray *leagueTabViews;
 @property BOOL isNotificationOpen;
+@property (nonatomic, strong) PTPusher *client;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 - (IBAction)didRequestClose:(id)sender;

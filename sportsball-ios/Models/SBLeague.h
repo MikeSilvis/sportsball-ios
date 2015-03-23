@@ -35,6 +35,8 @@
                 success:(void (^) (NSArray *games))success
                 failure:(void (^) (NSError *error))failure;
 
+- (NSArray *)parseJSONScores:(id)json;
+
 - (void)getStanding:(void (^) (SBStanding *standing))success
                 failure:(void (^) (NSError *error))failure;
 

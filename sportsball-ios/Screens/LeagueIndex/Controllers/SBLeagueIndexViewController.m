@@ -47,6 +47,15 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                    name:kNotificationHideEvent object:nil];
 
   [self openAtLastSelectedIndex];
+  [self setUpPusher];
+}
+
+- (void)setUpPusher {
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client.reconnectDelay = 3.0;
 }
 
 - (void)hideMenuIems:(NSNotification *)notification {
@@ -136,12 +145,14 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 
+  [self.client connect];
   [self startTimer];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
 
+  [self.client disconnect];
   [self cancelTimer];
 }
 

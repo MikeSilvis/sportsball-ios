@@ -13,9 +13,8 @@
 
 @interface SBScoreIndexView ()
 
-@property (nonatomic, strong) NSTimer *scorePuller;
 @property (nonatomic, strong) NSDate *currentDate;
-@property (nonatomic, strong) NSArray *games;
+@property bool isActive;
 
 @end
 
@@ -51,6 +50,7 @@ static CGFloat const kDatePickerSize = 50;
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
+  self.isActive = NO;
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -61,7 +61,7 @@ static CGFloat const kDatePickerSize = 50;
   NSDate *previouslySelectedDate = self.currentDate;
   _currentDate = currentDate;
 
-  if (!self.scorePuller) {
+  if (!self.isActive) {
     return;
   }
 
@@ -75,17 +75,25 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)cancelTimer {
-  [self.scorePuller invalidate];
-  self.scorePuller = nil;
   [self.client disconnect];
+  self.isActive = NO;
 }
 
 - (void)startTimer {
-  if (!self.scorePuller) {
+  if (!self.isActive) {
+    self.isActive = YES;
     [self findGames];
-    self.scorePuller = [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(findGames) userInfo:nil repeats:YES];
-
+//    [self connectToChannel];
   }
+}
+
+- (void)connectToChannel {
+  NSString *channelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
+  PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
+
+  [channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
+    self.games =  [self.league parseJSONScores:channelEvent.data];
+  }];
 }
 
 - (void)findGames {

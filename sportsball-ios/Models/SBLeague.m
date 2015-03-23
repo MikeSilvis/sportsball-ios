@@ -107,20 +107,23 @@
   NSString *path = [NSString stringWithFormat:@"leagues/%@/scores", self.name];
 
   [self dispatchRequest:path parameters:params success:^(id responseObject) {
-
-    NSMutableArray *games = [NSMutableArray array];
-
-    for (id score in responseObject[@"scores"]) {
-      SBGame *newGame = [[SBGame alloc] initWithJson:score];
-      [games addObject:newGame];
-    }
-
-    success([NSArray arrayWithArray:games]);
+    success([self parseJSONScores:responseObject]);
   } failure:^(NSError *error) {
     if (failure) {
       failure(error);
     }
   }];
+}
+
+- (NSArray *)parseJSONScores:(id)json {
+  NSMutableArray *games = [NSMutableArray array];
+
+  for (id score in json[@"scores"]) {
+    SBGame *newGame = [[SBGame alloc] initWithJson:score];
+    [games addObject:newGame];
+  }
+
+  return [NSArray arrayWithArray:games];
 }
 
 - (void)getStanding:(void (^) (SBStanding *standings))success
