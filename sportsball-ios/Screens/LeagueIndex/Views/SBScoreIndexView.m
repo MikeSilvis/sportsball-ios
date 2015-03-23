@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSDate *currentDate;
 @property (nonatomic, strong) PTPusher *client;
 @property (nonatomic, weak) PTPusherChannel *channel;
+@property (nonatomic, strong) NSArray *games;
 @property bool isActive;
 
 @end

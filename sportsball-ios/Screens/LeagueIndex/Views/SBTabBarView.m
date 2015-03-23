@@ -46,9 +46,6 @@
   self.standingsView.league = self.league;
 }
 
-- (void)connectToChannel {
-}
-
 - (void)selectedTab:(NSString *)selectedItemText {
   if ([selectedItemText isEqualToString:@"Scores"]) {
     self.standingsView.hidden = YES;

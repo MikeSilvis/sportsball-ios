@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) SBLeague *league;
-@property (nonatomic, strong) NSArray *games;
 
 - (void)findGames;
 - (void)cancelTimer;
