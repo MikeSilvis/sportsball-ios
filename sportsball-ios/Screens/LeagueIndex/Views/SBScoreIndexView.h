@@ -12,15 +12,13 @@
 #import "SBGame.h"
 #import "SBLeagueHeader.h"
 #import "SBDatePickerCollectionViewCell.h"
-#import <Pusher.h>
 
-@interface SBScoreIndexView : SBLeagueIndexView <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate, PTPusherDelegate>
+@interface SBScoreIndexView : SBLeagueIndexView <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) SBLeague *league;
-@property (nonatomic, strong) PTPusher *client;
 @property (nonatomic, strong) NSArray *games;
 
 - (void)findGames;

@@ -10,10 +10,13 @@
 #import "SBGameCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBUser.h"
+#import <Pusher.h>
 
-@interface SBScoreIndexView ()
+@interface SBScoreIndexView () <PTPusherDelegate>
 
 @property (nonatomic, strong) NSDate *currentDate;
+@property (nonatomic, strong) PTPusher *client;
+@property (nonatomic, weak) PTPusherChannel *channel;
 @property bool isActive;
 
 @end
@@ -51,6 +54,8 @@ static CGFloat const kDatePickerSize = 50;
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
   self.isActive = NO;
+
+  [self setUpPusher];
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -77,23 +82,44 @@ static CGFloat const kDatePickerSize = 50;
 - (void)cancelTimer {
   [self.client disconnect];
   self.isActive = NO;
+  [self.channel unsubscribe];
 }
 
 - (void)startTimer {
   if (!self.isActive) {
     self.isActive = YES;
+    [self.client connect];
+    [self connectToChannel];
     [self findGames];
-//    [self connectToChannel];
   }
 }
 
-- (void)connectToChannel {
-  NSString *channelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
-  PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
+- (void)setUpPusher {
+  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
+  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 
-  [channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
-    self.games =  [self.league parseJSONScores:channelEvent.data];
+  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client.reconnectDelay = 3.0;
+}
+
+- (void)connectToChannel {
+  if (!self.currentDate) {
+    return;
+  }
+
+  NSString *channelName = [NSString stringWithFormat:@"scores_%@_%@", self.league.name, [self channelCurrentDateString]];
+  self.channel = [self.client subscribeToChannelNamed:channelName];
+
+  [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
+    self.games = [self.league parseJSONScores:channelEvent.data];
   }];
+}
+
+- (NSString *)channelCurrentDateString {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"yyyy-MM-dd"];
+
+  return [formatter stringFromDate:self.currentDate];
 }
 
 - (void)findGames {
@@ -222,28 +248,6 @@ static CGFloat const kDatePickerSize = 50;
   }
 
   return nil;
-}
-
-#pragma mark - Pusher
-
-- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel {
-  NSLog(@"Here - didSubscribeToChannel");
-}
-
-- (void)pusher:(PTPusher *)pusher didUnsubscribeFromChannel:(PTPusherChannel *)channel {
-  NSLog(@"Here - didUnsubscribeFromChannel");
-}
-
-- (void)pusher:(PTPusher *)pusher didFailToSubscribeToChannel:(PTPusherChannel *)channel withError:(NSError *)error {
-  NSLog(@"Here - didFailToSubscribeToChannel");
-}
-
-- (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection {
-  NSLog(@"Here - connectionDidConnect");
-}
-
-- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection failedWithError:(NSError *)error {
-  NSLog(@"Here - failedWithError");
 }
 
 @end
