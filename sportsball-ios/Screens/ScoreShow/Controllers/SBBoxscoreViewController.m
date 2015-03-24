@@ -266,9 +266,4 @@ static const NSInteger kScoreDataViewLocation    = 4;
   return YES;
 }
 
-- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel {
-  NSLog(@"SUBSCIRBE");
-}
-
-
 @end

@@ -111,8 +111,8 @@ static CGFloat const kDatePickerSize = 50;
     return;
   }
 
-  NSString *channelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
-  self.channel = [self.client subscribeToChannelNamed:channelName];
+  NSString *channnelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
+  self.channel = [self.client subscribeToChannelNamed:channnelName];
 
   [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
     self.games = [self.league parseJSONScores:channelEvent.data];
