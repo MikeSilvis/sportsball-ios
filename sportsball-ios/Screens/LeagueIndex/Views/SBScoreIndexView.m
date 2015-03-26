@@ -18,6 +18,8 @@
 @property (nonatomic, strong) PTPusher *client;
 @property (nonatomic, weak) PTPusherChannel *channel;
 @property (nonatomic, strong) NSArray *games;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (nonatomic, strong) SBGame *selectedGame;
 @property bool isActive;
 
 @end
@@ -71,6 +73,7 @@ static CGFloat const kDatePickerSize = 50;
 
   if (![previouslySelectedDate isEqualToDate:currentDate]) {
     dispatch_async(dispatch_get_main_queue(), ^{
+      _games = @[];
       self.games = @[];
       [self cancelTimer];
       [self startTimer];
@@ -142,6 +145,7 @@ static CGFloat const kDatePickerSize = 50;
     if (self.games.count == 0) {
       self.activityIndicator.hidden = YES;
     }
+
   } failure:^(NSError *error) {
     [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
@@ -150,8 +154,9 @@ static CGFloat const kDatePickerSize = 50;
 
 - (void)setGames:(NSArray *)games {
   NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
+  NSArray *sortedGames = [NSArray array];
 
-  games = [tempGames sortedArrayUsingComparator:^NSComparisonResult(SBGame *game1, SBGame *game2) {
+  sortedGames = [tempGames sortedArrayUsingComparator:^NSComparisonResult(SBGame *game1, SBGame *game2) {
     int game1Score = [game1 favoriteScore];
     int game2Score = [game2 favoriteScore];
 
@@ -166,11 +171,51 @@ static CGFloat const kDatePickerSize = 50;
     }
   }];
 
-  _games = games;
+  if ([self.games count] == 0) {
+    _games = sortedGames;
+  }
+
+  NSInteger updatedSelectedItemPath = -1;
+  SBGame *updatedGame = nil;
+
+  if (self.selectedGame) {
+    for (int i = 0; i < sortedGames.count; i++) {
+      SBGame *game = sortedGames[i];
+
+      if ([game.awayTeam.name isEqualToString:self.selectedGame.awayTeam.name]) {
+        updatedSelectedItemPath = i;
+        updatedGame = game;
+        break;
+      }
+    }
+  }
 
   [self showFavoriteNotification];
 
   [self.collectionView reloadData];
+
+  if ((self.selectedIndexPath) && (self.selectedIndexPath.row != updatedSelectedItemPath)) {
+    [self performSelector:@selector(moveToCorrectPosition:)
+               withObject:@[
+                            self.selectedIndexPath,
+                            [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
+                           ]
+               afterDelay:0.5];
+  }
+}
+
+- (void)moveToCorrectPosition:(NSArray *)paths {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
+
+    self.selectedIndexPath = nil;
+    self.selectedGame = nil;
+
+    // Erase current games and reorder them
+    NSArray *currentGames = self.games;
+    _games = nil;
+    self.games = currentGames;
+  });
 }
 
 - (void)showFavoriteNotification {
@@ -200,9 +245,10 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  SBGame *selectedGame = self.games[indexPath.row];
+  self.selectedGame = self.games[indexPath.row];
 
-  [self.delegate selectedGame:selectedGame];
+  [self.delegate selectedGame:self.selectedGame];
+  self.selectedIndexPath = indexPath;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -221,6 +267,7 @@ static CGFloat const kDatePickerSize = 50;
   self.activityIndicator.hidden = YES;
 
   SBGame *currentGame = self.games[indexPath.row];
+
   SBGameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGameViewCell forIndexPath:indexPath];
   cell.currentGame = currentGame;
 
