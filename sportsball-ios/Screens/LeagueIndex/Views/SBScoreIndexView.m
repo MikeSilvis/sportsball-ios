@@ -171,10 +171,6 @@ static CGFloat const kDatePickerSize = 50;
     }
   }];
 
-  if ([self.games count] == 0) {
-    _games = sortedGames;
-  }
-
   NSInteger updatedSelectedItemPath = -1;
   SBGame *updatedGame = nil;
 
@@ -188,6 +184,10 @@ static CGFloat const kDatePickerSize = 50;
         break;
       }
     }
+  }
+
+  if (([self.games count] == 0) || (!self.selectedGame)) {
+    _games = sortedGames;
   }
 
   [self showFavoriteNotification];
@@ -206,7 +206,9 @@ static CGFloat const kDatePickerSize = 50;
 
 - (void)moveToCorrectPosition:(NSArray *)paths {
   dispatch_async(dispatch_get_main_queue(), ^{
-    [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
+    if ([self.games count] > 0) {
+      [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
+    }
 
     self.selectedIndexPath = nil;
     self.selectedGame = nil;
