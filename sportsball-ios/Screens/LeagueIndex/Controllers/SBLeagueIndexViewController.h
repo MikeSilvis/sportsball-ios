@@ -9,7 +9,6 @@
 #import "ZFModalTransitionAnimator.h"
 #import "SBModalViewController.h"
 #import "SBViewController.h"
-#import "SBTabBarView.h"
 
 @interface SBLeagueIndexViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate>
 
