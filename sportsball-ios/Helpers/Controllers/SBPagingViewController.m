@@ -18,14 +18,10 @@
 
 @implementation SBPagingViewController
 
-static NSString * const kStandingsViewCell = @"standingsViewCell";
-
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // Cells
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBStandingsViewCell" bundle:nil]
-        forCellWithReuseIdentifier:kStandingsViewCell];
+  [self.delegate defineCells:self.collectionView];
 
   self.collectionView.backgroundColor = [UIColor clearColor];
   self.collectionView.showsHorizontalScrollIndicator = NO;
@@ -38,6 +34,12 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   [super viewDidAppear:animated];
 
   self.leagues = [SBUser currentUser].leagues;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+
+  [self.collectionView.visibleCells firstObject];
 }
 
 - (void)buildHamburgerButton {
@@ -66,6 +68,8 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 - (void)viewDidLayoutSubviews {
   [super viewDidLayoutSubviews];
 
+  [self.delegate cellDidAppear:[self.collectionView.visibleCells firstObject]];
+
   if (self.pageControl.currentPage > 0) {
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.pageControl.currentPage inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
@@ -80,10 +84,7 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  SBStandingsViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kStandingsViewCell forIndexPath:indexPath];
-  cell.league = self.leagues[indexPath.row];
-
-  return cell;
+  return [self.delegate collectionView:collectionView cellForItemAtIndexPath:indexPath];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,6 +99,7 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   self.pageControl.currentPage = scrollView.contentOffset.x / self.collectionView.frame.size.width;
 
   [SBUser currentUser].lastOpenedLeagueIndex = @(self.pageControl.currentPage);
+  [self.delegate cellDidAppear:[self.collectionView.visibleCells firstObject]];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -109,7 +111,7 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 }
 
 - (IBAction)hamburgerClicked:(id)sender {
-//  [self cancelTimer];
+  [self.delegate cellDidDisappear:[self.collectionView.visibleCells firstObject]];
 
   [SBUser currentUser].lastOpenedLeagueIndex = @(-1);
   
