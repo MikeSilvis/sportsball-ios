@@ -108,7 +108,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Standings" image="standings" id="cg4-Kv-dlg"/>
+                    <tabBarItem key="tabBarItem" title="Standings" image="standings" id="cg4-Kv-dlg">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +152,11 @@
                             <constraint firstItem="BUX-fl-5MC" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="mUg-hP-c2j"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scores" image="scores" id="4Tv-c8-h1Z"/>
+                    <tabBarItem key="tabBarItem" title="Scores" image="scores" id="4Tv-c8-h1Z">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="BUX-fl-5MC" id="hqs-kD-0Lw"/>
                     </connections>
@@ -654,6 +662,7 @@
         <image name="scores" width="50" height="50"/>
         <image name="scores-filled" width="50" height="50"/>
         <image name="standings" width="50" height="50"/>
+        <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAy-Wc-PS9"/>
