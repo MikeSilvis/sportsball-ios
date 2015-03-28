@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NHL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7J-yo-Mxv">
-                                <rect key="frame" x="269" y="129.5" width="62" height="41"/>
+                                <rect key="frame" x="269" y="239" width="62" height="41"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +45,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="S7J-yo-Mxv" secondAttribute="centerY" id="1AU-tW-lQe"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
                             <constraint firstAttribute="centerX" secondItem="S7J-yo-Mxv" secondAttribute="centerX" id="7Vr-Ib-IqI"/>
                             <constraint firstAttribute="centerX" secondItem="l5G-uZ-nBU" secondAttribute="centerX" id="84y-WP-U4J"/>
@@ -53,6 +52,7 @@
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
                             <constraint firstAttribute="bottom" secondItem="hBN-um-fYf" secondAttribute="bottom" id="TKt-1N-IEM"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="TXl-aq-VgQ"/>
+                            <constraint firstAttribute="bottom" secondItem="S7J-yo-Mxv" secondAttribute="bottom" constant="20" id="cGR-R3-MhA"/>
                             <constraint firstAttribute="trailing" secondItem="hBN-um-fYf" secondAttribute="trailing" id="hDI-fd-J8l"/>
                             <constraint firstItem="hBN-um-fYf" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="mKR-cl-d5G"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="mYm-Gc-Qgv"/>

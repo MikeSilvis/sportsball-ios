@@ -15,6 +15,7 @@
 @interface SBModalViewController ()
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+@property (nonatomic, strong) UIVisualEffectView *blurView;
 
 @end
 

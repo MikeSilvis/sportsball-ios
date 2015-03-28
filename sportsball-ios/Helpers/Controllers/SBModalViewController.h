@@ -19,7 +19,6 @@
 @interface SBModalViewController : UIViewController
 
 @property (nonatomic, weak) id<SportsBallModalDelegate> delegate;
-@property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (nonatomic, strong) SBGame *game;
 @property (nonatomic, strong) NSURL *selectedURL;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;

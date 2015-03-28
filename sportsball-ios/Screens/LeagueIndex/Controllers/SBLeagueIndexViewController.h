@@ -11,10 +11,11 @@
 #import "SBViewController.h"
 #import "SBTabBarView.h"
 
-@interface SBLeagueIndexViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SBLeagueIndexViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 //@property (nonatomic, strong) SBGame *selectedGame;
 //@property (nonatomic, strong) UIPageControl *pageControl;

@@ -11,18 +11,21 @@
 #import "SBUser.h"
 #import "SBLeagueHeader.h"
 #import "SBTabViewViewController.h"
+#import "SBTransitionAnimator.h"
 
 @interface SBLeagueIndexViewController ()
 
-@property (nonatomic, strong) SBLeague *selectedLeague;
-@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+@property (nonatomic, strong) ZFModalTransitionAnimator *modalAnimator;
+@property (nonatomic, strong) SBTransitionAnimator *sbAnimator;
 @property (nonatomic, copy) NSArray *leagues;
+@property (nonatomic, strong) SBLeague *selectedLeague;
+@property bool animatedTransition;
 
 @end
 
 @implementation SBLeagueIndexViewController
 
-static  NSString *kTabViewControllerSegue = @"tabViewController";
+static NSString *kTabViewControllerSegue = @"tabViewController";
 static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 static CGFloat const kHeaderSize = 100;
 
@@ -41,6 +44,7 @@ static CGFloat const kHeaderSize = 100;
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
         forCellWithReuseIdentifier:kLeagueHeaderCell];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+  self.collectionView.backgroundColor = [UIColor clearColor];
 //  [self buildTabbar];
 
 //  [[NSNotificationCenter defaultCenter] addObserver:self
@@ -56,6 +60,11 @@ static CGFloat const kHeaderSize = 100;
 //                                               selector:@selector(hideMenuIems:)
 //                                                   name:kNotificationHideEvent object:nil];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
 //  [self openAtLastSelectedIndex];
 }
 
@@ -67,6 +76,28 @@ static CGFloat const kHeaderSize = 100;
   [self.supportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
   [self.supportButton setTintColor:[UIColor whiteColor]];
 }
+
+- (void)openAtLastSelectedIndex {
+  if (![SBUser currentUser].lastOpenedLeagueIndex) {
+    return;
+  }
+
+  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
+
+  if ((openedIndex >= 0) && (self.leagues[openedIndex])) {
+    [self selectItemAtIndexPath:[NSIndexPath indexPathForItem:openedIndex inSection:0] animated:NO];
+  }
+}
+
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
+  self.selectedLeague = self.leagues[indexPath.row];
+  self.selectedIndexPath = indexPath;
+  self.animatedTransition = animated;
+
+  [self performSegueWithIdentifier:kTabViewControllerSegue sender:self];
+}
+
+#pragma mark - Collection View
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   SBLeagueHeader *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kLeagueHeaderCell forIndexPath:indexPath];
@@ -80,9 +111,7 @@ static CGFloat const kHeaderSize = 100;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  self.selectedLeague = self.leagues[indexPath.row];
-
-  [self performSegueWithIdentifier:kTabViewControllerSegue sender:self];
+  [self selectItemAtIndexPath:indexPath animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,18 +191,6 @@ static CGFloat const kHeaderSize = 100;
 //  self.toolBar.clipsToBounds = YES;
 //  self.toolBar.hidden = YES;
 //
-//}
-
-//- (void)openAtLastSelectedIndex {
-//  if (![SBUser currentUser].lastOpenedLeagueIndex) {
-//    return;
-//  }
-//
-//  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-//
-//  if ((openedIndex >= 0) && (self.leagueTabViews)[openedIndex]) {
-//    [self openScoresAtIndex:openedIndex animated:NO];
-//  }
 //}
 
 //- (void)viewDidAppear:(BOOL)animated {
@@ -392,18 +409,25 @@ static CGFloat const kHeaderSize = 100;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:kTabViewControllerSegue]) {
-    SBTabViewViewController *viewController = segue.destinationViewController;
-    viewController.league = self.selectedLeague;
+    SBTabViewViewController *destinationViewController = segue.destinationViewController;
+    self.sbAnimator = [[SBTransitionAnimator alloc] init];
+
+    destinationViewController.league = self.selectedLeague;
+    // TODO: IMPLEMENT YOU
+//    if (self.animatedTransition) {
+      destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
+      destinationViewController.transitioningDelegate = self.sbAnimator;
+//    }
   }
   else {
-    SBModalViewController *viewController = segue.destinationViewController;
-    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
-    self.animator.dragable = YES;
-    self.animator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
+    SBModalViewController *destinationViewController = segue.destinationViewController;
+    self.modalAnimator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:destinationViewController];
+    self.modalAnimator.dragable = YES;
+    self.modalAnimator.direction = ZFModalTransitonDirectionBottom|ZFModalTransitonDirectionTop;
 
     // set transition delegate of modal view controller to our object
-    viewController.transitioningDelegate = self.animator;
-    viewController.modalPresentationStyle = UIModalPresentationCustom;
+    destinationViewController.transitioningDelegate = self.modalAnimator;
+    destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
   }
 
 //  if ([segue.identifier isEqualToString:kScorePreviewSegue] || [segue.identifier isEqualToString:kScoreShowSegue]) {

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "SBLeague.h"
 
 @interface SBTabViewViewController : UITabBarController
