@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SBStandingsView.h"
+#import "SBStandingsViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBTeamStandingsCollectionViewCell.h"
 #import "SBTeamStandingsHeaderCollectionViewCell.h"
 
-@interface SBStandingsView ()
+@interface SBStandingsViewCell ()
 
 @property BOOL scorePuller;
 
 @end
 
-@implementation SBStandingsView
+@implementation SBStandingsViewCell
 
 static NSString * const kTeamViewCell = @"TeamViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
@@ -82,7 +82,7 @@ static CGFloat const kTeamViewCellSize = 45;
     self.standing = standing;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-    [self.delegate requestFailed:error];
+//    [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
   }];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "SBTabViewViewController.h"
+#import "SBUser.h"
 
 @interface SBTabViewViewController ()
 
@@ -20,9 +21,27 @@
   [self buildTabbar];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  NSInteger lastOpened = [[SBUser currentUser].lastOpenedScoreOrStandings integerValue];
+  if (lastOpened) {
+    [self setSelectedIndex:lastOpened];
+  }
+}
+
 - (void)buildTabbar {
   self.tabBar.backgroundColor = [UIColor clearColor];
   [self.tabBar setBackgroundImage:[UIImage new]];
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  if ([item.title isEqualToString:@"Scores"]) {
+    [SBUser currentUser].lastOpenedScoreOrStandings = @0;
+  }
+  else {
+    [SBUser currentUser].lastOpenedScoreOrStandings = @1;
+  }
 }
 
 

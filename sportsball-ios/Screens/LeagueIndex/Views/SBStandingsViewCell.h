@@ -13,12 +13,13 @@
 #import "SBStanding.h"
 #import "SBStanding.h"
 
-@interface SBStandingsView : SBLeagueIndexView <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SBStandingsViewCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) SBStanding *standing;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (void)cancelTimer;
 - (void)startTimer;

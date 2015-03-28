@@ -11,6 +11,7 @@
 #import <Underscore.h>
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
+static NSString *kLastOpenedScoreOrStandings = @"LastOpenedScoreOrStandings";
 static NSString *kAllLeagues = @"allLeagues-1";
 
 @implementation SBUser
@@ -64,6 +65,12 @@ static NSString *kAllLeagues = @"allLeagues-1";
   [self syncUserDefaults];
 }
 
+- (void)setLastOpenedScoreOrStandings:(NSNumber *)lastOpenedScoreOrStandings {
+  _lastOpenedScoreOrStandings = lastOpenedScoreOrStandings;
+
+  [self syncUserDefaults];
+}
+
 - (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
   // Only if the opposite team is not favorable
   if (![awayTeam isFavorableTeam]) {
@@ -110,6 +117,7 @@ static NSString *kAllLeagues = @"allLeagues-1";
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   [defaults setObject:self.lastOpenedLeagueIndex forKey:kLastOpenedLeague];
+  [defaults setObject:self.lastOpenedScoreOrStandings forKey:kLastOpenedScoreOrStandings];
 
   // Set Leagues
   NSMutableArray *encodedLeagues = [NSMutableArray array];
@@ -131,6 +139,7 @@ static NSString *kAllLeagues = @"allLeagues-1";
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
+  _lastOpenedScoreOrStandings = [defaults objectForKey:kLastOpenedScoreOrStandings];
   if (!_lastOpenedLeagueIndex) {
     _lastOpenedLeagueIndex = [NSNumber numberWithInt:-1];
   }

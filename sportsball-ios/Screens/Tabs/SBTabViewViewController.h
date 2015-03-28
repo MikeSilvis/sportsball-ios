@@ -8,7 +8,7 @@
 
 #import "SBLeague.h"
 
-@interface SBTabViewViewController : UITabBarController
+@interface SBTabViewViewController : UITabBarController <UITabBarControllerDelegate>
 
 @property (nonatomic, strong) SBLeague *league;
 

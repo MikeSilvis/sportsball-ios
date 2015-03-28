@@ -99,7 +99,7 @@
         <!--Standings-->
         <scene sceneID="M4Q-tU-MMX">
             <objects>
-                <viewController id="Pjn-3v-Swb" sceneMemberID="viewController">
+                <viewController id="Pjn-3v-Swb" customClass="SBStandingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mVM-aa-L8y"/>
                         <viewControllerLayoutGuide type="bottom" id="qcc-cB-j00"/>
@@ -107,13 +107,38 @@
                     <view key="view" contentMode="scaleToFill" id="vxR-dc-BTs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-Al-HRT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="531"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSg-gQ-cAo">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pjn-3v-Swb" id="8Jo-q2-Ba2"/>
+                                    <outlet property="delegate" destination="Pjn-3v-Swb" id="Ai9-hh-bE1"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ekO-Al-HRT" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leadingMargin" constant="-16" id="2N9-90-A9Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ekO-Al-HRT" secondAttribute="trailing" constant="-16" id="3BQ-r7-FCh"/>
+                            <constraint firstItem="qcc-cB-j00" firstAttribute="top" secondItem="ekO-Al-HRT" secondAttribute="bottom" constant="20" id="VGY-rg-jTk"/>
+                            <constraint firstItem="ekO-Al-HRT" firstAttribute="top" secondItem="mVM-aa-L8y" secondAttribute="bottom" constant="-20" id="XAO-9b-PdP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Standings" image="standings" id="cg4-Kv-dlg">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="ekO-Al-HRT" id="pjn-tr-7aO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,7 +8,7 @@
 
 #import "SBLeague.h"
 #import "SBScoreIndexView.h"
-#import "SBStandingsView.h"
+#import "SBStandingsViewCell.h"
 
 @protocol SBTabBarDelegate <NSObject>
 
@@ -21,7 +21,7 @@
 @interface SBTabBarView : UIView <UITabBarDelegate, SBScoreIndexViewDelegate>
 
 @property (nonatomic, strong) SBLeague *league;
-@property (nonatomic, strong) SBStandingsView *standingsView;
+@property (nonatomic, strong) SBStandingsViewCell *standingsView;
 @property (nonatomic, strong) SBScoreIndexView *scoresView;
 @property (nonatomic, weak) id<SBTabBarDelegate> delegate;
 
