@@ -112,15 +112,7 @@ static CGFloat const kHeaderSize = 100;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-  if ((openedIndex >= 0) && (self.leagues[openedIndex])) {
-    self.supportButton.hidden = YES;
-    return 0;
-  }
-  else {
-    self.supportButton.hidden = NO;
-    return [self.leagues count];
-  }
+  return [self.leagues count];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
