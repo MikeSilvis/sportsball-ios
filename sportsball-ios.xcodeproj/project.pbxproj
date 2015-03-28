@@ -92,6 +92,7 @@
 		1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */; };
 		119909201A4F535B00F2ED1B /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SBViewController.m */; };
 		1199735B1AC736C8005BA865 /* SBStandingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199735A1AC736C8005BA865 /* SBStandingsViewController.m */; };
+		1199735E1AC75B65005BA865 /* SBPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199735D1AC75B65005BA865 /* SBPagingViewController.m */; };
 		119B873C1A819BED0018F099 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119B873B1A819BED0018F099 /* ParseUI.framework */; };
 		11A2E1CC1AC6819B005812FF /* SBScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A2E1CB1AC6819B005812FF /* SBScoresViewController.m */; };
 		11B946321A0466A300BEECBB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B946301A0466A300BEECBB /* Crashlytics.framework */; };
@@ -252,6 +253,8 @@
 		1199091F1A4F535B00F2ED1B /* SBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 		119973591AC736C8005BA865 /* SBStandingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStandingsViewController.h; sourceTree = "<group>"; };
 		1199735A1AC736C8005BA865 /* SBStandingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStandingsViewController.m; sourceTree = "<group>"; };
+		1199735C1AC75B65005BA865 /* SBPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPagingViewController.h; sourceTree = "<group>"; };
+		1199735D1AC75B65005BA865 /* SBPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPagingViewController.m; sourceTree = "<group>"; };
 		119B873B1A819BED0018F099 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		11A2E1CA1AC6819B005812FF /* SBScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBScoresViewController.h; path = ../SBScoresViewController.h; sourceTree = "<group>"; };
 		11A2E1CB1AC6819B005812FF /* SBScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBScoresViewController.m; path = ../SBScoresViewController.m; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				1199091F1A4F535B00F2ED1B /* SBViewController.m */,
 				114E87A01A5F8A0E007C2CF7 /* SBModalViewController.h */,
 				114E87A11A5F8A0E007C2CF7 /* SBModalViewController.m */,
+				1199735C1AC75B65005BA865 /* SBPagingViewController.h */,
+				1199735D1AC75B65005BA865 /* SBPagingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1065,6 +1070,7 @@
 				112B05E11ABA150C00DAA466 /* SBStandingsViewCell.m in Sources */,
 				1189A4021A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
+				1199735E1AC75B65005BA865 /* SBPagingViewController.m in Sources */,
 				1189A3FB1A31377F00575E07 /* SBScoreDetailInfoCollectionViewCell.m in Sources */,
 				112BEE8D1A31304B00DCE472 /* SBScoreDetail.m in Sources */,
 				1154F61D1A03D60F009F560B /* main.m in Sources */,

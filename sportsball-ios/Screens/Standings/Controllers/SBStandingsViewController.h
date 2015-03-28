@@ -8,9 +8,8 @@
 
 #import "SBViewController.h"
 
-@interface SBStandingsViewController : SBViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SBStandingsViewController : SBViewController
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
