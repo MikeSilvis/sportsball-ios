@@ -57,18 +57,24 @@ static const NSTimeInterval AnimationDuration = 0.25;
   }];
 }
 
-- (void)transformCells:(NSArray *)cells duration:(double)duration withBlock:(void (^)(UICollectionViewCell *cell, NSUInteger idx))block completion:(void (^)(BOOL finished))completion {
-  [UIView animateWithDuration:duration animations:^{
-    [cells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
-      block(cell, idx);
+- (void)dismissAddEntryViewController:(UIViewController *)destinationViewController fromParentViewController:(SBLeagueIndexViewController *)parentController usingContainerView:(UIView *)containerView transitionContext: (id<UIViewControllerContextTransitioning>)transitionContext {
+  parentController.view.alpha = 1.0;
+
+  [UIView animateWithDuration:0.4 animations:^{
+    destinationViewController.view.alpha = 0.0;
+
+    // Move Collection view to top
+    CGRect f = parentController.collectionView.frame;
+    f.origin.y = 0;
+    parentController.collectionView.frame = f;
+
+    // Show Cells
+    [parentController.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
+      cell.alpha = 1.0;
     }];
   } completion:^(BOOL finished) {
+    [transitionContext completeTransition:YES];
   }];
-}
-
-- (void)dismissAddEntryViewController:(UIViewController *)addEntryController fromParentViewController:(UIViewController *)parentController usingContainerView:(UIView *)containerView transitionContext: (id<UIViewControllerContextTransitioning>)transitionContext {
-  [containerView addSubview:parentController.view];
-  [containerView addSubview:addEntryController.view];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {

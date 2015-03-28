@@ -14,6 +14,7 @@
 #import <Pusher.h>
 #import "SBGame.h"
 #import "SBTabViewViewController.h"
+#import "SBConstants.h"
 
 @interface SBScoresViewController () <PTPusherDelegate, SBDatePickerCollectionViewCellDelegate>
 
@@ -37,6 +38,9 @@ static CGFloat const kDatePickerSize = 50;
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  [self buildHamburgerButton];
+  [self buildToolBar];
+
   self.collectionView.backgroundColor = [UIColor clearColor];
   self.games = [NSArray array];
 
@@ -58,6 +62,30 @@ static CGFloat const kDatePickerSize = 50;
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(hideMenuIems:)
+                                                   name:kNotificationHideEvent object:nil];
+}
+
+- (void)hideMenuIems:(NSNotification *)notification {
+  bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
+
+  self.toolBar.hidden = alphaHidden;
+}
+
+- (void)buildHamburgerButton {
+  CGFloat iconSize = 25;
+  FAKFontAwesome *hamburgerIcon = [FAKFontAwesome barsIconWithSize:iconSize];
+  self.hamburgerButton.image = [UIImage imageWithFontAwesomeIcon:hamburgerIcon andSize:iconSize andColor:@"#fff"];
+}
+
+- (void)buildToolBar {
+  self.toolBar.backgroundColor = [UIColor clearColor];
+  [self.toolBar setBackgroundImage:[UIImage new]
+                forToolbarPosition:UIToolbarPositionAny
+                        barMetrics:UIBarMetricsDefault];
+  self.toolBar.clipsToBounds = YES;
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -325,5 +353,10 @@ static CGFloat const kDatePickerSize = 50;
   return nil;
 }
 
+
+- (IBAction)hamburgerClicked:(id)sender {
+  [self cancelTimer];
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -144,13 +144,30 @@
                                     <outlet property="delegate" destination="WdV-19-me3" id="akt-jJ-N88"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P77-Lo-x8I">
+                                <rect key="frame" x="0.0" y="35" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lTM-lf-gdy"/>
+                                    <barButtonItem title="leagues" id="hI0-s9-Fg5">
+                                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="hamburgerClicked:" destination="WdV-19-me3" id="yw4-hz-UKq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="P77-Lo-x8I" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="BD1-c3-a3B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P77-Lo-x8I" secondAttribute="trailing" constant="-16" id="DHY-PA-ppY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BUX-fl-5MC" secondAttribute="trailing" constant="-16" id="PTm-qg-80v"/>
                             <constraint firstItem="BUX-fl-5MC" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="TpY-lh-YGX"/>
                             <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="BUX-fl-5MC" secondAttribute="bottom" id="dfN-kA-FZ4"/>
                             <constraint firstItem="BUX-fl-5MC" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="mUg-hP-c2j"/>
+                            <constraint firstItem="P77-Lo-x8I" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="15" id="tjn-cW-ETS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="scores" id="4Tv-c8-h1Z">
@@ -160,6 +177,8 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="BUX-fl-5MC" id="hqs-kD-0Lw"/>
+                        <outlet property="hamburgerButton" destination="hI0-s9-Fg5" id="LIH-nc-u8G"/>
+                        <outlet property="toolBar" destination="P77-Lo-x8I" id="tsn-yp-nLY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>

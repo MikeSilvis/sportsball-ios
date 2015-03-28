@@ -13,11 +13,6 @@
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "SBConstants.h"
 
-@interface SBLeagueHeader ()
-
-@property (nonatomic, strong) CALayer *lowerBoarder;
-
-@end
 
 @implementation SBLeagueHeader
 
@@ -25,33 +20,23 @@
   [UIView animateWithDuration:0.3 animations:^{
     CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
-    bool hidden = yOrigin >= -50 ? NO : YES;
+    bool hidden = yOrigin >= -1 ? NO : YES;
 
     self.leagueText.hidden = hidden;
     self.headerImage.hidden = !hidden;
 
 //    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
-//                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
-//                                                                                              }];
+//    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
+                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
+                                                                                              }];
   }];
 }
 
-- (void)layoutSubviews {
-  [super layoutSubviews];
+- (void)awakeFromNib {
+  [super awakeFromNib];
 
-  if (!self.lowerBoarder) {
-    self.lowerBoarder = [CALayer layer];
-    self.lowerBoarder.backgroundColor = [[UIColor whiteColor] CGColor];
-    self.lowerBoarder.opacity = 0.5f;
-    [self.layer addSublayer:self.lowerBoarder];
-  }
-
-  CGFloat totalWidth = CGRectGetWidth(self.frame);
-  CGFloat width = totalWidth;
-  CGFloat widthOfBorder = 0.5f;
-  self.lowerBoarder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
+  self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
 }
 
 - (void)setCurrentLeague:(SBLeague *)currentLeague {

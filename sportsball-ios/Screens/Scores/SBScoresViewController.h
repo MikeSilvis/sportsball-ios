@@ -12,6 +12,9 @@
 @interface SBScoresViewController : SBViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
+- (IBAction)hamburgerClicked:(id)sender;
 
 @property (nonatomic, strong) SBLeague *league;
 

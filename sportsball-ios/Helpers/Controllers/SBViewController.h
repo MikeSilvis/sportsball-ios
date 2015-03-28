@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImage+FontAwesome.h"
 
 @interface SBViewController : UIViewController
 
