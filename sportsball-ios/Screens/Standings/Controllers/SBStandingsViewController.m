@@ -13,8 +13,6 @@
 @interface SBStandingsViewController ()
 
 @property (nonatomic, strong) NSArray *leagues;
-@property (nonatomic, assign) CGFloat previousOffset;
-@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -37,6 +35,7 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   [super viewDidAppear:animated];
 
   self.leagues = [SBUser currentUser].leagues;
+
 }
 
 - (void)setLeagues:(NSArray *)leagues {
@@ -45,6 +44,16 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   self.pageControl.numberOfPages = [self.leagues count];
   self.pageControl.currentPage = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
   [self.collectionView reloadData];
+}
+
+- (void)viewDidLayoutSubviews {
+  [super viewDidLayoutSubviews];
+
+  if (self.pageControl.currentPage > 0) {
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.pageControl.currentPage inSection:0]
+                                atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                        animated:NO];
+  }
 }
 
 #pragma mark - Collection View
@@ -57,23 +66,27 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   SBStandingsViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kStandingsViewCell forIndexPath:indexPath];
   cell.league = self.leagues[indexPath.row];
 
-  NSArray *colors = @[
-                      [UIColor redColor],
-                      [UIColor purpleColor],
-                      [UIColor greenColor],
-                      [UIColor yellowColor]
-                      ];
-  cell.backgroundColor = colors[indexPath.row];
-
   return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+  return self.collectionView.frame.size;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
   return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+  self.pageControl.currentPage = scrollView.contentOffset.x / self.collectionView.frame.size.width;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+  return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+  return 0;
 }
 
 @end

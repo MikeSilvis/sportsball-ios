@@ -100,6 +100,8 @@ static CGFloat const kTeamViewCellSize = 45;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, kHeaderSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.collectionView.bounds.size.width, kHeaderSize);
   layout.itemSize = CGSizeMake(self.collectionView.bounds.size.width, layout.itemSize.height);
+
+  [self.collectionView reloadData];
 }
 
 #pragma mark - CollectionView
