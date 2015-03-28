@@ -24,7 +24,6 @@
   [self.delegate defineCells:self.collectionView];
 
   self.collectionView.backgroundColor = [UIColor clearColor];
-  self.collectionView.showsHorizontalScrollIndicator = NO;
 
   [self buildHamburgerButton];
   [self buildToolBar];

@@ -79,7 +79,6 @@
 		116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116591E11A154D7300016D90 /* SBBoxscoreViewController.m */; };
 		1179FF171AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1179FF161AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m */; };
 		1179FF1B1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1179FF1A1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib */; };
-		117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */; };
 		11824D441A73062300DF0E05 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11824D431A73062300DF0E05 /* MessageUI.framework */; };
 		1189A3F61A31337E00575E07 /* SBScoreDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3F51A31337E00575E07 /* SBScoreDetailCollectionViewCell.m */; };
 		1189A3F81A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3F71A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib */; };
@@ -111,7 +110,6 @@
 		11BB2B1C1A03FC430059B4C1 /* SBLeagueHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB2B1B1A03FC430059B4C1 /* SBLeagueHeader.xib */; };
 		11E18F221AC663F900139A7E /* SBTabViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E18F211AC663F900139A7E /* SBTabViewViewController.m */; };
 		11E18F261AC666CB00139A7E /* SBTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E18F251AC666CB00139A7E /* SBTransitionAnimator.m */; };
-		11FBB1F41A912362000AF0FB /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FBB1F31A912362000AF0FB /* UIImage+ColorImage.m */; };
 		E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F32CCB664364F1DD9C1C6E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -232,8 +230,6 @@
 		1179FF151AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDatePickerCollectionViewCell.h; sourceTree = "<group>"; };
 		1179FF161AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDatePickerCollectionViewCell.m; sourceTree = "<group>"; };
 		1179FF1A1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDatePickerCollectionViewCell.xib; sourceTree = "<group>"; };
-		117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SBDateWithYear.h"; sourceTree = "<group>"; };
-		117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SBDateWithYear.m"; sourceTree = "<group>"; };
 		11824D431A73062300DF0E05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1189A3F41A31337E00575E07 /* SBScoreDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScoreDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		1189A3F51A31337E00575E07 /* SBScoreDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScoreDetailCollectionViewCell.m; sourceTree = "<group>"; };
@@ -284,8 +280,6 @@
 		11E18F241AC666CB00139A7E /* SBTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTransitionAnimator.h; sourceTree = "<group>"; };
 		11E18F251AC666CB00139A7E /* SBTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTransitionAnimator.m; sourceTree = "<group>"; };
 		11F5D6FD1A9EAD4C003EE351 /* SBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBConstants.h; sourceTree = "<group>"; };
-		11FBB1F21A912362000AF0FB /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
-		11FBB1F31A912362000AF0FB /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
 		17F32CCB664364F1DD9C1C6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3DD2F7CF6680422AFFC35B4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -374,10 +368,6 @@
 			children = (
 				1116966B1A0E9BD100F0E1CD /* UIImage+FontAwesome.h */,
 				1116966C1A0E9BD100F0E1CD /* UIImage+FontAwesome.m */,
-				117CBA031A15C9B200862346 /* NSDate+SBDateWithYear.h */,
-				117CBA041A15C9B200862346 /* NSDate+SBDateWithYear.m */,
-				11FBB1F21A912362000AF0FB /* UIImage+ColorImage.h */,
-				11FBB1F31A912362000AF0FB /* UIImage+ColorImage.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1035,7 +1025,6 @@
 				1161A98A1A0C626100E40EEC /* SBModel.m in Sources */,
 				110E33251A2C395000ED333A /* SBBoxscore.m in Sources */,
 				111412161A68464F00744F67 /* SBScheduleSegmentedControlTableViewCell.m in Sources */,
-				11FBB1F41A912362000AF0FB /* UIImage+ColorImage.m in Sources */,
 				1179FF171AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m in Sources */,
 				1116966D1A0E9BD100F0E1CD /* UIImage+FontAwesome.m in Sources */,
 				1110C5C31AA0EB1C00E04E35 /* SBAboutViewController.m in Sources */,
@@ -1066,7 +1055,6 @@
 				1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */,
 				114E879F1A5F86D3007C2CF7 /* SBPreview.m in Sources */,
 				11BA1C4D1A65A5C7005C61AB /* SBScheduleTableViewCell.m in Sources */,
-				117CBA051A15C9B200862346 /* NSDate+SBDateWithYear.m in Sources */,
 				112B05E11ABA150C00DAA466 /* SBStandingsViewCell.m in Sources */,
 				1189A4021A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m in Sources */,
 				1154F6201A03D60F009F560B /* AppDelegate.m in Sources */,
