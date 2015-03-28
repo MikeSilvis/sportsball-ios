@@ -18,6 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="c2k-xo-6jP"/>
                     <connections>
                         <segue destination="9Mo-0L-q5c" kind="presentation" identifier="leagueIndexSegue" animates="NO" id="tfC-lL-Zti"/>
                     </connections>

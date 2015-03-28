@@ -16,6 +16,7 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 @interface DIDatepicker ()
 
 @property (strong, nonatomic) UIScrollView *datesScrollView;
+@property bool shouldAnimate;
 
 @end
 
@@ -212,7 +213,8 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
 - (void)updateSelectedDate:(DIDatepickerDateView *)dateView
 {
-    self.selectedDate = dateView.date;
+  self.shouldAnimate = YES;
+  self.selectedDate = dateView.date;
 }
 
 -(void)layoutSubviews {
@@ -229,7 +231,7 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
     itemOffset = MAX(0, MIN(self.datesScrollView.contentSize.width - (self.frame.size.width ), itemOffset));
 
-    [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:YES];
+    [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:self.shouldAnimate];
     if (sendEvent) {
       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NSThread sleepForTimeInterval:0.3f];
