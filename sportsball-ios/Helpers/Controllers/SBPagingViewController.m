@@ -9,6 +9,7 @@
 #import "SBPagingViewController.h"
 #import "SBUser.h"
 #import "SBStandingsViewCell.h"
+#import "SBConstants.h"
 
 @interface SBPagingViewController ()
 
@@ -27,6 +28,16 @@
 
   [self buildHamburgerButton];
   [self buildToolBar];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hideMenuIems:)
+                                                 name:kNotificationHideEvent object:nil];
+}
+
+- (void)hideMenuIems:(NSNotification *)notification {
+  bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
+
+//  [[UIApplication sharedApplication] setStatusBarHidden:alphaHidden];
+  self.toolBar.hidden = alphaHidden;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

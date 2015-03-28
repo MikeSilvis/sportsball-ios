@@ -148,55 +148,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cc6-gB-qzB">
-                                <rect key="frame" x="281" y="519" width="39" height="37"/>
-                            </pageControl>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P77-Lo-x8I">
-                                <rect key="frame" x="0.0" y="35" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lTM-lf-gdy"/>
-                                    <barButtonItem title="leagues" id="hI0-s9-Fg5">
-                                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="hamburgerClicked:" destination="WdV-19-me3" id="yw4-hz-UKq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </toolbar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BUX-fl-5MC">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="531"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5yr-Pr-p9a" customClass="CSStickyHeaderFlowLayout">
-                                    <size key="itemSize" width="600" height="60"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43t-ed-Rzq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="WdV-19-me3" id="t6R-N2-a2P"/>
-                                    <outlet property="delegate" destination="WdV-19-me3" id="akt-jJ-N88"/>
+                                    <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="vVX-bV-8uA"/>
                                 </connections>
-                            </collectionView>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cc6-gB-qzB" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="265" id="8eI-ZJ-wp1"/>
-                            <constraint firstItem="P77-Lo-x8I" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="BD1-c3-a3B"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P77-Lo-x8I" secondAttribute="trailing" constant="-16" id="DHY-PA-ppY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cc6-gB-qzB" secondAttribute="trailing" constant="264" id="Nxn-NC-S6A"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BUX-fl-5MC" secondAttribute="trailing" constant="-16" id="PTm-qg-80v"/>
-                            <constraint firstItem="BUX-fl-5MC" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="TpY-lh-YGX"/>
-                            <constraint firstAttribute="centerX" secondItem="cc6-gB-qzB" secondAttribute="centerX" id="UEq-XC-0vh"/>
-                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="BUX-fl-5MC" secondAttribute="bottom" constant="20" id="dfN-kA-FZ4"/>
-                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="cc6-gB-qzB" secondAttribute="bottom" constant="-5" id="iNu-T5-g9G"/>
-                            <constraint firstItem="BUX-fl-5MC" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="mUg-hP-c2j"/>
-                            <constraint firstItem="P77-Lo-x8I" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="15" id="tjn-cW-ETS"/>
+                            <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="3OK-VU-NWB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43t-ed-Rzq" secondAttribute="trailing" constant="-16" id="BVk-j6-B67"/>
+                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="43t-ed-Rzq" secondAttribute="bottom" id="OAb-7r-2cm"/>
+                            <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="SQp-2r-vw4"/>
+                            <constraint firstItem="43t-ed-Rzq" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="shZ-KT-rwg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="8eI-ZJ-wp1"/>
-                                <exclude reference="Nxn-NC-S6A"/>
+                                <exclude reference="SQp-2r-vw4"/>
                             </mask>
                         </variation>
                     </view>
@@ -205,12 +174,6 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="collectionView" destination="BUX-fl-5MC" id="hqs-kD-0Lw"/>
-                        <outlet property="hamburgerButton" destination="hI0-s9-Fg5" id="LIH-nc-u8G"/>
-                        <outlet property="pageControl" destination="cc6-gB-qzB" id="YKo-Gr-Ci2"/>
-                        <outlet property="toolBar" destination="P77-Lo-x8I" id="tsn-yp-nLY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -785,5 +748,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAy-Wc-PS9"/>
+        <segue reference="vVX-bV-8uA"/>
     </inferredMetricsTieBreakers>
 </document>

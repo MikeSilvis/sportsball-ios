@@ -13,14 +13,13 @@
 #import "SBLeagueHeader.h"
 #import "SBDatePickerCollectionViewCell.h"
 
-@interface SBScoreIndexView : SBLeagueIndexView <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate>
+@interface SBScoreIndexViewCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) SBLeague *league;
 
-- (void)findGames;
 - (void)cancelTimer;
 - (void)startTimer;
 

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SBScoreIndexView.h"
+#import "SBScoreIndexViewCell.h"
 #import "SBGameCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBUser.h"
 #import <Pusher.h>
 
-@interface SBScoreIndexView () <PTPusherDelegate>
+@interface SBScoreIndexViewCell () <PTPusherDelegate>
 
 @property (nonatomic, strong) NSDate *currentDate;
 @property (nonatomic, strong) PTPusher *client;
@@ -24,12 +24,12 @@
 
 @end
 
-@implementation SBScoreIndexView
+@implementation SBScoreIndexViewCell
 
 static NSString * const kGameViewCell = @"GameViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
-static CGFloat const kHeaderSize = 74;
+static CGFloat const kHeaderSize = 100;
 static CGFloat const kDatePickerSize = 50;
 
 - (void)awakeFromNib {
@@ -147,7 +147,7 @@ static CGFloat const kDatePickerSize = 50;
     }
 
   } failure:^(NSError *error) {
-    [self.delegate requestFailed:error];
+//    [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
   }];
 }
@@ -221,20 +221,20 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)showFavoriteNotification {
-  for (SBGame *game in self.games) {
-    if ([game.awayTeam favoriteScore] == [game.homeTeam favoriteScore]) {
-      continue;
-    }
-
-    if ([game.homeTeam isFavorableTeam]) {
-      [self.delegate askForFavoriteTeam:game.homeTeam];
-      return;
-    }
-    else if ([game.awayTeam isFavorableTeam]) {
-      [self.delegate askForFavoriteTeam:game.awayTeam];
-      return;
-    }
-  }
+//  for (SBGame *game in self.games) {
+//    if ([game.awayTeam favoriteScore] == [game.homeTeam favoriteScore]) {
+//      continue;
+//    }
+//
+//    if ([game.homeTeam isFavorableTeam]) {
+//      [self.delegate askForFavoriteTeam:game.homeTeam];
+//      return;
+//    }
+//    else if ([game.awayTeam isFavorableTeam]) {
+//      [self.delegate askForFavoriteTeam:game.awayTeam];
+//      return;
+//    }
+//  }
 }
 
 - (void)layoutSubviews {
@@ -249,7 +249,7 @@ static CGFloat const kDatePickerSize = 50;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
   self.selectedGame = self.games[indexPath.row];
 
-  [self.delegate selectedGame:self.selectedGame];
+//  [self.delegate selectedGame:self.selectedGame];
   self.selectedIndexPath = indexPath;
 }
 
