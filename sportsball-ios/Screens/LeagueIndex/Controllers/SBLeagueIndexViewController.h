@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
-@property bool animatedTransition;
 
 //@property (nonatomic, strong) SBGame *selectedGame;
 //@property (nonatomic, strong) UIPageControl *pageControl;

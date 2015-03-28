@@ -19,7 +19,6 @@ static const NSTimeInterval AnimationDuration = 0.25;
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     id fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-
     id toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
     UIView *containerView = [transitionContext containerView];
@@ -36,35 +35,42 @@ static const NSTimeInterval AnimationDuration = 0.25;
   destinationViewController.view.alpha = 0.0;
   [containerView addSubview:destinationViewController.view];
 
-  // End the transition early
-  if (!parentController.animatedTransition) {
-    destinationViewController.view.alpha = 1.0;
-  }
-
   [UIView animateWithDuration:0.4 animations:^{
 
-    // Move Seleced Row to top
-    UICollectionViewCell *cell = parentController.collectionView.visibleCells[parentController.selectedIndexPath.row];
-    CGRect cellFrame = [parentController.collectionView convertRect:cell.frame toView:parentController.view];
-    CGRect f = parentController.collectionView.frame;
-    f.origin.y = f.origin.y - cellFrame.origin.y;
-    parentController.collectionView.frame = f;
+    [self moveCells:parentController];
+    [self hideCells:parentController];
 
     // Hide Cells
-    [parentController.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
-      if (idx != parentController.selectedIndexPath.row) {
-        cell.alpha = 0.0;
-      }
-    }];
   } completion:^(BOOL finished) {
     destinationViewController.view.alpha = 1.0;
     [transitionContext completeTransition:YES];
   }];
 }
 
+- (void)moveCells:(SBLeagueIndexViewController *)parentController {
+  if ([parentController.collectionView.visibleCells count] > 0) {
+    UICollectionViewCell *cell = parentController.collectionView.visibleCells[parentController.selectedIndexPath.row];
+    CGRect cellFrame = [parentController.collectionView convertRect:cell.frame toView:parentController.view];
+    CGRect f = parentController.collectionView.frame;
+    f.origin.y = f.origin.y - cellFrame.origin.y;
+    parentController.collectionView.frame = f;
+  }
+}
+
+- (void)hideCells:(SBLeagueIndexViewController *)parentController {
+  [parentController.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
+    if (idx != parentController.selectedIndexPath.row) {
+      cell.alpha = 0.0;
+    }
+  }];
+}
+
 - (void)dismissAddEntryViewController:(UIViewController *)destinationViewController fromParentViewController:(SBLeagueIndexViewController *)parentController usingContainerView:(UIView *)containerView transitionContext: (id<UIViewControllerContextTransitioning>)transitionContext {
   parentController.view.alpha = 1.0;
   destinationViewController.view.alpha = 0.0;
+  [parentController.collectionView reloadData];
+  [self moveCells:parentController];
+  [self hideCells:parentController];
 
   [UIView animateWithDuration:0.4 animations:^{
 

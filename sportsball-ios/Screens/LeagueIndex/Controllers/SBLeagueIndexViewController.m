@@ -44,7 +44,6 @@ static CGFloat const kHeaderSize = 100;
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.backgroundColor = [UIColor clearColor];
 
-  [self openAtLastSelectedIndex];
 //  [self buildTabbar];
 //
 //  [[NSNotificationCenter defaultCenter] addObserver:self
@@ -66,6 +65,12 @@ static CGFloat const kHeaderSize = 100;
   [super viewDidAppear:animated];
 
   [self openAtLastSelectedIndex];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+
+
 }
 
 - (void)buildHelpIcon {
@@ -93,7 +98,6 @@ static CGFloat const kHeaderSize = 100;
   [SBUser currentUser].lastOpenedLeague = self.leagues[indexPath.row];
   [SBUser currentUser].lastOpenedLeagueIndex = @(indexPath.row);
   self.selectedIndexPath = indexPath;
-  self.animatedTransition = animated;
 
   [self performSegueWithIdentifier:kTabViewControllerSegue sender:self];
 }
@@ -108,7 +112,15 @@ static CGFloat const kHeaderSize = 100;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  return [self.leagues count];
+  int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
+  if ((openedIndex >= 0) && (self.leagues[openedIndex])) {
+    self.supportButton.hidden = YES;
+    return 0;
+  }
+  else {
+    self.supportButton.hidden = NO;
+    return [self.leagues count];
+  }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -358,6 +358,10 @@ static CGFloat const kDatePickerSize = 50;
 
 - (IBAction)hamburgerClicked:(id)sender {
   [self cancelTimer];
+
+  [SBUser currentUser].lastOpenedLeagueIndex = @(-1);
+  [SBUser currentUser].lastOpenedLeague = nil;
+  
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
