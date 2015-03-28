@@ -108,9 +108,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-Al-HRT">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-Al-HRT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="531"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSg-gQ-cAo">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="DSg-gQ-cAo">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -122,13 +122,18 @@
                                     <outlet property="delegate" destination="Pjn-3v-Swb" id="Ai9-hh-bE1"/>
                                 </connections>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="GBT-Cm-yh2">
+                                <rect key="frame" x="281" y="519" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ekO-Al-HRT" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leadingMargin" constant="-16" id="2N9-90-A9Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ekO-Al-HRT" secondAttribute="trailing" constant="-16" id="3BQ-r7-FCh"/>
+                            <constraint firstAttribute="centerX" secondItem="GBT-Cm-yh2" secondAttribute="centerX" id="Tfa-6M-KBB"/>
                             <constraint firstItem="qcc-cB-j00" firstAttribute="top" secondItem="ekO-Al-HRT" secondAttribute="bottom" constant="20" id="VGY-rg-jTk"/>
                             <constraint firstItem="ekO-Al-HRT" firstAttribute="top" secondItem="mVM-aa-L8y" secondAttribute="bottom" constant="-20" id="XAO-9b-PdP"/>
+                            <constraint firstItem="qcc-cB-j00" firstAttribute="top" secondItem="GBT-Cm-yh2" secondAttribute="bottom" constant="-5" id="Z6C-xw-AXz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Standings" image="standings" id="cg4-Kv-dlg">
@@ -138,11 +143,12 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="ekO-Al-HRT" id="pjn-tr-7aO"/>
+                        <outlet property="pageControl" destination="GBT-Cm-yh2" id="XqU-mI-YdE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="1276"/>
+            <point key="canvasLocation" x="2817" y="1125"/>
         </scene>
         <!--Scores-->
         <scene sceneID="Yjf-zA-SE6">
@@ -222,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="614"/>
+            <point key="canvasLocation" x="2817" y="494"/>
         </scene>
         <!--Tab View View Controller-->
         <scene sceneID="TB4-rL-fCr">

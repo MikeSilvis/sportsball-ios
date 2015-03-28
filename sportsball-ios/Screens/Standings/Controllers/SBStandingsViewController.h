@@ -11,5 +11,6 @@
 @interface SBStandingsViewController : SBViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

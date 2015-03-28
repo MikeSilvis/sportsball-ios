@@ -13,6 +13,8 @@
 @interface SBStandingsViewController ()
 
 @property (nonatomic, strong) NSArray *leagues;
+@property (nonatomic, assign) CGFloat previousOffset;
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -28,6 +30,7 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
         forCellWithReuseIdentifier:kStandingsViewCell];
 
   self.collectionView.backgroundColor = [UIColor clearColor];
+  self.collectionView.showsHorizontalScrollIndicator = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -39,6 +42,8 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 - (void)setLeagues:(NSArray *)leagues {
   _leagues = leagues;
 
+  self.pageControl.numberOfPages = [self.leagues count];
+  self.pageControl.currentPage = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
   [self.collectionView reloadData];
 }
 
@@ -70,14 +75,5 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
   return UIEdgeInsetsMake(0, 0, 0, 0);
 }
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-  return 0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-  return 0;
-}
-
 
 @end
