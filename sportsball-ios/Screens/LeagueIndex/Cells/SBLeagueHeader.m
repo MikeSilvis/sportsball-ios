@@ -24,12 +24,30 @@
     self.leagueText.alpha = alpha;
     self.headerImage.alpha = !alpha;
 
-    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
-                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
-                                                                                              }];
+//    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
+//    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
+//                                                                                               @"alpha" : [NSNumber numberWithBool:hidden]
+//                                                                                              }];
   }];
+}
+
+- (void)awakeFromNib {
+  self.backgroundColor = [UIColor purpleColor];
+}
+
+- (void)layoutSubviews {
+  [super layoutSubviews];
+
+  // Lower Border
+  CALayer *upperBorder = [CALayer layer];
+  upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
+  CGFloat totalWidth = CGRectGetWidth(self.frame);
+  CGFloat width = totalWidth;
+  CGFloat widthOfBorder = 0.5f;
+  upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
+  upperBorder.opacity = 0.5f;
+  [self.layer addSublayer:upperBorder];
 }
 
 - (void)setCurrentLeague:(SBLeague *)currentLeague {

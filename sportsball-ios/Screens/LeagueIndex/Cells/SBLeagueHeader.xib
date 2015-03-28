@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NHL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7J-yo-Mxv">
-                                <rect key="frame" x="269" y="25" width="62" height="41"/>
+                                <rect key="frame" x="269" y="129.5" width="62" height="41"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +45,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="S7J-yo-Mxv" secondAttribute="centerY" id="1AU-tW-lQe"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
                             <constraint firstAttribute="centerX" secondItem="S7J-yo-Mxv" secondAttribute="centerX" id="7Vr-Ib-IqI"/>
                             <constraint firstAttribute="centerX" secondItem="l5G-uZ-nBU" secondAttribute="centerX" id="84y-WP-U4J"/>
@@ -60,7 +61,6 @@
                             <constraint firstAttribute="bottom" secondItem="l5G-uZ-nBU" secondAttribute="bottom" id="sOX-Ws-CtW"/>
                             <constraint firstAttribute="bottom" secondItem="4PO-fa-s9b" secondAttribute="bottom" id="w3B-v7-3iu"/>
                             <constraint firstAttribute="centerY" secondItem="l5G-uZ-nBU" secondAttribute="centerY" id="wVq-LX-8Gx"/>
-                            <constraint firstItem="S7J-yo-Mxv" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" constant="25" id="xuP-vf-Qyq"/>
                         </constraints>
                     </view>
                 </subviews>

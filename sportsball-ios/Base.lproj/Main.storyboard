@@ -38,20 +38,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-nY-021">
-                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="91l-JY-QOe"/>
-                                    <barButtonItem title="leagues" id="upA-bb-Z3S">
-                                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="didRequestClose:" destination="9Mo-0L-q5c" id="eHq-ER-yhz"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </toolbar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TwB-rG-Tbg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="616"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="549-5o-CLy">
+                                    <size key="itemSize" width="50" height="72"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Mo-0L-q5c" id="9zA-OX-mEK"/>
+                                    <outlet property="delegate" destination="9Mo-0L-q5c" id="XEI-km-fwg"/>
+                                </connections>
+                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-0N-epK">
                                 <rect key="frame" x="559" y="565" width="30" height="30"/>
                                 <constraints>
@@ -66,45 +66,16 @@
                                     <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
                                 </connections>
                             </button>
-                            <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="R2C-zv-Tfb">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Scores" image="scores" id="Lxd-fh-bHM">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </tabBarItem>
-                                    <tabBarItem title="Standings" image="standings" id="ynM-iV-dbK">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </tabBarItem>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="9Mo-0L-q5c" id="178-Iy-JkW"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="Rsx-0N-epK" secondAttribute="bottom" constant="5" id="0Rq-nh-JL4"/>
-                            <constraint firstItem="R2C-zv-Tfb" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="HVh-GM-zFO"/>
-                            <constraint firstItem="D0m-nY-021" firstAttribute="top" secondItem="rEf-Fj-rTq" secondAttribute="bottom" constant="2" id="Hbm-qC-UMw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="R2C-zv-Tfb" secondAttribute="trailing" constant="-16" id="Kdq-mI-bJG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D0m-nY-021" secondAttribute="trailing" constant="-16" id="ZqV-Vk-JS9"/>
-                            <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="aLv-tI-DIr"/>
-                            <constraint firstItem="D0m-nY-021" firstAttribute="width" secondItem="iKJ-Oi-PAX" secondAttribute="width" id="bZZ-PZ-iFL"/>
+                            <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="TwB-rG-Tbg" secondAttribute="bottom" constant="-16" id="8zx-te-jGS"/>
+                            <constraint firstItem="TwB-rG-Tbg" firstAttribute="top" secondItem="rEf-Fj-rTq" secondAttribute="bottom" constant="-20" id="FtG-Yj-rbV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TwB-rG-Tbg" secondAttribute="trailing" constant="-16" id="UB5-Ah-GIC"/>
+                            <constraint firstItem="TwB-rG-Tbg" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-16" id="cDt-pm-J37"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rsx-0N-epK" secondAttribute="trailing" constant="-5" id="krr-2W-xrb"/>
-                            <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="R2C-zv-Tfb" secondAttribute="bottom" id="rMc-mI-KBy"/>
-                            <constraint firstItem="D0m-nY-021" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leading" id="vCc-zz-FkF"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ZqV-Vk-JS9"/>
-                                <exclude reference="aLv-tI-DIr"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="scores" id="oVW-Z1-Pdj">
                         <userDefinedRuntimeAttributes>
@@ -113,17 +84,73 @@
                     </tabBarItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="hamburgerButton" destination="upA-bb-Z3S" id="Eba-cn-Oz7"/>
+                        <outlet property="collectionView" destination="TwB-rG-Tbg" id="bBA-7P-A65"/>
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
-                        <outlet property="tabBar" destination="R2C-zv-Tfb" id="SVr-9C-DOQ"/>
-                        <outlet property="toolBar" destination="D0m-nY-021" id="jdC-3X-p8u"/>
                         <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
                         <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
+                        <segue destination="Qj7-Ub-e3P" kind="show" identifier="tabViewController" id="1UJ-u3-6uB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="1836"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="M4Q-tU-MMX">
+            <objects>
+                <viewController id="Pjn-3v-Swb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mVM-aa-L8y"/>
+                        <viewControllerLayoutGuide type="bottom" id="qcc-cB-j00"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vxR-dc-BTs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="cg4-Kv-dlg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2646" y="1276"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="Yjf-zA-SE6">
+            <objects>
+                <viewController id="WdV-19-me3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="65R-cQ-ORS"/>
+                        <viewControllerLayoutGuide type="bottom" id="pBb-be-UYz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DwA-Tn-x2j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="4Tv-c8-h1Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2646" y="614"/>
+        </scene>
+        <!--Tab View View Controller-->
+        <scene sceneID="TB4-rL-fCr">
+            <objects>
+                <tabBarController id="Qj7-Ub-e3P" customClass="SBTabViewViewController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9rb-1M-htU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WdV-19-me3" kind="relationship" relationship="viewControllers" id="vVE-fY-ZCs"/>
+                        <segue destination="Pjn-3v-Swb" kind="relationship" relationship="viewControllers" id="yHd-Fg-e2a"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4I-NP-zMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="946"/>
         </scene>
         <!--Boxscore View Controller-->
         <scene sceneID="N7Q-ZS-BaW">
@@ -602,8 +629,6 @@
     <resources>
         <image name="scores" width="50" height="50"/>
         <image name="scores-filled" width="50" height="50"/>
-        <image name="standings" width="50" height="50"/>
-        <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAy-Wc-PS9"/>
