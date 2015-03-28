@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SBLeagueIndexView.h"
 #import "SBLeague.h"
 #import "SBUser.h"
 #import "SBLeagueHeader.h"

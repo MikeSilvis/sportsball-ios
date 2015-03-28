@@ -7,7 +7,6 @@
 //
 
 #import "SBLeague.h"
-#import "SBLeagueIndexView.h"
 #import "DIDatepicker.h"
 #import "SBGame.h"
 #import "SBLeagueHeader.h"
