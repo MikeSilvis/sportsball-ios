@@ -79,6 +79,8 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
   self.pageControl.currentPage = scrollView.contentOffset.x / self.collectionView.frame.size.width;
+
+  [SBUser currentUser].lastOpenedLeagueIndex = @(self.pageControl.currentPage);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {

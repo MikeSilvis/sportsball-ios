@@ -95,7 +95,6 @@ static CGFloat const kHeaderSize = 100;
 }
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-  [SBUser currentUser].lastOpenedLeague = self.leagues[indexPath.row];
   [SBUser currentUser].lastOpenedLeagueIndex = @(indexPath.row);
   self.selectedIndexPath = indexPath;
 

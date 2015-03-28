@@ -360,7 +360,6 @@ static CGFloat const kDatePickerSize = 50;
   [self cancelTimer];
 
   [SBUser currentUser].lastOpenedLeagueIndex = @(-1);
-  [SBUser currentUser].lastOpenedLeague = nil;
   
   [self dismissViewControllerAnimated:YES completion:nil];
 }

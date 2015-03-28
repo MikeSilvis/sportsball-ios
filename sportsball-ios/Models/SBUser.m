@@ -59,6 +59,10 @@ static NSString *kAllLeagues = @"allLeagues-1";
   [self syncUserDefaults];
 }
 
+- (SBLeague *)lastOpenedLeague {
+  return self.leagues[[self.lastOpenedLeagueIndex intValue]];
+}
+
 - (void)setLeagues:(NSArray *)leagues {
   _leagues = leagues;
 
