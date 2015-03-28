@@ -15,6 +15,7 @@
 #import "SBGame.h"
 #import "SBTabViewViewController.h"
 #import "SBConstants.h"
+#import "SBUser.h"
 
 @interface SBScoresViewController () <PTPusherDelegate, SBDatePickerCollectionViewCellDelegate>
 
@@ -95,7 +96,7 @@ static CGFloat const kDatePickerSize = 50;
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  self.league = ((SBTabViewViewController *)self.tabBarController).league;
+  self.league = [SBUser currentUser].lastOpenedLeague;
   [self startTimer];
 }
 
@@ -157,6 +158,7 @@ static CGFloat const kDatePickerSize = 50;
     return;
   }
 
+  // If it is not today
   if (![[self dateWithoutTime:self.currentDate] isEqualToDate:[self dateWithoutTime:[NSDate date]]]) {
     return;
   }

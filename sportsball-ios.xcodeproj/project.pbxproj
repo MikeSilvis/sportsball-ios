@@ -245,8 +245,8 @@
 		1199090E1A4B224200F2ED1B /* SBRecap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBRecap.h; sourceTree = "<group>"; };
 		1199090F1A4B224200F2ED1B /* SBRecap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBRecap.m; sourceTree = "<group>"; };
 		119909111A4B249A00F2ED1B /* SBContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBContentTableViewCell.xib; sourceTree = "<group>"; };
-		119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueLoadingViewController.h; sourceTree = "<group>"; };
-		1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueLoadingViewController.m; sourceTree = "<group>"; };
+		119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBLeagueLoadingViewController.h; path = ../../SBLeagueLoadingViewController.h; sourceTree = "<group>"; };
+		1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBLeagueLoadingViewController.m; path = ../../SBLeagueLoadingViewController.m; sourceTree = "<group>"; };
 		1199091E1A4F535B00F2ED1B /* SBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
 		1199091F1A4F535B00F2ED1B /* SBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 		119B873B1A819BED0018F099 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -374,6 +374,23 @@
 				11FBB1F31A912362000AF0FB /* UIImage+ColorImage.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		112B7D231AC72264001FD93F /* LeagueLoading */ = {
+			isa = PBXGroup;
+			children = (
+				112B7D241AC72274001FD93F /* Controllers */,
+			);
+			path = LeagueLoading;
+			sourceTree = "<group>";
+		};
+		112B7D241AC72274001FD93F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */,
+				1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		112BEE8A1A3124A900DCE472 /* ScoreSummary */ = {
@@ -703,6 +720,7 @@
 		119909181A4F503D00F2ED1B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				112B7D231AC72264001FD93F /* LeagueLoading */,
 				11A2E1C91AC6817A005812FF /* Scores */,
 				11E18F1F1AC663CE00139A7E /* Tabs */,
 				11AA9D921AAFBACC00E81FB6 /* Standings */,
@@ -711,8 +729,6 @@
 				114E87981A5F863C007C2CF7 /* Preview */,
 				1154F6531A03DC9B009F560B /* LeagueIndex */,
 				11847BD31A21045800300E28 /* Boxscore */,
-				119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */,
-				1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

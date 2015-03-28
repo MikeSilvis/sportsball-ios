@@ -18,8 +18,6 @@
 @property (nonatomic, strong) ZFModalTransitionAnimator *modalAnimator;
 @property (nonatomic, strong) SBTransitionAnimator *sbAnimator;
 @property (nonatomic, copy) NSArray *leagues;
-@property (nonatomic, strong) SBLeague *selectedLeague;
-@property bool animatedTransition;
 
 @end
 
@@ -45,8 +43,10 @@ static CGFloat const kHeaderSize = 100;
         forCellWithReuseIdentifier:kLeagueHeaderCell];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.backgroundColor = [UIColor clearColor];
-//  [self buildTabbar];
 
+  [self openAtLastSelectedIndex];
+//  [self buildTabbar];
+//
 //  [[NSNotificationCenter defaultCenter] addObserver:self
 //                                           selector:@selector(cancelTimer)
 //                                               name:UIApplicationDidEnterBackgroundNotification
@@ -65,7 +65,7 @@ static CGFloat const kHeaderSize = 100;
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 
-//  [self openAtLastSelectedIndex];
+  [self openAtLastSelectedIndex];
 }
 
 - (void)buildHelpIcon {
@@ -90,7 +90,8 @@ static CGFloat const kHeaderSize = 100;
 }
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-  self.selectedLeague = self.leagues[indexPath.row];
+  [SBUser currentUser].lastOpenedLeague = self.leagues[indexPath.row];
+  [SBUser currentUser].lastOpenedLeagueIndex = @(indexPath.row);
   self.selectedIndexPath = indexPath;
   self.animatedTransition = animated;
 
@@ -412,12 +413,9 @@ static CGFloat const kHeaderSize = 100;
     SBTabViewViewController *destinationViewController = segue.destinationViewController;
     self.sbAnimator = [[SBTransitionAnimator alloc] init];
 
-    destinationViewController.league = self.selectedLeague;
-    // TODO: IMPLEMENT YOU
-//    if (self.animatedTransition) {
-      destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
-      destinationViewController.transitioningDelegate = self.sbAnimator;
-//    }
+    destinationViewController.league = [SBUser currentUser].lastOpenedLeague;
+    destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
+    destinationViewController.transitioningDelegate = self.sbAnimator;
   }
   else {
     SBModalViewController *destinationViewController = segue.destinationViewController;

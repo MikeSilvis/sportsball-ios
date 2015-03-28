@@ -33,11 +33,16 @@ static NSString *kPlaceholderImageSize = @"600x300";
   [self defaultCache];
   [self configureParse:launchOptions];
   [self configureMixPanel];
+  [self setInitialWindow];
 
+  return YES;
+}
+
+- (void)setInitialWindow {
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
   NSString *initialViewId;
-  if ([SBUser currentUser].leagues.count > 0) {
+  if ([[SBUser currentUser].leagues count] > 0) {
     initialViewId = @"leagueIndexViewController";
     [SBLeague getSupportedLeagues:nil failure:nil];
   }
@@ -50,8 +55,6 @@ static NSString *kPlaceholderImageSize = @"600x300";
 
   self.window.rootViewController = viewController;
   [self.window makeKeyAndVisible];
-
-  return YES;
 }
 
 - (void)configureMixPanel {

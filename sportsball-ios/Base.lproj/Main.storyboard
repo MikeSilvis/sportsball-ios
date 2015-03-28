@@ -132,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BUX-fl-5MC">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="531"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5yr-Pr-p9a" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="600" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -158,17 +158,30 @@
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </toolbar>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cc6-gB-qzB">
+                                <rect key="frame" x="281" y="519" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cc6-gB-qzB" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="265" id="8eI-ZJ-wp1"/>
                             <constraint firstItem="P77-Lo-x8I" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="BD1-c3-a3B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P77-Lo-x8I" secondAttribute="trailing" constant="-16" id="DHY-PA-ppY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cc6-gB-qzB" secondAttribute="trailing" constant="264" id="Nxn-NC-S6A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BUX-fl-5MC" secondAttribute="trailing" constant="-16" id="PTm-qg-80v"/>
                             <constraint firstItem="BUX-fl-5MC" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="TpY-lh-YGX"/>
-                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="BUX-fl-5MC" secondAttribute="bottom" id="dfN-kA-FZ4"/>
+                            <constraint firstAttribute="centerX" secondItem="cc6-gB-qzB" secondAttribute="centerX" id="UEq-XC-0vh"/>
+                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="BUX-fl-5MC" secondAttribute="bottom" constant="20" id="dfN-kA-FZ4"/>
+                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="cc6-gB-qzB" secondAttribute="bottom" constant="-5" id="iNu-T5-g9G"/>
                             <constraint firstItem="BUX-fl-5MC" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="mUg-hP-c2j"/>
                             <constraint firstItem="P77-Lo-x8I" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="15" id="tjn-cW-ETS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8eI-ZJ-wp1"/>
+                                <exclude reference="Nxn-NC-S6A"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="scores" id="4Tv-c8-h1Z">
                         <userDefinedRuntimeAttributes>
@@ -178,6 +191,7 @@
                     <connections>
                         <outlet property="collectionView" destination="BUX-fl-5MC" id="hqs-kD-0Lw"/>
                         <outlet property="hamburgerButton" destination="hI0-s9-Fg5" id="LIH-nc-u8G"/>
+                        <outlet property="pageControl" destination="cc6-gB-qzB" id="YKo-Gr-Ci2"/>
                         <outlet property="toolBar" destination="P77-Lo-x8I" id="tsn-yp-nLY"/>
                     </connections>
                 </viewController>
@@ -188,7 +202,7 @@
         <!--Tab View View Controller-->
         <scene sceneID="TB4-rL-fCr">
             <objects>
-                <tabBarController id="Qj7-Ub-e3P" customClass="SBTabViewViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="sbTabViewController" id="Qj7-Ub-e3P" customClass="SBTabViewViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="9rb-1M-htU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

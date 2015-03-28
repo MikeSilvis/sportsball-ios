@@ -13,6 +13,8 @@
 
 @implementation SBLeagueLoadingViewController
 
+static NSString *kLeagueIndexSegue = @"leagueIndexSegue";
+
 - (void)viewDidLoad {
   [super viewDidLoad];
 
@@ -38,7 +40,7 @@
 - (void)setLeagues:(NSArray *)leagues {
   _leagues = leagues;
 
-  [self performSegueWithIdentifier:@"leagueIndexSegue" sender:self];
+  [self performSegueWithIdentifier:kLeagueIndexSegue sender:self];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
