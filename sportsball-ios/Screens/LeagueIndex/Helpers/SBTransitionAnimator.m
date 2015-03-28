@@ -59,9 +59,9 @@ static const NSTimeInterval AnimationDuration = 0.25;
 
 - (void)dismissAddEntryViewController:(UIViewController *)destinationViewController fromParentViewController:(SBLeagueIndexViewController *)parentController usingContainerView:(UIView *)containerView transitionContext: (id<UIViewControllerContextTransitioning>)transitionContext {
   parentController.view.alpha = 1.0;
+  destinationViewController.view.alpha = 0.0;
 
   [UIView animateWithDuration:0.4 animations:^{
-    destinationViewController.view.alpha = 0.0;
 
     // Move Collection view to top
     CGRect f = parentController.collectionView.frame;
