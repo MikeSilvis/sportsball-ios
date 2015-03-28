@@ -13,8 +13,6 @@
 
 @interface SBStandingsViewCell ()
 
-@property BOOL scorePuller;
-
 @end
 
 @implementation SBStandingsViewCell
@@ -60,17 +58,14 @@ static CGFloat const kTeamViewCellSize = 45;
                               @"stub": @[[[SBTeam alloc] init]]
                               };
 
+  [self layoutSubviews];
 }
 
 - (void)cancelTimer {
-  self.scorePuller = NO;
 }
 
 - (void)startTimer {
-  if (!self.scorePuller) {
-    [self findDivisionStandings];
-    self.scorePuller = YES;
-  }
+  [self findDivisionStandings];
 }
 
 - (void)findDivisionStandings {

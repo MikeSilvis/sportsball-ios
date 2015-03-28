@@ -33,7 +33,9 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
 }
 
 - (void)cellDidAppear:(UICollectionViewCell *)cell {
-  [((SBStandingsViewCell *)cell) startTimer];
+  SBStandingsViewCell *standingsCell = (SBStandingsViewCell *)cell;
+  [standingsCell startTimer];
+//  [((SBStandingsViewCell *)cell) startTimer];
 }
 
 - (void)cellDidDisappear:(UICollectionViewCell *)cell {
