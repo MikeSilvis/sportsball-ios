@@ -95,9 +95,11 @@
   return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-  self.pageControl.currentPage = scrollView.contentOffset.x / self.collectionView.frame.size.width;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  float fractionalPage = scrollView.contentOffset.x / scrollView.frame.size.width;
+  NSInteger page = lround(fractionalPage);
 
+  self.pageControl.currentPage = page;
   [SBUser currentUser].lastOpenedLeagueIndex = @(self.pageControl.currentPage);
   [self.delegate cellDidAppear:[self.collectionView.visibleCells firstObject]];
 }
