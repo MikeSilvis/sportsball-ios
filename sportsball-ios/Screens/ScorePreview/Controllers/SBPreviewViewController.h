@@ -13,7 +13,7 @@
 #import "SBScheduleSegmentedControlTableViewCell.h"
 
 
-@interface SBScorePreviewViewController : SBModalViewController <UITableViewDataSource, UITableViewDelegate, SBScheduleSegmentedControlTableViewCellProtocol>
+@interface SBPreviewViewController : SBModalViewController <UITableViewDataSource, UITableViewDelegate, SBScheduleSegmentedControlTableViewCellProtocol>
 
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (weak, nonatomic) IBOutlet UIImageView *awayTeamLogo;

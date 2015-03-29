@@ -17,6 +17,7 @@
   [super viewDidLoad];
 
   self.view.layer.contents = (id)[UIImage imageNamed:@"background"].CGImage;
+  self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didStartLoading {

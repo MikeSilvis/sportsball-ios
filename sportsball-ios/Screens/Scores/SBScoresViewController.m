@@ -10,7 +10,7 @@
 #import "SBScoreIndexViewCell.h"
 #import "SBModalViewController.h"
 #import "SBBoxscoreViewController.h"
-#import "SBScorePreviewViewController.h"
+#import "SBPreviewViewController.h"
 #import "SBModalViewController.h"
 
 #import "SBUser.h"
@@ -156,7 +156,7 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     viewController.game = self.selectedGame;
 
     if ([segue.identifier isEqualToString:kScorePreviewSegue]) {
-      [self.animator setContentScrollView:((SBScorePreviewViewController *)viewController).tableView];
+      [self.animator setContentScrollView:((SBPreviewViewController *)viewController).tableView];
     }
     else if ([segue.identifier isEqualToString:kScoreShowSegue]) {
       [self.animator setContentScrollView:((SBBoxscoreViewController *)viewController).tableView];

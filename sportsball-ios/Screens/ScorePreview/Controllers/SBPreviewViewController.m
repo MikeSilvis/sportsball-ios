@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#import "SBScorePreviewViewController.h"
+#import "SBPreviewViewController.h"
 #import "UIImage+FontAwesome.h"
 #import "SBContentTableViewCell.h"
 #import "SBScoreDataTableViewCell.h"
@@ -15,13 +15,13 @@
 #import "SBSchedule.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface SBScorePreviewViewController ()
+@interface SBPreviewViewController ()
 
 @property BOOL shouldRenderTable;
 
 @end
 
-@implementation SBScorePreviewViewController
+@implementation SBPreviewViewController
 
 // Cell Identifiers
 static NSString *kScoreContentCell = @"ScoreContentCell";

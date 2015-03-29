@@ -73,7 +73,6 @@ static const NSTimeInterval AnimationDuration = 0.25;
   [self hideCells:parentController];
 
   [UIView animateWithDuration:0.4 animations:^{
-
     // Move Collection view to top
     CGRect f = parentController.collectionView.frame;
     f.origin.y = 0;
