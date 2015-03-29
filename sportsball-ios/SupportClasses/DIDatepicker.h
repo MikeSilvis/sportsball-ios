@@ -10,7 +10,7 @@ extern const NSTimeInterval kSecondsInDay;
 extern const CGFloat kDIDetepickerHeight;
 
 
-@interface DIDatepicker : UIControl
+@interface DIDatepicker : UIControl <UICollectionViewDataSource, UICollectionViewDelegate>
 
 // data
 @property (strong, nonatomic) NSArray *dates;
@@ -21,9 +21,6 @@ extern const CGFloat kDIDetepickerHeight;
 @property (strong, nonatomic) UIColor *selectedDateBottomLineColor;
 
 // methods
-- (void)fillDatesFromCurrentDate:(NSInteger)nextDatesCount;
-- (void)fillDatesFromDate:(NSDate *)fromDate numberOfDays:(NSInteger)nextDatesCount;
-- (void)fillDatesSinceDate:(NSDate *)sinceDate numberOfDays:(NSInteger)nextDatesCount;
 - (void)selectDate:(NSDate *)date;
 - (void)selectDateAtIndex:(NSUInteger)index;
 - (void)selectDateClosestToToday;

@@ -10,30 +10,33 @@ const CGFloat kDIDatepickerItemWidth = 46.;
 const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 
 
-@interface DIDatepickerDateView ()
+@interface DIDatepickerCell ()
 
-@property (strong, nonatomic) UILabel *dateLabel;
-@property (nonatomic, strong) UIView *selectionView;
+  @property (strong, nonatomic) UILabel *dateLabel;
+  @property (nonatomic, strong) UIView *selectionView;
+  @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
-@end
+  @end
 
 
-@implementation DIDatepickerDateView
+  @implementation DIDatepickerCell
 
-- (id)initWithFrame:(CGRect)frame
+  - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (!self) return nil;
+  if(self = [super initWithFrame:frame]){
+        [self setBackgroundColor:[UIColor clearColor]];
+  }
 
-    [self setupViews];
-
-    return self;
+  return self;
 }
 
-- (void)setupViews
+- (void)prepareForReuse
 {
-    [self addTarget:self action:@selector(dateWasSelected) forControlEvents:UIControlEventTouchUpInside];
+  [self setSelected:NO];
+  self.selectionView.alpha = 0.0f;
 }
+
+#pragma mark - Setters
 
 - (void)setDate:(NSDate *)date
 {
@@ -74,60 +77,62 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     self.dateLabel.attributedText = dateString;
 }
 
-- (void)setIsSelected:(BOOL)isSelected
-{
-    _isSelected = isSelected;
-
-    self.selectionView.alpha = (int)_isSelected;
-}
-
-- (UILabel *)dateLabel
-{
-    if (!_dateLabel) {
-        _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        _dateLabel.numberOfLines = 2;
-        _dateLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:_dateLabel];
-    }
-
-    return _dateLabel;
-}
-
-- (UIView *)selectionView
-{
-    if (!_selectionView) {
-        _selectionView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width - 51) / 2, (self.frame.size.height - 3), 51, 3)];
-        _selectionView.alpha = 0;
-        _selectionView.backgroundColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
-        [self addSubview:_selectionView];
-    }
-
-    return _selectionView;
-}
-
 - (void)setItemSelectionColor:(UIColor *)itemSelectionColor
 {
-    self.selectionView.backgroundColor = itemSelectionColor;
+  self.selectionView.backgroundColor = itemSelectionColor;
 }
 
 - (void)setHighlighted:(BOOL)highlighted
 {
-    [super setHighlighted:highlighted];
-    if (highlighted) {
-        self.selectionView.alpha = self.isSelected ? 1 : .5;
-    } else {
-        self.selectionView.alpha = self.isSelected ? 1 : 0;
-    }
+  [super setHighlighted:highlighted];
+
+  self.selectionView.hidden = NO;
+  if (highlighted) {
+    self.selectionView.alpha = self.isSelected ? 1 : .5;
+  } else {
+    self.selectionView.alpha = self.isSelected ? 1 : 0;
+  }
 }
 
-
-#pragma mark Other methods
-
-- (void)dateWasSelected
+- (void)setSelected:(BOOL)selected
 {
-    self.isSelected = YES;
+  [super setSelected:selected];
+  self.selectionView.alpha = (selected)?1.0f:0.0f;
+}
 
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+#pragma mark - Getters
+
+- (UILabel *)dateLabel
+{
+  if (!_dateLabel) {
+    _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    _dateLabel.numberOfLines = 2;
+    _dateLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:_dateLabel];
+  }
+
+  return _dateLabel;
+}
+
+- (UIView *)selectionView
+{
+  if (!_selectionView) {
+    _selectionView = [[UIView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - 51) / 2, CGRectGetHeight(self.frame) - 3, 51, 3)];
+    _selectionView.alpha = 0.0f;
+    _selectionView.backgroundColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
+    [self addSubview:_selectionView];
+  }
+
+  return _selectionView;
+}
+
+- (NSDateFormatter *)dateFormatter
+{
+  if(!_dateFormatter){
+    _dateFormatter = [[NSDateFormatter alloc] init];
+  }
+
+  return _dateFormatter;
 }
 
 @end

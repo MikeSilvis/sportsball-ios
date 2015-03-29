@@ -6,17 +6,17 @@
 #import "DIDatepicker.h"
 #import "DIDatepickerDateView.h"
 
-
-const NSTimeInterval kSecondsInDay = 86400;
-const NSInteger kMondayOffset = 2;
-const CGFloat kDIDetepickerHeight = 60.;
+const CGFloat kDIDatepickerHeight = 60.;
 const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
+NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
 
+@interface DIDatepicker (){
+  NSIndexPath *selectedIndexPath;
+}
 
-@interface DIDatepicker ()
-
-@property (strong, nonatomic) UIScrollView *datesScrollView;
-@property bool shouldAnimate;
+@property (strong, nonatomic) UICollectionView *datesCollectionView;
+@property (strong, nonatomic, readwrite) NSDate *selectedDate;
+@property BOOL isAnimated;
 
 @end
 
@@ -25,119 +25,96 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 
 - (void)awakeFromNib
 {
-    [self setupViews];
+  [self setupViews];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (!self) return self;
-
+  if(self = [super initWithFrame:frame]){
     [self setupViews];
+    self.isAnimated = YES;
+  }
 
-    return self;
+  return self;
 }
 
 - (void)setupViews
 {
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.backgroundColor = [UIColor clearColor];
-    self.bottomLineColor = [UIColor clearColor];
-    self.selectedDateBottomLineColor = [UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000];
+  self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+  self.backgroundColor = [UIColor clearColor];
+  self.bottomLineColor = [UIColor clearColor];
+  self.selectedDateBottomLineColor = [UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000];
 }
-
 
 #pragma mark Setters | Getters
 
 - (void)setDates:(NSArray *)dates
 {
-    _dates = [dates sortedArrayUsingSelector:@selector(compare:)];
+  _dates = dates;
 
-    [self updateDatesView];
+  [self.datesCollectionView reloadData];
 
-    self.selectedDate = nil;
+  self.selectedDate = nil;
 }
 
 - (void)setSelectedDate:(NSDate *)selectedDate
 {
-    _selectedDate = selectedDate;
+  _selectedDate = selectedDate;
 
-    for (id subview in self.datesScrollView.subviews) {
-        if ([subview isKindOfClass:[DIDatepickerDateView class]]) {
-            DIDatepickerDateView *dateView = (DIDatepickerDateView *)subview;
-            dateView.isSelected = [dateView.date isEqualToDate:selectedDate];
-        }
-    }
+  NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:[self.dates indexOfObject:selectedDate] inSection:0];
+  [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:YES];
+  [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:self.isAnimated scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
 
-    [self updateSelectedDatePosition:YES];
+  selectedIndexPath = selectedCellIndexPath;
+
+  [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
-- (UIScrollView *)datesScrollView
+- (UICollectionView *)datesCollectionView
 {
-    if (!_datesScrollView) {
-        _datesScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _datesScrollView.showsHorizontalScrollIndicator = NO;
-        _datesScrollView.autoresizingMask = self.autoresizingMask;
-        [self addSubview:_datesScrollView];
-    }
-    return _datesScrollView;
+  if (!_datesCollectionView) {
+    UICollectionViewFlowLayout *collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
+    [collectionViewLayout setItemSize:CGSizeMake(kDIDatepickerItemWidth, CGRectGetHeight(self.bounds))];
+    [collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [collectionViewLayout setSectionInset:UIEdgeInsetsMake(0, kDIDatepickerSpaceBetweenItems, 0, kDIDatepickerSpaceBetweenItems)];
+    [collectionViewLayout setMinimumLineSpacing:kDIDatepickerSpaceBetweenItems];
+
+    _datesCollectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:collectionViewLayout];
+    [_datesCollectionView registerClass:[DIDatepickerCell class] forCellWithReuseIdentifier:kDIDatepickerCellIndentifier];
+    [_datesCollectionView setBackgroundColor:[UIColor clearColor]];
+    [_datesCollectionView setShowsHorizontalScrollIndicator:NO];
+    [_datesCollectionView setAllowsMultipleSelection:YES];
+    _datesCollectionView.dataSource = self;
+    _datesCollectionView.delegate = self;
+    [self addSubview:_datesCollectionView];
+  }
+  return _datesCollectionView;
 }
 
 - (void)setSelectedDateBottomLineColor:(UIColor *)selectedDateBottomLineColor
 {
-    _selectedDateBottomLineColor = selectedDateBottomLineColor;
+  _selectedDateBottomLineColor = selectedDateBottomLineColor;
 
-    for (id subview in self.datesScrollView.subviews) {
-        if ([subview isKindOfClass:[DIDatepickerDateView class]]) {
-            DIDatepickerDateView *dateView = (DIDatepickerDateView *)subview;
-            [dateView setItemSelectionColor:selectedDateBottomLineColor];
-        }
-    }
+  [self.datesCollectionView.indexPathsForSelectedItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        DIDatepickerCell *selectedCell = (DIDatepickerCell *)[self.datesCollectionView cellForItemAtIndexPath:obj];
+        selectedCell.itemSelectionColor = _selectedDateBottomLineColor;
+  }];
 }
-
 
 #pragma mark Public methods
 
-- (void)fillDatesFromCurrentDate:(NSInteger)nextDatesCount
+- (void)selectDate:(NSDate *)date
 {
-    NSAssert(nextDatesCount < 1000, @"Too much dates");
+  NSAssert([self.dates indexOfObject:date] != NSNotFound, @"Date not found in dates array");
 
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-    for (NSInteger day = 0; day < nextDatesCount; day++) {
-        [dates addObject:[NSDate dateWithTimeIntervalSinceNow:day * kSecondsInDay]];
-    }
-
-    self.dates = dates;
+  self.selectedDate = date;
 }
 
-- (void)fillDatesFromDate:(NSDate *)fromDate numberOfDays:(NSInteger)nextDatesCount
+- (void)selectDateAtIndex:(NSUInteger)index
 {
-    NSAssert(nextDatesCount < 1000, @"Too much dates");
+  NSAssert(index < self.dates.count, @"Index too big");
 
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-
-    for (NSInteger day = 0; day < nextDatesCount; day++)
-    {
-        [dates addObject:[fromDate dateByAddingTimeInterval:day * kSecondsInDay]];
-    }
-
-    NSMutableArray *existingDates = [NSMutableArray arrayWithArray:self.dates];
-    [dates addObjectsFromArray:existingDates];
-
-    self.dates = dates;
-}
-
-- (void)fillDatesSinceDate:(NSDate *)sinceDate numberOfDays:(NSInteger)nextDatesCount {
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-
-    for (NSInteger day = 1; day < nextDatesCount; day++)
-    {
-        [dates addObject:[sinceDate dateByAddingTimeInterval:-(day * kSecondsInDay)]];
-    }
-    NSMutableArray *existingDates = [NSMutableArray arrayWithArray:self.dates];
-    [dates addObjectsFromArray:existingDates];
-
-    self.dates = dates;
+  self.selectedDate = self.dates[index];
 }
 
 - (void)selectDateClosestToToday{
@@ -158,83 +135,69 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
           closestDate = date;
       }
   }
-  
+
+  self.isAnimated = NO;
   self.selectedDate = closestDate;
-}
-
-- (void)selectDate:(NSDate *)date
-{
-    NSAssert([self.dates indexOfObject:date] != NSNotFound, @"Date not found in dates array");
-
-    self.selectedDate = date;
-}
-
-- (void)selectDateAtIndex:(NSUInteger)index
-{
-    NSAssert(index < self.dates.count, @"Index too big");
-
-    self.selectedDate = self.dates[index];
 }
 
 #pragma mark Private methods
 
 - (void)drawRect:(CGRect)rect
 {
-    [super drawRect:rect];
+  [super drawRect:rect];
 
-    // draw bottom line
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetStrokeColorWithColor(context, self.bottomLineColor.CGColor);
-    CGContextSetLineWidth(context, .5);
-    CGContextMoveToPoint(context, 0, rect.size.height - .5);
-    CGContextAddLineToPoint(context, rect.size.width, rect.size.height - .5);
-    CGContextStrokePath(context);
-}
-
-- (void)updateDatesView
-{
-    [self.datesScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-
-    CGFloat currentItemXPosition = kDIDatepickerSpaceBetweenItems;
-    for (NSDate *date in self.dates) {
-        DIDatepickerDateView *dateView = [[DIDatepickerDateView alloc] initWithFrame:CGRectMake(currentItemXPosition, 0, kDIDatepickerItemWidth, self.frame.size.height)];
-        dateView.date = date;
-        dateView.selected = [date isEqualToDate:self.selectedDate];
-        [dateView setItemSelectionColor:self.selectedDateBottomLineColor];
-        [dateView addTarget:self action:@selector(updateSelectedDate:) forControlEvents:UIControlEventValueChanged];
-
-        [self.datesScrollView addSubview:dateView];
-
-        currentItemXPosition += kDIDatepickerItemWidth + kDIDatepickerSpaceBetweenItems;
-    }
-
-    self.datesScrollView.contentSize = CGSizeMake(currentItemXPosition, self.frame.size.height);
-}
-
-- (void)updateSelectedDate:(DIDatepickerDateView *)dateView
-{
-  self.shouldAnimate = YES;
-  self.selectedDate = dateView.date;
+  // draw bottom line
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextSetStrokeColorWithColor(context, self.bottomLineColor.CGColor);
+  CGContextSetLineWidth(context, .5);
+  CGContextMoveToPoint(context, 0, rect.size.height - .5);
+  CGContextAddLineToPoint(context, rect.size.width, rect.size.height - .5);
+  CGContextStrokePath(context);
 }
 
 -(void)layoutSubviews {
   [super layoutSubviews];
-  [self updateSelectedDatePosition:NO];
+
+  CGRect f = self.datesCollectionView.frame;
+  f.size.width = self.bounds.size.width;
+  self.datesCollectionView.frame = f;
 }
 
-- (void)updateSelectedDatePosition:(BOOL)sendEvent
+#pragma mark - UICollectionView Delegate
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSUInteger itemIndex = [self.dates indexOfObject:self.selectedDate];
-
-    CGSize itemSize = CGSizeMake(kDIDatepickerItemWidth + kDIDatepickerSpaceBetweenItems, self.frame.size.height);
-    CGFloat itemOffset = itemSize.width * itemIndex - (self.frame.size.width - (kDIDatepickerItemWidth + 2 * kDIDatepickerSpaceBetweenItems)) / 2;
-
-    itemOffset = MAX(0, MIN(self.datesScrollView.contentSize.width - (self.frame.size.width ), itemOffset));
-
-    [self.datesScrollView setContentOffset:CGPointMake(itemOffset, 0) animated:self.shouldAnimate];
-    if (sendEvent) {
-      [self sendActionsForControlEvents:UIControlEventValueChanged];
-    }
+  return 1;
 }
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+  return  [self.dates count];
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  DIDatepickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kDIDatepickerCellIndentifier forIndexPath:indexPath];
+  cell.date = [self.dates objectAtIndex:indexPath.item];
+  cell.itemSelectionColor = _selectedDateBottomLineColor;
+  return cell;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  return ![indexPath isEqual:selectedIndexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.datesCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+  _selectedDate = [self.dates objectAtIndex:indexPath.item];
+
+  [collectionView deselectItemAtIndexPath:selectedIndexPath animated:YES];
+  self.isAnimated = YES;
+  selectedIndexPath = indexPath;
+  [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
 
 @end
