@@ -81,6 +81,8 @@ static CGFloat const kDatePickerSize = 50;
   }
 }
 
+#pragma mark - Real Time
+
 - (void)cancelTimer {
   [self.channel unsubscribe];
   [self.client disconnect];
@@ -129,6 +131,8 @@ static CGFloat const kDatePickerSize = 50;
 
   return [calendar dateFromComponents:components];
 }
+
+#pragma mark - Finding Games
 
 - (void)findGames {
   if (!self.currentDate) {
@@ -195,7 +199,7 @@ static CGFloat const kDatePickerSize = 50;
   [self.collectionView reloadData];
 
   if ((self.selectedIndexPath) && (self.selectedIndexPath.row != updatedSelectedItemPath)) {
-    [self performSelector:@selector(moveToCorrectPosition:)
+    [self performSelector:@selector(updateGameLocationWithAnimation:)
                withObject:@[
                             self.selectedIndexPath,
                             [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
@@ -204,7 +208,7 @@ static CGFloat const kDatePickerSize = 50;
   }
 }
 
-- (void)moveToCorrectPosition:(NSArray *)paths {
+- (void)updateGameLocationWithAnimation:(NSArray *)paths {
   dispatch_async(dispatch_get_main_queue(), ^{
     if ([self.games count] > 0) {
       [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
@@ -221,20 +225,20 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)showFavoriteNotification {
-//  for (SBGame *game in self.games) {
-//    if ([game.awayTeam favoriteScore] == [game.homeTeam favoriteScore]) {
-//      continue;
-//    }
-//
-//    if ([game.homeTeam isFavorableTeam]) {
-//      [self.delegate askForFavoriteTeam:game.homeTeam];
-//      return;
-//    }
-//    else if ([game.awayTeam isFavorableTeam]) {
-//      [self.delegate askForFavoriteTeam:game.awayTeam];
-//      return;
-//    }
-//  }
+  for (SBGame *game in self.games) {
+    if ([game.awayTeam favoriteScore] == [game.homeTeam favoriteScore]) {
+      continue;
+    }
+
+    if ([game.homeTeam isFavorableTeam]) {
+      [self.delegate askForFavoriteTeam:game.homeTeam];
+      return;
+    }
+    else if ([game.awayTeam isFavorableTeam]) {
+      [self.delegate askForFavoriteTeam:game.awayTeam];
+      return;
+    }
+  }
 }
 
 - (void)layoutSubviews {
@@ -246,10 +250,12 @@ static CGFloat const kDatePickerSize = 50;
   layout.itemSize = CGSizeMake(self.frame.size.width, layout.itemSize.height);
 }
 
+#pragma mark - Collection View Methods
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
   self.selectedGame = self.games[indexPath.row];
 
-//  [self.delegate selectedGame:self.selectedGame];
+  [self.delegate selectedGame:self.selectedGame];
   self.selectedIndexPath = indexPath;
 }
 

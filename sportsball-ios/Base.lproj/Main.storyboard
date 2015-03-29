@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qb-Nd-kje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="1836"/>
+            <point key="canvasLocation" x="-168" y="946"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="HJR-4K-spF">
@@ -87,14 +87,12 @@
                     <connections>
                         <outlet property="collectionView" destination="TwB-rG-Tbg" id="bBA-7P-A65"/>
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
-                        <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="AMk-nJ-vQO"/>
-                        <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="hUa-yF-BlA"/>
                         <segue destination="Qj7-Ub-e3P" kind="show" identifier="tabViewController" id="1UJ-u3-6uB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpu-kG-M3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="1836"/>
+            <point key="canvasLocation" x="836" y="946"/>
         </scene>
         <!--Standings-->
         <scene sceneID="M4Q-tU-MMX">
@@ -151,7 +149,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43t-ed-Rzq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
-                                    <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="vVX-bV-8uA"/>
+                                    <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="cBo-Xh-9bw"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -174,6 +172,11 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="containerView" destination="43t-ed-Rzq" id="16U-TP-9iz"/>
+                        <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="lBZ-oU-pbC"/>
+                        <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="DX3-sD-Kp6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjH-sC-Vby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="1836"/>
+            <point key="canvasLocation" x="3528" y="-156"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="IqV-zw-JEv">
@@ -409,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOv-5O-TPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="2608"/>
+            <point key="canvasLocation" x="4657" y="-604"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="vUe-zR-0fW">
@@ -524,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5I-OZ-ajG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1440" y="2608"/>
+            <point key="canvasLocation" x="836" y="1734"/>
         </scene>
         <!--Score Preview View Controller-->
         <scene sceneID="t5x-Bo-WWE">
@@ -669,7 +672,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RST-ru-7m3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136" y="2608"/>
+            <point key="canvasLocation" x="3528" y="-976"/>
         </scene>
         <!--Paging View Controller-->
         <scene sceneID="ZgR-pa-jx6">
@@ -737,7 +740,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mb-YD-nRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3602" y="797"/>
+            <point key="canvasLocation" x="3894" y="760.5"/>
         </scene>
     </scenes>
     <resources>
@@ -747,7 +750,7 @@
         <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cBo-Xh-9bw"/>
         <segue reference="LAy-Wc-PS9"/>
-        <segue reference="vVX-bV-8uA"/>
     </inferredMetricsTieBreakers>
 </document>

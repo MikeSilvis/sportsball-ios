@@ -168,12 +168,6 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 }
 
-- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-  [super dismissViewControllerAnimated:flag completion:^{
-    [self.delegate dismissedModal];
-  }];
-}
-
 #pragma mark - Table Stuff
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

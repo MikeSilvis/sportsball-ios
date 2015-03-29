@@ -12,11 +12,19 @@
 #import "SBLeagueHeader.h"
 #import "SBDatePickerCollectionViewCell.h"
 
+@protocol SBScoreIndexViewCellDelegate <NSObject>
+
+- (void)askForFavoriteTeam:(SBTeam *)team;
+- (void)selectedGame:(SBGame *)game;
+
+@end
+
 @interface SBScoreIndexViewCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegate, SBDatePickerCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (nonatomic, weak) id<SBScoreIndexViewCellDelegate> delegate;
 @property (nonatomic, strong) SBLeague *league;
 
 - (void)cancelTimer;

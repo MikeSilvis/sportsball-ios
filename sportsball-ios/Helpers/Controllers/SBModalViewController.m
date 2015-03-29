@@ -41,6 +41,14 @@ static  NSString *kWebSegue = @"webViewSegue";
   self.blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  
+  if (self.delegate) {
+    [self.delegate dismissedModal];
+  }
+}
+
 - (void)openURL:(NSURL *)url {
   if (!url) {
     return;

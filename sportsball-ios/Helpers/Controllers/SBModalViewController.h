@@ -10,7 +10,7 @@
 #import "SBGame.h"
 #import "ZFModalTransitionAnimator.h"
 
-@protocol SportsBallModalDelegate <NSObject>
+@protocol SBModalDelegate <NSObject>
 
 - (void)dismissedModal;
 
@@ -18,7 +18,7 @@
 
 @interface SBModalViewController : UIViewController
 
-@property (nonatomic, weak) id<SportsBallModalDelegate> delegate;
+@property (nonatomic, weak) id<SBModalDelegate> delegate;
 @property (nonatomic, strong) SBGame *game;
 @property (nonatomic, strong) NSURL *selectedURL;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
