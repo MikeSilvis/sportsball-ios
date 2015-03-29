@@ -26,9 +26,9 @@
 
 @implementation SBScoresViewController
 
-static NSString * const kPagingSegue = @"pagingSegue";
 static NSString * const kScoreIndexViewCell = @"scoreIndexViewCell";
 
+static NSString * const kPagingSegue = @"pagingSegue";
 static  NSString *kScoreShowSegue = @"scoreShowSegue";
 static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 

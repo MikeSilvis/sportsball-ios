@@ -20,7 +20,6 @@
 @property (nonatomic, strong) NSArray *games;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) SBGame *selectedGame;
-@property bool isActive;
 
 @end
 
@@ -56,7 +55,13 @@ static CGFloat const kDatePickerSize = 50;
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
-  self.isActive = NO;
+}
+
+- (void)setLeague:(SBLeague *)league {
+  _league = league;
+
+  [self.collectionView reloadData];
+  self.currentDate = nil;
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -66,10 +71,6 @@ static CGFloat const kDatePickerSize = 50;
 - (void)setCurrentDate:(NSDate *)currentDate {
   NSDate *previouslySelectedDate = self.currentDate;
   _currentDate = currentDate;
-
-  if (!self.isActive) {
-    return;
-  }
 
   if (![previouslySelectedDate isEqualToDate:currentDate]) {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -86,16 +87,12 @@ static CGFloat const kDatePickerSize = 50;
 - (void)cancelTimer {
   [self.channel unsubscribe];
   [self.client disconnect];
-  self.isActive = NO;
 }
 
 - (void)startTimer {
-  if (!self.isActive) {
-    self.isActive = YES;
-    [self setUpPusher];
-    [self connectToChannel];
-    [self findGames];
-  }
+  [self setUpPusher];
+  [self connectToChannel];
+  [self findGames];
 }
 
 - (void)setUpPusher {

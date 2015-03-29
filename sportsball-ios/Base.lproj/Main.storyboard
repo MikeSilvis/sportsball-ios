@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPx-vA-NBg">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="ijv-Gb-zhV"/>
                                 </connections>
@@ -116,8 +116,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qcc-cB-j00" firstAttribute="top" secondItem="NPx-vA-NBg" secondAttribute="bottom" id="4d2-YW-D6n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NPx-vA-NBg" secondAttribute="trailing" constant="-20" id="8Se-kV-yLe"/>
-                            <constraint firstItem="NPx-vA-NBg" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leadingMargin" constant="-20" id="Gf9-DE-TFi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NPx-vA-NBg" secondAttribute="trailing" constant="-16" id="8Se-kV-yLe"/>
+                            <constraint firstItem="NPx-vA-NBg" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leadingMargin" constant="-16" id="Gf9-DE-TFi"/>
                             <constraint firstItem="NPx-vA-NBg" firstAttribute="top" secondItem="mVM-aa-L8y" secondAttribute="bottom" constant="-20" id="qo1-rG-LsQ"/>
                         </constraints>
                     </view>
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43t-ed-Rzq">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="cBo-Xh-9bw"/>
                                 </connections>
@@ -156,10 +156,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="3OK-VU-NWB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="43t-ed-Rzq" secondAttribute="trailing" constant="-20" id="BVk-j6-B67"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43t-ed-Rzq" secondAttribute="trailing" constant="-16" id="BVk-j6-B67"/>
                             <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="43t-ed-Rzq" secondAttribute="bottom" id="OAb-7r-2cm"/>
                             <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="SQp-2r-vw4"/>
-                            <constraint firstItem="43t-ed-Rzq" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-20" id="shZ-KT-rwg"/>
+                            <constraint firstItem="43t-ed-Rzq" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="shZ-KT-rwg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -683,11 +683,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gyY-ZE-21k"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PFn-ZX-CEA">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s8r-IA-kTM">
-                                <rect key="frame" x="-4" y="-20" width="616" height="551"/>
+                                <rect key="frame" x="0.0" y="-20" width="600" height="551"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nSk-7p-6CX" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="600" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -700,7 +700,7 @@
                                 </connections>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-By-Cuy">
-                                <rect key="frame" x="0.0" y="25" width="608" height="44"/>
+                                <rect key="frame" x="0.0" y="25" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uKB-iG-SFB"/>
@@ -714,18 +714,18 @@
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cbw-qL-zVc">
-                                <rect key="frame" x="285" y="521" width="39" height="37"/>
+                                <rect key="frame" x="281" y="521" width="39" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="cbw-qL-zVc" secondAttribute="centerX" constant="-0.5" id="068-39-gY9"/>
-                            <constraint firstItem="s8r-IA-kTM" firstAttribute="leading" secondItem="PFn-ZX-CEA" secondAttribute="leadingMargin" constant="-20" id="2nX-8I-4jV"/>
+                            <constraint firstItem="s8r-IA-kTM" firstAttribute="leading" secondItem="PFn-ZX-CEA" secondAttribute="leadingMargin" constant="-16" id="2nX-8I-4jV"/>
                             <constraint firstItem="gyY-ZE-21k" firstAttribute="top" secondItem="s8r-IA-kTM" secondAttribute="bottom" constant="20" id="E9N-Cq-nME"/>
                             <constraint firstItem="s8r-IA-kTM" firstAttribute="top" secondItem="tHJ-lf-63l" secondAttribute="bottom" constant="-20" id="FJc-iZ-Y80"/>
                             <constraint firstItem="5Tg-By-Cuy" firstAttribute="top" secondItem="tHJ-lf-63l" secondAttribute="bottom" constant="25" id="Fuc-Vn-gql"/>
                             <constraint firstItem="gyY-ZE-21k" firstAttribute="top" secondItem="cbw-qL-zVc" secondAttribute="bottom" constant="-7" id="Hdd-sw-o8B"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s8r-IA-kTM" secondAttribute="trailing" constant="-20" id="mgz-WR-cft"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s8r-IA-kTM" secondAttribute="trailing" constant="-16" id="mgz-WR-cft"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Tg-By-Cuy" secondAttribute="trailing" constant="-16" id="rOw-72-nqN"/>
                             <constraint firstItem="5Tg-By-Cuy" firstAttribute="leading" secondItem="PFn-ZX-CEA" secondAttribute="leadingMargin" constant="-16" id="wi6-UZ-s4A"/>
                         </constraints>
@@ -750,7 +750,7 @@
         <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cBo-Xh-9bw"/>
+        <segue reference="ijv-Gb-zhV"/>
         <segue reference="LAy-Wc-PS9"/>
     </inferredMetricsTieBreakers>
 </document>
