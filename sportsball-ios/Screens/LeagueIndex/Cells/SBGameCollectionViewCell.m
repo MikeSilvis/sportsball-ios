@@ -50,12 +50,6 @@
   self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
   self.homeTeamRank.text = homeTeam.rank;
-  if (!homeTeam.rank) {
-    self.homeTeamRank.hidden = YES;
-  }
-  else {
-    self.homeTeamRank.hidden = NO;
-  }
 
   // Away Team
   SBTeam *awayTeam = self.currentGame.awayTeam;
@@ -64,12 +58,6 @@
   self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
   self.awayTeamRank.text = awayTeam.rank;
-  if (!awayTeam.rank) {
-    self.awayTeamRank.hidden = YES;
-  }
-  else {
-    self.awayTeamRank.hidden = NO;
-  }
 
   // Logos
   if ([SBUser currentUser].teamLogos) {

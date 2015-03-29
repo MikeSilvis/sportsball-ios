@@ -16,14 +16,4 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
-//@property (nonatomic, strong) SBGame *selectedGame;
-//@property (nonatomic, strong) UIPageControl *pageControl;
-//@property (nonatomic, strong) NSMutableArray *leagueTabViews;
-//@property BOOL isNotificationOpen;
-//@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
-//@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
-//
-//- (IBAction)didRequestClose:(id)sender;
-
 @end
