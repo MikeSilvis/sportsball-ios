@@ -665,18 +665,11 @@
 				1161A9831A0C1E4A00E40EEC /* SBGameCollectionViewCell.h */,
 				1161A9841A0C1E4A00E40EEC /* SBGameCollectionViewCell.m */,
 				1161A9861A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		1198FA311AC774980028C7C2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				113845D41A0BFD8100BC7A4D /* SBScoreIndexViewCell.h */,
 				113845D51A0BFD8100BC7A4D /* SBScoreIndexViewCell.m */,
 				113845BF1A0BF94400BC7A4D /* SBScoreIndexViewCell.xib */,
 			);
-			path = Views;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		119909181A4F503D00F2ED1B /* Screens */ = {
@@ -730,7 +723,6 @@
 		11A2E1C91AC6817A005812FF /* Scores */ = {
 			isa = PBXGroup;
 			children = (
-				1198FA311AC774980028C7C2 /* Views */,
 				1198FA301AC774930028C7C2 /* Cells */,
 				11A2E1CD1AC681A1005812FF /* Controllers */,
 			);

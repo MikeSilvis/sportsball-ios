@@ -44,8 +44,6 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   cell.league = [SBUser currentUser].leagues[indexPath.row];
   cell.delegate = self;
 
-  NSLog(@"adding league: %@ for: %ld", cell.league.name, (long)indexPath.row );
-
   return cell;
 }
 

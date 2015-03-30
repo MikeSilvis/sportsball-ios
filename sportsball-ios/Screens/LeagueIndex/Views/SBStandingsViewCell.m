@@ -51,29 +51,34 @@ static CGFloat const kTeamViewCellSize = 45;
 - (void)setLeague:(SBLeague *)league {
   _league = league;
 
+
+  if (!self.standing) {
+    [self stubStanding];
+  }
+  [self layoutSubviews];
+}
+
+- (void)stubStanding {
   self.standing = nil;
   // Stub data hack
   self.standing = [[SBStanding alloc] init];
   self.standing.divisions = @{
                               @"stub": @[[[SBTeam alloc] init]]
                               };
-
-  [self layoutSubviews];
 }
 
 - (void)cancelTimer {
 }
 
 - (void)startTimer {
-  if ([self.standing.headers count] == 0) {
+  if ([self.standing.divisions count] == 1) {
     [self findDivisionStandings];
   }
 }
 
 - (void)findDivisionStandings {
-  if ([self.standing.headers count] == 0) {
-    self.activityIndicator.hidden = NO;
-  }
+  self.activityIndicator.hidden = NO;
+  [self stubStanding];
 
   [self.league getStanding:^(SBStanding *standing) {
     self.standing = standing;

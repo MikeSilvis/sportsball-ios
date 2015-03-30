@@ -61,7 +61,6 @@ static CGFloat const kDatePickerSize = 50;
   _league = league;
 
   [self.collectionView reloadData];
-  self.currentDate = nil;
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -136,17 +135,15 @@ static CGFloat const kDatePickerSize = 50;
     return;
   }
 
-  if (self.games.count == 0) {
-    self.activityIndicator.hidden = NO;
+  if (!self.games.count == 0) {
+    return;
   }
+
+  self.activityIndicator.hidden = NO;
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
-
-    if (self.games.count == 0) {
-      self.activityIndicator.hidden = YES;
-    }
-
+    self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
 //    [self.delegate requestFailed:error];
     self.activityIndicator.hidden = YES;
@@ -294,11 +291,11 @@ static CGFloat const kDatePickerSize = 50;
                                                                                      forIndexPath:indexPath];
     cell.delegate = self;
     cell.dates = self.league.schedule;
-    if (!self.currentDate) {
-      [cell.datePicker selectDateClosestToToday];
+    if (self.currentDate && [self.league.schedule containsObject:self.currentDate]) {
+      [cell.datePicker selectDate:self.currentDate];
     }
     else {
-      [cell.datePicker selectDate:self.currentDate];
+      [cell.datePicker selectDateClosestToToday];
     }
 
     return cell;
