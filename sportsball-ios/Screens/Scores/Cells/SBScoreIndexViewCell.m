@@ -60,6 +60,10 @@ static CGFloat const kDatePickerSize = 50;
 - (void)setLeague:(SBLeague *)league {
   _league = league;
 
+  SBGame *firstGame = [self.games firstObject];
+  if (![firstGame.leagueName isEqualToString:self.league.name]) {
+    self.currentDate = nil;
+  }
   [self.collectionView reloadData];
 }
 

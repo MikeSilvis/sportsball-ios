@@ -21,8 +21,6 @@
 
 @implementation AppDelegate
 
-static NSString *kPlaceholderImageSize = @"600x300";
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [Fabric with:@[CrashlyticsKit]];
 

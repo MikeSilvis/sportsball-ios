@@ -52,7 +52,7 @@ static CGFloat const kTeamViewCellSize = 45;
   _league = league;
 
 
-  if (!self.standing) {
+  if (![self.standing.leagueName isEqualToString:self.league.name]) {
     [self stubStanding];
   }
   [self layoutSubviews];
