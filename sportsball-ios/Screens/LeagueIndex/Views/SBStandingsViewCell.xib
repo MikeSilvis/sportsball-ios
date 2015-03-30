@@ -16,7 +16,7 @@
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ju1-Xi-QDV">
                         <rect key="frame" x="281" y="282" width="37" height="37"/>
                     </activityIndicatorView>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iGB-Ac-lZH">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iGB-Ac-lZH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gNl-WW-UkJ" customClass="CSStickyHeaderFlowLayout">
                             <size key="itemSize" width="600" height="60"/>
