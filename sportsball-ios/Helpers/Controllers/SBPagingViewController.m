@@ -36,7 +36,6 @@
 - (void)hideMenuIems:(NSNotification *)notification {
   bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
 
-//  [[UIApplication sharedApplication] setStatusBarHidden:alphaHidden];
   self.toolBar.hidden = alphaHidden;
 }
 

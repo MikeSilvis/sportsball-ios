@@ -13,6 +13,8 @@
 
 @interface SBStandingsViewController ()
 
+@property (nonatomic, strong) SBStandingsViewCell *currentCell;
+
 @end
 
 @implementation SBStandingsViewController
@@ -32,8 +34,15 @@ static NSString * const kStandingsViewCell = @"standingsViewCell";
   return cell;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  [self.currentCell startTimer];
+}
+
 - (void)cellDidAppear:(UICollectionViewCell *)cell {
-  [((SBStandingsViewCell *)cell) startTimer];
+  self.currentCell = (SBStandingsViewCell *)cell;
+  [self.currentCell startTimer];
 }
 
 - (void)cellDidDisappear:(UICollectionViewCell *)cell {

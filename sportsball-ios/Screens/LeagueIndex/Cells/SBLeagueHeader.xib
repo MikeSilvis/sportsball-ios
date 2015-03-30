@@ -7,22 +7,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="MVH-Hh-49Q" customClass="SBLeagueHeader">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twt-q2-bnj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5G-uZ-nBU" userLabel="headerBlurred">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                             </imageView>
                             <visualEffectView opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-um-fYf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hdh-Do-rPM">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,10 +31,10 @@
                                 </vibrancyEffect>
                             </visualEffectView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-fa-s9b" userLabel="header">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NHL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7J-yo-Mxv">
-                                <rect key="frame" x="269" y="249" width="62" height="41"/>
+                                <rect key="frame" x="269" y="39" width="62" height="41"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
                             <constraint firstAttribute="bottom" secondItem="hBN-um-fYf" secondAttribute="bottom" constant="1" id="TKt-1N-IEM"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="TXl-aq-VgQ"/>
-                            <constraint firstAttribute="bottom" secondItem="S7J-yo-Mxv" secondAttribute="bottom" constant="10" id="cGR-R3-MhA"/>
+                            <constraint firstAttribute="bottom" secondItem="S7J-yo-Mxv" secondAttribute="bottom" constant="20" id="cGR-R3-MhA"/>
                             <constraint firstAttribute="trailing" secondItem="hBN-um-fYf" secondAttribute="trailing" id="hDI-fd-J8l"/>
                             <constraint firstItem="hBN-um-fYf" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="mKR-cl-d5G"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="mYm-Gc-Qgv"/>

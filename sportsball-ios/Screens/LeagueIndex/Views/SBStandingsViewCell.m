@@ -65,7 +65,9 @@ static CGFloat const kTeamViewCellSize = 45;
 }
 
 - (void)startTimer {
-  [self findDivisionStandings];
+  if ([self.standing.headers count] == 0) {
+    [self findDivisionStandings];
+  }
 }
 
 - (void)findDivisionStandings {
