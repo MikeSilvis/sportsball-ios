@@ -8,7 +8,7 @@
 
 #import "SBTabViewViewController.h"
 #import "SBUser.h"
-#import "SBScoresViewController.h"
+#import "SBPagingViewController.h"
 
 @interface SBTabViewViewController ()
 

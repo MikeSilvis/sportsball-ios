@@ -9,7 +9,7 @@
 #import "SBViewController.h"
 #import "SBPagingViewController.h"
 
-@interface SBStandingsViewController : SBViewController <SBPagingViewDelegate>
+@interface SBStandingsViewController : SBViewController
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
