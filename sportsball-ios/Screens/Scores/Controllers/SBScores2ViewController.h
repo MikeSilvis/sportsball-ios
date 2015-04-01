@@ -8,11 +8,20 @@
 
 #import "SBViewController.h"
 #import "SBLeague.h"
+#import "DIDatepicker.h"
+#import "SBGame.h"
+#import "SBLeagueHeader.h"
+#import "SBDatePickerCollectionViewCell.h"
+#import "ZFModalTransitionAnimator.h"
+#import "SBModalViewController.h"
 
-@interface SBScores2ViewController : UIViewController
+@interface SBScores2ViewController : UIViewController <SBDatePickerCollectionViewCellDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *textLabel2;
 @property NSUInteger pageIndex;
+@property CGRect parentRect;
 @property (nonatomic, strong) SBLeague *league;
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

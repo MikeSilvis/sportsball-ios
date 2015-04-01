@@ -7,11 +7,9 @@
 //
 
 #import "SBViewController.h"
-#import "SBLeague.h"
-#import "SBPagingViewController.h"
 #import "ZFModalTransitionAnimator.h"
 
-@interface SBScoresViewController : SBViewController 
+@interface SBScoresViewController : SBViewController
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 

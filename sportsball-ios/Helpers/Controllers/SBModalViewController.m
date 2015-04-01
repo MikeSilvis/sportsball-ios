@@ -12,7 +12,7 @@
 #import "SBWebViewController.h"
 #import "XHRealTimeBlur.h"
 
-@interface SBModalViewController ()
+@interface SBModalViewController () <SBModalDelegate>
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (nonatomic, strong) UIVisualEffectView *blurView;
