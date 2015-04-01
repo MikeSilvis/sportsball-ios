@@ -11,10 +11,8 @@
 #import "SBPagingViewController.h"
 #import "ZFModalTransitionAnimator.h"
 
-@interface SBScoresViewController : SBViewController <SBPagingViewDelegate>
+@interface SBScoresViewController : SBViewController 
 
-@property (nonatomic, strong) SBLeague *league;
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
-@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

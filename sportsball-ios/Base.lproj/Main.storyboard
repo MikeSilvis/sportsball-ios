@@ -134,6 +134,53 @@
             </objects>
             <point key="canvasLocation" x="2817" y="1125"/>
         </scene>
+        <!--Scores2 View Controller-->
+        <scene sceneID="V7N-Sw-BFF">
+            <objects>
+                <viewController storyboardIdentifier="SBScoresView2Controller" id="aih-Iu-C3N" customClass="SBScores2ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IF8-a5-czP"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVQ-B6-q6e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hls-1U-9Qd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qC-ue-8JX">
+                                <rect key="frame" x="279" y="290" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="6qC-ue-8JX" secondAttribute="centerX" id="3bR-N3-R0l"/>
+                            <constraint firstItem="6qC-ue-8JX" firstAttribute="leading" secondItem="hls-1U-9Qd" secondAttribute="leadingMargin" constant="242" id="dVa-IS-c2q"/>
+                            <constraint firstAttribute="centerY" secondItem="6qC-ue-8JX" secondAttribute="centerY" id="kyS-6U-vMM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dVa-IS-c2q"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel2" destination="6qC-ue-8JX" id="cPE-uD-0f4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="din-hV-b0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2817" y="-912"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="9I4-i9-9xD">
+            <objects>
+                <pageViewController storyboardIdentifier="PageContentViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="2e8-G5-LLI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jnl-fX-GQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2817" y="-255"/>
+        </scene>
         <!--Scores-->
         <scene sceneID="Yjf-zA-SE6">
             <objects>
@@ -145,27 +192,7 @@
                     <view key="view" contentMode="scaleToFill" id="DwA-Tn-x2j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43t-ed-Rzq">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <connections>
-                                    <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="cBo-Xh-9bw"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="3OK-VU-NWB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="43t-ed-Rzq" secondAttribute="trailing" constant="-16" id="BVk-j6-B67"/>
-                            <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="43t-ed-Rzq" secondAttribute="bottom" id="OAb-7r-2cm"/>
-                            <constraint firstItem="43t-ed-Rzq" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" constant="-20" id="SQp-2r-vw4"/>
-                            <constraint firstItem="43t-ed-Rzq" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="shZ-KT-rwg"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="SQp-2r-vw4"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="scores" id="4Tv-c8-h1Z">
                         <userDefinedRuntimeAttributes>
@@ -173,7 +200,6 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
-                        <outlet property="containerView" destination="43t-ed-Rzq" id="16U-TP-9iz"/>
                         <segue destination="oMw-bz-9BN" kind="presentation" identifier="kScorePreviewSegue" modalPresentationStyle="overCurrentContext" id="lBZ-oU-pbC"/>
                         <segue destination="I4h-tI-kLt" kind="presentation" identifier="scoreShowSegue" modalPresentationStyle="overCurrentContext" id="DX3-sD-Kp6"/>
                     </connections>
@@ -756,7 +782,6 @@
         <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ijv-Gb-zhV"/>
         <segue reference="LAy-Wc-PS9"/>
     </inferredMetricsTieBreakers>
 </document>

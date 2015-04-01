@@ -72,6 +72,7 @@
 		1179FF171AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1179FF161AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m */; };
 		1179FF1B1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1179FF1A1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib */; };
 		11824D441A73062300DF0E05 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11824D431A73062300DF0E05 /* MessageUI.framework */; };
+		118609D41ACB8D65003CC77C /* SBScores2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118609D31ACB8D65003CC77C /* SBScores2ViewController.m */; };
 		1189A3F61A31337E00575E07 /* SBScoreDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3F51A31337E00575E07 /* SBScoreDetailCollectionViewCell.m */; };
 		1189A3F81A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189A3F71A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib */; };
 		1189A3FB1A31377F00575E07 /* SBScoreDetailInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A3FA1A31377F00575E07 /* SBScoreDetailInfoCollectionViewCell.m */; };
@@ -210,6 +211,8 @@
 		1179FF161AAE01C500CFDFA7 /* SBDatePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDatePickerCollectionViewCell.m; sourceTree = "<group>"; };
 		1179FF1A1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDatePickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		11824D431A73062300DF0E05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		118609D21ACB8D65003CC77C /* SBScores2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScores2ViewController.h; sourceTree = "<group>"; };
+		118609D31ACB8D65003CC77C /* SBScores2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScores2ViewController.m; sourceTree = "<group>"; };
 		1189A3F41A31337E00575E07 /* SBScoreDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScoreDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		1189A3F51A31337E00575E07 /* SBScoreDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScoreDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		1189A3F71A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBScoreDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 			children = (
 				11A2E1CA1AC6819B005812FF /* SBScoresViewController.h */,
 				11A2E1CB1AC6819B005812FF /* SBScoresViewController.m */,
+				118609D21ACB8D65003CC77C /* SBScores2ViewController.h */,
+				118609D31ACB8D65003CC77C /* SBScores2ViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				11BA1C441A64B2D0005C61AB /* SBScoreDataInfoTableViewCell.m in Sources */,
 				1199735B1AC736C8005BA865 /* SBStandingsViewController.m in Sources */,
 				1101C60D1A22842E0086AF16 /* SBUser.m in Sources */,
+				118609D41ACB8D65003CC77C /* SBScores2ViewController.m in Sources */,
 				1154F6481A03D754009F560B /* SBTeam.m in Sources */,
 				113845DE1A0C052600BC7A4D /* SBLeague.m in Sources */,
 				11A2E1CC1AC6819B005812FF /* SBScoresViewController.m in Sources */,
