@@ -22,8 +22,7 @@
 
 @property (nonatomic, strong) SBGame *selectedGame;
 @property (nonatomic, strong) SBScoreIndexViewCell *currentScoreIndex;
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (nonatomic, strong) NSArray *scoreControllerArray;
+@property (nonatomic, strong) UIPageViewController *pageViewController;
 
 @end
 
@@ -43,6 +42,9 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
     self.pageViewController.dataSource = self;
 
+    SBScores2ViewController *scoresViewController = [self viewControllerAtIndex:0];
+    [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+
     // Change the size of page view controller
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height);
 
@@ -51,29 +53,43 @@ static  NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     [self.pageViewController didMoveToParentViewController:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-    SBScores2ViewController *scoresViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBScoresView2Controller"];
-    scoresViewController.league = [SBUser currentUser].leagues[0];
-
-    [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-}
-
 #pragma mark - Page View Controller Data Source
 
 - (SBScores2ViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    SBScores2ViewController *scoresViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBScoresView2Controller"];
-    scoresViewController.league = [SBUser currentUser].leagues[1];
+    NSUInteger index = ((SBScores2ViewController*) viewController).pageIndex;
 
-    return scoresViewController;
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    index--;
+    return [self viewControllerAtIndex:index];
 }
 
 - (SBScores2ViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    SBScores2ViewController *scoresViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBScoresView2Controller"];
-    scoresViewController.league = [SBUser currentUser].leagues[2];
+    NSUInteger index = ((SBScores2ViewController*) viewController).pageIndex;
 
-    return scoresViewController;
+    if (index == NSNotFound) {
+        return nil;
+    }
+    
+    index++;
+    if (index == [[SBUser currentUser].leagues count]) {
+        return nil;
+    }
+
+    return [self viewControllerAtIndex:index];
+}
+
+- (SBScores2ViewController *)viewControllerAtIndex:(NSUInteger)index {
+    if (([[SBUser currentUser].leagues count] == 0) || (index >= [[SBUser currentUser].leagues count])) {
+        return nil;
+    }
+
+    SBScores2ViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBScoresView2Controller"];
+    pageContentViewController.pageIndex = index;
+    pageContentViewController.league = [SBUser currentUser].leagues[index];
+    
+    return pageContentViewController;
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {

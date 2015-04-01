@@ -11,7 +11,8 @@
 
 @interface SBScores2ViewController : UIViewController
 
-@property (nonatomic, strong) SBLeague *league;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel2;
+@property NSUInteger pageIndex;
+@property (nonatomic, strong) SBLeague *league;
 
 @end
