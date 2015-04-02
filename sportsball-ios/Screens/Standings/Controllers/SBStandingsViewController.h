@@ -8,9 +8,12 @@
 
 #import "SBViewController.h"
 #import "SBPagingViewController.h"
+#import "SBLeague.h"
 
 @interface SBStandingsViewController : SBViewController
 
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property NSUInteger pageIndex;
+@property (nonatomic, strong) SBLeague *league;
+
 
 @end

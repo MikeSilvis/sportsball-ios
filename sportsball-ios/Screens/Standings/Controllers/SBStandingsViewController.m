@@ -11,11 +11,28 @@
 #import "SBStandingsViewCell.h"
 #import "SBPagingViewController.h"
 
-@interface SBStandingsViewController ()
+@interface SBStandingsViewController () <SBPagingViewDelegate>
 
 @end
 
 @implementation SBStandingsViewController
 
+static NSString *kPagingSegue = @"pagingSegue";
 
+- (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
+  SBStandingsViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBStandingsViewController"];
+//  SBStandingsViewController.pageIndex = index;
+//  SBStandingsViewController.league = [SBUser currentUser].leagues[index];
+
+  [SBUser currentUser].lastOpenedLeagueIndex = @(index);
+
+  return pageContentViewController;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:kPagingSegue]) {
+    SBPagingViewController *viewController = segue.destinationViewController;
+    viewController.delegate = self;
+  }
+}
 @end

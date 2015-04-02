@@ -38,7 +38,7 @@ static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 static CGFloat const kHeaderSize = 100;
 static CGFloat const kDatePickerSize = 50;
 
-static NSString * const kPagingSegue = @"pagingSegue";
+static NSString *kPagingSegue = @"pagingSegue";
 static NSString *kScoreShowSegue = @"scoreShowSegue";
 static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 

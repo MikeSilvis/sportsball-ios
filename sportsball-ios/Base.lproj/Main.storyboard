@@ -126,13 +126,28 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="containerView" destination="NPx-vA-NBg" id="9UV-q1-KE9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2817" y="1125"/>
+        </scene>
+        <!--Standings View Controller-->
+        <scene sceneID="AWS-0v-ZPn">
+            <objects>
+                <viewController storyboardIdentifier="SBStandingsViewController" id="F0E-Yf-9Nv" customClass="SBStandingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AcU-ZO-7jo"/>
+                        <viewControllerLayoutGuide type="bottom" id="R6A-DB-dda"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dQm-fX-LxH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzS-vL-IFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3894" y="1632"/>
         </scene>
         <!--Scores View Controller-->
         <scene sceneID="V7N-Sw-BFF">
@@ -195,7 +210,7 @@
         <!--Scores-->
         <scene sceneID="Yjf-zA-SE6">
             <objects>
-                <viewController id="WdV-19-me3" customClass="SBPagingViewController" sceneMemberID="viewController">
+                <viewController id="WdV-19-me3" customClass="SBScoresViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="65R-cQ-ORS"/>
                         <viewControllerLayoutGuide type="bottom" id="pBb-be-UYz"/>
@@ -773,7 +788,7 @@
         <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v9I-wC-LBi"/>
+        <segue reference="ijv-Gb-zhV"/>
         <segue reference="LAy-Wc-PS9"/>
     </inferredMetricsTieBreakers>
 </document>
