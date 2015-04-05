@@ -11,6 +11,7 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBUser.h"
 #import <Pusher.h>
+#import "SBConstants.h"
 
 @interface SBScoreIndexViewCell () <PTPusherDelegate>
 
@@ -95,10 +96,7 @@ static CGFloat const kDatePickerSize = 50;
 }
 
 - (void)setUpPusher {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client = [PTPusher pusherWithKey:[[SBConstants sharedInstance] getSecretValueFrom:@"PUSHER_KEY"] delegate:self encrypted:YES];
   self.client.reconnectDelay = 3.0;
   [self.client connect];
 }

@@ -57,7 +57,6 @@
 		11590E791A7C286500D1E7C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E781A7C286500D1E7C1 /* AudioToolbox.framework */; };
 		11590E7B1A7C29D800D1E7C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E7A1A7C29D800D1E7C1 /* Social.framework */; };
 		11590E7D1A7C29DC00D1E7C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E7C1A7C29DC00D1E7C1 /* Accounts.framework */; };
-		11590E8C1A7C2B0A00D1E7C1 /* secretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */; };
 		11590E8F1A7C2DA100D1E7C1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */; };
 		11590E901A7C2DA100D1E7C1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11590E8E1A7C2DA100D1E7C1 /* Parse.framework */; };
 		115AF8511A9972BA006C77ED /* SBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 115AF8501A9972BA006C77ED /* SBWebViewController.m */; };
@@ -104,6 +103,7 @@
 		11E18F221AC663F900139A7E /* SBTabViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E18F211AC663F900139A7E /* SBTabViewViewController.m */; };
 		11E18F261AC666CB00139A7E /* SBTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E18F251AC666CB00139A7E /* SBTransitionAnimator.m */; };
 		360DCBC51AD0EC2200C1EB14 /* SBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 360DCBC41AD0EC2200C1EB14 /* SBConstants.m */; };
+		360DCBC71AD0ECE000C1EB14 /* secretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 360DCBC61AD0ECE000C1EB14 /* secretKeys.plist */; };
 		E2B98844C011D09E1F44FB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F32CCB664364F1DD9C1C6E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -162,7 +162,7 @@
 		1154F61B1A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1154F61C1A03D60F009F560B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1154F61E1A03D60F009F560B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1154F61F1A03D60F009F560B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1154F61F1A03D60F009F560B /* AppDelegate.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; tabWidth = 2; };
 		1154F6251A03D60F009F560B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1154F6271A03D60F009F560B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1154F6351A03D60F009F560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 		11590E781A7C286500D1E7C1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		11590E7A1A7C29D800D1E7C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		11590E7C1A7C29DC00D1E7C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secretKeys.plist; sourceTree = "<group>"; };
 		11590E8D1A7C2DA100D1E7C1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		11590E8E1A7C2DA100D1E7C1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		115AF84F1A9972BA006C77ED /* SBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWebViewController.h; sourceTree = "<group>"; };
@@ -263,6 +262,7 @@
 		17F32CCB664364F1DD9C1C6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		360DCBC31AD0EC2200C1EB14 /* SBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBConstants.h; sourceTree = "<group>"; };
 		360DCBC41AD0EC2200C1EB14 /* SBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBConstants.m; sourceTree = "<group>"; };
+		360DCBC61AD0ECE000C1EB14 /* secretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = secretKeys.plist; path = ../secretKeys.plist; sourceTree = "<group>"; };
 		47F9801BA372044A9D0C8235 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3DD2F7CF6680422AFFC35B4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -473,9 +473,9 @@
 		1154F61A1A03D60F009F560B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				360DCBC61AD0ECE000C1EB14 /* secretKeys.plist */,
 				1154F61B1A03D60F009F560B /* Info.plist */,
 				1154F61C1A03D60F009F560B /* main.m */,
-				11590E8B1A7C2B0A00D1E7C1 /* secretKeys.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -875,7 +875,6 @@
 				1189A3F81A31338A00575E07 /* SBScoreDetailCollectionViewCell.xib in Resources */,
 				1161A9871A0C1E5D00E40EEC /* SBGameCollectionViewCell.xib in Resources */,
 				1143DDFE1A30F8AC001868C6 /* SBScoreSummaryViewCell.xib in Resources */,
-				11590E8C1A7C2B0A00D1E7C1 /* secretKeys.plist in Resources */,
 				113845C01A0BF94400BC7A4D /* SBScoreIndexViewCell.xib in Resources */,
 				119909121A4B249A00F2ED1B /* SBContentTableViewCell.xib in Resources */,
 				112B05E31ABA156A00DAA466 /* SBStandingsViewCell.xib in Resources */,
@@ -887,6 +886,7 @@
 				1179FF1B1AAE01E200CFDFA7 /* SBDatePickerCollectionViewCell.xib in Resources */,
 				11BB2B1C1A03FC430059B4C1 /* SBLeagueHeader.xib in Resources */,
 				113542A91A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib in Resources */,
+				360DCBC71AD0ECE000C1EB14 /* secretKeys.plist in Resources */,
 				113542A11A79F6930047C2D7 /* SBTeamStatsTableViewCell.xib in Resources */,
 				111412131A683FD800744F67 /* SBScheduleSegmentedControlTableViewCell.xib in Resources */,
 				1143DE031A310D3C001868C6 /* ScoreSummaryInfoViewCell.xib in Resources */,

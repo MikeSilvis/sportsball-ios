@@ -17,6 +17,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MPGNotification/MPGNotification.h>
 #import <Pusher/Pusher.h>
+#import "SBConstants.h"
 
 @interface SBBoxscoreViewController () <PTPusherDelegate>
 
@@ -126,10 +127,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
 }
 
 - (void)setUpPusher {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
+  self.client = [PTPusher pusherWithKey:[[SBConstants sharedInstance] getSecretValueFrom:@"PUSHER_KEY"] delegate:self encrypted:YES];
   self.client.reconnectDelay = 3.0;
   [self.client connect];
 }

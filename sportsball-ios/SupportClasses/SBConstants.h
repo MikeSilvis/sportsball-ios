@@ -15,4 +15,7 @@ extern NSString *const kNotificationHideEvent;
 
 @interface SBConstants : NSObject
 
++ (SBConstants *)sharedInstance;
+- (NSString *)getSecretValueFrom:(NSString *)key;
+
 @end
