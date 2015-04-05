@@ -10,10 +10,9 @@
 #import "SBPagingViewController.h"
 #import "SBLeague.h"
 
-@interface SBStandingsViewController : SBViewController
+@interface SBStandingsViewController : UIViewController
 
-@property NSUInteger pageIndex;
 @property (nonatomic, strong) SBLeague *league;
-
+@property NSUInteger pageIndex;
 
 @end

@@ -19,10 +19,16 @@
 
 static NSString *kPagingSegue = @"pagingSegue";
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  self.view.backgroundColor = [UIColor clearColor];
+}
+
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
   SBStandingsViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBStandingsViewController"];
-//  SBStandingsViewController.pageIndex = index;
-//  SBStandingsViewController.league = [SBUser currentUser].leagues[index];
+  pageContentViewController.pageIndex = index;
+  pageContentViewController.league = [SBUser currentUser].leagues[index];
 
   [SBUser currentUser].lastOpenedLeagueIndex = @(index);
 
