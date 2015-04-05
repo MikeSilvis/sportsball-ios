@@ -14,5 +14,8 @@
 
 @property (nonatomic, strong) SBLeague *league;
 @property NSUInteger pageIndex;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

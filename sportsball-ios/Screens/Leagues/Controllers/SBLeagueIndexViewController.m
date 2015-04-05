@@ -12,6 +12,7 @@
 #import "SBLeagueHeader.h"
 #import "SBTabViewViewController.h"
 #import "SBTransitionAnimator.h"
+#import "SBConstants.h"
 
 @interface SBLeagueIndexViewController ()
 
@@ -25,7 +26,6 @@
 
 static NSString *kTabViewControllerSegue = @"tabViewController";
 static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
-static CGFloat const kHeaderSize = 100;
 
 - (void)viewDidLoad {
   [super viewDidLoad];

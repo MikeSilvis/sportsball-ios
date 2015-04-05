@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 
 extern NSString *const kPlaceholderImageSize;
 extern NSString *const kPlaceholderImage;
 extern NSString *const kNotificationHideEvent;
+
+extern CGFloat kHeaderSize;
 
 @interface SBConstants : NSObject
 

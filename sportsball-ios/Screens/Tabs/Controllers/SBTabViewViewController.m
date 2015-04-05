@@ -8,6 +8,8 @@
 
 #import "SBTabViewViewController.h"
 #import "SBUser.h"
+#import "SBScoresViewController.h"
+#import "SBStandingsViewController.h"
 #import "SBPagingViewController.h"
 
 @interface SBTabViewViewController ()
@@ -39,9 +41,11 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
   if ([item.title isEqualToString:@"Scores"]) {
     [SBUser currentUser].lastOpenedScoreOrStandings = @0;
+//    ((SBScoresViewController *)self.selectedViewController).league = [SBUser currentUser].lastOpenedLeague;
   }
   else {
     [SBUser currentUser].lastOpenedScoreOrStandings = @1;
+//    ((SBStandingsViewController *)self.selectedViewController).league = [SBUser currentUser].lastOpenedLeague;
   }
 }
 

@@ -17,6 +17,7 @@
 #import "SBPreviewViewController.h"
 #import "SBBoxscoreViewController.h"
 #import "SBPagingViewController.h"
+#import "SBConstants.h"
 
 @interface SBScoresViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SBModalDelegate, SBPagingViewDelegate>
 
@@ -34,7 +35,6 @@ static NSString * const kGameViewCell = @"GameViewCell";
 static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 
-static CGFloat const kHeaderSize = 100;
 static CGFloat const kDatePickerSize = 50;
 
 static NSString *kPagingSegue = @"pagingSegue";
@@ -86,6 +86,13 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     });
   }
 }
+
+- (void)setLeague:(SBLeague *)league {
+  _league = league;
+  
+  [self.collectionView reloadData];
+}
+
 
 - (void)dismissedModal {
   [self startTimer];

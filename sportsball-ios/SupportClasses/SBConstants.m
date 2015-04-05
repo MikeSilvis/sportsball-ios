@@ -14,6 +14,8 @@ NSString *const kPlaceholderImageSize = @"600x300";
 NSString *const kPlaceholderImage = @"placeholder";
 NSString *const kNotificationHideEvent = @"hideNotificationEvent";
 
+CGFloat kHeaderSize = 100;
+
 + (SBConstants *)sharedInstance {
   static SBConstants *sharedInstance = nil;
     

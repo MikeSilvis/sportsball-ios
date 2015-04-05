@@ -126,6 +126,9 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="standings-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="containerView" destination="NPx-vA-NBg" id="3l3-YN-h11"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mP-X9-7yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,8 +145,38 @@
                     <view key="view" contentMode="scaleToFill" id="dQm-fX-LxH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-ei-7tK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ggz-hC-M7X" customClass="CSStickyHeaderFlowLayout">
+                                    <size key="itemSize" width="600" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="F0E-Yf-9Nv" id="AIh-rG-P5c"/>
+                                    <outlet property="delegate" destination="F0E-Yf-9Nv" id="H2T-Q2-gAV"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ULR-if-2tG">
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kf6-ei-7tK" secondAttribute="trailing" constant="-16" id="JDD-Be-AvT"/>
+                            <constraint firstItem="R6A-DB-dda" firstAttribute="top" secondItem="Kf6-ei-7tK" secondAttribute="bottom" id="Psb-YR-8g5"/>
+                            <constraint firstAttribute="centerX" secondItem="ULR-if-2tG" secondAttribute="centerX" id="SFm-K2-32g"/>
+                            <constraint firstAttribute="centerY" secondItem="ULR-if-2tG" secondAttribute="centerY" id="X9g-TS-eXO"/>
+                            <constraint firstItem="Kf6-ei-7tK" firstAttribute="leading" secondItem="dQm-fX-LxH" secondAttribute="leadingMargin" constant="-16" id="nMK-fh-Nae"/>
+                            <constraint firstItem="Kf6-ei-7tK" firstAttribute="top" secondItem="AcU-ZO-7jo" secondAttribute="bottom" constant="-20" id="o8f-aG-5e9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ULR-if-2tG" id="Ytm-nj-VeX"/>
+                        <outlet property="collectionView" destination="Kf6-ei-7tK" id="Pjc-bh-ceE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzS-vL-IFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TRT-f9-rZS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="591"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PXo-Sk-iUg" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="600" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -181,7 +214,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="TRT-f9-rZS" secondAttribute="trailing" constant="-16" id="CGy-kT-cOa"/>
-                            <constraint firstItem="bVQ-B6-q6e" firstAttribute="top" secondItem="TRT-f9-rZS" secondAttribute="bottom" constant="9" id="ONM-Jy-3O3"/>
+                            <constraint firstItem="bVQ-B6-q6e" firstAttribute="top" secondItem="TRT-f9-rZS" secondAttribute="bottom" id="ONM-Jy-3O3"/>
                             <constraint firstItem="TRT-f9-rZS" firstAttribute="leading" secondItem="hls-1U-9Qd" secondAttribute="leadingMargin" constant="-16" id="QRW-cg-ZhN"/>
                             <constraint firstAttribute="centerX" secondItem="Nec-YD-6MV" secondAttribute="centerX" id="YMb-rL-leG"/>
                             <constraint firstItem="TRT-f9-rZS" firstAttribute="top" secondItem="IF8-a5-czP" secondAttribute="bottom" constant="-20" id="fXP-EE-0cc"/>
@@ -239,6 +272,9 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="scores-filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="containerView" destination="W3E-uG-8Ng" id="HTk-LJ-pjl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rda-Nr-yrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -788,7 +824,7 @@
         <image name="standings-filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ijv-Gb-zhV"/>
         <segue reference="LAy-Wc-PS9"/>
+        <segue reference="v9I-wC-LBi"/>
     </inferredMetricsTieBreakers>
 </document>

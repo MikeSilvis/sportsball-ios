@@ -23,5 +23,6 @@
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
