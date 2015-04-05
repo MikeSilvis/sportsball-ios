@@ -2,11 +2,17 @@
 //  SBConstants.h
 //  sportsball-ios
 //
-//  Created by Mike Silvis on 2/25/15.
+//  Created by Mike Silvis on 4/4/15.
 //  Copyright (c) 2015 Mike Silvis. All rights reserved.
 //
 
-#define kPlaceholderImageSize @"600x300"
-#define kPlaceholderImage @"placeholder"
+#import <Foundation/Foundation.h>
 
-#define kNotificationHideEvent @"hideNotificationEvent"
+
+extern NSString *const kPlaceholderImageSize;
+extern NSString *const kPlaceholderImage;
+extern NSString *const kNotificationHideEvent;
+
+@interface SBConstants : NSObject
+
+@end
