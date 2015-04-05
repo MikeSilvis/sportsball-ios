@@ -18,10 +18,9 @@
 #import "SBBoxscoreViewController.h"
 #import "SBPagingViewController.h"
 
-@interface SBScoresViewController () <UICollectionViewDataSource, UICollectionViewDelegate, PTPusherDelegate, SBModalDelegate, SBPagingViewDelegate>
+@interface SBScoresViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SBModalDelegate, SBPagingViewDelegate>
 
 @property (nonatomic, strong) NSDate *currentDate;
-@property (nonatomic, strong) PTPusher *client;
 @property (nonatomic, weak) PTPusherChannel *channel;
 @property (nonatomic, strong) NSArray *games;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
@@ -96,22 +95,11 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)cancelTimer {
   [self.channel unsubscribe];
-  [self.client disconnect];
 }
 
 - (void)startTimer {
-  [self setUpPusher];
   [self connectToChannel];
   [self findGames];
-}
-
-- (void)setUpPusher {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  self.client = [PTPusher pusherWithKey:[keys objectForKey:@"PUSHER_KEY"] delegate:self encrypted:YES];
-  self.client.reconnectDelay = 3.0;
-  [self.client connect];
 }
 
 - (void)connectToChannel {
@@ -124,7 +112,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }
 
   NSString *channnelName = [NSString stringWithFormat:@"scores_%@", self.league.name];
-  self.channel = [self.client subscribeToChannelNamed:channnelName];
+  self.channel = [[SBUser currentUser].client subscribeToChannelNamed:channnelName];
 
   [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
     self.games = [self.league parseJSONScores:channelEvent.data];
@@ -302,7 +290,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
-
+  
   CSStickyHeaderFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
   layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.bounds.size.width, kHeaderSize);
   layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.bounds.size.width, kHeaderSize);

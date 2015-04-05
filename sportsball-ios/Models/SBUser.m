@@ -9,6 +9,7 @@
 #import "SBUser.h"
 #import "UIImage+FontAwesome.h"
 #import <Underscore.h>
+#import "SBConstants.h"
 
 static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
 static NSString *kLastOpenedScoreOrStandings = @"LastOpenedScoreOrStandings";
@@ -51,6 +52,16 @@ static NSString *kAllLeagues = @"allLeagues-1";
   return self;
 }
 
+- (PTPusher *)client {
+  if (!_client) {
+    self.client = [PTPusher pusherWithKey:[[SBConstants sharedInstance] getSecretValueFrom:@"PUSHER_KEY"] delegate:self encrypted:YES];
+    self.client.reconnectDelay = 3.0;
+    [self.client connect];
+  }
+  
+  return _client;
+}
+   
 - (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeagueIndex {
   _lastOpenedLeagueIndex = lastOpenedLeagueIndex;
 

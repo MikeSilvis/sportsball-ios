@@ -10,8 +10,9 @@
 #import "SBTeam.h"
 #import "SBLeague.h"
 #import <Parse/Parse.h>
+#import <PTPusher.h>
 
-@interface SBUser : SBModel
+@interface SBUser : SBModel <PTPusherDelegate>
 
 @property (nonatomic, strong) SBLeague *lastOpenedLeague;
 @property (nonatomic, copy) NSNumber *lastOpenedLeagueIndex;
@@ -19,6 +20,7 @@
 @property (nonatomic, copy) NSArray *leagues;
 @property (nonatomic, copy) NSArray *favoriteTeams;
 @property (atomic, strong) PFUser *currentPfUser;
+@property (nonatomic, strong) PTPusher *client;
 
 + (SBUser *)currentUser;
 - (void)appendFavoriteTeams:(SBTeam *)team andTeam:(SBTeam *)team2 andLeague:(NSString *)league;

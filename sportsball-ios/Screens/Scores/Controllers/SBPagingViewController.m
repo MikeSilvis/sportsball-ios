@@ -47,7 +47,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 
   // Change the size of page view controller
-  self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height);
+  self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
   [self addChildViewController:self.pageViewController];
   [self.view insertSubview:self.pageViewController.view belowSubview:self.toolBar];

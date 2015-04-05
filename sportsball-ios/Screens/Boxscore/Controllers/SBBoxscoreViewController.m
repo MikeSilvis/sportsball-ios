@@ -19,9 +19,8 @@
 #import <Pusher/Pusher.h>
 #import "SBConstants.h"
 
-@interface SBBoxscoreViewController () <PTPusherDelegate>
+@interface SBBoxscoreViewController ()
 
-@property (nonatomic, strong) PTPusher *client;
 @property (nonatomic, strong) PTPusherChannel *channel;
 
 @end
@@ -90,7 +89,6 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [super viewDidDisappear:animated];
 
   [self.channel unsubscribe];
-  [self.client disconnect];
 }
 
 - (void)findBoxscore {
@@ -119,17 +117,10 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self.tableView reloadData];
 
   if (self.game.isInProgress) {
-    [self setUpPusher];
     [self connectToChannel];
   }
 
   [self setHeaderInfo];
-}
-
-- (void)setUpPusher {
-  self.client = [PTPusher pusherWithKey:[[SBConstants sharedInstance] getSecretValueFrom:@"PUSHER_KEY"] delegate:self encrypted:YES];
-  self.client.reconnectDelay = 3.0;
-  [self.client connect];
 }
 
 - (void)connectToChannel {
@@ -138,7 +129,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
   }
 
   NSString *channelName = [NSString stringWithFormat:@"boxscore_%@_%@", self.game.leagueName, self.game.boxscoreId];
-  self.channel = [self.client subscribeToChannelNamed:channelName];
+  self.channel = [[SBUser currentUser].client subscribeToChannelNamed:channelName];
 
   [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
     self.game          = [[SBGame alloc] initWithJson:channelEvent.data[@"game"]];
