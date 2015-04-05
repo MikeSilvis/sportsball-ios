@@ -44,6 +44,7 @@ static CGFloat const kHeaderSize = 100;
   [super viewDidAppear:animated];
 
   [self openAtLastSelectedIndex];
+  self.supportButton.hidden = NO;
 }
 
 - (void)buildHelpIcon {

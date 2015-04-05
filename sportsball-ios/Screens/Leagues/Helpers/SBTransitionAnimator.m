@@ -39,6 +39,7 @@ static const NSTimeInterval AnimationDuration = 0.25;
 
     [self moveCells:parentController];
     [self hideCells:parentController];
+    parentController.view.alpha = 0.0;
 
     // Hide Cells
   } completion:^(BOOL finished) {

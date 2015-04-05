@@ -80,11 +80,11 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   if (![previouslySelectedDate isEqualToDate:currentDate]) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        _games = @[];
-        self.games = @[];
-        [self cancelTimer];
-        [self startTimer];
-        });
+      _games = @[];
+      self.games = @[];
+      [self cancelTimer];
+      [self startTimer];
+    });
   }
 }
 
@@ -206,27 +206,27 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if ((self.selectedIndexPath) && (self.selectedIndexPath.row != updatedSelectedItemPath)) {
     [self performSelector:@selector(updateGameLocationWithAnimation:)
                withObject:@[
-               self.selectedIndexPath,
-      [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
-        ]
-        afterDelay:0.5];
+                             self.selectedIndexPath,
+                             [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
+                           ]
+              afterDelay:0.5];
   }
 }
 
 - (void)updateGameLocationWithAnimation:(NSArray *)paths {
   dispatch_async(dispatch_get_main_queue(), ^{
-      if ([self.games count] > 0) {
+    if ([self.games count] > 0) {
       [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
-      }
+    }
 
-      self.selectedIndexPath = nil;
-      self.selectedGame = nil;
+    self.selectedIndexPath = nil;
+    self.selectedGame = nil;
 
-      // Erase current games and reorder them
-      NSArray *currentGames = self.games;
-      _games = nil;
-      self.games = currentGames;
-      });
+    // Erase current games and reorder them
+    NSArray *currentGames = self.games;
+    _games = nil;
+    self.games = currentGames;
+  });
 }
 
 - (void)showFavoriteNotification {

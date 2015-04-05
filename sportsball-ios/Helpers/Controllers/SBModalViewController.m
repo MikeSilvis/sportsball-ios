@@ -49,6 +49,10 @@ static  NSString *kWebSegue = @"webViewSegue";
   }
 }
 
+- (void)dismissedModal {
+  [NSException raise:@"Should be handled in subclass" format:@""];
+}
+
 - (void)openURL:(NSURL *)url {
   if (!url) {
     return;
