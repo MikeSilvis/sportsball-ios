@@ -62,7 +62,7 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
   _selectedDate = selectedDate;
 
   NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:[self.dates indexOfObject:selectedDate] inSection:0];
-  [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:YES];
+  [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:NO];
   [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:self.isAnimated scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
 
   selectedIndexPath = selectedCellIndexPath;
