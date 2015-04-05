@@ -10,6 +10,7 @@
 #import "UIImage+FontAwesome.h"
 #import "SBAboutTableViewCell.h"
 #import "SBUser.h"
+#import "SBConstants.h"
 
 @implementation SBAboutViewController
 
@@ -68,10 +69,7 @@ static const NSInteger kRateUsLocation  = 1;
     [self feedbackClicked:indexPath];
   }
   else if (indexPath.row == kRateUsLocation) {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-    NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-    NSString *appStoreURL = [keys objectForKey:@"APP_STORE_URL"];
+    NSString *appStoreURL = [[SBConstants sharedInstance] getSecretValueFrom:@"APP_STORE_URL"];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:appStoreURL]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
   }

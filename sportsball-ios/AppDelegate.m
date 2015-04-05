@@ -18,6 +18,7 @@
 #import "UIImage+FontAwesome.h"
 #import <AVKit/AVKit.h>
 #import "Mixpanel.h"
+#import "SBConstants.h"
 
 @implementation AppDelegate
 
@@ -56,17 +57,14 @@
 }
 
 - (void)configureMixPanel {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  [Mixpanel sharedInstanceWithToken:[keys objectForKey:@"MIXPANEL_TOKEN"]];
+  NSString *mixpanelToken = [[SBConstants sharedInstance] getSecretValueFrom:@"MIXPANEL_TOKEN"];
+  [Mixpanel sharedInstanceWithToken:mixpanelToken];
 }
 
 - (void)configureParse:(NSDictionary *)launchOptions {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"secretKeys" ofType:@"plist"];
-  NSDictionary *keys = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-
-  [Parse setApplicationId:[keys objectForKey:@"PARSE_API_KEY"] clientKey:[keys objectForKey:@"PARSE_CLIENT_KEY"]];
+  NSString *parseApiKey = [[SBConstants sharedInstance] getSecretValueFrom:@"PARSE_API_KEY"];
+  NSString *parseClientKey = [[SBConstants sharedInstance] getSecretValueFrom:@"PARSE_CLIENT_KEY"];
+  [Parse setApplicationId:parseApiKey clientKey:parseClientKey];
  
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
