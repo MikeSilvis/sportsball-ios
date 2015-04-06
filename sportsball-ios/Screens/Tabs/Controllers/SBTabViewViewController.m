@@ -22,11 +22,7 @@
   [super viewDidLoad];
 
   [self buildTabbar];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-
+  
   NSInteger lastOpened = [[SBUser currentUser].lastOpenedScoreOrStandings integerValue];
   if (lastOpened) {
     [self setSelectedIndex:lastOpened];
@@ -41,11 +37,9 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
   if ([item.title isEqualToString:@"Scores"]) {
     [SBUser currentUser].lastOpenedScoreOrStandings = @0;
-//    ((SBScoresViewController *)self.selectedViewController).league = [SBUser currentUser].lastOpenedLeague;
   }
   else {
     [SBUser currentUser].lastOpenedScoreOrStandings = @1;
-//    ((SBStandingsViewController *)self.selectedViewController).league = [SBUser currentUser].lastOpenedLeague;
   }
 }
 

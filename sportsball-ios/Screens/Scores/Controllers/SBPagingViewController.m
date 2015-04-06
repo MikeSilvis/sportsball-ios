@@ -43,9 +43,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
   self.pageViewController.dataSource = self;
 
-  UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
-  [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-
   // Change the size of page view controller
   self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
@@ -58,6 +55,16 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(hideMenuIems:)
                                                name:kNotificationHideEvent object:nil];
+  
+  UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
+  [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
+  [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 - (void)buildHamburgerButton {
@@ -121,6 +128,8 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if (([[SBUser currentUser].leagues count] == 0) || (index >= [[SBUser currentUser].leagues count])) {
     return nil;
   }
+  
+  [SBUser currentUser].lastOpenedLeagueIndex = @(index);
 
   return [self.delegate viewControllerAtIndex:index];
 

@@ -69,6 +69,12 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  [self.collectionView reloadData];
+}
+
 - (void)updateSelectedDate:(NSDate *)selectedDate {
   self.currentDate = selectedDate;
 }
@@ -92,7 +98,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   
   [self.collectionView reloadData];
 }
-
 
 - (void)dismissedModal {
   [self startTimer];
@@ -235,7 +240,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       return;
     }
     else if ([game.awayTeam isFavorableTeam]) {
-      // TODO: YOU CAN NOW ASK YOURSELF!
         [self askForFavoriteTeam:game.awayTeam];
         return;
     }
@@ -359,7 +363,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       cell.delegate = self;
       cell.dates = self.league.schedule;
       if (self.currentDate && [self.league.schedule containsObject:self.currentDate]) {
-                                       [cell.datePicker selectDate:self.currentDate];
+        [cell.datePicker selectDate:self.currentDate];
       }
       else {
         [cell.datePicker selectDateClosestToToday];
@@ -376,8 +380,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   pageContentViewController.pageIndex = index;
   pageContentViewController.parentRect = self.view.frame;
   pageContentViewController.league = [SBUser currentUser].leagues[index];
-
-  [SBUser currentUser].lastOpenedLeagueIndex = @(index);
 
   return pageContentViewController;
 }

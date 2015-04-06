@@ -58,12 +58,16 @@ static NSString *kPagingSegue = @"pagingSegue";
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize, 0, 0, 0);
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  [self.collectionView reloadData];
+}
+
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
   SBStandingsViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBStandingsViewController"];
   pageContentViewController.pageIndex = index;
   pageContentViewController.league = [SBUser currentUser].leagues[index];
-
-  [SBUser currentUser].lastOpenedLeagueIndex = @(index);
 
   return pageContentViewController;
 }
@@ -77,8 +81,6 @@ static NSString *kPagingSegue = @"pagingSegue";
 
 - (void)setLeague:(SBLeague *)league {
   _league = league;
-
-
   if (![self.standing.leagueName isEqualToString:self.league.name]) {
     [self stubStanding];
   }
