@@ -33,6 +33,8 @@
   [self configureParse:launchOptions];
   [self configureMixPanel];
   [self setInitialWindow];
+  
+  [[SBUser currentUser] incrementAppOpens];
 
   return YES;
 }
@@ -99,7 +101,7 @@
 }
 
 - (void)defaultStyles{
-  // UINavigatoinBar
+  // UINavigationBar
   UIColor *barTintColor = [UIColor colorWithHexString:@"120c06"];
   [[UINavigationBar appearance] setBarTintColor:barTintColor];
   [[UIToolbar appearance] setBarTintColor:barTintColor];

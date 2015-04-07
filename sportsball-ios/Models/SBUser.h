@@ -28,5 +28,9 @@
 - (NSString *)networkConnectionErrorMessage:(NSError *)error;
 - (UIImage *)networkConnectionErrorIcon;
 - (BOOL)teamLogos;
+- (void)incrementAppOpens;
+- (BOOL)askForAppReview;
+- (void)rejectedAppReview;
+- (void)acceptedAppReview;
 
 @end

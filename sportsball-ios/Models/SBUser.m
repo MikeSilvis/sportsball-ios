@@ -11,9 +11,21 @@
 #import <Underscore.h>
 #import "SBConstants.h"
 
-static NSString *kLastOpenedLeague = @"lastOpenedLeague1";
+// User Default Keys
+static NSString *kLastOpenedLeague           = @"lastOpenedLeague1";
 static NSString *kLastOpenedScoreOrStandings = @"LastOpenedScoreOrStandings";
-static NSString *kAllLeagues = @"allLeagues-1";
+static NSString *kAllLeagues                 = @"allLeagues-1";
+static NSString *kAppOpens                   = @"appOpens";
+static NSString *kAlreadyAskedForReview      = @"askedForReview";
+
+static CGFloat const kAppOpensCountForNotification  = 5;
+
+@interface SBUser ()
+
+@property BOOL alreadyAskedForReview;
+@property (nonatomic, copy) NSNumber *appOpens;
+
+@end
 
 @implementation SBUser
 
@@ -126,6 +138,12 @@ static NSString *kAllLeagues = @"allLeagues-1";
   return [UIImage imageWithFontAwesomeIcon:warningIcon andSize:iconSize andColor:@"#c4eefe"];
 }
 
+- (void)incrementAppOpens {
+  self.appOpens = [NSNumber numberWithInt:[self.appOpens intValue] + 1];
+    
+  [self syncUserDefaults];
+}
+
 #pragma mark - Sync settings
 
 - (void)syncUserDefaults {
@@ -133,6 +151,8 @@ static NSString *kAllLeagues = @"allLeagues-1";
 
   [defaults setObject:self.lastOpenedLeagueIndex forKey:kLastOpenedLeague];
   [defaults setObject:self.lastOpenedScoreOrStandings forKey:kLastOpenedScoreOrStandings];
+  [defaults setObject:self.appOpens forKey:kAppOpens];
+  [defaults setObject:@(self.alreadyAskedForReview) forKey:kAlreadyAskedForReview];
 
   // Set Leagues
   NSMutableArray *encodedLeagues = [NSMutableArray array];
@@ -159,6 +179,8 @@ static NSString *kAllLeagues = @"allLeagues-1";
     _lastOpenedLeagueIndex = [NSNumber numberWithInt:-1];
   }
 
+  _appOpens = [defaults objectForKey:kAppOpens];
+  _alreadyAskedForReview = [[defaults objectForKey:kAlreadyAskedForReview] boolValue];
   _favoriteTeams = @[];
 
   // Retrieve leagues
@@ -196,6 +218,32 @@ static NSString *kAllLeagues = @"allLeagues-1";
 
 - (BOOL)teamLogos {
   return YES;
+}
+
+- (void)setAppOpens:(NSNumber *)appOpens {
+  _appOpens = appOpens;
+}
+
+- (BOOL)askForAppReview {
+  if (([self.appOpens intValue] > kAppOpensCountForNotification) && !self.alreadyAskedForReview) {
+    return YES;
+  }
+  
+  return NO;
+}
+
+- (void)rejectedAppReview {
+  self.alreadyAskedForReview = YES;
+  [self syncUserDefaults];
+  
+  [PFAnalytics trackEvent:@"askedForReview" dimensions:@{@"succeeded": @"NO"}];
+}
+
+- (void)acceptedAppReview {
+  self.alreadyAskedForReview = YES;
+  [self syncUserDefaults];
+  
+  [PFAnalytics trackEvent:@"askedForReview" dimensions:@{@"succeeded": @"YES"}];
 }
 
 @end

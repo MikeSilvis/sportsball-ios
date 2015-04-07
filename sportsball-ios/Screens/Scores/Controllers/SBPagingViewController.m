@@ -58,6 +58,8 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   
   UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
   [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+  
+  [self askForAppReview];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -148,4 +150,39 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   
   [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)askForAppReview {
+  if (![[SBUser currentUser] askForAppReview]) {
+    return;
+  }
+  
+  NSString *headerReviewRequest = @"Review us";
+  NSString *subtitleReviewRequest = @"You are awesome. Will you please leave us a review?";
+  
+  CGFloat iconSize = 32;
+  FAKFontAwesome *thumbsUpIcon = [FAKFontAwesome thumbsUpIconWithSize:iconSize];
+  UIImage *thumbsUpImage = [UIImage imageWithFontAwesomeIcon:thumbsUpIcon andSize:iconSize andColor:@"fff"];
+
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:headerReviewRequest
+                                                                             subtitle:subtitleReviewRequest
+                                                                      backgroundColor:[UIColor colorWithHexString:@"274385"]
+                                                                            iconImage:thumbsUpImage];
+  [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"No"]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  notification.swipeToDismissEnabled = NO;
+  notification.backgroundTapsEnabled = NO;
+  
+  [notification showWithButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
+    if (buttonIndex == notification.firstButton.tag) {
+      [[SBUser currentUser] acceptedAppReview];
+      NSString *appStoreURL = [[SBConstants sharedInstance] getSecretValueFrom:@"APP_STORE_URL"];
+      [[UIApplication sharedApplication] openURL: [NSURL URLWithString:appStoreURL]];
+    }
+    else if (buttonIndex == notification.secondButton.tag) {
+      [[SBUser currentUser] rejectedAppReview];
+    }
+  }];
+}
+
 @end
