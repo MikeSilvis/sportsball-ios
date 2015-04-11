@@ -61,7 +61,8 @@ static NSString *kPagingSegue = @"pagingSegue";
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  
+
+  [self startTimer];
   [self.collectionView reloadData];
 }
 
@@ -69,7 +70,6 @@ static NSString *kPagingSegue = @"pagingSegue";
   SBStandingsViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBStandingsViewController"];
   pageContentViewController.pageIndex = index;
   pageContentViewController.league = [SBUser currentUser].leagues[index];
-  NSLog(@"opening league with name: %@", pageContentViewController.league.name);
 
   return pageContentViewController;
 }
@@ -86,9 +86,7 @@ static NSString *kPagingSegue = @"pagingSegue";
   if (![self.standing.leagueName isEqualToString:self.league.name]) {
     [self stubStanding];
   }
-  NSLog(@"league Name: %@", self.league.name);
   
-  [self startTimer];
   [self.collectionView reloadData];
   [self viewWillLayoutSubviews];
 }
