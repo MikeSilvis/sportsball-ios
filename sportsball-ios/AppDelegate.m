@@ -33,8 +33,6 @@
   [self configureParse:launchOptions];
   [self configureMixPanel];
   [self setInitialWindow];
-  
-  [[SBUser currentUser] incrementAppOpens];
 
   return YES;
 }
@@ -166,6 +164,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [[Mixpanel sharedInstance] track:@"App Opened"];
+  [[SBUser currentUser] incrementAppOpens];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -14,6 +14,7 @@
 #import "SBTeamStandingsHeaderCollectionViewCell.h"
 #import "SBTeamStandingsCollectionViewCell.h"
 #import "SBLeagueHeader.h"
+#import <MPGNotification.h>
 
 @interface SBStandingsViewController () <SBPagingViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -68,6 +69,7 @@ static NSString *kPagingSegue = @"pagingSegue";
   SBStandingsViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBStandingsViewController"];
   pageContentViewController.pageIndex = index;
   pageContentViewController.league = [SBUser currentUser].leagues[index];
+  NSLog(@"opening league with name: %@", pageContentViewController.league.name);
 
   return pageContentViewController;
 }
@@ -84,6 +86,7 @@ static NSString *kPagingSegue = @"pagingSegue";
   if (![self.standing.leagueName isEqualToString:self.league.name]) {
     [self stubStanding];
   }
+  NSLog(@"league Name: %@", self.league.name);
   
   [self startTimer];
   [self.collectionView reloadData];
@@ -116,9 +119,19 @@ static NSString *kPagingSegue = @"pagingSegue";
     self.standing = standing;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-//    [self.delegate requestFailed:error];
+    [self showNetworkError:error];
     self.activityIndicator.hidden = YES;
   }];
+}
+
+- (void)showNetworkError:(NSError *)error {
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
+                                                                             subtitle:nil
+                                                                      backgroundColor:[UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000]
+                                                                            iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  [notification show];
 }
 
 - (void)setStanding:(SBStanding *)standing {
