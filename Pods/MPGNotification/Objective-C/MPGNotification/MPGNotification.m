@@ -33,7 +33,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static const CGFloat kNotificationHeight = 80;
+static const CGFloat kNotificationHeight = 100;
 static const CGFloat kIconImageSize = 32.0;
 static const NSTimeInterval kLinearAnimationTime = 0.25;
 
@@ -149,11 +149,11 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     
     [super layoutSubviews];
     
-    static const CGFloat kPaddingX = 5;
+    static const CGFloat kPaddingX = 10;
     CGFloat notificationWidth = CGRectGetWidth(self.bounds);
     
     // ICON IMAGE
-    static const CGFloat kIconPaddingY = 32;
+    static const CGFloat kIconPaddingY = 42;
     
     self.iconImageView.frame = CGRectMake(kPaddingX, kIconPaddingY, kIconImageSize, kIconImageSize);
     
@@ -165,14 +165,14 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     static const CGFloat kButtonWidthDefault = 64;
     static const CGFloat kButtonPadding = 2.5;
     
-    static const CGFloat kCloseButtonOriginY = 30;
+    static const CGFloat kCloseButtonOriginY = 60;
     static const CGFloat kCloseButtonWidth = 25;
-    static const CGFloat kCloseButtonHeight = 30;
+    static const CGFloat kCloseButtonHeight = 40;
     
     CGFloat buttonOriginX = notificationWidth - kButtonOriginXOffset;
     CGFloat closeButtonOriginX = notificationWidth - kCloseButtonOriginXOffset;
     
-    CGFloat firstButtonOriginY = (self.secondButton) ? 23 : 30;
+    CGFloat firstButtonOriginY = (self.secondButton) ? 33 : 40;
     CGFloat buttonHeight = (self.firstButton && self.secondButton) ? 25 : 30;
     CGFloat secondButtonOriginY = firstButtonOriginY + buttonHeight + kButtonPadding;
     
@@ -187,7 +187,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     static const CGFloat kTitleLabelPaddingX = 8;
     static const CGFloat kTitleLabelHeight = 20;
     
-    CGFloat textPaddingX = (self.iconImage) ? CGRectGetMaxX(self.iconImageView.frame) + kTitleLabelPaddingX : kPaddingX + 5;
+    CGFloat textPaddingX = (self.iconImage) ? CGRectGetMaxX(self.iconImageView.frame) + kTitleLabelPaddingX + 10 : kPaddingX;
     CGFloat textTrailingX = (self.firstButton) ? CGRectGetWidth(self.bounds) - CGRectGetMinX(self.firstButton.frame) + 9 : 20;
     CGFloat textWidth = notificationWidth - (textPaddingX + textTrailingX);
     
@@ -215,7 +215,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     BOOL subtitleEmpty = (self.subtitle == nil || self.subtitle.length == 0);
     BOOL subtitleOneLiner = (expectedSubtitleSize.height < 25 && subtitleEmpty == NO);
 
-    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 38 : (subtitleOneLiner) ? 22 : 22;
+    CGFloat titleLabelPaddingY = (subtitleEmpty) ? 48 : (subtitleOneLiner) ? 32 : 32;
 
     self.titleLabel.frame = CGRectMake(textPaddingX,
                                        titleLabelPaddingY,

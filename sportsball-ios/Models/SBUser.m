@@ -10,6 +10,7 @@
 #import "UIImage+FontAwesome.h"
 #import <Underscore.h>
 #import "SBConstants.h"
+#import <Mixpanel.h>
 
 // User Default Keys
 static NSString *kLastOpenedLeague           = @"lastOpenedLeague1";
@@ -47,6 +48,7 @@ static CGFloat const kAppOpensCountForNotification  = 5;
     [PFUser enableAutomaticUser];
 
     self.currentPfUser = [PFUser currentUser];
+    [[Mixpanel sharedInstance] identify:self.currentPfUser.objectId];
 
     if (self.currentPfUser.objectId) {
       [[PFUser currentUser] fetchInBackground];
@@ -236,14 +238,14 @@ static CGFloat const kAppOpensCountForNotification  = 5;
   self.alreadyAskedForReview = YES;
   [self syncUserDefaults];
   
-  [PFAnalytics trackEvent:@"askedForReview" dimensions:@{@"succeeded": @"NO"}];
+  [[Mixpanel sharedInstance] track:@"askedForReview" properties:@{@"succeeded": @"NO"}];
 }
 
 - (void)acceptedAppReview {
   self.alreadyAskedForReview = YES;
   [self syncUserDefaults];
   
-  [PFAnalytics trackEvent:@"askedForReview" dimensions:@{@"succeeded": @"YES"}];
+  [[Mixpanel sharedInstance] track:@"askedForReview" properties:@{@"succeeded": @"YES"}];
 }
 
 @end

@@ -156,9 +156,19 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     self.games = games;
     self.activityIndicator.hidden = YES;
   } failure:^(NSError *error) {
-//    [self.delegate requestFailed:error];
+    [self showNetworkError:error];
     self.activityIndicator.hidden = YES;
   }];
+}
+
+- (void)showNetworkError:(NSError *)error {
+  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
+                                                                                title:[[SBUser currentUser] networkConnectionErrorMessage:nil]
+                                                                             subtitle:nil
+                                                                      backgroundColor:[UIColor colorWithRed:0.910 green:0.278 blue:0.128 alpha:1.000]
+                                                                            iconImage:[[SBUser currentUser] networkConnectionErrorIcon]];
+  notification.animationType = MPGNotificationAnimationTypeDrop;
+  [notification show];
 }
 
 - (void)setGames:(NSArray *)games {

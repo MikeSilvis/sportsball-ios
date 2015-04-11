@@ -282,7 +282,7 @@ static const NSInteger kScheduleCellLocation = 0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   for (UITableViewCell *cell in self.tableView.visibleCells) {
     UIView *headerView = [self.tableView headerViewForSection:1];
-    if ((int)headerView.frame.origin.y == (int)self.tableView.contentOffset.y) {
+    if (headerView.frame.origin.y == self.tableView.contentOffset.y) {
       CGFloat hiddenFrameHeight = scrollView.contentOffset.y + headerView.frame.size.height - cell.frame.origin.y;
       if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
           [self maskCell:cell fromTopWithMargin:hiddenFrameHeight];

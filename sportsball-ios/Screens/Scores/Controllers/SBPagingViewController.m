@@ -56,9 +56,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                              selector:@selector(hideMenuIems:)
                                                name:kNotificationHideEvent object:nil];
   
-  UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
-  [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-  
   [self askForAppReview];
 }
 
