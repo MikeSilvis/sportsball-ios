@@ -18,7 +18,7 @@
 #import "EDColor.h"
 #import "SBConstants.h"
 
-@interface SBPagingViewController () <UIPageViewControllerDataSource>
+@interface SBPagingViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
@@ -42,6 +42,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   // Create page view controller
   self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
   self.pageViewController.dataSource = self;
+  self.pageViewController.delegate = self;
 
   // Change the size of page view controller
   self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -127,11 +128,22 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if (([[SBUser currentUser].leagues count] == 0) || (index >= [[SBUser currentUser].leagues count])) {
     return nil;
   }
-  
-  [SBUser currentUser].lastOpenedLeagueIndex = @(index);
 
   return [self.delegate viewControllerAtIndex:index];
 
+}
+
+#pragma mark - Page View Controller Delegate
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+
+  if (completed) {
+    NSUInteger currentIndex = ((SBScoresViewController *)[self.pageViewController.viewControllers firstObject]).pageIndex;
+    [SBUser currentUser].lastOpenedLeagueIndex = @(currentIndex);
+  }
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
