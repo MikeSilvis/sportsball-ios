@@ -39,11 +39,11 @@ static const NSTimeInterval AnimationDuration = 0.25;
 
     [self moveCells:parentController];
     [self hideCells:parentController];
-    parentController.view.alpha = 0.0;
 
     // Hide Cells
   } completion:^(BOOL finished) {
     destinationViewController.view.alpha = 1.0;
+    parentController.view.alpha = 0.0;
     [transitionContext completeTransition:YES];
   }];
 }
@@ -53,7 +53,7 @@ static const NSTimeInterval AnimationDuration = 0.25;
     UICollectionViewCell *cell = parentController.collectionView.visibleCells[parentController.selectedIndexPath.row];
     CGRect cellFrame = [parentController.collectionView convertRect:cell.frame toView:parentController.view];
     CGRect f = parentController.collectionView.frame;
-    f.origin.y = f.origin.y - cellFrame.origin.y;
+    f.origin.y = f.origin.y - cellFrame.origin.y + 20;
     parentController.collectionView.frame = f;
   }
 }
