@@ -1,4 +1,3 @@
 sportsball-ios/secretKeys.plist
 .DS_Store
-.xcuserstate
-sportsball-ios.xcworkspace/xcuserdata/mikesilvis.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
