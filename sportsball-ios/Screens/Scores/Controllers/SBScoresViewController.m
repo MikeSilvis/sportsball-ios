@@ -69,12 +69,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-  
-  [self.collectionView reloadData];
-}
-
 - (void)updateSelectedDate:(NSDate *)selectedDate {
   self.currentDate = selectedDate;
 }
