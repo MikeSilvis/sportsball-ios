@@ -17,19 +17,21 @@
 @implementation SBLeagueHeader
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
-  [UIView animateWithDuration:0.3 animations:^{
-    CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
+  CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
-    bool hidden = yOrigin >= -1 ? NO : YES;
-
-    self.leagueText.hidden = hidden;
-    self.headerImage.hidden = !hidden;
-
-//    bool hidden = ![[NSNumber numberWithFloat:alpha] boolValue];
-//    [[UIApplication sharedApplication] setStatusBarHidden:hidden];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
+  bool hidden = yOrigin >= -1 ? NO : YES;
+  [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
                                                                                                @"alpha" : [NSNumber numberWithBool:hidden]
                                                                                               }];
+  [UIView animateWithDuration:0.3 animations:^{
+    if (hidden) {
+      self.leagueText.alpha = 0.0;
+      self.headerImage.alpha = 1.0;
+    }
+    else {
+      self.leagueText.alpha = 1.0;
+      self.headerImage.alpha = 0.0;
+    }
   }];
 }
 

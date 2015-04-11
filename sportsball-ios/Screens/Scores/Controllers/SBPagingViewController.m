@@ -84,7 +84,15 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)hideMenuIems:(NSNotification *)notification {
   bool alphaHidden = [(NSNumber *)notification.object[@"alpha"] boolValue];
 
-  self.toolBar.hidden = alphaHidden;
+
+  [UIView animateWithDuration:0.3 animations:^{
+    if (alphaHidden) {
+      self.toolBar.alpha = 0.0;
+    }
+    else {
+      self.toolBar.alpha = 1.0;
+    }
+  }];
 }
 
 - (int)openedIndex {

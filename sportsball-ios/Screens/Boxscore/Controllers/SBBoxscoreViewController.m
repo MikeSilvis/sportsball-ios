@@ -79,9 +79,9 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
   if (!self.game.boxscore) {
     self.loadingIndicator.hidden = NO;
-    [self findBoxscore];
   }
 
+  [self findBoxscore];
   [self setHeaderInfo];
 }
 

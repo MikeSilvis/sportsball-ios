@@ -73,6 +73,14 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.currentDate = selectedDate;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  if ([self.games count] > 0) {
+    [self startTimer];
+  }
+}
+
 - (void)setCurrentDate:(NSDate *)currentDate {
   NSDate *previouslySelectedDate = self.currentDate;
   _currentDate = currentDate;
