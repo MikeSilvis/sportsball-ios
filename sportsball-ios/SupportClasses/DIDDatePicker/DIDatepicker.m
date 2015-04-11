@@ -61,6 +61,12 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
 {
   _selectedDate = selectedDate;
 
+  if (!self.isAnimated) {
+    [UIView animateWithDuration:0.2 animations:^{
+      self.datesCollectionView.alpha = 1.0;
+    }];
+  }
+
   NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:[self.dates indexOfObject:selectedDate] inSection:0];
   [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:NO];
   [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:self.isAnimated scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
@@ -84,6 +90,7 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
     [_datesCollectionView setBackgroundColor:[UIColor clearColor]];
     [_datesCollectionView setShowsHorizontalScrollIndicator:NO];
     [_datesCollectionView setAllowsMultipleSelection:YES];
+    _datesCollectionView.alpha = 0.0;
     _datesCollectionView.dataSource = self;
     _datesCollectionView.delegate = self;
     [self addSubview:_datesCollectionView];
