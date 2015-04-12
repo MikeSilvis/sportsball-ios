@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffect;
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
-@property (nonatomic, strong) SBLeague *currentLeague;
+@property (nonatomic, strong) SBLeague *league;
 @property (weak, nonatomic) IBOutlet UIView *tintBackground;
 
 @end

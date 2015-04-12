@@ -88,7 +88,7 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   SBLeagueHeader *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kLeagueHeaderCell forIndexPath:indexPath];
-  cell.currentLeague = self.leagues[indexPath.row];
+  cell.league = self.leagues[indexPath.row];
 
   return cell;
 }

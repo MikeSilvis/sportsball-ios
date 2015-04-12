@@ -35,19 +35,19 @@
   }];
 }
 
-- (void)setCurrentLeague:(SBLeague *)currentLeague {
-  _currentLeague = currentLeague;
-  self.leagueText.text = self.currentLeague.englishName;
+- (void)setLeague:(SBLeague *)currentLeague {
+  _league = currentLeague;
+  self.leagueText.text = self.league.englishName;
   
-  if (![self.currentLeague isEnabled]) {
+  if (![self.league isEnabled]) {
     self.tintBackground.alpha = 0.6;
   }
   else {
     self.tintBackground.alpha = 0;
   }
 
-  [self.headerImage sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:kPlaceholderImageSize]];
-  [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
+  [self.headerImage sd_setImageWithURL:[self.league imageURL:self.league.header withSize:kPlaceholderImageSize]];
+  [self.headerImageBlurred sd_setImageWithURL:[self.league imageURL:self.league.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
 }
 
 @end

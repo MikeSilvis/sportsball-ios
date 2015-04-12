@@ -10,6 +10,7 @@
 #import "SBGame.h"
 #import "XHRealTimeBlur.h"
 #import "SBUser.h"
+#import <SDWebImage/SDWebImagePrefetcher.h>
 
 @implementation SBLeague
 
@@ -18,7 +19,6 @@
 
   if (self) {
     self.logo = [NSURL URLWithString:json[@"logo"]];
-    self.secondaryLogo = [NSURL URLWithString:json[@"secondary_logo"]];
 
     self.name = json[@"name"];
     self.englishName = json[@"english_name"];
@@ -38,6 +38,7 @@
       headerURLS[headerURL] = [NSURL URLWithString:json[@"header_images"][headerURL]];
     }
     self.headers = headerURLS;
+    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:[self.headers allValues]];
 
     // Blurred Header Images
     NSMutableDictionary *blurredHeaderURLS = [NSMutableDictionary dictionary];
@@ -45,21 +46,32 @@
       blurredHeaderURLS[headerURL] = [NSURL URLWithString:json[@"header_blurred_images"][headerURL]];
     }
     self.blurredHeaders = blurredHeaderURLS;
-
-    NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
-    if (favoriteTeamName && self.blurredHeaders[favoriteTeamName]) {
-      self.header = self.headers[favoriteTeamName];
-      self.blurredHeader = self.blurredHeaders[favoriteTeamName];
-    }
-    else {
-      self.header = [[self.headers allValues] firstObject];
-      self.blurredHeader = [[self.blurredHeaders allValues] firstObject];
-    }
+    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:[self.blurredHeaders allValues]];
 
     self.enabled = [NSNumber numberWithBool:json[@"enabled"]];
   }
 
   return self;
+}
+
+- (NSURL *)blurredHeader {
+  NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
+  if (favoriteTeamName && self.blurredHeaders[favoriteTeamName]) {
+    return self.blurredHeaders[favoriteTeamName];
+  }
+  else {
+    return [[self.blurredHeaders allValues] firstObject];
+  }
+}
+
+- (NSURL *)header {
+  NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
+  if (favoriteTeamName && self.headers[favoriteTeamName]) {
+    return self.headers[favoriteTeamName];
+  }
+  else {
+    return [[self.headers allValues] firstObject];
+  }
 }
 
 - (BOOL)isEnabled {

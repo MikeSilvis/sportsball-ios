@@ -187,7 +187,7 @@ static NSString *kPagingSegue = @"pagingSegue";
     SBLeagueHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                         withReuseIdentifier:kHeaderViewCell
                                                                                forIndexPath:indexPath];
-    cell.currentLeague = self.league;
+    cell.league = self.league;
 
     return cell;
   }
