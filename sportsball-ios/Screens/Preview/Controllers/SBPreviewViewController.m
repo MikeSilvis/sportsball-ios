@@ -79,6 +79,14 @@ static const NSInteger kScheduleCellLocation = 0;
   [self.homeTeamLogo addGestureRecognizer:homeTap];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+
+  if (self.delegate) {
+    [self.delegate dismissedModal];
+  }
+}
+
 - (void)clickedAwayLogo{
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
   if ([self.tableView cellForRowAtIndexPath:indexPath]) {

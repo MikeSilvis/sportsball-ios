@@ -149,11 +149,12 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     return;
   }
 
-  if (!self.games.count == 0) {
-    return;
+  if (self.games.count == 0) {
+    self.activityIndicator.hidden = NO;
   }
-
-  self.activityIndicator.hidden = NO;
+  else {
+    self.activityIndicator.hidden = YES;
+  }
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
@@ -228,7 +229,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)updateGameLocationWithAnimation:(NSArray *)paths {
   dispatch_async(dispatch_get_main_queue(), ^{
-    if ([self.games count] > 0) {
+    if ([self.collectionView cellForItemAtIndexPath:[paths lastObject]]) {
       [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
     }
 
