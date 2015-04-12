@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSNumber *lastOpenedLeagueIndex;
 @property (nonatomic, copy) NSNumber *lastOpenedScoreOrStandings;
 @property (nonatomic, copy) NSArray *leagues;
+@property (nonatomic, copy) NSArray *enabledLeagues;
 @property (nonatomic, copy) NSArray *favoriteTeams;
 @property (atomic, strong) PFUser *currentPfUser;
 @property (nonatomic, strong) PTPusher *client;

@@ -18,9 +18,11 @@
 #import "EDColor.h"
 #import "SBConstants.h"
 #import <Mixpanel.h>
+#import <ReactiveCocoa.h>
 
 @interface SBPagingViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
+@property (nonatomic, strong) NSArray *leagues;
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hamburgerButton;
@@ -40,6 +42,8 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  self.leagues = [SBUser currentUser].enabledLeagues;
+
   // Create page view controller
   self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
   self.pageViewController.dataSource = self;
@@ -56,6 +60,30 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                                                name:kNotificationHideEvent object:nil];
   
   [self askForAppReview];
+  [self declareBindings];
+}
+
+- (void)declareBindings {
+  @weakify(self);
+
+  [[[RACObserve([SBUser currentUser], leagues) ignore:nil] distinctUntilChanged] subscribeNext:^(NSArray *leagues) {
+    @strongify(self);
+
+    NSUInteger previouslyEnabledLeagues = [self.leagues count];
+
+    NSUInteger nowEnabledLeagues = [[leagues.rac_sequence filter:^BOOL(SBLeague *league) {
+      return [league.enabled boolValue];
+    }].array count];
+
+    if (previouslyEnabledLeagues != nowEnabledLeagues) {
+      self.leagues = [SBUser currentUser].enabledLeagues;
+      UIViewController *scoresViewController = [self viewControllerAtIndex:[self openedIndex]];
+      [self.pageViewController setViewControllers:@[scoresViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+
+      return;
+    }
+  }];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -95,7 +123,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (int)openedIndex {
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-  if ((openedIndex >= 0) && ([SBUser currentUser].enabledLeagues[openedIndex])) {
+  if ((openedIndex >= 0) && (self.leagues[openedIndex])) {
     return openedIndex;
   }
   else {
@@ -123,7 +151,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }
 
   index++;
-  if (index == [[SBUser currentUser].enabledLeagues count]) {
+  if (index == [self.leagues count]) {
     return nil;
   }
 
@@ -131,7 +159,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
-  if (([[SBUser currentUser].enabledLeagues count] == 0) || (index >= [[SBUser currentUser].enabledLeagues count])) {
+  if (([self.leagues count] == 0) || (index >= [self.leagues count])) {
     return nil;
   }
 
@@ -154,7 +182,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-  return [[SBUser currentUser].enabledLeagues count];
+  return [self.leagues count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {

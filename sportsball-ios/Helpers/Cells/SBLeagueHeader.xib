@@ -36,7 +36,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
                             <constraint firstAttribute="centerX" secondItem="S7J-yo-Mxv" secondAttribute="centerX" id="7Vr-Ib-IqI"/>
@@ -57,7 +56,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="twt-q2-bnj" secondAttribute="bottom" id="Cob-qx-Yfu"/>
                 <constraint firstAttribute="trailing" secondItem="twt-q2-bnj" secondAttribute="trailing" id="kkL-mE-OVS"/>

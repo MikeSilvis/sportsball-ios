@@ -25,7 +25,6 @@ PODS:
   - FontAwesomeKit/Core (2.2.0)
   - FontAwesomeKit/FontAwesome (2.2.0):
     - FontAwesomeKit/Core
-  - LBBlurredImage (0.2.2)
   - libPusher (1.6):
     - libPusher/Core (= 1.6)
   - libPusher/Core (1.6):
@@ -34,6 +33,13 @@ PODS:
     - Mixpanel/MPCategoryHelpers (= 2.7.2)
   - Mixpanel/MPCategoryHelpers (2.7.2)
   - MPGNotification (1.2)
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
+    - ReactiveCocoa/Core
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -47,10 +53,10 @@ DEPENDENCIES:
   - CSStickyHeaderFlowLayout
   - EDColor
   - FontAwesomeKit/FontAwesome
-  - LBBlurredImage
   - libPusher (~> 1.6)
   - Mixpanel
   - MPGNotification (from `git@github.com:MikeSilvis/MPGNotification.git`)
+  - ReactiveCocoa
   - SDWebImage
   - Underscore.m
   - XHRealTimeBlur
@@ -77,10 +83,10 @@ SPEC CHECKSUMS:
   CSStickyHeaderFlowLayout: 42633a45d33abd6dd6937b81b6d2381e01c86835
   EDColor: 89d19a013279a5604d61650721c15f20fefaaf00
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
-  LBBlurredImage: 700634c17922bc2d22343118e7deb6a3ca12db43
   libPusher: f9367ede8f5141e74adc90ba20536cbc3c7b68e1
   Mixpanel: e9bcb16eb0e2a98fc330ceeb0d8b7f4aec4182ab
   MPGNotification: 1867636ecd7a57e065b045f079a92a493f3a84b2
+  ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
   SocketRocket: 7284ab9370a06c99aba92b2fe3a32aedd0f9a6fa
   Underscore.m: b86ca364d60509a39eb9c7886443c063b793aaba

@@ -72,12 +72,6 @@
 #define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 2
 #define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 0
 
-// LBBlurredImage
-#define COCOAPODS_POD_AVAILABLE_LBBlurredImage
-#define COCOAPODS_VERSION_MAJOR_LBBlurredImage 0
-#define COCOAPODS_VERSION_MINOR_LBBlurredImage 2
-#define COCOAPODS_VERSION_PATCH_LBBlurredImage 2
-
 // MPGNotification
 #define COCOAPODS_POD_AVAILABLE_MPGNotification
 #define COCOAPODS_VERSION_MAJOR_MPGNotification 1
@@ -95,6 +89,30 @@
 #define COCOAPODS_VERSION_MAJOR_Mixpanel_MPCategoryHelpers 2
 #define COCOAPODS_VERSION_MINOR_Mixpanel_MPCategoryHelpers 7
 #define COCOAPODS_VERSION_PATCH_Mixpanel_MPCategoryHelpers 2
+
+// ReactiveCocoa
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa 4
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa 7
+
+// ReactiveCocoa/Core
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_Core
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_Core 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_Core 4
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_Core 7
+
+// ReactiveCocoa/UI
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_UI
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_UI 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_UI 4
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_UI 7
+
+// ReactiveCocoa/no-arc
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_no_arc
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_no_arc 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 4
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 7
 
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage

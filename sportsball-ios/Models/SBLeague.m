@@ -11,6 +11,7 @@
 #import "XHRealTimeBlur.h"
 #import "SBUser.h"
 #import <SDWebImage/SDWebImagePrefetcher.h>
+#import "SBConstants.h"
 
 @implementation SBLeague
 
@@ -48,12 +49,15 @@
 
 - (NSURL *)header {
   NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
+  NSURL *headerURL = nil;
   if (favoriteTeamName && self.headers[favoriteTeamName]) {
-    return self.headers[favoriteTeamName];
+    headerURL =  self.headers[favoriteTeamName];
   }
   else {
-    return [[self.headers allValues] firstObject];
+    headerURL = [[self.headers allValues] firstObject];
   }
+
+  return [self imageURL:headerURL withSize:kPlaceholderImageSize];
 }
 
 - (BOOL)isEnabled {
@@ -87,9 +91,10 @@
         [imagesToPreload addObjectsFromArray:[league.headers allValues]];
       }
     }
-    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imagesToPreload];
+//    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imagesToPreload];
 
     [SBUser currentUser].leagues = leagues;
+    [SBUser currentUser].enabledLeagues = nil;
 
     if (!alreadyReturned && success) {
       success(leagues);

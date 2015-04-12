@@ -13,6 +13,7 @@
 @interface SBLeagueIndexViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
+// Has to be a collection view because of SBLeagueHeader
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 

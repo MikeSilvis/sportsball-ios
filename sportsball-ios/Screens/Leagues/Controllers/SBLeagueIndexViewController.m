@@ -14,6 +14,8 @@
 #import "SBTransitionAnimator.h"
 #import "SBConstants.h"
 #import <Mixpanel.h>
+#import <ReactiveCocoa.h>
+#import <Underscore.h>
 
 @interface SBLeagueIndexViewController ()
 
@@ -31,14 +33,50 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.leagues = [SBUser currentUser].leagues;
-
   [self buildHelpIcon];
+  self.leagues = [SBUser currentUser].leagues;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
         forCellWithReuseIdentifier:kLeagueHeaderCell];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.backgroundColor = [UIColor clearColor];
+
+  [self declareBindings];
+}
+
+- (void)declareBindings {
+  @weakify(self);
+
+  [[RACObserve([SBUser currentUser], leagues) distinctUntilChanged] subscribeNext:^(NSArray *leagues) {
+    @strongify(self);
+
+    NSUInteger previouslyEnabledLeagues = [[self.leagues.rac_sequence filter:^BOOL(SBLeague *league) {
+      return [league.enabled boolValue];
+    }].array count];
+
+    NSUInteger nowEnabledLeagues = [[leagues.rac_sequence filter:^BOOL(SBLeague *league) {
+      return [league.enabled boolValue];
+    }].array count];
+
+    if (previouslyEnabledLeagues != nowEnabledLeagues) {
+      self.leagues = leagues;
+      [self.collectionView reloadData];
+      return;
+    }
+
+    if ([self.leagues count] != [leagues count]) {
+      self.leagues = leagues;
+      [self.collectionView reloadData];
+      return;
+    }
+  }];
+
+  [[[RACObserve([SBUser currentUser], lastOpenedLeagueIndex) distinctUntilChanged] filter:^BOOL(NSNumber *lastOpenedLeagueIndex) {
+    return [lastOpenedLeagueIndex  isEqual: @(-1)];
+  }] subscribeNext:^(id x) {
+    @strongify(self);
+    [self.collectionView reloadData];
+  }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

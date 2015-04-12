@@ -19,6 +19,7 @@
 #import "SBPagingViewController.h"
 #import "SBConstants.h"
 #import <Mixpanel.h>
+#import <ReactiveCocoa.h>
 
 @interface SBScoresViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SBModalDelegate, SBPagingViewDelegate>
 
@@ -68,10 +69,28 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
+
+  [self declareBindings];
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
   self.currentDate = selectedDate;
+}
+
+- (void)declareBindings {
+  @weakify(self);
+
+  [[RACObserve([SBUser currentUser], leagues) distinctUntilChanged] subscribeNext:^(NSArray *leagues) {
+    @strongify(self);
+
+    NSInteger selectedLeagueIndex = [[SBUser currentUser].lastOpenedLeagueIndex integerValue];
+    SBLeague *selectedLeague = leagues[selectedLeagueIndex];
+
+    if ([selectedLeague.schedule count] != [self.league.schedule count]) {
+      self.league = selectedLeague;
+      [self.collectionView reloadData];
+    }
+  }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
