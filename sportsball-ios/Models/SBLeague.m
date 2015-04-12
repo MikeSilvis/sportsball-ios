@@ -40,7 +40,7 @@
     }
     self.headers = headerURLS;
 
-    self.enabled = [NSNumber numberWithBool:json[@"enabled"]];
+    self.enabled = [NSNumber numberWithBool:[json[@"enabled"] boolValue]];
 
   }
 

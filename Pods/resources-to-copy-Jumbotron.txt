@@ -1,0 +1,15 @@
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/FontAwesomeKit/FontAwesomeKit/FontAwesome.otf
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPArrowLeft.imageset/MPArrowLeft.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPArrowLeft.imageset/MPArrowLeft@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPArrowRight.imageset/MPArrowRight.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPArrowRight.imageset/MPArrowRight@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPCheckmark.imageset/MPCheckmark.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPCheckmark.imageset/MPCheckmark@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPCloseBtn.imageset/MPCloseBtn.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPCloseBtn.imageset/MPCloseBtn@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPDismissKeyboard.imageset/MPDismissKeyboard.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPDismissKeyboard.imageset/MPDismissKeyboard@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPLogo.imageset/MPLogo.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/Media.xcassets/MPLogo.imageset/MPLogo@2x.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/MPCloseBtn.png
+/Users/mikesilvis/Documents/code/sportsball/sportsball-ios/Pods/Mixpanel/Mixpanel/MPCloseBtn@2x.png
