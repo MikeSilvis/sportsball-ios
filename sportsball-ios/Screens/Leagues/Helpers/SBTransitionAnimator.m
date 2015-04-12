@@ -53,7 +53,7 @@ static const NSTimeInterval AnimationDuration = 0.25;
     UICollectionViewCell *cell = parentController.collectionView.visibleCells[parentController.selectedIndexPath.row];
     CGRect cellFrame = [parentController.collectionView convertRect:cell.frame toView:parentController.view];
     CGRect f = parentController.collectionView.frame;
-    f.origin.y = f.origin.y - cellFrame.origin.y + 20;
+    f.origin.y = f.origin.y - cellFrame.origin.y;
     parentController.collectionView.frame = f;
   }
 }
@@ -76,7 +76,7 @@ static const NSTimeInterval AnimationDuration = 0.25;
   [UIView animateWithDuration:0.4 animations:^{
     // Move Collection view to top
     CGRect f = parentController.collectionView.frame;
-    f.origin.y = 20;
+    f.origin.y = 0;
     parentController.collectionView.frame = f;
 
     // Show Cells

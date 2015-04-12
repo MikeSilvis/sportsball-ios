@@ -59,6 +59,11 @@ static NSString *kPagingSegue = @"pagingSegue";
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize, 0, 0, 0);
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+}
+
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 

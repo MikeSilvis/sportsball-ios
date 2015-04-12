@@ -95,7 +95,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (int)openedIndex {
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
-  if ((openedIndex >= 0) && ([SBUser currentUser].leagues[openedIndex])) {
+  if ((openedIndex >= 0) && ([SBUser currentUser].enabledLeagues[openedIndex])) {
     return openedIndex;
   }
   else {
@@ -123,7 +123,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }
 
   index++;
-  if (index == [[SBUser currentUser].leagues count]) {
+  if (index == [[SBUser currentUser].enabledLeagues count]) {
     return nil;
   }
 
@@ -131,7 +131,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
-  if (([[SBUser currentUser].leagues count] == 0) || (index >= [[SBUser currentUser].leagues count])) {
+  if (([[SBUser currentUser].enabledLeagues count] == 0) || (index >= [[SBUser currentUser].enabledLeagues count])) {
     return nil;
   }
 
