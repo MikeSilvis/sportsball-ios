@@ -32,5 +32,7 @@
 - (BOOL)askForAppReview;
 - (void)rejectedAppReview;
 - (void)acceptedAppReview;
+- (NSArray *)enabledLeagues;
+
 
 @end

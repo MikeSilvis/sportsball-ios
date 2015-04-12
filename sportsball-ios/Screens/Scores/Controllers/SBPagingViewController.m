@@ -44,9 +44,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.pageViewController.dataSource = self;
   self.pageViewController.delegate = self;
 
-  // Change the size of page view controller
-  self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-
   [self addChildViewController:self.pageViewController];
   [self.view insertSubview:self.pageViewController.view belowSubview:self.toolBar];
   [self.pageViewController didMoveToParentViewController:self];
@@ -155,7 +152,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-  return [[SBUser currentUser].leagues count];
+  return [[SBUser currentUser].enabledLeagues count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {

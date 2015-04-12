@@ -69,6 +69,11 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 }
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
+  SBLeague *selectedLeague = [SBUser currentUser].leagues[indexPath.row];
+  if (![selectedLeague isEnabled]) {
+    return;
+  }
+
   [SBUser currentUser].lastOpenedLeagueIndex = @(indexPath.row);
   self.selectedIndexPath = indexPath;
 

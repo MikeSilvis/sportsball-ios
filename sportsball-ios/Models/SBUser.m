@@ -248,4 +248,16 @@ static CGFloat const kAppOpensCountForNotification  = 5;
   [[Mixpanel sharedInstance] track:@"askedForReview" properties:@{@"succeeded": @"YES"}];
 }
 
+- (NSArray *)enabledLeagues {
+  NSMutableArray *enabledLeagues = [NSMutableArray array];
+
+  for (SBLeague *league in self.leagues) {
+    if ([league isEnabled]) {
+      [enabledLeagues addObject:league];
+    }
+  }
+
+  return enabledLeagues;
+}
+
 @end
