@@ -13,6 +13,7 @@
 #import "SBTabViewViewController.h"
 #import "SBTransitionAnimator.h"
 #import "SBConstants.h"
+#import <Mixpanel.h>
 
 @interface SBLeagueIndexViewController ()
 
@@ -71,8 +72,11 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
   SBLeague *selectedLeague = [SBUser currentUser].leagues[indexPath.row];
   if (![selectedLeague isEnabled]) {
+    [[Mixpanel sharedInstance] track:@"selectedDisabledLeague" properties:@{@"league":selectedLeague.name}];
     return;
   }
+
+  [[Mixpanel sharedInstance] track:@"selectedLeague" properties:@{@"league":selectedLeague.name}];
 
   [SBUser currentUser].lastOpenedLeagueIndex = @(indexPath.row);
   self.selectedIndexPath = indexPath;

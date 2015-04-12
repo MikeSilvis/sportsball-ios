@@ -17,6 +17,7 @@
 #import <MPGNotification.h>
 #import "EDColor.h"
 #import "SBConstants.h"
+#import <Mixpanel.h>
 
 @interface SBPagingViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
@@ -148,6 +149,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   if (completed) {
     NSUInteger currentIndex = ((SBScoresViewController *)[self.pageViewController.viewControllers firstObject]).pageIndex;
     [SBUser currentUser].lastOpenedLeagueIndex = @(currentIndex);
+    [[Mixpanel sharedInstance] track:@"swipedBetweenLeagues"];
   }
 }
 

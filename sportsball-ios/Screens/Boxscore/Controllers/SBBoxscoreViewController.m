@@ -18,6 +18,7 @@
 #import <MPGNotification/MPGNotification.h>
 #import <Pusher/Pusher.h>
 #import "SBConstants.h"
+#import <Mixpanel.h>
 
 @interface SBBoxscoreViewController ()
 
@@ -206,6 +207,7 @@ static const NSInteger kScoreDataViewLocation    = 4;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == kScoreRecapViewLocation) {
+    [[Mixpanel sharedInstance] track:@"openedBoxscoreURL"];
     [self openURL:self.game.boxscore.recap.url];
   }
 }

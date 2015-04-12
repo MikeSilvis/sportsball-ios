@@ -14,6 +14,7 @@
 #import "SBUser.h"
 #import "SBSchedule.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <Mixpanel.h>
 
 @interface SBPreviewViewController ()
 
@@ -79,13 +80,21 @@ static const NSInteger kScheduleCellLocation = 0;
 }
 
 - (void)clickedAwayLogo{
-  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-  [self changedTeam:self.game.awayTeam];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+  if ([self.tableView cellForRowAtIndexPath:indexPath]) {
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [[Mixpanel sharedInstance] track:@"clickedAwayLogo"];
+    [self changedTeam:self.game.awayTeam];
+  }
 }
 
 - (void)clickedHomeLogo {
-  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-  [self changedTeam:self.game.homeTeam];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+  if ([self.tableView cellForRowAtIndexPath:indexPath]) {
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [[Mixpanel sharedInstance] track:@"clickedHomeLogo"];
+    [self changedTeam:self.game.homeTeam];
+  }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -239,6 +248,7 @@ static const NSInteger kScheduleCellLocation = 0;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 0 ) {
     if (indexPath.row == kScoreRecapViewLocation) {
+      [[Mixpanel sharedInstance] track:@"openedPreviewURL"];
       [self openURL:self.game.preview.url];
     }
   }

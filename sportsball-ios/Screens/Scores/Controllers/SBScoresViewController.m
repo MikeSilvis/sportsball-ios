@@ -18,6 +18,7 @@
 #import "SBBoxscoreViewController.h"
 #import "SBPagingViewController.h"
 #import "SBConstants.h"
+#import <Mixpanel.h>
 
 @interface SBScoresViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SBModalDelegate, SBPagingViewDelegate>
 
@@ -327,6 +328,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.selectedIndexPath = indexPath;
 
   [[SBUser currentUser] appendFavoriteTeams:self.selectedGame.homeTeam andTeam:self.selectedGame.awayTeam andLeague:self.selectedGame.leagueName];
+
+
+  NSString *gameString = [NSString stringWithFormat:@"%@%@", self.selectedGame.homeTeam.name, self.selectedGame.awayTeam.name];
+  [[Mixpanel sharedInstance] track:@"selectedGame" properties:@{@"team": gameString, @"state": self.selectedGame.state }];
 
   if (self.selectedGame.isPregame) {
     [self performSegueWithIdentifier:kScorePreviewSegue sender:self];

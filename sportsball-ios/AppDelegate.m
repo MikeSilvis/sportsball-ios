@@ -19,6 +19,8 @@
 #import <AVKit/AVKit.h>
 #import "Mixpanel.h"
 #import "SBConstants.h"
+#import <FAKFontAwesome.h>
+#import <FAKIcon.h>
 
 @implementation AppDelegate
 
@@ -27,6 +29,8 @@
 
   AFNetworkActivityIndicatorManager.sharedManager.enabled = YES;
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+  [FAKFontAwesome iconFontWithSize:1];
 
   [self defaultStyles];
   [self defaultCache];

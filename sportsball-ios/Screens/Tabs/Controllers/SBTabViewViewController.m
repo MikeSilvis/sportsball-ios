@@ -11,6 +11,7 @@
 #import "SBScoresViewController.h"
 #import "SBStandingsViewController.h"
 #import "SBPagingViewController.h"
+#import <Mixpanel.h>
 
 @interface SBTabViewViewController ()
 
@@ -36,9 +37,13 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
   if ([item.title isEqualToString:@"Scores"]) {
+    [[Mixpanel sharedInstance] track:@"selectedScores"];
+
     [SBUser currentUser].lastOpenedScoreOrStandings = @0;
   }
   else {
+    [[Mixpanel sharedInstance] track:@"selectedStandings"];
+
     [SBUser currentUser].lastOpenedScoreOrStandings = @1;
   }
 }
