@@ -35,15 +35,16 @@
   }];
 }
 
-- (void)awakeFromNib {
-  [super awakeFromNib];
-
-  self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
-}
-
 - (void)setCurrentLeague:(SBLeague *)currentLeague {
   _currentLeague = currentLeague;
   self.leagueText.text = self.currentLeague.englishName;
+  
+  if (![self.currentLeague isEnabled]) {
+    self.tintBackground.alpha = 0.6;
+  }
+  else {
+    self.tintBackground.alpha = 0;
+  }
 
   [self.headerImage sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.header withSize:kPlaceholderImageSize]];
   [self.headerImageBlurred sd_setImageWithURL:[self.currentLeague imageURL:self.currentLeague.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];

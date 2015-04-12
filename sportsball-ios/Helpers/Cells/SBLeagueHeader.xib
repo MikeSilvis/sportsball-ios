@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -42,19 +42,27 @@
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGO-Ln-XxE" userLabel="tint">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="4KW-eo-5RQ"/>
                             <constraint firstAttribute="centerX" secondItem="S7J-yo-Mxv" secondAttribute="centerX" id="7Vr-Ib-IqI"/>
                             <constraint firstAttribute="trailing" secondItem="l5G-uZ-nBU" secondAttribute="trailing" id="9nc-VR-QYA"/>
+                            <constraint firstAttribute="trailing" secondItem="sGO-Ln-XxE" secondAttribute="trailing" id="Clh-ZQ-Hk4"/>
+                            <constraint firstItem="sGO-Ln-XxE" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="E1c-Ek-KA0"/>
                             <constraint firstAttribute="trailing" secondItem="4PO-fa-s9b" secondAttribute="trailing" id="OeN-gF-nHK"/>
                             <constraint firstAttribute="bottom" secondItem="hBN-um-fYf" secondAttribute="bottom" constant="1" id="TKt-1N-IEM"/>
+                            <constraint firstAttribute="bottom" secondItem="sGO-Ln-XxE" secondAttribute="bottom" id="TVC-Yl-nqb"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="TXl-aq-VgQ"/>
                             <constraint firstAttribute="bottom" secondItem="S7J-yo-Mxv" secondAttribute="bottom" constant="20" id="cGR-R3-MhA"/>
                             <constraint firstAttribute="trailing" secondItem="hBN-um-fYf" secondAttribute="trailing" id="hDI-fd-J8l"/>
                             <constraint firstItem="hBN-um-fYf" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="mKR-cl-d5G"/>
                             <constraint firstItem="l5G-uZ-nBU" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="mYm-Gc-Qgv"/>
+                            <constraint firstItem="sGO-Ln-XxE" firstAttribute="top" secondItem="twt-q2-bnj" secondAttribute="top" id="mvs-JS-TYD"/>
                             <constraint firstItem="hBN-um-fYf" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="pSY-Pl-cuM"/>
                             <constraint firstItem="4PO-fa-s9b" firstAttribute="leading" secondItem="twt-q2-bnj" secondAttribute="leading" id="riN-mo-fhY"/>
                             <constraint firstAttribute="bottom" secondItem="l5G-uZ-nBU" secondAttribute="bottom" constant="1" id="sOX-Ws-CtW"/>
@@ -77,6 +85,7 @@
                 <outlet property="headerImage" destination="4PO-fa-s9b" id="ln6-YW-tPb"/>
                 <outlet property="headerImageBlurred" destination="l5G-uZ-nBU" id="VK0-H5-A1d"/>
                 <outlet property="leagueText" destination="S7J-yo-Mxv" id="ZTA-Oh-s1C"/>
+                <outlet property="tintBackground" destination="sGO-Ln-XxE" id="327-vd-QIU"/>
             </connections>
         </collectionViewCell>
     </objects>

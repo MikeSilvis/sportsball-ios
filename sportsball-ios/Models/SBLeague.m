@@ -55,9 +55,15 @@
       self.header = [[self.headers allValues] firstObject];
       self.blurredHeader = [[self.blurredHeaders allValues] firstObject];
     }
+
+    self.enabled = [NSNumber numberWithBool:json[@"enabled"]];
   }
 
   return self;
+}
+
+- (BOOL)isEnabled {
+  return [self.enabled boolValue];
 }
 
 + (void)getSupportedLeagues:(void (^) (NSArray *leagues))success

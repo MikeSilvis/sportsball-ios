@@ -18,5 +18,6 @@
 
 @property (nonatomic, strong) UIImage *largeLogoImage;
 @property (nonatomic, strong) SBLeague *currentLeague;
+@property (weak, nonatomic) IBOutlet UIView *tintBackground;
 
 @end

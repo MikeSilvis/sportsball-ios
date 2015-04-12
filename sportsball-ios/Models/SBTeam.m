@@ -35,7 +35,11 @@ static int const kFavoriteCount = 6;
 }
 
 - (NSString *)formattedRecord {
-  return [NSString stringWithFormat:@"(%@)", self.record];
+  if (self.record) {
+    return [NSString stringWithFormat:@"(%@)", self.record];
+  }
+
+  return @"";
 }
 
 + (void)incrementFavoriteTeam:(SBTeam *)team withSuccess:(void (^) (PFObject *object))success {

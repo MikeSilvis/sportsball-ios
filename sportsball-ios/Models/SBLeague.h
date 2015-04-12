@@ -24,9 +24,13 @@
 
 @property (nonatomic, strong) NSArray *schedule;
 @property (nonatomic, strong) NSNumber *isMonthlySchedule;
+@property (nonatomic, strong) NSNumber *enabled;
+
 
 @property (nonatomic, strong) SBStanding *standing;
 
+
+- (BOOL)isEnabled;
 + (void)getSupportedLeagues:(void (^) (NSArray *leagues))success
                    failure:(void (^) (NSError *error))failure;
 
