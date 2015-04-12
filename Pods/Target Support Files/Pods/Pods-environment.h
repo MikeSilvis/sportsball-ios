@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 2
 #define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 0
 
+// LBBlurredImage
+#define COCOAPODS_POD_AVAILABLE_LBBlurredImage
+#define COCOAPODS_VERSION_MAJOR_LBBlurredImage 0
+#define COCOAPODS_VERSION_MINOR_LBBlurredImage 2
+#define COCOAPODS_VERSION_PATCH_LBBlurredImage 2
+
 // MPGNotification
 #define COCOAPODS_POD_AVAILABLE_MPGNotification
 #define COCOAPODS_VERSION_MAJOR_MPGNotification 1

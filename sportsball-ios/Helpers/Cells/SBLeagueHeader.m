@@ -12,6 +12,7 @@
 #import "SBConstants.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "SBConstants.h"
+#import "UIImageView+LBBlurredImage.h"
 
 
 @implementation SBLeagueHeader
@@ -45,9 +46,11 @@
   else {
     self.tintBackground.alpha = 0;
   }
-
-  [self.headerImage sd_setImageWithURL:[self.league imageURL:self.league.header withSize:kPlaceholderImageSize]];
-  [self.headerImageBlurred sd_setImageWithURL:[self.league imageURL:self.league.blurredHeader withSize:kPlaceholderImageSize] placeholderImage:[UIImage imageNamed:kPlaceholderImage]];
+  
+  [self.headerImage sd_setImageWithURL:[self.league imageURL:self.league.header withSize:kPlaceholderImageSize]
+                      placeholderImage:[UIImage imageNamed:kPlaceholderImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                        [self.headerImageBlurred setImageToBlur:image blurRadius:kLBBlurredImageDefaultBlurRadius completionBlock:nil];
+  }];
 }
 
 @end

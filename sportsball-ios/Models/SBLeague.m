@@ -38,30 +38,12 @@
       headerURLS[headerURL] = [NSURL URLWithString:json[@"header_images"][headerURL]];
     }
     self.headers = headerURLS;
-    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:[self.headers allValues]];
-
-    // Blurred Header Images
-    NSMutableDictionary *blurredHeaderURLS = [NSMutableDictionary dictionary];
-    for (NSDictionary *headerURL in json[@"header_blurred_images"]) {
-      blurredHeaderURLS[headerURL] = [NSURL URLWithString:json[@"header_blurred_images"][headerURL]];
-    }
-    self.blurredHeaders = blurredHeaderURLS;
-    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:[self.blurredHeaders allValues]];
 
     self.enabled = [NSNumber numberWithBool:json[@"enabled"]];
+
   }
 
   return self;
-}
-
-- (NSURL *)blurredHeader {
-  NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
-  if (favoriteTeamName && self.blurredHeaders[favoriteTeamName]) {
-    return self.blurredHeaders[favoriteTeamName];
-  }
-  else {
-    return [[self.blurredHeaders allValues] firstObject];
-  }
 }
 
 - (NSURL *)header {
@@ -97,6 +79,15 @@
       SBLeague *newLeague = [[SBLeague alloc] initWithJson:league];
       [leagues addObject:newLeague];
     }
+
+    // Preload all images
+    NSMutableArray *imagesToPreload = [NSMutableArray array];
+    for (SBLeague *league in leagues) {
+      if ([league isEnabled]) {
+        [imagesToPreload addObjectsFromArray:[league.headers allValues]];
+      }
+    }
+    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imagesToPreload];
 
     [SBUser currentUser].leagues = leagues;
 

@@ -21,9 +21,7 @@
 
 // HEADERS
 @property (nonatomic, strong) NSURL *header;
-@property (nonatomic, strong) NSURL *blurredHeader;
 @property (nonatomic, strong) NSDictionary *headers;
-@property (nonatomic, strong) NSDictionary *blurredHeaders;
 
 
 @property (nonatomic, strong) SBStanding *standing;
