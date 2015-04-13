@@ -20,6 +20,8 @@
   CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
 
   bool hidden = yOrigin >= -1 ? NO : YES;
+
+  [[UIApplication sharedApplication] setStatusBarHidden:hidden];
   [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationHideEvent object:@{
                                                                                                @"alpha" : [NSNumber numberWithBool:hidden]
                                                                                               }];

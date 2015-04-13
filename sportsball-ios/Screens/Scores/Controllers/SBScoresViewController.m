@@ -86,6 +86,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     NSInteger selectedLeagueIndex = [[SBUser currentUser].lastOpenedLeagueIndex integerValue];
     SBLeague *selectedLeague = leagues[selectedLeagueIndex];
 
+    if (![self.league.name isEqualToString:selectedLeague.name]) {
+      return;
+    }
+
     if ([selectedLeague.schedule count] != [self.league.schedule count]) {
       self.league = selectedLeague;
       [self.collectionView reloadData];

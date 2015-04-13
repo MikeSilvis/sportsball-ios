@@ -83,7 +83,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       return;
     }
   }];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {

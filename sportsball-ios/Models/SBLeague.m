@@ -91,7 +91,7 @@
         [imagesToPreload addObjectsFromArray:[league.headers allValues]];
       }
     }
-//    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imagesToPreload];
+    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imagesToPreload];
 
     [SBUser currentUser].leagues = leagues;
     [SBUser currentUser].enabledLeagues = nil;
