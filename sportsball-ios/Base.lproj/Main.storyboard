@@ -39,20 +39,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-0N-epK">
-                                <rect key="frame" x="559" y="565" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="KDY-sI-pVm"/>
-                                    <constraint firstAttribute="height" constant="30" id="iKP-2s-3c0"/>
-                                </constraints>
-                                <state key="normal" title="Support">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TwB-rG-Tbg">
                                 <rect key="frame" x="-4" y="0.0" width="608" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="549-5o-CLy">
@@ -67,6 +53,20 @@
                                     <outlet property="delegate" destination="9Mo-0L-q5c" id="XEI-km-fwg"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-0N-epK">
+                                <rect key="frame" x="559" y="565" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="KDY-sI-pVm"/>
+                                    <constraint firstAttribute="height" constant="30" id="iKP-2s-3c0"/>
+                                </constraints>
+                                <state key="normal" title="Support">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -548,7 +548,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JT-Db-62u">
-                                <rect key="frame" x="554" y="20" width="30" height="40"/>
+                                <rect key="frame" x="554" y="30" width="30" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="F5i-py-sHN"/>
                                 </constraints>
@@ -556,29 +556,18 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-F9-G4A" userLabel="about">
-                                <rect key="frame" x="116" y="20" width="368" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dTr-qr-jek"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zlB-yK-9H1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLh-Jt-yUI">
+                                <rect key="frame" x="21" y="90" width="558" height="153"/>
+                                <string key="text">When envisioning Jumbotron, we took every liberty to show you exactly what you want, and cut out the rest. Jumbotron is the only app with an experience truly designed to encourage you to get in, and get out. 
+
+If you have any questions or feature requests please feel free to reach out below.
+</string>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx0-1l-ZYo">
-                                <rect key="frame" x="16" y="70" width="568" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="GKv-t5-rzJ"/>
-                                </constraints>
-                                <string key="text">Get live instant scores for all your favorite leagues! The only sport scores app that is 100% ad free and automatically is customized for you! </string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vrS-Pi-wIf">
-                                <rect key="frame" x="16" y="178" width="568" height="402"/>
+                                <rect key="frame" x="16" y="263" width="568" height="316.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -615,33 +604,51 @@
                                     <outlet property="delegate" destination="Zre-ls-WL1" id="AZG-JW-8Mr"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-F9-G4A" userLabel="about">
+                                <rect key="frame" x="254" y="30" width="92" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dTr-qr-jek"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zlB-yK-9H1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="33"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="zlB-yK-9H1"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nx0-1l-ZYo" firstAttribute="top" secondItem="jIH-F9-G4A" secondAttribute="bottom" constant="10" id="7gE-b5-til"/>
+                            <constraint firstItem="sLh-Jt-yUI" firstAttribute="leading" secondItem="16t-rR-Xgl" secondAttribute="leadingMargin" constant="5" id="1l3-ns-dGl"/>
                             <constraint firstItem="34k-sG-2dZ" firstAttribute="top" secondItem="vrS-Pi-wIf" secondAttribute="bottom" constant="20" id="8S7-Id-bcW"/>
                             <constraint firstItem="jIH-F9-G4A" firstAttribute="leading" secondItem="16t-rR-Xgl" secondAttribute="leadingMargin" constant="100" id="HGi-sC-BSw"/>
                             <constraint firstItem="5JT-Db-62u" firstAttribute="leading" secondItem="16t-rR-Xgl" secondAttribute="leadingMargin" constant="409" id="Jsb-Qu-eLY"/>
                             <constraint firstItem="vrS-Pi-wIf" firstAttribute="leading" secondItem="16t-rR-Xgl" secondAttribute="leadingMargin" id="Uhe-zq-dcM"/>
+                            <constraint firstAttribute="centerX" secondItem="jIH-F9-G4A" secondAttribute="centerX" id="Val-iP-36f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5JT-Db-62u" secondAttribute="trailing" id="aGs-dc-ONN"/>
-                            <constraint firstItem="34k-sG-2dZ" firstAttribute="top" secondItem="Nx0-1l-ZYo" secondAttribute="bottom" constant="459" id="eqX-zO-kHb"/>
-                            <constraint firstItem="Nx0-1l-ZYo" firstAttribute="leading" secondItem="16t-rR-Xgl" secondAttribute="leadingMargin" id="fcb-7e-iXM"/>
-                            <constraint firstItem="jIH-F9-G4A" firstAttribute="top" secondItem="bXa-HB-vLf" secondAttribute="bottom" id="geR-td-auI"/>
-                            <constraint firstItem="5JT-Db-62u" firstAttribute="top" secondItem="bXa-HB-vLf" secondAttribute="bottom" id="hxh-DD-Mez"/>
-                            <constraint firstItem="vrS-Pi-wIf" firstAttribute="top" secondItem="Nx0-1l-ZYo" secondAttribute="bottom" constant="8" id="k1e-mR-nYm"/>
+                            <constraint firstItem="jIH-F9-G4A" firstAttribute="top" secondItem="bXa-HB-vLf" secondAttribute="bottom" constant="10" id="geR-td-auI"/>
+                            <constraint firstItem="5JT-Db-62u" firstAttribute="top" secondItem="bXa-HB-vLf" secondAttribute="bottom" constant="10" id="hxh-DD-Mez"/>
+                            <constraint firstItem="vrS-Pi-wIf" firstAttribute="top" secondItem="sLh-Jt-yUI" secondAttribute="bottom" constant="20" id="i4u-zM-9JM"/>
                             <constraint firstItem="jIH-F9-G4A" firstAttribute="top" secondItem="bXa-HB-vLf" secondAttribute="bottom" id="kTH-g8-Ivc"/>
-                            <constraint firstItem="Nx0-1l-ZYo" firstAttribute="trailing" secondItem="16t-rR-Xgl" secondAttribute="trailingMargin" id="phH-k9-iWx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jIH-F9-G4A" secondAttribute="trailing" constant="100" id="r3c-EO-jHw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sLh-Jt-yUI" secondAttribute="trailing" constant="5" id="s5u-4h-8p7"/>
+                            <constraint firstItem="sLh-Jt-yUI" firstAttribute="top" secondItem="jIH-F9-G4A" secondAttribute="bottom" constant="20" id="vjI-fi-5rN"/>
                             <constraint firstItem="vrS-Pi-wIf" firstAttribute="trailing" secondItem="16t-rR-Xgl" secondAttribute="trailingMargin" id="y4V-ja-Xx4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="HGi-sC-BSw"/>
+                                <exclude reference="kTH-g8-Ivc"/>
+                                <exclude reference="r3c-EO-jHw"/>
                                 <exclude reference="Jsb-Qu-eLY"/>
-                                <exclude reference="eqX-zO-kHb"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="aboutLabel" destination="sLh-Jt-yUI" id="Y53-Ss-evU"/>
                         <outlet property="closeButton" destination="5JT-Db-62u" id="Mt1-3L-nXs"/>
                         <outlet property="tableView" destination="vrS-Pi-wIf" id="TZV-tN-CQd"/>
                     </connections>

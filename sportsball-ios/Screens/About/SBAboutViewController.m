@@ -32,6 +32,9 @@ static const NSInteger kRateUsLocation  = 1;
 
   self.tableView.backgroundColor = [UIColor clearColor];
   self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+  NSString *proudOwner = [NSString stringWithFormat:@"I'm the proud owner of version: %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+  self.aboutLabel.text = [NSString stringWithFormat:@"%@ \n %@", self.aboutLabel.text, proudOwner];
 }
 
 - (void)closeModal {

@@ -100,9 +100,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 
-  if ([self.games count] > 0) {
-    [self startTimer];
-  }
+  [self startTimer];
 }
 
 - (void)setCurrentDate:(NSDate *)currentDate {

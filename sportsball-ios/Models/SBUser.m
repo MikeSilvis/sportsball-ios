@@ -48,11 +48,18 @@ static CGFloat const kAppOpensCountForNotification  = 5;
     [PFUser enableAutomaticUser];
 
     self.currentPfUser = [PFUser currentUser];
-    [[Mixpanel sharedInstance] identify:self.currentPfUser.objectId];
 
     if (self.currentPfUser.objectId) {
       [[PFUser currentUser] fetchInBackground];
     }
+
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel identify:self.currentPfUser.objectId];
+//      [mixpanel.people set:@{
+//                             @"parseId": self.currentPfUser.objectId,
+//                             @"createdAt": self.currentPfUser[@"createdAt"]
+//                            }
+//      ];
 
     NSString *currentTimeZone = [PFUser currentUser][@"timeZone"];
     if (!currentTimeZone || ![[[NSTimeZone localTimeZone] name] isEqualToString:currentTimeZone]) {
@@ -78,8 +85,6 @@ static CGFloat const kAppOpensCountForNotification  = 5;
    
 - (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeagueIndex {
   _lastOpenedLeagueIndex = lastOpenedLeagueIndex;
-
-  self.currentPfUser[@"lastOpenedLeague"] = self.lastOpenedLeagueIndex;
 
   [self syncUserDefaults];
 }
