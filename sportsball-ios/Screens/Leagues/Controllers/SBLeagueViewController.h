@@ -10,7 +10,7 @@
 #import "SBModalViewController.h"
 #import "SBViewController.h"
 
-@interface SBLeagueIndexViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate>
+@interface SBLeagueViewController : SBViewController <UITabBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *supportButton;
 // Has to be a collection view because of SBLeagueHeader

@@ -16,7 +16,36 @@
                     <view key="view" contentMode="scaleToFill" id="1zg-Op-dhm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-aK-g8S">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="t5l-aK-g8S" secondAttribute="centerY" constant="5" id="a9G-Su-pGg">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="t5l-aK-g8S" secondAttribute="centerX" id="jqx-Zf-xDN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="t5l-aK-g8S"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="a9G-Su-pGg"/>
+                                <exclude reference="jqx-Zf-xDN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="t5l-aK-g8S"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="a9G-Su-pGg"/>
+                                <include reference="jqx-Zf-xDN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="c2k-xo-6jP"/>
                     <connections>
@@ -30,7 +59,7 @@
         <!--Leagues-->
         <scene sceneID="HJR-4K-spF">
             <objects>
-                <viewController storyboardIdentifier="leagueIndexViewController" id="9Mo-0L-q5c" userLabel="Leagues" customClass="SBLeagueIndexViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leagueIndexViewController" id="9Mo-0L-q5c" userLabel="Leagues" customClass="SBLeagueViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEf-Fj-rTq"/>
                         <viewControllerLayoutGuide type="bottom" id="pi4-Sc-wgO"/>

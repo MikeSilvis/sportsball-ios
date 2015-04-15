@@ -10,7 +10,6 @@
 #import "SBModalViewController.h"
 #import "SBUser.h"
 #import "SBWebViewController.h"
-#import "XHRealTimeBlur.h"
 
 @interface SBModalViewController () <SBModalDelegate>
 

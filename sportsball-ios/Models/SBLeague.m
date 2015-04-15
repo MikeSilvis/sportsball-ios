@@ -8,7 +8,6 @@
 
 #import "SBLeague.h"
 #import "SBGame.h"
-#import "XHRealTimeBlur.h"
 #import "SBUser.h"
 #import <SDWebImage/SDWebImagePrefetcher.h>
 #import "SBConstants.h"
@@ -50,6 +49,7 @@
 - (NSURL *)header {
   NSString *favoriteTeamName = [[SBUser currentUser] favoriteTeam:self];
   NSURL *headerURL = nil;
+
   if (favoriteTeamName && self.headers[favoriteTeamName]) {
     headerURL =  self.headers[favoriteTeamName];
   }

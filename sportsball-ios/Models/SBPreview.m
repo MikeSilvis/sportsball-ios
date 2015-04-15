@@ -8,8 +8,8 @@
 
 #import "SBPreview.h"
 #import "SBSchedule.h"
-#import "Underscore.h"
 #import "SBUser.h"
+#import <ReactiveCocoa.h>
 
 @implementation SBPreview
 
@@ -63,11 +63,11 @@
                                                                fromDate:[NSDate date]];
   NSUInteger currentMonth = [components month];
 
-  return Underscore.array(fullSchedule).filter(^BOOL(SBSchedule *schedule) {
-                              NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
-                                                                                             fromDate:schedule.date];
-                              return [components month] == currentMonth;
-                            }).unwrap;
+  return [fullSchedule.rac_sequence filter:^BOOL(SBSchedule *schedule) {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
+                                                                   fromDate:schedule.date];
+    return [components month] == currentMonth;
+  }].array;
 }
 
 @end

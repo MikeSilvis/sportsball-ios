@@ -44,8 +44,6 @@ PODS:
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SocketRocket (0.3.1-beta2)
-  - Underscore.m (0.2.1)
-  - XHRealTimeBlur (1.4)
   - ZFDragableModalTransition (0.4)
 
 DEPENDENCIES:
@@ -58,8 +56,6 @@ DEPENDENCIES:
   - MPGNotification (from `git@github.com:MikeSilvis/MPGNotification.git`)
   - ReactiveCocoa
   - SDWebImage
-  - Underscore.m
-  - XHRealTimeBlur
   - ZFDragableModalTransition (from `git@github.com:MikeSilvis/ZFDragableModalTransition.git`,
     branch `adding-top-and-mutliple-transitions`)
 
@@ -89,8 +85,6 @@ SPEC CHECKSUMS:
   ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
   SocketRocket: 7284ab9370a06c99aba92b2fe3a32aedd0f9a6fa
-  Underscore.m: b86ca364d60509a39eb9c7886443c063b793aaba
-  XHRealTimeBlur: 929617b8b12054434ca9e66f4da224f78cffd2b1
   ZFDragableModalTransition: 3bef5014b8d8d4e561deef8a8a091136a0b42af8
 
 COCOAPODS: 0.36.3

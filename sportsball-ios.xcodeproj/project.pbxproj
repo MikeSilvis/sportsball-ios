@@ -24,7 +24,7 @@
 		113542A41A79F88D0047C2D7 /* SBGameStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 113542A31A79F88D0047C2D7 /* SBGameStats.m */; };
 		113542A71A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 113542A61A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.m */; };
 		113542A91A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113542A81A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib */; };
-		113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */; };
+		113845C31A0BF9A600BC7A4D /* SBLeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845C21A0BF9A600BC7A4D /* SBLeagueViewController.m */; };
 		113845DE1A0C052600BC7A4D /* SBLeague.m in Sources */ = {isa = PBXBuildFile; fileRef = 113845DD1A0C052600BC7A4D /* SBLeague.m */; };
 		1143DDFE1A30F8AC001868C6 /* SBScoreSummaryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1143DDFD1A30F8AC001868C6 /* SBScoreSummaryViewCell.xib */; };
 		1143DE011A30F8C5001868C6 /* SBScoreSummaryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1143DE001A30F8C5001868C6 /* SBScoreSummaryViewCell.m */; };
@@ -130,8 +130,8 @@
 		113542A51A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTeamStatInfoTableViewCell.h; sourceTree = "<group>"; };
 		113542A61A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTeamStatInfoTableViewCell.m; sourceTree = "<group>"; };
 		113542A81A79FA6B0047C2D7 /* SBTeamStatinfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTeamStatinfoTableViewCell.xib; sourceTree = "<group>"; };
-		113845C11A0BF9A600BC7A4D /* SBLeagueIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueIndexViewController.h; sourceTree = "<group>"; };
-		113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueIndexViewController.m; sourceTree = "<group>"; };
+		113845C11A0BF9A600BC7A4D /* SBLeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueViewController.h; sourceTree = "<group>"; };
+		113845C21A0BF9A600BC7A4D /* SBLeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueViewController.m; sourceTree = "<group>"; };
 		113845DC1A0C052600BC7A4D /* SBLeague.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeague.h; sourceTree = "<group>"; };
 		113845DD1A0C052600BC7A4D /* SBLeague.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeague.m; sourceTree = "<group>"; };
 		1143DDFD1A30F8AC001868C6 /* SBScoreSummaryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBScoreSummaryViewCell.xib; sourceTree = "<group>"; };
@@ -491,8 +491,8 @@
 		1154F6401A03D618009F560B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				113845C11A0BF9A600BC7A4D /* SBLeagueIndexViewController.h */,
-				113845C21A0BF9A600BC7A4D /* SBLeagueIndexViewController.m */,
+				113845C11A0BF9A600BC7A4D /* SBLeagueViewController.h */,
+				113845C21A0BF9A600BC7A4D /* SBLeagueViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -961,7 +961,7 @@
 				114E879C1A5F8670007C2CF7 /* SBPreviewViewController.m in Sources */,
 				116515B61AB91BE8007C390B /* SBStanding.m in Sources */,
 				116591E21A154D7300016D90 /* SBBoxscoreViewController.m in Sources */,
-				113845C31A0BF9A600BC7A4D /* SBLeagueIndexViewController.m in Sources */,
+				113845C31A0BF9A600BC7A4D /* SBLeagueViewController.m in Sources */,
 				11BB2B171A03F8F10059B4C1 /* SBLeagueHeader.m in Sources */,
 				113542A71A79FA540047C2D7 /* SBTeamStatInfoTableViewCell.m in Sources */,
 				1135429B1A78A14E0047C2D7 /* SBGameInfo.m in Sources */,

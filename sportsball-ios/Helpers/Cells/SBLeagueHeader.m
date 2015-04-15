@@ -13,6 +13,8 @@
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "SBConstants.h"
 #import "UIImage+ImageEffects.h"
+#import <Mixpanel.h>
+#import <ReactiveCocoa.h>
 
 @implementation SBLeagueHeader
 
@@ -27,6 +29,7 @@
                                                                                               }];
   [UIView animateWithDuration:0.3 animations:^{
     if (hidden) {
+      [[Mixpanel sharedInstance] track:@"Used Parallax"];
       self.leagueText.alpha = 0.0;
       self.headerImage.alpha = 1.0;
     }
@@ -40,19 +43,19 @@
 - (void)setLeague:(SBLeague *)currentLeague {
   _league = currentLeague;
   self.leagueText.text = self.league.englishName;
+  self.tintBackground.alpha = 0;
   
-  if (![self.league isEnabled]) {
-    self.tintBackground.alpha = 0.6;
-  }
-  else {
-    self.tintBackground.alpha = 0;
-  }
 
+  @weakify(self);
   [self.headerImage sd_setImageWithURL:self.league.header
                       placeholderImage:[UIImage imageNamed:kPlaceholderImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                        @strongify(self);
                         UIColor *tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
                         self.headerImageBlurred.image = [image applyBlurWithRadius:20 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
                         self.backgroundColor = [UIColor whiteColor];
+                        if (![self.league isEnabled]) {
+                          self.tintBackground.alpha = 0.6;
+                        }
   }];
 }
 

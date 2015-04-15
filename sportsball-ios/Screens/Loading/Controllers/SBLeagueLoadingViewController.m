@@ -15,26 +15,16 @@
 
 static NSString *kLeagueIndexSegue = @"leagueIndexSegue";
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-
-  [self didStartLoading];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   
   if ([SBUser currentUser].leagues) {
-    [self requestLeagues];
+    [SBLeague getSupportedLeagues:^(NSArray *leagues) {
+      self.leagues = leagues;
+    } failure:^(NSError *error) {
+      [self showNetworkError:error];
+    }];
   }
-}
-
-- (void)requestLeagues {
-  [SBLeague getSupportedLeagues:^(NSArray *leagues) {
-    self.leagues = leagues;
-  } failure:^(NSError *error) {
-    [self showNetworkError:error];
-  }];
 }
 
 - (void)setLeagues:(NSArray *)leagues {

@@ -90,10 +90,6 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [super viewDidDisappear:animated];
 
   [self.channel unsubscribe];
-
-  if (self.delegate) {
-    [self.delegate dismissedModal];
-  }
 }
 
 - (void)findBoxscore {

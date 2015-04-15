@@ -81,10 +81,6 @@ static const NSInteger kScheduleCellLocation = 0;
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
-
-  if (self.delegate) {
-    [self.delegate dismissedModal];
-  }
 }
 
 - (void)clickedAwayLogo{

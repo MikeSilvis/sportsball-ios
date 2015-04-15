@@ -63,6 +63,13 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self declareBindings];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+
+  [[NSNotificationCenter defaultCenter] removeObserver:kNotificationHideEvent];
+}
+
+
 - (void)declareBindings {
   @weakify(self);
 

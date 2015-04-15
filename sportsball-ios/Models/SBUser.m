@@ -8,9 +8,9 @@
 
 #import "SBUser.h"
 #import "UIImage+FontAwesome.h"
-#import <Underscore.h>
 #import "SBConstants.h"
 #import <Mixpanel.h>
+#import <ReactiveCocoa.h>
 
 // User Default Keys
 static NSString *kLastOpenedLeague           = @"lastOpenedLeague1";
@@ -18,6 +18,7 @@ static NSString *kLastOpenedScoreOrStandings = @"LastOpenedScoreOrStandings";
 static NSString *kAllLeagues                 = @"allLeagues-1";
 static NSString *kAppOpens                   = @"appOpens";
 static NSString *kAlreadyAskedForReview      = @"askedForReview";
+static NSString *kFavoriteTeamsPerLeague     = @"favoriteTeamsPerLeague";
 
 static CGFloat const kAppOpensCountForNotification  = 5;
 
@@ -53,13 +54,7 @@ static CGFloat const kAppOpensCountForNotification  = 5;
       [[PFUser currentUser] fetchInBackground];
     }
 
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel identify:self.currentPfUser.objectId];
-//      [mixpanel.people set:@{
-//                             @"parseId": self.currentPfUser.objectId,
-//                             @"createdAt": self.currentPfUser[@"createdAt"]
-//                            }
-//      ];
+    [self identifyMixpanel];
 
     NSString *currentTimeZone = [PFUser currentUser][@"timeZone"];
     if (!currentTimeZone || ![[[NSTimeZone localTimeZone] name] isEqualToString:currentTimeZone]) {
@@ -73,16 +68,31 @@ static CGFloat const kAppOpensCountForNotification  = 5;
   return self;
 }
 
+- (void)identifyMixpanel {
+  NSMutableDictionary *peopleSettings = [NSMutableDictionary dictionary];
+
+  if (self.currentPfUser.objectId) {
+    peopleSettings[@"parseId"] = self.currentPfUser.objectId;
+  }
+  if (self.currentPfUser[@"createdAt"]) {
+    peopleSettings[@"createdAt"] = self.currentPfUser[@"createdAt"];
+  }
+
+  Mixpanel *mixpanel = [Mixpanel sharedInstance];
+  [mixpanel identify:self.currentPfUser.objectId];
+  [mixpanel.people set:peopleSettings];
+}
+
 - (PTPusher *)client {
   if (!_client) {
     self.client = [PTPusher pusherWithKey:[[SBConstants sharedInstance] getSecretValueFrom:@"PUSHER_KEY"] delegate:self encrypted:YES];
     self.client.reconnectDelay = 3.0;
     [self.client connect];
   }
-  
+
   return _client;
 }
-   
+
 - (void)setLastOpenedLeagueIndex:(NSNumber *)lastOpenedLeagueIndex {
   _lastOpenedLeagueIndex = lastOpenedLeagueIndex;
 
@@ -103,35 +113,6 @@ static CGFloat const kAppOpensCountForNotification  = 5;
   _lastOpenedScoreOrStandings = lastOpenedScoreOrStandings;
 
   [self syncUserDefaults];
-}
-
-- (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
-  // Only if the opposite team is not favorable
-  if (![awayTeam isFavorableTeam]) {
-    [SBTeam incrementFavoriteTeam:homeTeam withSuccess:^(PFObject *object) {
-      [self getFavoriteTeams:YES];
-    }];
-  }
-
-  // Only if the opposite team is not favorable
-  if (![homeTeam isFavorableTeam]) {
-    [SBTeam incrementFavoriteTeam:awayTeam withSuccess:^(PFObject *object) {
-      [self getFavoriteTeams:YES];
-    }];
-  }
-
-}
-
-- (NSString *)favoriteTeam:(SBLeague *)league {
-  NSArray *filteredArray = Underscore.array(self.favoriteTeams).filter(^BOOL(PFObject *object) {
-    return [object[@"league"] isEqualToString:league.name];
-  }).unwrap;
-
-  if (filteredArray) {
-    return [filteredArray firstObject][@"teamDataName"];
-  }
-
-  return nil;
 }
 
 - (NSString *)networkConnectionErrorMessage:(NSError *)error {
@@ -180,15 +161,10 @@ static CGFloat const kAppOpensCountForNotification  = 5;
 - (void)setUserDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague];
+  _lastOpenedLeagueIndex = [defaults objectForKey:kLastOpenedLeague] ? [defaults objectForKey:kLastOpenedLeague] : @(-1);
   _lastOpenedScoreOrStandings = [defaults objectForKey:kLastOpenedScoreOrStandings];
-  if (!_lastOpenedLeagueIndex) {
-    _lastOpenedLeagueIndex = [NSNumber numberWithInt:-1];
-  }
-
   _appOpens = [defaults objectForKey:kAppOpens];
   _alreadyAskedForReview = [[defaults objectForKey:kAlreadyAskedForReview] boolValue];
-  _favoriteTeams = @[];
 
   // Retrieve leagues
   NSArray *encodedLeagues = [defaults objectForKey:kAllLeagues];
@@ -197,12 +173,32 @@ static CGFloat const kAppOpensCountForNotification  = 5;
       SBLeague *league = (SBLeague *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedLeague];
       [leagues addObject:league];
   }
-
   _leagues = leagues;
-  _favoriteTeams = @[];
 
   [self getFavoriteTeams:NO];
 }
+
+- (void)appendFavoriteTeams:(SBTeam *)homeTeam andTeam:(SBTeam *)awayTeam andLeague:(NSString *)league {
+  // Only if the opposite team is not favorable
+  if (![awayTeam isFavorableTeam]) {
+    [SBTeam incrementFavoriteTeam:homeTeam withSuccess:^(PFObject *object) {
+      [self getFavoriteTeams:YES];
+    }];
+  }
+
+  // Only if the opposite team is not favorable
+  if (![homeTeam isFavorableTeam]) {
+    [SBTeam incrementFavoriteTeam:awayTeam withSuccess:^(PFObject *object) {
+      [self getFavoriteTeams:YES];
+    }];
+  }
+
+}
+
+- (NSString *)favoriteTeam:(SBLeague *)league {
+  return [[NSUserDefaults standardUserDefaults] objectForKey:[self keyForFavoriteTeam:league.name]];
+}
+
 
 - (void)getFavoriteTeams:(BOOL)clearCache {
   if (!self.currentPfUser.objectId) {
@@ -219,16 +215,26 @@ static CGFloat const kAppOpensCountForNotification  = 5;
   }
 
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    NSMutableDictionary *favoriteTeamsPerLeague = [NSMutableDictionary dictionary];
+    // Assumes the first team in a league is the favorite
+    for (PFObject *object in objects) {
+      if (!favoriteTeamsPerLeague[object[@"league"]]) {
+        favoriteTeamsPerLeague[object[@"league"]] = object[@"teamDataName"];
+        [[NSUserDefaults standardUserDefaults] setObject:object[@"teamDataName"] forKey:[self keyForFavoriteTeam:object[@"league"]]];
+      }
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     _favoriteTeams = objects;
   }];
 }
 
-- (BOOL)teamLogos {
-  return YES;
+- (NSString *)keyForFavoriteTeam:(NSString *)leagueName {
+  return [NSString stringWithFormat:@"favorite_for_League_%@", leagueName];
 }
 
-- (void)setAppOpens:(NSNumber *)appOpens {
-  _appOpens = appOpens;
+- (BOOL)teamLogos {
+  return YES;
 }
 
 - (BOOL)askForAppReview {

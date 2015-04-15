@@ -46,8 +46,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.games = [NSMutableArray array];
-
   self.view.backgroundColor = [UIColor clearColor];
   self.collectionView.backgroundColor = [UIColor clearColor];
 
@@ -109,7 +107,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   if (![previouslySelectedDate isEqualToDate:currentDate]) {
     dispatch_async(dispatch_get_main_queue(), ^{
-      _games = @[];
       self.games = @[];
       [self cancelTimer];
       [self startTimer];
@@ -216,15 +213,13 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }];
 
   NSInteger updatedSelectedItemPath = -1;
-  SBGame *updatedGame = nil;
 
   if (self.selectedGame) {
-    for (int i = 0; i < sortedGames.count; i++) {
+    for (int i = 0; i < [sortedGames count]; i++) {
       SBGame *game = sortedGames[i];
 
       if ([game.awayTeam.name isEqualToString:self.selectedGame.awayTeam.name]) {
         updatedSelectedItemPath = i;
-        updatedGame = game;
         break;
       }
     }
@@ -244,7 +239,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
                              self.selectedIndexPath,
                              [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
                            ]
-              afterDelay:0.5];
+              afterDelay:0.1];
   }
 }
 
@@ -252,15 +247,15 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   dispatch_async(dispatch_get_main_queue(), ^{
     if ([self.collectionView cellForItemAtIndexPath:[paths lastObject]]) {
       [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
+
+      self.selectedIndexPath = nil;
+      self.selectedGame = nil;
+
+      // Erase current games and reorder them
+//      NSArray *currentGames = self.games;
+//      _games = nil;
+//      self.games = currentGames;
     }
-
-    self.selectedIndexPath = nil;
-    self.selectedGame = nil;
-
-    // Erase current games and reorder them
-    NSArray *currentGames = self.games;
-    _games = nil;
-    self.games = currentGames;
   });
 }
 

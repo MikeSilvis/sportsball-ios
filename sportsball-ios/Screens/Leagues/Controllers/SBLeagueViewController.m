@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SBLeagueIndexViewController.h"
+#import "SBLeagueViewController.h"
 #import "UIImage+FontAwesome.h"
 #import "SBUser.h"
 #import "SBLeagueHeader.h"
@@ -15,9 +15,8 @@
 #import "SBConstants.h"
 #import <Mixpanel.h>
 #import <ReactiveCocoa.h>
-#import <Underscore.h>
 
-@interface SBLeagueIndexViewController ()
+@interface SBLeagueViewController ()
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *modalAnimator;
 @property (nonatomic, strong) SBTransitionAnimator *sbAnimator;
@@ -25,7 +24,7 @@
 
 @end
 
-@implementation SBLeagueIndexViewController
+@implementation SBLeagueViewController
 
 static NSString *kTabViewControllerSegue = @"tabViewController";
 static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
@@ -34,7 +33,6 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
   [super viewDidLoad];
 
   [self buildHelpIcon];
-  self.leagues = [SBUser currentUser].leagues;
 
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
         forCellWithReuseIdentifier:kLeagueHeaderCell];
@@ -72,7 +70,7 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
   }];
 
   [[[RACObserve([SBUser currentUser], lastOpenedLeagueIndex) distinctUntilChanged] filter:^BOOL(NSNumber *lastOpenedLeagueIndex) {
-    return [lastOpenedLeagueIndex  isEqual: @(-1)];
+    return [lastOpenedLeagueIndex isEqual: @(-1)];
   }] subscribeNext:^(id x) {
     @strongify(self);
     [self.collectionView reloadData];

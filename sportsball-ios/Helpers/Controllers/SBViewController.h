@@ -13,8 +13,6 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
-- (void)didStartLoading;
-- (void)didEndLoading;
 - (void)showNetworkError:(NSError *)error;
 
 @end
