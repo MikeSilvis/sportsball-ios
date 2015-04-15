@@ -209,17 +209,14 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     else if (game1Score < game2Score) {
       return (NSComparisonResult)NSOrderedDescending;
     }
-    else if (game1.awayTeam.name < game1.homeTeam.name) {
-      return (NSComparisonResult)NSOrderedAscending;
-    }
     else {
       return (NSComparisonResult)NSOrderedSame;
     }
   }];
 
-  NSInteger updatedSelectedItemPath = -1;
-
   if (self.selectedGame) {
+    NSInteger updatedSelectedItemPath = -1;
+
     for (int i = 0; i < [sortedGames count]; i++) {
       SBGame *game = sortedGames[i];
 
@@ -228,49 +225,23 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
         break;
       }
     }
-  }
 
-  if (([self.games count] == 0) || (!self.selectedGame)) {
-    _games = sortedGames;
-  }
+    if (self.selectedIndexPath.row != updatedSelectedItemPath) {
+      NSIndexPath *updatedIndexPath = [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0];
+      if ([self.collectionView cellForItemAtIndexPath:updatedIndexPath]) {
+        [self.collectionView moveItemAtIndexPath:self.selectedIndexPath toIndexPath:updatedIndexPath];
 
-  [self showFavoriteNotification];
-  NSLog(@"\n\n sorted results \n\n");
-  for (SBGame *game in sortedGames) {
-    NSLog(@"game: %@ %@ %d", game.awayTeam.name, game.homeTeam.name, [game favoriteScore]);
-  }
-
-  NSLog(@"\n\n real results \n\n");
-  for (SBGame *game in _games) {
-    NSLog(@"game: %@ %@ %d", game.awayTeam.name, game.homeTeam.name, [game favoriteScore]);
-  }
-
-  [self.collectionView reloadData];
-
-  if ((self.selectedIndexPath) && (self.selectedIndexPath.row != updatedSelectedItemPath)) {
-    [self performSelector:@selector(updateGameLocationWithAnimation:)
-               withObject:@[
-                             self.selectedIndexPath,
-                             [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0]
-                           ]
-              afterDelay:0.1];
-  }
-}
-
-- (void)updateGameLocationWithAnimation:(NSArray *)paths {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    if ([self.collectionView cellForItemAtIndexPath:[paths lastObject]]) {
-      [self.collectionView moveItemAtIndexPath:[paths firstObject] toIndexPath:[paths lastObject]];
-
-      self.selectedIndexPath = nil;
-      self.selectedGame = nil;
-
-      // Erase current games and reorder them
-      NSArray *currentGames = self.games;
-      _games = nil;
-      self.games = currentGames;
+        self.selectedIndexPath = nil;
+        self.selectedGame = nil;
+        _games = sortedGames;
+      }
     }
-  });
+  }
+  else {
+    _games = sortedGames;
+    [self.collectionView reloadData];
+  }
+
 }
 
 - (void)showFavoriteNotification {

@@ -34,6 +34,7 @@
 - (void)rejectedAppReview;
 - (void)acceptedAppReview;
 - (NSArray *)enabledLeagues;
+- (NSString *)keyForFavoriteTeam:(NSString *)leagueName;
 
 
 @end

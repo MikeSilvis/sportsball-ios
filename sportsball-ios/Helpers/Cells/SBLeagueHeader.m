@@ -25,6 +25,15 @@
 
 @implementation SBLeagueHeader
 
+- (void)awakeFromNib {
+  [super awakeFromNib];
+
+  [self declareBindings];
+}
+
+- (void)declareBindings {
+
+}
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
@@ -55,8 +64,16 @@
   _league = currentLeague;
   self.leagueText.text = self.league.englishName;
   self.tintBackground.alpha = 0;
-  
 
+  NSString *userDefaultsKey = [[SBUser currentUser] keyForFavoriteTeam:self.league.name];
+  @weakify(self)
+  [[[NSUserDefaults standardUserDefaults] rac_channelTerminalForKey:userDefaultsKey] subscribeNext:^(id x) {
+    @strongify(self);
+    [self updateHeader];
+  }];
+}
+
+- (void)updateHeader {
   @weakify(self);
   [self.headerImage sd_setImageWithURL:self.league.header
                       placeholderImage:[UIImage imageNamed:kPlaceholderImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -68,6 +85,7 @@
                           self.tintBackground.alpha = 0.6;
                         }
   }];
+
 }
 
 @end
