@@ -75,7 +75,6 @@
 		1189A4021A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189A4011A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m */; };
 		119909101A4B224200F2ED1B /* SBRecap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199090F1A4B224200F2ED1B /* SBRecap.m */; };
 		119909121A4B249A00F2ED1B /* SBContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119909111A4B249A00F2ED1B /* SBContentTableViewCell.xib */; };
-		1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */; };
 		119909201A4F535B00F2ED1B /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199091F1A4F535B00F2ED1B /* SBViewController.m */; };
 		1199735B1AC736C8005BA865 /* SBStandingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1199735A1AC736C8005BA865 /* SBStandingsViewController.m */; };
 		11A2E1CC1AC6819B005812FF /* SBPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A2E1CB1AC6819B005812FF /* SBPagingViewController.m */; };
@@ -213,8 +212,6 @@
 		1199090E1A4B224200F2ED1B /* SBRecap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBRecap.h; sourceTree = "<group>"; };
 		1199090F1A4B224200F2ED1B /* SBRecap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBRecap.m; sourceTree = "<group>"; };
 		119909111A4B249A00F2ED1B /* SBContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBContentTableViewCell.xib; sourceTree = "<group>"; };
-		119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeagueLoadingViewController.h; sourceTree = "<group>"; };
-		1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeagueLoadingViewController.m; sourceTree = "<group>"; };
 		1199091E1A4F535B00F2ED1B /* SBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
 		1199091F1A4F535B00F2ED1B /* SBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 		119973591AC736C8005BA865 /* SBStandingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStandingsViewController.h; sourceTree = "<group>"; };
@@ -342,23 +339,6 @@
 				36EC9B791ADB0A7700FA074D /* UIImage+ImageEffects.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		112B7D231AC72264001FD93F /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				112B7D241AC72274001FD93F /* Controllers */,
-			);
-			path = Loading;
-			sourceTree = "<group>";
-		};
-		112B7D241AC72274001FD93F /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				119909191A4F508A00F2ED1B /* SBLeagueLoadingViewController.h */,
-				1199091A1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		112BEE8A1A3124A900DCE472 /* ScoreSummary */ = {
@@ -657,7 +637,6 @@
 			children = (
 				1110C5C01AA0EB0600E04E35 /* About */,
 				11847BD31A21045800300E28 /* Boxscore */,
-				112B7D231AC72264001FD93F /* Loading */,
 				1154F6531A03DC9B009F560B /* Leagues */,
 				114E87981A5F863C007C2CF7 /* Preview */,
 				11A2E1C91AC6817A005812FF /* Scores */,
@@ -969,7 +948,6 @@
 				1110C5C71AA0F2E200E04E35 /* SBAboutTableViewCell.m in Sources */,
 				11BA1C541A65B118005C61AB /* SBScheduleInfoTableViewCell.m in Sources */,
 				114E87A21A5F8A0E007C2CF7 /* SBModalViewController.m in Sources */,
-				1199091B1A4F508A00F2ED1B /* SBLeagueLoadingViewController.m in Sources */,
 				114E879F1A5F86D3007C2CF7 /* SBPreview.m in Sources */,
 				11BA1C4D1A65A5C7005C61AB /* SBScheduleTableViewCell.m in Sources */,
 				1189A4021A31623E00575E07 /* SBScoreDetailHeaderCollectionViewCell.m in Sources */,

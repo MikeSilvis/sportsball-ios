@@ -170,6 +170,10 @@
   return [NSString stringWithFormat:@"%@", self.awayScore];
 }
 
+- (NSString *)description {
+  return [NSString stringWithFormat:@"<SBGame> %@ %@", self.awayTeam.name, self.homeTeam.name];
+}
+
 - (BOOL)hasPreviewOrRecap {
   if (self.isPregame && self.preview && self.preview.headline) {
     return YES;

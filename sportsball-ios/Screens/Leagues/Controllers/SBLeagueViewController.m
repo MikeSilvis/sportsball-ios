@@ -39,13 +39,25 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.backgroundColor = [UIColor clearColor];
 
+  self.supportButton.hidden = YES;
   [self declareBindings];
+  [self findLeagues];
 }
 
 - (void)declareBindings {
   @weakify(self);
 
-  [[RACObserve([SBUser currentUser], leagues) distinctUntilChanged] subscribeNext:^(NSArray *leagues) {
+  [[RACObserve([SBUser currentUser], lastOpenedLeagueIndex) filter:^BOOL(NSNumber *index) {
+    return [index isEqual:@(-1)];
+  }] subscribeNext:^(id x) {
+    @strongify(self);
+    self.leagues = [SBUser currentUser].leagues;
+    [self.collectionView reloadData];
+  }];
+
+  [[[RACObserve([SBUser currentUser], leagues) distinctUntilChanged] filter:^BOOL(SBLeague *league) {
+    return [[SBUser currentUser].lastOpenedLeagueIndex isEqual:@(-1)];
+  }] subscribeNext:^(NSArray *leagues) {
     @strongify(self);
 
     NSUInteger previouslyEnabledLeagues = [[self.leagues.rac_sequence filter:^BOOL(SBLeague *league) {
@@ -74,6 +86,21 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
   }] subscribeNext:^(id x) {
     @strongify(self);
     [self.collectionView reloadData];
+    self.supportButton.hidden = NO;
+  }];
+
+  [self.activityIndicator rac_liftSelector:@selector(setHidden:) withSignals:[RACObserve([SBUser currentUser], leagues) map:^NSNumber *(NSArray *leagues) {
+    return @([leagues count] > 0);
+  }], nil];
+
+  [self.supportButton rac_liftSelector:@selector(setHidden:) withSignals:[RACObserve([SBUser currentUser], leagues) map:^NSNumber *(NSArray *leagues) {
+    return @([leagues count] == 0);
+  }], nil];
+}
+
+- (void)findLeagues {
+  [SBLeague getSupportedLeagues:nil failure:^(NSError *error) {
+    [self showNetworkError:error];
   }];
 }
 
@@ -81,7 +108,6 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
   [super viewDidAppear:animated];
 
   [self openAtLastSelectedIndex];
-  self.supportButton.hidden = NO;
 }
 
 - (void)buildHelpIcon {
@@ -100,7 +126,7 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
 
-  if ((openedIndex >= 0) && (self.leagues[openedIndex])) {
+  if ((openedIndex >= 0) && ([SBUser currentUser].enabledLeagues[openedIndex])) {
     [self selectItemAtIndexPath:[NSIndexPath indexPathForItem:openedIndex inSection:0] animated:NO];
   }
 }
@@ -152,7 +178,6 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
   return 0;
 }
-
 
 #pragma mark - Segue
 

@@ -7,6 +7,7 @@
 //
 
 #import "SBTransitionAnimator.h"
+#import "SBConstants.h"
 #import "SBLeagueViewController.h"
 
 @implementation SBTransitionAnimator
@@ -49,13 +50,10 @@ static const NSTimeInterval AnimationDuration = 0.25;
 }
 
 - (void)moveCells:(SBLeagueViewController *)parentController {
-  if ([parentController.collectionView.visibleCells count] > 0) {
-    UICollectionViewCell *cell = parentController.collectionView.visibleCells[parentController.selectedIndexPath.row];
-    CGRect cellFrame = [parentController.collectionView convertRect:cell.frame toView:parentController.view];
-    CGRect f = parentController.collectionView.frame;
-    f.origin.y = f.origin.y - cellFrame.origin.y;
-    parentController.collectionView.frame = f;
-  }
+  CGFloat cellHeight = kHeaderSize * parentController.selectedIndexPath.row;
+  CGRect f = parentController.collectionView.frame;
+  f.origin.y = -cellHeight;
+  parentController.collectionView.frame = f;
 }
 
 - (void)hideCells:(SBLeagueViewController *)parentController {
@@ -78,11 +76,6 @@ static const NSTimeInterval AnimationDuration = 0.25;
     CGRect f = parentController.collectionView.frame;
     f.origin.y = 0;
     parentController.collectionView.frame = f;
-
-    // Show Cells
-    [parentController.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
-      cell.alpha = 1.0;
-    }];
   } completion:^(BOOL finished) {
     [transitionContext completeTransition:YES];
   }];

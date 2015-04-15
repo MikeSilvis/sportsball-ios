@@ -16,5 +16,6 @@
 // Has to be a collection view because of SBLeagueHeader
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

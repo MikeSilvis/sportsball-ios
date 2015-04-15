@@ -44,17 +44,8 @@
 - (void)setInitialWindow {
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-  NSString *initialViewId;
-  if ([[SBUser currentUser].leagues count] > 0) {
-    initialViewId = @"leagueIndexViewController";
-    [SBLeague getSupportedLeagues:nil failure:nil];
-  }
-  else {
-    initialViewId = @"leagueLoadingViewController";
-  }
-
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-  UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:initialViewId];
+  UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"leagueIndexViewController"];
 
   self.window.rootViewController = viewController;
   [self.window makeKeyAndVisible];

@@ -1,61 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Mo-0L-q5c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--League Loading View Controller-->
-        <scene sceneID="3TH-vs-1gd">
-            <objects>
-                <viewController storyboardIdentifier="leagueLoadingViewController" id="zKZ-R2-vu6" customClass="SBLeagueLoadingViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O0B-hd-5Sz"/>
-                        <viewControllerLayoutGuide type="bottom" id="tN6-Zs-vZl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1zg-Op-dhm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-aK-g8S">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="t5l-aK-g8S" secondAttribute="centerY" constant="5" id="a9G-Su-pGg">
-                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="t5l-aK-g8S" secondAttribute="centerX" id="jqx-Zf-xDN"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="t5l-aK-g8S"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="a9G-Su-pGg"/>
-                                <exclude reference="jqx-Zf-xDN"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="t5l-aK-g8S"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="a9G-Su-pGg"/>
-                                <include reference="jqx-Zf-xDN"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="c2k-xo-6jP"/>
-                    <connections>
-                        <segue destination="9Mo-0L-q5c" kind="presentation" identifier="leagueIndexSegue" animates="NO" id="tfC-lL-Zti"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Qb-Nd-kje" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-168" y="946"/>
-        </scene>
         <!--Leagues-->
         <scene sceneID="HJR-4K-spF">
             <objects>
@@ -96,11 +45,16 @@
                                     <segue destination="Zre-ls-WL1" kind="presentation" identifier="kAboutSegue" id="ZLm-Hd-qd4"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-mQ-vjX">
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="Rsx-0N-epK" secondAttribute="bottom" constant="5" id="0Rq-nh-JL4"/>
+                            <constraint firstAttribute="centerY" secondItem="WRU-mQ-vjX" secondAttribute="centerY" id="3nD-Ca-wAc"/>
                             <constraint firstItem="pi4-Sc-wgO" firstAttribute="top" secondItem="TwB-rG-Tbg" secondAttribute="bottom" id="8zx-te-jGS"/>
+                            <constraint firstAttribute="centerX" secondItem="WRU-mQ-vjX" secondAttribute="centerX" id="9dC-ey-ZCi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TwB-rG-Tbg" secondAttribute="trailing" constant="-20" id="UB5-Ah-GIC"/>
                             <constraint firstItem="TwB-rG-Tbg" firstAttribute="leading" secondItem="iKJ-Oi-PAX" secondAttribute="leadingMargin" constant="-20" id="cDt-pm-J37"/>
                             <constraint firstItem="TwB-rG-Tbg" firstAttribute="top" secondItem="iKJ-Oi-PAX" secondAttribute="top" id="gJm-bj-A9X"/>
@@ -114,6 +68,7 @@
                     </tabBarItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="WRU-mQ-vjX" id="oYb-CD-Rms"/>
                         <outlet property="collectionView" destination="TwB-rG-Tbg" id="bBA-7P-A65"/>
                         <outlet property="supportButton" destination="Rsx-0N-epK" id="27G-Gu-l09"/>
                         <segue destination="Qj7-Ub-e3P" kind="show" identifier="tabViewController" id="1UJ-u3-6uB"/>

@@ -38,6 +38,7 @@ static NSString * const kHeaderViewCell = @"HeaderViewCell";
 static NSString * const kHeaderDatePickerViewCell = @"HeaderDatePickerViewCell";
 
 static CGFloat const kDatePickerSize = 50;
+static CGFloat const kCellRowHeight  = 60;
 
 static NSString *kPagingSegue = @"pagingSegue";
 static NSString *kScoreShowSegue = @"scoreShowSegue";
@@ -82,15 +83,17 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     @strongify(self);
 
     NSInteger selectedLeagueIndex = [[SBUser currentUser].lastOpenedLeagueIndex integerValue];
-    SBLeague *selectedLeague = leagues[selectedLeagueIndex];
+    if ([leagues count] > selectedLeagueIndex) {
+      SBLeague *selectedLeague = leagues[selectedLeagueIndex];
 
-    if (![self.league.name isEqualToString:selectedLeague.name]) {
-      return;
-    }
+      if (![self.league.name isEqualToString:selectedLeague.name]) {
+        return;
+      }
 
-    if ([selectedLeague.schedule count] != [self.league.schedule count]) {
-      self.league = selectedLeague;
-      [self.collectionView reloadData];
+      if ([selectedLeague.schedule count] != [self.league.schedule count]) {
+        self.league = selectedLeague;
+        [self.collectionView reloadData];
+      }
     }
   }];
 }
@@ -195,9 +198,8 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (void)setGames:(NSArray *)games {
   NSMutableArray *tempGames = [NSMutableArray arrayWithArray:games];
-  NSArray *sortedGames = [NSArray array];
-
-  sortedGames = [tempGames sortedArrayUsingComparator:^NSComparisonResult(SBGame *game1, SBGame *game2) {
+  
+  NSArray *sortedGames = [tempGames sortedArrayUsingComparator:^NSComparisonResult(SBGame *game1, SBGame *game2) {
     int game1Score = [game1 favoriteScore];
     int game2Score = [game2 favoriteScore];
 
@@ -206,6 +208,9 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     }
     else if (game1Score < game2Score) {
       return (NSComparisonResult)NSOrderedDescending;
+    }
+    else if (game1.awayTeam.name < game1.homeTeam.name) {
+      return (NSComparisonResult)NSOrderedAscending;
     }
     else {
       return (NSComparisonResult)NSOrderedSame;
@@ -230,6 +235,15 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   }
 
   [self showFavoriteNotification];
+  NSLog(@"\n\n sorted results \n\n");
+  for (SBGame *game in sortedGames) {
+    NSLog(@"game: %@ %@ %d", game.awayTeam.name, game.homeTeam.name, [game favoriteScore]);
+  }
+
+  NSLog(@"\n\n real results \n\n");
+  for (SBGame *game in _games) {
+    NSLog(@"game: %@ %@ %d", game.awayTeam.name, game.homeTeam.name, [game favoriteScore]);
+  }
 
   [self.collectionView reloadData];
 
@@ -252,9 +266,9 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       self.selectedGame = nil;
 
       // Erase current games and reorder them
-//      NSArray *currentGames = self.games;
-//      _games = nil;
-//      self.games = currentGames;
+      NSArray *currentGames = self.games;
+      _games = nil;
+      self.games = currentGames;
     }
   });
 }
@@ -346,7 +360,6 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
   [[SBUser currentUser] appendFavoriteTeams:self.selectedGame.homeTeam andTeam:self.selectedGame.awayTeam andLeague:self.selectedGame.leagueName];
 
-
   NSString *gameString = [NSString stringWithFormat:@"%@%@", self.selectedGame.homeTeam.name, self.selectedGame.awayTeam.name];
   [[Mixpanel sharedInstance] track:@"selectedGame" properties:@{@"team": gameString, @"state": self.selectedGame.state }];
 
@@ -363,7 +376,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(self.view.bounds.size.width, 60);
+  return CGSizeMake(self.view.bounds.size.width, kCellRowHeight);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

@@ -16,7 +16,15 @@
 #import <Mixpanel.h>
 #import <ReactiveCocoa.h>
 
+
+@interface SBLeagueHeader ()
+
+@property (nonatomic, assign) BOOL firedMixpanelEvent;
+
+@end
+
 @implementation SBLeagueHeader
+
 
 - (void)applyLayoutAttributes:(CSStickyHeaderFlowLayoutAttributes *)layoutAttributes {
   CGFloat yOrigin = CGRectGetMinY(layoutAttributes.frame);
@@ -29,7 +37,10 @@
                                                                                               }];
   [UIView animateWithDuration:0.3 animations:^{
     if (hidden) {
-      [[Mixpanel sharedInstance] track:@"Used Parallax"];
+      if (!self.firedMixpanelEvent) {
+        [[Mixpanel sharedInstance] track:@"Used Parallax"];
+        self.firedMixpanelEvent = YES;
+      }
       self.leagueText.alpha = 0.0;
       self.headerImage.alpha = 1.0;
     }
