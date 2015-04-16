@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) SBGame *selectedGame;
 
+@property (nonatomic, assign) BOOL makingRequest;
+
 @end
 
 @implementation SBScoresViewController
@@ -70,6 +72,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(kHeaderSize + kDatePickerSize, 0, 0, 0);
 
   [self declareBindings];
+
+  [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationWillEnterForegroundNotification object:nil] distinctUntilChanged] subscribeNext:^(id x) {
+    [self startTimer];
+  }];
 }
 
 - (void)updateSelectedDate:(NSDate *)selectedDate {
@@ -177,9 +183,14 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     self.activityIndicator.hidden = YES;
   }
 
+  if (self.makingRequest) {
+    return;
+  }
+
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
     self.activityIndicator.hidden = YES;
+    self.makingRequest = NO;
   } failure:^(NSError *error) {
     [self showNetworkError:error];
     self.activityIndicator.hidden = YES;
