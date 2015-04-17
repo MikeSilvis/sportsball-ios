@@ -167,11 +167,11 @@ static const NSInteger kScheduleCellLocation = 0;
 - (void)setHeaderInfo {
   SBTeam *homeTeam = self.game.homeTeam;
   self.homeTeamRecord.text = homeTeam.record;
-  self.homeTeamName.text = homeTeam.name;
+  self.homeTeamName.text = homeTeam.abbr;
 
   SBTeam *awayTeam = self.game.awayTeam;
   self.awayTeamRecord.text = awayTeam.record;
-  self.awayTeamName.text = awayTeam.name;
+  self.awayTeamName.text = awayTeam.abbr;
 
   if ([SBUser currentUser].teamLogos) {
     [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"120x120"]];

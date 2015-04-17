@@ -186,7 +186,10 @@
 }
 
 - (BOOL)hasPreviewOrRecapPhoto {
-  if (self.isOver && self.boxscore && self.boxscore.recap && self.boxscore.recap.photoURL) {
+  if (self.boxscore && self.boxscore.recap && self.boxscore.recap.photoURL) {
+    return YES;
+  }
+  if (self.preview && self.preview.photoURL) {
     return YES;
   }
 

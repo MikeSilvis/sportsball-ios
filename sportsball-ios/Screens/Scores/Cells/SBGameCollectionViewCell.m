@@ -39,23 +39,23 @@
   [self.layer addSublayer:upperBorder];
 }
 
-- (void)setCurrentGame:(SBGame *)currentGame {
-  _currentGame = currentGame;
+- (void)setGame:(SBGame *)game {
+  _game = game;
 
   // Home Team
-  SBTeam *homeTeam = self.currentGame.homeTeam;
+  SBTeam *homeTeam = self.game.homeTeam;
   self.homeTeamName.text = homeTeam.name;
-  self.homeTeamScore.text = [NSString stringWithFormat:@"%@", self.currentGame.homeScore];
-  self.homeTeamScore.text = self.currentGame.homeScoreString;
-  self.homeTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:homeTeam];
+  self.homeTeamScore.text = [NSString stringWithFormat:@"%@", self.game.homeScore];
+  self.homeTeamScore.text = self.game.homeScoreString;
+  self.homeTeamWinner.hidden = ![self.game.winningTeam isEqual:homeTeam];
   self.homeTeamRecord.text = homeTeam.formattedRecord;
   self.homeTeamRank.text = homeTeam.rank;
 
   // Away Team
-  SBTeam *awayTeam = self.currentGame.awayTeam;
+  SBTeam *awayTeam = self.game.awayTeam;
   self.awayTeamName.text = awayTeam.name;
-  self.awayTeamScore.text = self.currentGame.awayScoreString;
-  self.awayTeamWinner.hidden = ![self.currentGame.winningTeam isEqual:awayTeam];
+  self.awayTeamScore.text = self.game.awayScoreString;
+  self.awayTeamWinner.hidden = ![self.game.winningTeam isEqual:awayTeam];
   self.awayTeamRecord.text = awayTeam.formattedRecord;
   self.awayTeamRank.text = awayTeam.rank;
 
@@ -65,9 +65,9 @@
     [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"60x60"]];
   }
 
-  self.upperInfo.text = self.currentGame.timeRemaining;
+  self.upperInfo.text = self.game.timeRemaining;
 
-  if (self.currentGame.isPregame) {
+  if (self.game.isPregame) {
     // Winner Image
     self.awayTeamWinner.hidden = YES;
     self.homeTeamWinner.hidden = YES;
@@ -79,11 +79,11 @@
     // Background
     self.upperInfo.hidden = NO;
     self.lowerInfo.hidden = NO;
-    self.upperInfo.text = self.currentGame.localStartTime;
-    self.lowerInfo.text = self.currentGame.moneyLine;
+    self.upperInfo.text = self.game.localStartTime;
+    self.lowerInfo.text = self.game.moneyLine;
     self.lowerInfo.font = [UIFont fontWithName:@"Avenir" size:10];
   }
-  else if (self.currentGame.isInProgress) {
+  else if (self.game.isInProgress) {
     // Winner Image
     self.awayTeamWinner.hidden = YES;
     self.homeTeamWinner.hidden = YES;
@@ -95,8 +95,8 @@
     // Game Clock
     self.upperInfo.hidden = NO;
     self.lowerInfo.hidden = NO;
-    self.lowerInfo.text = self.currentGame.timeRemaining;
-    self.upperInfo.text = self.currentGame.currentPeriod;
+    self.lowerInfo.text = self.game.timeRemaining;
+    self.upperInfo.text = self.game.currentPeriod;
   }
   else {
     // Scores
@@ -106,7 +106,7 @@
     // Game Summary
     self.lowerInfo.hidden = YES;
     self.upperInfo.hidden = NO;
-    self.upperInfo.text = self.currentGame.endedIn;
+    self.upperInfo.text = self.game.endedIn;
   }
 
 }

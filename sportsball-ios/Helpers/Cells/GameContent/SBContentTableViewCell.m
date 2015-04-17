@@ -53,6 +53,7 @@
 
   self.headline.text = self.preview.headline;
   self.content.text = self.preview.content;
+  [self.headerImage sd_setImageWithURL:self.preview.photoURL];
 
   if (self.preview.headline) {
     self.renderSeperator = YES;

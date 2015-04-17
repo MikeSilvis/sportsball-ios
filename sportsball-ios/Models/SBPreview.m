@@ -21,6 +21,7 @@
     self.content    = json[@"content"];
     self.url        = [NSURL URLWithString:json[@"url"]];
     self.gameInfo   = [[SBGameInfo alloc] initWithJson:json[@"game_info"]];
+    self.photoURL = [NSURL URLWithString:json[@"photo"]];
 
     // Away Team Schedule
     NSMutableArray *awayTeamSchedule = [NSMutableArray array];

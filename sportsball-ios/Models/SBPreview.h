@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) NSArray *homeTeamSchedule;
 @property (nonatomic, strong) NSArray *awayTeamSchedule;
+@property (nonatomic, strong) NSURL *photoURL;
+
 
 - (NSArray *)scheduleForTeam:(SBTeam *)team;
 

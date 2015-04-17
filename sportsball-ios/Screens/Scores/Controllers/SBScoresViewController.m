@@ -367,11 +367,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   self.activityIndicator.hidden = YES;
-
-  SBGame *currentGame = self.games[indexPath.row];
+  SBGame *game = self.games[indexPath.row];
 
   SBGameCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGameViewCell forIndexPath:indexPath];
-  cell.currentGame = currentGame;
+  cell.game = game;
 
   return cell;
 }
