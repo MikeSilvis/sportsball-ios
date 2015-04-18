@@ -27,4 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamRank;
 @property(nonatomic, strong) SBGame *game;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpacingHomeTeamLogo;
+
 @end

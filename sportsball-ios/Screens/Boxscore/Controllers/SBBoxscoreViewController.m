@@ -15,7 +15,6 @@
 #import "SBUser.h"
 #import "SBTeamStatsTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MPGNotification/MPGNotification.h>
 #import <Pusher/Pusher.h>
 #import "SBConstants.h"
 #import <Mixpanel.h>

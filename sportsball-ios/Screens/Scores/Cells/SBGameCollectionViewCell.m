@@ -37,6 +37,8 @@
   upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
   upperBorder.opacity = 0.5f;
   [self.layer addSublayer:upperBorder];
+
+  self.horizontalSpacingHomeTeamLogo.priority = 750;
 }
 
 - (void)setGame:(SBGame *)game {

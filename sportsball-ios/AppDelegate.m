@@ -79,11 +79,12 @@
   FAKFontAwesome *warningIcon = [FAKFontAwesome thumbsUpIconWithSize:iconSize];
   UIImage *notificationIcon =  [UIImage imageWithFontAwesomeIcon:warningIcon andSize:iconSize andColor:@"#fff"];
 
-  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self.window.rootViewController
-                                                                                title:@"New Notification"
-                                                                             subtitle:userInfo[@"aps"][@"alert"]
-                                                                      backgroundColor:[UIColor colorWithHexString:@"274385"]
-                                                                            iconImage:notificationIcon];
+
+  MPGNotification *notification = [MPGNotification notificationWithTitle:@"New Notification"
+                                                                subtitle:userInfo[@"aps"][@"alert"]
+                                                         backgroundColor:[UIColor colorWithHexString:@"274385"]
+                                                               iconImage:notificationIcon];
+
   notification.animationType = MPGNotificationAnimationTypeDrop;
   [notification show];
 }

@@ -176,12 +176,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     return;
   }
 
-  if (self.games.count == 0) {
-    self.activityIndicator.hidden = NO;
-  }
-  else {
-    self.activityIndicator.hidden = YES;
-  }
+  self.activityIndicator.hidden = ([self.games count] == 0);
 
   if (self.makingRequest) {
     return;
@@ -271,7 +266,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     }
   }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Favorite Notification
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)askForFavoriteTeam:(SBTeam *)team {
   if ([team parseObject][@"pushEnabled"] != nil) {
@@ -285,11 +283,10 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   FAKFontAwesome *boltIcon = [FAKFontAwesome boltIconWithSize:iconSize];
   UIImage *boltIconImage = [UIImage imageWithFontAwesomeIcon:boltIcon andSize:iconSize andColor:@"fff"];
 
-  MPGNotification *notification = [MPGNotification notificationWithHostViewController:self
-                                                                                title:headerFavoriteTeamRequest
-                                                                             subtitle:subtitleFavoriteTeamRequest
-                                                                      backgroundColor:[UIColor colorWithHexString:@"274385"]
-                                                                            iconImage:boltIconImage];
+  MPGNotification *notification = [MPGNotification notificationWithTitle:headerFavoriteTeamRequest
+                                                                subtitle:subtitleFavoriteTeamRequest
+                                                         backgroundColor:[UIColor colorWithHexString:@"274385"]
+                                                               iconImage:boltIconImage];
   [notification setButtonConfiguration:MPGNotificationButtonConfigrationTwoButton withButtonTitles:@[@"Yes!", @"No"]];
   notification.animationType = MPGNotificationAnimationTypeDrop;
   notification.swipeToDismissEnabled = NO;
