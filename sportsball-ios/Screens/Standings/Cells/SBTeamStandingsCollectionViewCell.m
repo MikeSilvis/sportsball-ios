@@ -24,7 +24,7 @@
   self.teamName.text = self.team.name;
 
   if ([SBUser currentUser].teamLogos) {
-    [self.teamLogo sd_setImageWithURL:[self.team imageURL:self.team.logoUrl withSize:@"50x50"]];
+    [self.teamLogo sd_setImageWithURL:[self.team imageURL:self.team.logoUrl withSize:@"40x40"]];
   }
 
   [self setStats];
@@ -33,7 +33,7 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  CGFloat widthOfBorder = 0.5f;
+  CGFloat widthOfBorder = 1.0f;
   UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - widthOfBorder, self.bounds.size.width, widthOfBorder)];
   horizontalLine.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
   [self addSubview:horizontalLine];

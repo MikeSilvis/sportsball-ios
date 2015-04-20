@@ -29,7 +29,7 @@
   [super layoutSubviews];
 
   // Lower Border
-  CGFloat widthOfBorder = 0.5f;
+  CGFloat widthOfBorder = 1.0f;
   UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - widthOfBorder, self.bounds.size.width, widthOfBorder)];
   horizontalLine.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
   [self addSubview:horizontalLine];
