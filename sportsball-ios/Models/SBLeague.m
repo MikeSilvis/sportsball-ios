@@ -57,7 +57,8 @@
     headerURL = [[self.headers allValues] firstObject];
   }
 
-  return [self imageURL:headerURL withSize:kPlaceholderImageSize];
+  NSString *placeholderImageSize = [NSString stringWithFormat:@"%dx300", (int)[UIScreen mainScreen].bounds.size.width];
+  return [self imageURL:headerURL withSize:placeholderImageSize];
 }
 
 - (BOOL)isEnabled {

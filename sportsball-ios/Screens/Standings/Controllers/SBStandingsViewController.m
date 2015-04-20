@@ -13,8 +13,9 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBTeamStandingsHeaderCollectionViewCell.h"
 #import "SBTeamStandingsCollectionViewCell.h"
-#import "SBLeagueHeader.h"
+#import "SBLeagueCollectionViewCell.h"
 #import <MPGNotification.h>
+#import <Mixpanel.h>
 
 @interface SBStandingsViewController () <SBPagingViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -43,7 +44,7 @@ static NSString *kPagingSegue = @"pagingSegue";
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBteamStandingsCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:kTeamViewCell];
   // Headers
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueCollectionViewCell" bundle:nil]
         forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                withReuseIdentifier:kHeaderViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBTeamStandingsHeaderCollectionViewCell" bundle:nil]
@@ -184,7 +185,7 @@ static NSString *kPagingSegue = @"pagingSegue";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
   if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
-    SBLeagueHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+    SBLeagueCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                         withReuseIdentifier:kHeaderViewCell
                                                                                forIndexPath:indexPath];
     cell.league = self.league;
@@ -220,5 +221,8 @@ static NSString *kPagingSegue = @"pagingSegue";
   return CGSizeMake(self.collectionView.bounds.size.width, kTeamViewCellSize);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  [[Mixpanel sharedInstance] track:@"Selected Standings Cell"];
+}
 
 @end

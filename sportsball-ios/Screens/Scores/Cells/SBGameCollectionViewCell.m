@@ -28,7 +28,7 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  // Upper Border
+  // Lower Border
   CALayer *upperBorder = [CALayer layer];
   upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
   CGFloat totalWidth = CGRectGetWidth(self.frame);
@@ -37,8 +37,6 @@
   upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
   upperBorder.opacity = 0.5f;
   [self.layer addSublayer:upperBorder];
-
-  self.horizontalSpacingHomeTeamLogo.priority = 750;
 }
 
 - (void)setGame:(SBGame *)game {
@@ -63,8 +61,9 @@
 
   // Logos
   if ([SBUser currentUser].teamLogos) {
-    [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:@"60x60"]];
-    [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:@"60x60"]];
+    NSString *logoSize = @"40x40";
+    [self.homeTeamLogo sd_setImageWithURL:[homeTeam imageURL:homeTeam.logoUrl withSize:logoSize]];
+    [self.awayTeamLogo sd_setImageWithURL:[awayTeam imageURL:awayTeam.logoUrl withSize:logoSize]];
   }
 
   self.upperInfo.text = self.game.timeRemaining;

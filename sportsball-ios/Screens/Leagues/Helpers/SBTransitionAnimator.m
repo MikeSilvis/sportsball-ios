@@ -9,6 +9,8 @@
 #import "SBTransitionAnimator.h"
 #import "SBConstants.h"
 #import "SBLeagueViewController.h"
+#import "SBLeagueCollectionViewCell.h"
+#import "SBUser.h"
 
 @implementation SBTransitionAnimator
 
@@ -38,8 +40,8 @@ static const NSTimeInterval AnimationDuration = 0.25;
 
   [UIView animateWithDuration:0.4 animations:^{
 
-    [self moveCells:parentController];
     [self hideCells:parentController];
+    [self moveCells:parentController];
 
     // Hide Cells
   } completion:^(BOOL finished) {
@@ -57,25 +59,33 @@ static const NSTimeInterval AnimationDuration = 0.25;
 }
 
 - (void)hideCells:(SBLeagueViewController *)parentController {
-  [parentController.collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL *stop) {
-    if (idx != parentController.selectedIndexPath.row) {
+  SBLeague *selectedLeague = [SBUser currentUser].leagues[parentController.selectedIndexPath.row];
+
+  for (SBLeagueCollectionViewCell *cell in parentController.collectionView.visibleCells) {
+    if (![cell.league.name isEqualToString:selectedLeague.name]) {
       cell.alpha = 0.0;
     }
-  }];
+  }
+}
+
+- (void)showCells:(SBLeagueViewController *)parentController {
+  for (SBLeagueCollectionViewCell *cell in parentController.collectionView.visibleCells) {
+    cell.alpha = 1.0;
+  }
 }
 
 - (void)dismissAddEntryViewController:(UIViewController *)destinationViewController fromParentViewController:(SBLeagueViewController *)parentController usingContainerView:(UIView *)containerView transitionContext: (id<UIViewControllerContextTransitioning>)transitionContext {
   parentController.view.alpha = 1.0;
   destinationViewController.view.alpha = 0.0;
-  [parentController.collectionView reloadData];
   [self moveCells:parentController];
-  [self hideCells:parentController];
 
   [UIView animateWithDuration:0.4 animations:^{
     // Move Collection view to top
     CGRect f = parentController.collectionView.frame;
     f.origin.y = 0;
     parentController.collectionView.frame = f;
+
+    [self showCells:parentController];
   } completion:^(BOOL finished) {
     [transitionContext completeTransition:YES];
   }];

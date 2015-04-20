@@ -9,7 +9,7 @@
 #import "SBLeagueViewController.h"
 #import "UIImage+FontAwesome.h"
 #import "SBUser.h"
-#import "SBLeagueHeader.h"
+#import "SBLeagueCollectionViewCell.h"
 #import "SBTabViewViewController.h"
 #import "SBTransitionAnimator.h"
 #import "SBConstants.h"
@@ -34,7 +34,7 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 
   [self buildHelpIcon];
 
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:kLeagueHeaderCell];
   self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
   self.collectionView.backgroundColor = [UIColor clearColor];
@@ -126,8 +126,11 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 
   int openedIndex = [[SBUser currentUser].lastOpenedLeagueIndex intValue];
 
-  if ((openedIndex >= 0) && ([SBUser currentUser].enabledLeagues[openedIndex])) {
+  if (([[SBUser currentUser].enabledLeagues count] > openedIndex) && ([SBUser currentUser].enabledLeagues[openedIndex])) {
     [self selectItemAtIndexPath:[NSIndexPath indexPathForItem:openedIndex inSection:0] animated:NO];
+  }
+  else {
+    [SBUser currentUser].lastOpenedLeagueIndex = @(-1);
   }
 }
 
@@ -149,7 +152,7 @@ static NSString * const kLeagueHeaderCell = @"HeaderViewCell";
 #pragma mark - Collection View
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  SBLeagueHeader *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kLeagueHeaderCell forIndexPath:indexPath];
+  SBLeagueCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kLeagueHeaderCell forIndexPath:indexPath];
   cell.league = self.leagues[indexPath.row];
 
   return cell;

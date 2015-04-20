@@ -118,7 +118,9 @@ static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
 }
 
 - (NSURL *)imageURL:(NSURL *)url withSize:(NSString *)size {
-  return [NSURL URLWithString:[NSString stringWithFormat:@"%@?size=%@", url.absoluteString, size]];
+  NSString *finalImageURL = [NSString stringWithFormat:@"%@?size=%@", url.absoluteString, size];
+  
+  return [NSURL URLWithString:finalImageURL];
 }
 
 

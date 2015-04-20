@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mike Silvis. All rights reserved.
 //
 
-#import "SBLeagueHeader.h"
+#import "SBLeagueCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SBUser.h"
 #import "SBConstants.h"
@@ -17,13 +17,13 @@
 #import <ReactiveCocoa.h>
 
 
-@interface SBLeagueHeader ()
+@interface SBLeagueCollectionViewCell ()
 
 @property (nonatomic, assign) BOOL firedMixpanelEvent;
 
 @end
 
-@implementation SBLeagueHeader
+@implementation SBLeagueCollectionViewCell
 
 - (void)awakeFromNib {
   [super awakeFromNib];
@@ -47,7 +47,7 @@
   [UIView animateWithDuration:0.3 animations:^{
     if (hidden) {
       if (!self.firedMixpanelEvent) {
-        [[Mixpanel sharedInstance] track:@"Used Parallax"];
+        [[Mixpanel sharedInstance] track:@"usedParallax"];
         self.firedMixpanelEvent = YES;
       }
       self.leagueText.alpha = 0.0;

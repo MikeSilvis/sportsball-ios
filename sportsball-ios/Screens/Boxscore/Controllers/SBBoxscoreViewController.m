@@ -18,6 +18,7 @@
 #import <Pusher/Pusher.h>
 #import "SBConstants.h"
 #import <Mixpanel.h>
+#import <ReactiveCocoa.h>
 
 @interface SBBoxscoreViewController ()
 
@@ -68,6 +69,24 @@ static const NSInteger kScoreDataViewLocation    = 4;
   [self.closeButton addTarget:self action:@selector(closeModal) forControlEvents:UIControlEventTouchDown];
 
   self.loadingIndicator.hidden = YES;
+
+  UITapGestureRecognizer *awayTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedAwayLogo)];
+  awayTap.numberOfTapsRequired = 1;
+  [self.awayTeamLogo setUserInteractionEnabled:YES];
+  [self.awayTeamLogo addGestureRecognizer:awayTap];
+
+  UITapGestureRecognizer *homeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedHomeLogo)];
+  homeTap.numberOfTapsRequired = 1;
+  [self.homeTeamLogo setUserInteractionEnabled:YES];
+  [self.homeTeamLogo addGestureRecognizer:homeTap];
+}
+
+- (void)clickedHomeLogo {
+  [[Mixpanel sharedInstance] track:@"clickedHomeLogo"];
+}
+
+- (void)clickedAwayLogo {
+  [[Mixpanel sharedInstance] track:@"clickedAwayLogo"];
 }
 
 - (void)closeModal {

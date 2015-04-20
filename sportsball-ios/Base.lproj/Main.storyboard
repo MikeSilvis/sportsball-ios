@@ -824,13 +824,13 @@ If you have any questions or feature requests please feel free to reach out belo
         </scene>
     </scenes>
     <resources>
-        <image name="scores" width="50" height="50"/>
-        <image name="scores-filled" width="50" height="50"/>
-        <image name="standings" width="50" height="50"/>
-        <image name="standings-filled" width="50" height="50"/>
+        <image name="scores" width="25" height="21"/>
+        <image name="scores-filled" width="25" height="21"/>
+        <image name="standings" width="25" height="16"/>
+        <image name="standings-filled" width="25" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YFp-QS-G4Y"/>
-        <segue reference="v9I-wC-LBi"/>
+        <segue reference="ijv-Gb-zhV"/>
     </inferredMetricsTieBreakers>
 </document>

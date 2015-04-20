@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SBLeague.h"
 
-@interface SBLeagueHeader : UICollectionViewCell
+@interface SBLeagueCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageBlurred;

@@ -1,5 +1,5 @@
 //
-//  SBScores2ViewController.m
+//  SBScoresViewController.m
 //  sportsball-ios
 //
 //  Created by Mike Silvis on 3/31/15.
@@ -7,7 +7,7 @@
 //
 
 #import "SBScoresViewController.h"
-#import "SBLeagueHeader.h"
+#import "SBLeagueCollectionViewCell.h"
 #import "SBGameCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "SBUser.h"
@@ -28,8 +28,6 @@
 @property (nonatomic, strong) NSArray *games;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) SBGame *selectedGame;
-
-@property (nonatomic, assign) BOOL makingRequest;
 
 @end
 
@@ -56,7 +54,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBGameCollectionViewCell" bundle:nil]
         forCellWithReuseIdentifier:kGameViewCell];
   // Headers
-  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueHeader" bundle:nil]
+  [self.collectionView registerNib:[UINib nibWithNibName:@"SBLeagueCollectionViewCell" bundle:nil]
         forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                withReuseIdentifier:kHeaderViewCell];
   [self.collectionView registerNib:[UINib nibWithNibName:@"SBDatePickerCollectionViewCell" bundle:nil]
@@ -157,6 +155,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
   self.channel = [[SBUser currentUser].client subscribeToChannelNamed:channnelName];
 
   [self.channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
+    [[Mixpanel sharedInstance] track:@"Recieved Realtime Event"];
     self.games = [self.league parseJSONScores:channelEvent.data];
   }];
 }
@@ -176,16 +175,11 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
     return;
   }
 
-  self.activityIndicator.hidden = ([self.games count] == 0);
-
-  if (self.makingRequest) {
-    return;
-  }
+  self.activityIndicator.hidden = ([self.games count] != 0);
 
   [self.league allScoresForDate:self.currentDate parameters:nil success:^(NSArray *games) {
     self.games = games;
     self.activityIndicator.hidden = YES;
-    self.makingRequest = NO;
   } failure:^(NSError *error) {
     [self showNetworkError:error];
     self.activityIndicator.hidden = YES;
@@ -374,7 +368,7 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
   if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
-      SBLeagueHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+      SBLeagueCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                 withReuseIdentifier:kHeaderViewCell
                                                                        forIndexPath:indexPath];
       cell.league = self.league;

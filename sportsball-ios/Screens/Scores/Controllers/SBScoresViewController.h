@@ -10,7 +10,7 @@
 #import "SBLeague.h"
 #import "DIDatepicker.h"
 #import "SBGame.h"
-#import "SBLeagueHeader.h"
+#import "SBLeagueCollectionViewCell.h"
 #import "SBDatePickerCollectionViewCell.h"
 #import "ZFModalTransitionAnimator.h"
 #import "SBModalViewController.h"

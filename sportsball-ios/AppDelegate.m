@@ -121,6 +121,10 @@
     return UIInterfaceOrientationMaskAllButUpsideDown;
   }
 
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    return  UIInterfaceOrientationMaskLandscape;
+  }
+
   return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -159,7 +163,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-  [[Mixpanel sharedInstance] track:@"App Opened"];
+  [[Mixpanel sharedInstance] track:@"appOpened"];
   [[SBUser currentUser] incrementAppOpens];
 }
 
