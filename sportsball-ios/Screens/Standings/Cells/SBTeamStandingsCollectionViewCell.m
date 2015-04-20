@@ -33,15 +33,10 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  // Upper Border
-  CALayer *upperBorder = [CALayer layer];
-  upperBorder.backgroundColor = [[UIColor whiteColor] CGColor];
-  CGFloat totalWidth = CGRectGetWidth(self.frame);
-  CGFloat width = totalWidth;
   CGFloat widthOfBorder = 0.5f;
-  upperBorder.frame = CGRectMake((totalWidth - width) / 2, self.bounds.size.height - widthOfBorder, width, widthOfBorder);
-  upperBorder.opacity = 0.5f;
-  [self.layer addSublayer:upperBorder];
+  UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - widthOfBorder, self.bounds.size.width, widthOfBorder)];
+  horizontalLine.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
+  [self addSubview:horizontalLine];
 }
 
 - (void)setStats {

@@ -100,8 +100,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qcc-cB-j00" firstAttribute="top" secondItem="NPx-vA-NBg" secondAttribute="bottom" id="4d2-YW-D6n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NPx-vA-NBg" secondAttribute="trailing" constant="-16" id="8Se-kV-yLe"/>
-                            <constraint firstItem="NPx-vA-NBg" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leadingMargin" constant="-16" id="Gf9-DE-TFi"/>
+                            <constraint firstAttribute="trailing" secondItem="NPx-vA-NBg" secondAttribute="trailing" id="8Se-kV-yLe"/>
+                            <constraint firstItem="NPx-vA-NBg" firstAttribute="leading" secondItem="vxR-dc-BTs" secondAttribute="leading" id="Gf9-DE-TFi"/>
                             <constraint firstItem="NPx-vA-NBg" firstAttribute="top" secondItem="vxR-dc-BTs" secondAttribute="top" id="Z1j-H4-Ifr"/>
                         </constraints>
                     </view>
@@ -149,19 +149,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kf6-ei-7tK" secondAttribute="trailing" constant="-16" id="JDD-Be-AvT"/>
+                            <constraint firstAttribute="trailing" secondItem="Kf6-ei-7tK" secondAttribute="trailing" id="JDD-Be-AvT"/>
                             <constraint firstItem="R6A-DB-dda" firstAttribute="top" secondItem="Kf6-ei-7tK" secondAttribute="bottom" id="Psb-YR-8g5"/>
                             <constraint firstAttribute="centerX" secondItem="ULR-if-2tG" secondAttribute="centerX" id="SFm-K2-32g"/>
                             <constraint firstAttribute="centerY" secondItem="ULR-if-2tG" secondAttribute="centerY" id="X9g-TS-eXO"/>
-                            <constraint firstItem="Kf6-ei-7tK" firstAttribute="leading" secondItem="dQm-fX-LxH" secondAttribute="leadingMargin" constant="-16" id="nMK-fh-Nae"/>
-                            <constraint firstItem="Kf6-ei-7tK" firstAttribute="top" secondItem="AcU-ZO-7jo" secondAttribute="bottom" constant="-20" id="o8f-aG-5e9"/>
+                            <constraint firstItem="Kf6-ei-7tK" firstAttribute="leading" secondItem="dQm-fX-LxH" secondAttribute="leading" id="nMK-fh-Nae"/>
                             <constraint firstItem="Kf6-ei-7tK" firstAttribute="top" secondItem="dQm-fX-LxH" secondAttribute="top" id="vLX-Uk-3Zu"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="o8f-aG-5e9"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ULR-if-2tG" id="Ytm-nj-VeX"/>
@@ -203,19 +197,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="TRT-f9-rZS" secondAttribute="trailing" constant="-16" id="CGy-kT-cOa"/>
+                            <constraint firstAttribute="trailing" secondItem="TRT-f9-rZS" secondAttribute="trailing" id="CGy-kT-cOa"/>
                             <constraint firstItem="bVQ-B6-q6e" firstAttribute="top" secondItem="TRT-f9-rZS" secondAttribute="bottom" id="ONM-Jy-3O3"/>
-                            <constraint firstItem="TRT-f9-rZS" firstAttribute="leading" secondItem="hls-1U-9Qd" secondAttribute="leadingMargin" constant="-16" id="QRW-cg-ZhN"/>
+                            <constraint firstItem="TRT-f9-rZS" firstAttribute="leading" secondItem="hls-1U-9Qd" secondAttribute="leading" id="QRW-cg-ZhN"/>
                             <constraint firstItem="TRT-f9-rZS" firstAttribute="top" secondItem="hls-1U-9Qd" secondAttribute="top" id="UbO-sF-9on"/>
                             <constraint firstAttribute="centerX" secondItem="Nec-YD-6MV" secondAttribute="centerX" id="YMb-rL-leG"/>
-                            <constraint firstItem="TRT-f9-rZS" firstAttribute="top" secondItem="IF8-a5-czP" secondAttribute="bottom" constant="-20" id="fXP-EE-0cc"/>
                             <constraint firstAttribute="centerY" secondItem="Nec-YD-6MV" secondAttribute="centerY" id="lR2-7f-O7z"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="fXP-EE-0cc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Nec-YD-6MV" id="UTr-sE-vae"/>
@@ -252,7 +240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3E-uG-8Ng">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
                                 <connections>
                                     <segue destination="UhR-RG-IGq" kind="embed" identifier="pagingSegue" id="v9I-wC-LBi"/>
                                 </connections>
@@ -263,8 +251,8 @@
                             <constraint firstItem="pBb-be-UYz" firstAttribute="top" secondItem="W3E-uG-8Ng" secondAttribute="bottom" id="J8r-BM-3Er"/>
                             <constraint firstItem="W3E-uG-8Ng" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" id="MkY-Hm-aCF"/>
                             <constraint firstItem="W3E-uG-8Ng" firstAttribute="top" secondItem="DwA-Tn-x2j" secondAttribute="topMargin" id="PaP-xw-lx3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="W3E-uG-8Ng" secondAttribute="trailing" constant="-16" id="RpN-pa-MBt"/>
-                            <constraint firstItem="W3E-uG-8Ng" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leadingMargin" constant="-16" id="Vze-RC-Hud"/>
+                            <constraint firstAttribute="trailing" secondItem="W3E-uG-8Ng" secondAttribute="trailingMargin" id="RpN-pa-MBt"/>
+                            <constraint firstItem="W3E-uG-8Ng" firstAttribute="leading" secondItem="DwA-Tn-x2j" secondAttribute="leading" id="Vze-RC-Hud"/>
                             <constraint firstItem="W3E-uG-8Ng" firstAttribute="top" secondItem="65R-cQ-ORS" secondAttribute="bottom" id="trQ-yg-hEW"/>
                         </constraints>
                         <variation key="default">
@@ -830,7 +818,7 @@ If you have any questions or feature requests please feel free to reach out belo
         <image name="standings-filled" width="25" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YFp-QS-G4Y"/>
         <segue reference="ijv-Gb-zhV"/>
+        <segue reference="YFp-QS-G4Y"/>
     </inferredMetricsTieBreakers>
 </document>
