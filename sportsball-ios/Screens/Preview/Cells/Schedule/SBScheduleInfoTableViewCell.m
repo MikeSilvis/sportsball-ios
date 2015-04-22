@@ -25,7 +25,7 @@
   _schedule = schedule;
 
   if ([SBUser currentUser].teamLogos) {
-    [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"50x50"]];
+    [self.logo sd_setImageWithURL:[schedule.opponent imageURL:schedule.opponent.logoUrl withSize:@"40x40"]];
   }
 
   self.team.text = schedule.opponent.name;

@@ -230,18 +230,19 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       NSIndexPath *updatedIndexPath = [NSIndexPath indexPathForRow:updatedSelectedItemPath inSection:0];
       if ([self.collectionView cellForItemAtIndexPath:updatedIndexPath]) {
         [self.collectionView moveItemAtIndexPath:self.selectedIndexPath toIndexPath:updatedIndexPath];
-
-        self.selectedIndexPath = nil;
-        self.selectedGame = nil;
-        _games = sortedGames;
       }
     }
+
+    self.selectedIndexPath = nil;
+    self.selectedGame = nil;
+    _games = sortedGames;
   }
   else {
     _games = sortedGames;
     [self.collectionView reloadData];
   }
 
+  [self showFavoriteNotification];
 }
 
 - (void)showFavoriteNotification {
@@ -255,8 +256,8 @@ static NSString *kScorePreviewSegue = @"kScorePreviewSegue";
       return;
     }
     else if ([game.awayTeam isFavorableTeam]) {
-        [self askForFavoriteTeam:game.awayTeam];
-        return;
+      [self askForFavoriteTeam:game.awayTeam];
+      return;
     }
   }
 }

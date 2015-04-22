@@ -11,7 +11,7 @@
 
 @implementation SBModel
 
-static NSString * const kServerURL = @"https://api.jumbotron.io/%@";
+static NSString * const kServerURL = @"https://api.jumbotron.io/%@.json";
 //static NSString * const kServerURL = @"http://localhost:3000/%@";
 
 - (id)initWithJson:(id)json {

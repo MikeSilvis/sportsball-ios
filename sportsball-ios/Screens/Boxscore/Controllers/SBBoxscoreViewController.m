@@ -79,6 +79,10 @@ static const NSInteger kScoreDataViewLocation    = 4;
   homeTap.numberOfTapsRequired = 1;
   [self.homeTeamLogo setUserInteractionEnabled:YES];
   [self.homeTeamLogo addGestureRecognizer:homeTap];
+
+  [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationWillEnterForegroundNotification object:nil] distinctUntilChanged] subscribeNext:^(id x) {
+    [self findBoxscore];
+  }];
 }
 
 - (void)clickedHomeLogo {

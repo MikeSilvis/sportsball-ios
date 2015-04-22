@@ -542,6 +542,7 @@ If you have any questions or feature requests please feel free to reach out belo
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="J12-JW-ASj" firstAttribute="leading" secondItem="Gja-tS-dak" secondAttribute="leadingMargin" id="pIK-em-7Bv"/>
                                                 <constraint firstItem="J12-JW-ASj" firstAttribute="trailing" secondItem="Gja-tS-dak" secondAttribute="trailingMargin" id="ruh-uf-TnW"/>
