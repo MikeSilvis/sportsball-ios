@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -11,10 +12,12 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ld7-rK-fjk" id="DIg-eL-Qon">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="39"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:43" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-rT-kAn">
                         <rect key="frame" x="33" y="0.0" width="37" height="40"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="CAx-sT-niz"/>
                             <constraint firstAttribute="width" constant="37" id="KCh-3V-JjN"/>
@@ -25,6 +28,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Sutter (7) (Shorthanded) Assist: Rob Scuderi Brandon Sutter (7) (Shorthanded) Assist: Rob Scuderi" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5q-fz-0ac">
                         <rect key="frame" x="78" y="0.0" width="314" height="40"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="ghs-AJ-OXM"/>
                         </constraints>
@@ -34,6 +38,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smb-Jd-qYY">
                         <rect key="frame" x="8" y="10" width="20" height="20"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Er2-il-7Mn"/>
                             <constraint firstAttribute="width" constant="20" id="rGe-ig-EJ6"/>
@@ -41,6 +46,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxA-aK-1IO" userLabel="teamName">
                         <rect key="frame" x="8" y="0.0" width="20" height="39"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="IsF-Bf-aPu"/>
                             <constraint firstAttribute="width" constant="37" id="JZY-qx-ncZ"/>
@@ -57,6 +63,7 @@
                         </variation>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="smb-Jd-qYY" secondAttribute="centerY" id="5aK-d2-O0L"/>
                     <constraint firstItem="I5q-fz-0ac" firstAttribute="trailing" secondItem="DIg-eL-Qon" secondAttribute="trailingMargin" id="BeG-Oc-xPf"/>
@@ -76,6 +83,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <animations/>
             <color key="backgroundColor" red="0.1098039299" green="0.67450982329999998" blue="0.87843143940000001" alpha="1" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="summary" destination="I5q-fz-0ac" id="5Uo-ag-FY2"/>
